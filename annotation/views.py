@@ -24,3 +24,6 @@ def largeannotation_page(request):
         sequences = form.cleaned_data["sequences"]
         valid = True
     return render(request, 'annotation/large_annotation.html', locals())
+
+def results_as_table_page(request):
+    return render(request, 'annotation/results_table.html', locals())

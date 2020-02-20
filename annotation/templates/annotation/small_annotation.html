@@ -14,7 +14,27 @@
 <div class='container'>
 <form action="{% url 'small_annotation' %}" method="post" class = 'form'>
     {% csrf_token %}
-	{{ form.as_ul }}
+	<p>
+	PFAM accession number (ex: PF04526,PF03624):<br/>
+	{{form.domains}}
+	</p>
+	<p>
+	Browse the domain you want to annotate in a file:<br/>
+	{{form.domain_file}}
+	</p>
+	<br/>
+	<p>
+	Enter your sequences if a fasta format:
+	{{form.sequences}}
+	</p>
+	<p>
+	Browse the domain you want to annotate in a file:<br/>
+	{{form.fasta_file}}
+		</p>
+	<p>
+	Do you want to apply DAMA?<br/>
+	{{form.dama_choice}}
+	</p>
 </div>
     <input type="submit" value="Submit" />
 </form>

@@ -7,5 +7,5 @@ urlpatterns = [
     path('help', views.help_page, name="help"),
     path('home', views.home_page, name="home"),
     path('references', views.references_page, name = "references"),
-    
+    path('results_table', views.results_as_table_page, name="results_table"),
     ]

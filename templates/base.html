@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
     <head>
         <meta charset="utf-8" />
         <title>MetaCLADE</title>
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
     </head>
 
     <body>
 		<header><h1>MetaCLADE</h1></header>
 
-		<nav><h3>Menu:</h3>
-			<ul>
+		<nav>
+			<ul class = 'menu_nav'><h3>Menu</h3>
             <li><a class = "Menu" href="/annotation/accueil">Home</a></li>
             <li><a class = "Menu" href="/annotation/outils">Domains annotation</a></li>
             <li><a class = "Menu" href="/annotation/references">References</a></li>
             <li><a class = "Menu" href="/annotation/aide">Help</a></li>
-			</ul>
+            </ul> 
 		</nav>
 
 		<section>
             <h2>{% block title %}{% endblock %}</h2>
             {% block content %}{% endblock %}
 		</section>
+    
+    </body>
 
-		<footer>
-        &copy; LCQB LCQB - Tous droits reserves<br/>
-		Introduire images sorbonne lcqb...	
-		</footer>
-</body>
+	<footer>
+    &copy; LCQB LCQB - Tous droits reserves<br/>
+    Introduire images sorbonne lcqb...	
+	</footer>
+
 </html>

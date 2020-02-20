@@ -13,9 +13,7 @@ def reference_page(request):
 def tools_page(request):
     form = annotation_form(request.POST or None)
     if form.is_valid():
-        organism = form.cleaned_data["org"]
         domains = form.cleaned_data["domains"]
         sequences = form.cleaned_data["sequences"]
-        renvoi = form.cleaned_data['renvoi']
         valid = True
     return render(request, 'annotation/outils.html', locals())

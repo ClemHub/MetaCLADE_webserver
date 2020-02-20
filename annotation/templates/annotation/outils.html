@@ -3,26 +3,25 @@
 {% extends "base.html" %}
 <head>
 	<meta charset="utf-8" />
-	<link rel="stylesheet" href="/home/blachon/Documents/metaclade_server/style/base.css" />
 	<title>Annotation</title>
 </head>
-{% block title %} outils {% endblock %}
-{% block content %}
-<p>
-<h2>Annotation of thousand sequences</h2> 
-<p>Texte avant le formulaire</p>
 
-{% if valid %}The form is valid !{% endif %}
+{% block title %} Annotation tools {% endblock %}
+
+{% block content %}
+
+<p>
+<h3>Annotation of thousand sequences</h3> 
+
 <form action="{% url 'outils' %}" method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+	{{ form.as_ul }}
     <input type="submit" value="Submit" />
 </form>
 
+<p>{% if valid %}The form is valid !{% endif %}</p>
 
-<p>Texte après le formulaire</p>
-
-<h2>Annotation of dozen sequences</h2>
+<h3>Annotation of dozen sequences</h3>
 <p>Texte avant le formulaire</p>
 
 <form>
@@ -30,6 +29,5 @@
 </form>
 
 <p>Texte après le formulaire</p>
-
 
 {% endblock %}

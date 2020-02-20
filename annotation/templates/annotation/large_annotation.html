@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+<head>
+	<meta charset="utf-8" />
+	<title>Annotation</title>
+</head>
+
+{% block title %} Annotation of all the domains given in a library on a few amount of sequences {% endblock %}
+
+{% block content %}
+
+<p>
+<div class='container'>
+<form action="{% url 'large_annotation' %}" method="post" class = 'form'>
+    {% csrf_token %}
+	{{ form.as_ul }}
+</div>
+    <input type="submit" value="Submit" />
+</form>
+</div>
+<p>{% if valid %}The form is valid !{% endif %}</p>
+{% endblock %}

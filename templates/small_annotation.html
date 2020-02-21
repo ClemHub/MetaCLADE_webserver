@@ -19,16 +19,15 @@
 			<li><a class = "Menu" href="help.html">Help</a></li>
 		</ul> 
 	</nav>
-
 	<section>
 		<h2> Annotation of a fixed number of domains for a large sequences dataset </h2>
 		<h3>Search for domains:</h3>
 		
 		
-		<form method = POST enctype="multipart/form-data">
+		<form id="small_annotation_form" method = POST enctype="multipart/form-data">
 			<p>
 			<label for="pfam_domains">Protein accession number:</label><br/>
-			<textarea name="pfam_domains" id = "pfam_domains" rows='5' cols='30' placeholder="Ex: PF04523,PF06584,PF06325"></textarea>
+			<textarea name="pfam_domains" id = "pfam_domains" rows='5' cols='30' placeholder="Ex: PF04523,PF06584,PF06325" required></textarea>
 			</p>
 			<p>
 			<label for="sequences">Fasta format sequences:</label><br/>
@@ -43,9 +42,9 @@ sequence"></textarea><br/>
 			<label for="yes">Yes</label><input type="radio" name="dama" id="yes" value = "yes" autofocus required/>
 			<label for="no">No</label><input type="radio" name="dama" id="no" value = "no" required/>
 			</p>
-			<input type="submit" value="Search" onclick="form_submission();"/><input type="reset" value="Reset" />
-
+			<input type="submit" value="Search" /><input type="reset" value="Reset" />
 		</form>
+
 		</section>
 		</div>
 	<footer>
@@ -57,6 +56,6 @@ sequence"></textarea><br/>
 
 
 	</footer>
-	<script src="../js_code/.js"></script>
+	<script src="../js_code/test.js"></script>
 </body>
 </html>

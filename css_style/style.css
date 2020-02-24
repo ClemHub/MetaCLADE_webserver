@@ -7,7 +7,6 @@ body {
 	padding: 0;
 	background-color:gainsboro;
 	position: relative;
-	padding-bottom: 125px;
 }
 header{
 	border-bottom: 3px rgb(0, 0, 0) solid;
@@ -88,6 +87,14 @@ table, th, td {
 	text-align: justify;
 	font-size: medium;
 	font-weight: initial;
+}
+.ordonned_list{
+	list-style: inside;
+	list-style-type: decimal;
+	line-height: 200%;
+	text-align: justify;
+	font-size: medium;
+	font-weight: initial;	
 }
 textarea{
 	margin: 10px;

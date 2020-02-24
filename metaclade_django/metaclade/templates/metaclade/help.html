@@ -34,18 +34,26 @@
 	<h4>Output</h4>
 
 	<h4>Method</h4>
+	MetaCLADE is a method used for the annotation of protein domains in metagenomic or metatranscriptomic reads.<br/>
+	Every known domains are represented by a few hundred probabilistic models called clade-centered-models (CCMs) and with consensus models (SCM)
+	Pipeline:
+	<ol type="1" class="ordonned_list">
+		<li>Identification of domain hits</li>
+		<li>Selection of domain hits</li>
+		<li>Thousands of sequences to be annotated against a fixed small number of probabilistic models</li>
+	</ol>
 	</section>
 	</div>
 
 	<footer>
-		<a href="https://www.sorbonne-universite.fr/" target="_blank"><img id="UPMC-logo" class="img-responsive" src="../server_images/logo_sorbonne.png" alt="" style="max-height: 100px; margin-left: 25px; margin-right: 25px; margin-top: 10px;"></a>
+		{% load static %}
+		<a href="https://www.sorbonne-universite.fr/" target="_blank"><img id="UPMC-logo" class="img-responsive" src="./metaclade/logo_sorbonne.png" alt="" style="max-height: 100px; margin-left: 25px; margin-right: 25px; margin-top: 10px;"></a>
 
-		<a href="http://www.cnrs.fr" target="_blank"><img id="CNRS-logo" class="img-responsive" src="../server_images/cnrs_logo.png" alt="" style="max-height: 100px; margin-left: 25px; margin-right: 25px; margin-top: 10px;"></a>
+		<a href="http://www.cnrs.fr" target="_blank"><img id="CNRS-logo" class="img-responsive" src="./cnrs_logo.png" alt="" style="max-height: 100px; margin-left: 25px; margin-right: 25px; margin-top: 10px;"></a>
 
-		<a href="http://www.lcqb.upmc.fr/" target="_blank"><img id="LCQB-logo" class="img-responsive" src="../server_images/lcqb.jpg" alt="" style="max-height: 100px; margin-left: 25px; margin-right: 25px; margin-top: 10px;"></a>
+		<a href="http://www.lcqb.upmc.fr/" target="_blank"><img id="LCQB-logo" class="img-responsive" src="./server_images/lcqb.jpg" alt="" style="max-height: 100px; margin-left: 25px; margin-right: 25px; margin-top: 10px;"></a>
 
 
 	</footer>
-	<script src="test.js"></script>
 </body>
 </html>

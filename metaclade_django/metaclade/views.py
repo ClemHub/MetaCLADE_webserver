@@ -11,6 +11,7 @@ def references_page(request):
 	return render(request, 'metaclade/references.html', locals())
 
 def large_annotation_page(request):
+	if request.method == 'POST':
 	return render(request, 'metaclade/large_annotation.html', locals())
 
 def small_annotation_page(request):

@@ -24,7 +24,7 @@
 		<h3>Search for domains:</h3>
 		
 		
-		<form name="small_annotation_form" method = POST action="results_table.html" onsubmit="small_form_submission()">
+		<form name="small_annotation_form" method = POST action="results_table.html" enctype="multipart/form-data" onsubmit="small_form_submission()">
 			<p>
 			<label for="pfam_domains">Protein accession number:</label><br/>
 			<textarea name="pfam_domains" id = "pfam_domains" rows='5' cols='30' placeholder="Ex: PF04523,PF06584,PF06325" autofocus></textarea>
@@ -33,9 +33,8 @@
 			<label for="sequences">Fasta format sequences:</label><br/>
 			<textarea name="sequences" id = "sequences" rows='5' cols='30' placeholder=">SeqID
 sequence"></textarea><br/>
-			<!--<label for="fasta_file">Or browse a fasta file:</label>
-			<input type="file" id="fasta_file" name="fasta_file"/>-->
-
+			<label for="fasta_file">Or browse a fasta file:</label>
+			<input type="file" id="fasta_file" name="fasta_file"/>
 			</p>
 			<p>
 			Do you want to use DAMA?
@@ -44,7 +43,6 @@ sequence"></textarea><br/>
 			</p>
 			<input type="submit" value="Search" /><input type="reset" value="Reset" />
 		</form>
-
 		</section>
 		</div>
 	<footer>

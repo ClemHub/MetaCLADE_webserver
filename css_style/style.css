@@ -7,6 +7,7 @@ body {
 	padding: 0;
 	background-color:gainsboro;
 	position: relative;
+	padding-bottom: 125px;
 }
 header{
 	border-bottom: 3px rgb(0, 0, 0) solid;
@@ -16,7 +17,6 @@ header{
 	font-size: larger;
 }
 *{
-
 	font-family: Verdana, Arial, sans-serif, Georgia, 'Times New Roman';
 	overflow: auto;
 	word-wrap: break-word;
@@ -64,6 +64,7 @@ footer{
 	font-size: initial;
 	position: absolute;
 	bottom: 0;
+	margin-top:auto; 
 }
 .text{
 	text-align: justify;

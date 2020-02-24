@@ -7,18 +7,9 @@
 </head>
 
 <body>
-	<header><h1>MetaCLADE</h1></header>
+	<?php include("./header.php"); ?>
 	<div id="content">
-	<nav>
-		<h2>Menu</h2>
-		<ul class = 'menu_nav'>
-			<li><a class = "Menu" href="home.html">Home</a></li>
-			<li><a class = "Menu" href="small_annotation.html">Few domains annotation</a></li>
-			<li><a class = "Menu" href="large_annotation.html">All domains annotation</a></li>
-			<li><a class = "Menu" href="references.html">References</a></li>
-			<li><a class = "Menu" href="help.html">Help</a></li>
-		</ul> 
-	</nav>
+	<?php include("./menu.php"); ?>
 	<section>
 	<h2>Results</h2>
 	<table>
@@ -80,15 +71,6 @@
 	Maybe put some scheme representing the architecture (either the common ones either every domain identified)
 	</section>
 	</div>
-	<footer>
-		<a href="https://www.sorbonne-universite.fr/" target="_blank"><img id="UPMC-logo" class="img-responsive" src="../server_images/logo_sorbonne.png" alt="" style="max-height: 100px; margin-left: 25px; margin-right: 25px; margin-top: 10px;"></a>
-
-		<a href="http://www.cnrs.fr" target="_blank"><img id="CNRS-logo" class="img-responsive" src="../server_images/cnrs_logo.png" alt="" style="max-height: 100px; margin-left: 25px; margin-right: 25px; margin-top: 10px;"></a>
-
-		<a href="http://www.lcqb.upmc.fr/" target="_blank"><img id="LCQB-logo" class="img-responsive" src="../server_images/lcqb.jpg" alt="" style="max-height: 100px; margin-left: 25px; margin-right: 25px; margin-top: 10px;"></a>
-
-
-	</footer>
-	<script src="function.js"></script>
+	<?php include("./footer.php"); ?>
 </body>
 </html>

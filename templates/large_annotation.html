@@ -8,7 +8,7 @@
 
 <body>
 	<header><h1>MetaCLADE</h1></header>
-	<div>
+	<div id="content">
 	<nav>
 		<h2>Menu</h2>
 		<ul class = 'menu_nav'>
@@ -24,20 +24,20 @@
 	<h2> Annotation of a small sequences dataset against a complete library of probabilistic domain models </h2>
 	<h3>Search for domains:</h3>
 
-		<form method = "post" action="results_table.html">
+		<form method = "post" action="results_table.html" name="large_annotation_form" onsubmit="large_form_submission()">
 			<p>
 			<label for="sequences">Fasta format sequences:</label><br/>
 			<textarea name="sequences" id = "sequences" rows='5' cols='30' placeholder=">Seq ID
-sequence"></textarea><br/>
-			<label for="fasta_file">Or browse a fasta file:</label>
-			<input type="file" id="fasta_file" name="fasta_file"/>
+sequence" autofocus></textarea><br/>
+			<!-- <label for="fasta_file">Or browse a fasta file:</label>
+			<input type="file" id="fasta_file" name="fasta_file" autofocus/>-->
 			</p>
 			<p>
 			Do you want to use DAMA?
-			<label for="yes">Yes</label><input type="radio" name="dama" id="yes" value = "yes" autofocus required/>
+			<label for="yes">Yes</label><input type="radio" name="dama" id="yes" value = "yes" checked required/>
 			<label for="no">No</label><input type="radio" name="dama" id="no" value = "no" required/>
 			</p>
-			<input type="submit" value="Search" /><input type="reset" value="Reset" />
+			<input type="submit" value="Search"/><input type="reset" value="Reset" />
 		</form>	
 		</section>
 		</div>
@@ -46,10 +46,10 @@ sequence"></textarea><br/>
 	
 			<a href="http://www.cnrs.fr" target="_blank"><img id="CNRS-logo" class="img-responsive" src="../server_images/cnrs_logo.png" alt="" style="max-height: 100px; margin-left: 25px; margin-right: 25px; margin-top: 10px;"></a>
 	
-			<a href="http://www.lcqb.upmc.fr/" target="_blank"><img id="CNRS-logo" class="img-responsive" src="../server_images/lcqb.jpg" alt="" style="max-height: 100px; margin-left: 25px; margin-right: 25px; margin-top: 10px;"></a>
+			<a href="http://www.lcqb.upmc.fr/" target="_blank"><img id="LCQB-logo" class="img-responsive" src="../server_images/lcqb.jpg" alt="" style="max-height: 100px; margin-left: 25px; margin-right: 25px; margin-top: 10px;"></a>
 	
 	
 		</footer>
-		<script src="../js_code/.js"></script>
+		<script src="test.js"></script>
 	</body>
 	</html>

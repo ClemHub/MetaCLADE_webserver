@@ -46,8 +46,16 @@ section{
     margin-left: 170px;
 	padding: 20px;
 }
+#content{
+	width: 100%;
+	height: 100%;
+	overflow: scroll;
+	position: relative;
+	padding-bottom: 125px;
+}
 footer{
-	margin-top: 25px;
+	height: 125px;
+	margin-top: 20px;
 	border-top: 3px rgb(0, 0, 0) solid;
 	background-color: rgba(43, 68, 177, 0.397);
 	background-image: linear-gradient(rgba(79, 93, 160, 0.144), rgba(80, 106, 223, 0.397));

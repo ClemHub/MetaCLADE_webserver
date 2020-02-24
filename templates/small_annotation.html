@@ -8,7 +8,7 @@
 
 <body>
 	<header><h1>MetaCLADE</h1></header>
-	<div>
+	<div id="content">
 	<nav>
 		<h2>Menu</h2>
 		<ul class = 'menu_nav'>
@@ -24,22 +24,22 @@
 		<h3>Search for domains:</h3>
 		
 		
-		<form id="small_annotation_form" method = POST enctype="multipart/form-data">
+		<form name="small_annotation_form" method = POST action="results_table.html" onsubmit="small_form_submission()">
 			<p>
 			<label for="pfam_domains">Protein accession number:</label><br/>
-			<textarea name="pfam_domains" id = "pfam_domains" rows='5' cols='30' placeholder="Ex: PF04523,PF06584,PF06325" required></textarea>
+			<textarea name="pfam_domains" id = "pfam_domains" rows='5' cols='30' placeholder="Ex: PF04523,PF06584,PF06325" autofocus></textarea>
 			</p>
 			<p>
 			<label for="sequences">Fasta format sequences:</label><br/>
 			<textarea name="sequences" id = "sequences" rows='5' cols='30' placeholder=">SeqID
 sequence"></textarea><br/>
-			<label for="fasta_file">Or browse a fasta file:</label>
-			<input type="file" id="fasta_file" name="fasta_file"/>
+			<!--<label for="fasta_file">Or browse a fasta file:</label>
+			<input type="file" id="fasta_file" name="fasta_file"/>-->
 
 			</p>
 			<p>
 			Do you want to use DAMA?
-			<label for="yes">Yes</label><input type="radio" name="dama" id="yes" value = "yes" autofocus required/>
+			<label for="yes">Yes</label><input type="radio" name="dama" id="yes" value = "yes" checked required/>
 			<label for="no">No</label><input type="radio" name="dama" id="no" value = "no" required/>
 			</p>
 			<input type="submit" value="Search" /><input type="reset" value="Reset" />
@@ -52,10 +52,10 @@ sequence"></textarea><br/>
 
 		<a href="http://www.cnrs.fr" target="_blank"><img id="CNRS-logo" class="img-responsive" src="../server_images/cnrs_logo.png" alt="" style="max-height: 100px; margin-left: 25px; margin-right: 25px; margin-top: 10px;"></a>
 
-		<a href="http://www.lcqb.upmc.fr/" target="_blank"><img id="CNRS-logo" class="img-responsive" src="../server_images/lcqb.jpg" alt="" style="max-height: 100px; margin-left: 25px; margin-right: 25px; margin-top: 10px;"></a>
+		<a href="http://www.lcqb.upmc.fr/" target="_blank"><img id="LCQB-logo" class="img-responsive" src="../server_images/lcqb.jpg" alt="" style="max-height: 100px; margin-left: 25px; margin-right: 25px; margin-top: 10px;"></a>
 
 
 	</footer>
-	<script src="../js_code/test.js"></script>
+	<script src="test.js"></script>
 </body>
 </html>

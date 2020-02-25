@@ -17,7 +17,7 @@ function small_form_submission() {
 	avail_data = false
 	if(seq!="" || fasta_file.files.length !== 0){
 		if(seq!=""){
-			alert(seq)
+			text = true
 		}
 		avail_data = true
 	}

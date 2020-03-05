@@ -1,5 +1,5 @@
 <?php include("./includes/header.php"); ?>
-
+	
 	<section>
 	<h2>Results</h2>	
 	<?php

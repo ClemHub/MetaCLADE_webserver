@@ -34,13 +34,14 @@
 
 				<label for='dama_evalue_range'>E-value threshold for DAMA:</label>
 					<input type="range" id='dama_evalue_range' name="dama_evalue_range" min='0' max="1" value="1e-10" step='1e-10' oninput="this.form.dama_evalue_nb.value=this.value" />
-					<input type="number" name="dama_evalue_nb" min='0' max="1" value="1e-10" step='1e-10' oninput="this.form.dama_evalue_range.value=this.value" />
+					<input type="number" name="dama_evalue_nb" id='dama_evalue_nb' min='0' max="1" value="1e-10" step='1e-10' oninput="this.form.dama_evalue_range.value=this.value" />
 				<span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>The default value is set to 1e-10, we advice you to avoid an e-value higher than 1e-5.<br/> Results with an e-value superior to or equal to one will we filtered automatically.</span></span>
 			</div>
 			</fieldset>
 			<div id='submission'>
 			<br/>
-			<input type="submit" value="Search" name = "submit"/><input type="reset" value="Reset" /><input type="button" value="Exemple" onclick="fill_exemple_form('large')"/>
+			<input type="submit" value="Search" name = "submit"/><input type="reset" value="Reset" />
+			<span class='tooltip'><input type="button" value="Exemple " onclick="fill_exemple_form('large')"/><span class='tooltiptext'>You are going to load an exemple dataset precalculated. If you modify the parameters it will not impact the results.</span></span>
 			</div>			
 		</form>	
 		</section>

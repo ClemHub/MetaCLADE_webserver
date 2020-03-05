@@ -89,11 +89,14 @@ function fill_exemple_form(form){
 		document.small_annotation_form.pfam_domains.value = "PF00875,PF03441,PF03167,PF12546"
 		fetch('http://localhost/php_code/exemple.fasta')
 		.then(response => response.text())
-		.then((data) => {document.small_annotation_form.sequences.value = data })}
+		.then((data) => {document.small_annotation_form.sequences.value = data })
+		document.small_annotation_form.action = 'example.php'}
 	else{
 		fetch('http://localhost/php_code/exemple.fasta')
 		.then(response => response.text())
-		.then((data) => {document.large_annotation_form.sequences.value = data })}}
+		.then((data) => {document.large_annotation_form.sequences.value = data })
+		document.large_annotation_form.action = 'example.php'}}
+	
 
 function nav_function() {
 	var x = document.getElementById("myTopnav");

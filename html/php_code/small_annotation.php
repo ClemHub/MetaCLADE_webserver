@@ -48,7 +48,10 @@
 			</fieldset>
 			<div id='submission'>
 			<br/>
-			<input type="submit" value="Search" name = "submit"/><input type="reset" value="Reset" /><input type="button" value="Exemple" onclick="fill_exemple_form('small')"/>
+			<input type="submit" value="Search" name = "submit"/><input type="reset" value="Reset" />
+			<span class='tooltip'><input type="button" value="Exemple " onclick="fill_exemple_form('small')"/><span class='tooltiptext'>You are going to load an exemple dataset precalculated. If you modify the parameters it will not impact the results.</span></span>
+
+
 			</div>
 		</form>
 	</section>

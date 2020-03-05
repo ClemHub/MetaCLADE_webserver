@@ -51,7 +51,7 @@
 			
 			echo "<thead>
 			<tr>
-			<th class='table_header'>Sequence ID</th>
+			<th class='table_header'>Sequence ID <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span></th>
 			<th class='table_header'>Sequence start</th>
 			<th class='table_header'>Sequence End</th>
 			<th class='table_header'>Domain Id</th>
@@ -72,7 +72,7 @@
 				$i = 0;
 				foreach($s_line as $item){
 					if($i == 0 and $count_id[$item]>0)
-						{echo "<td rowspan='".$count_id[$item]."'>" . $item . "</td>";
+						{echo "<td rowspan='".$count_id[$item]."'><a href='architecture.php?id=".$item."'>". $item ."</a></td>";
 						$count_id[$item]=0;}
 					else if(in_array($i, array(1, 2, 5)))
 						{echo "<td>" . $item . "</td>";}

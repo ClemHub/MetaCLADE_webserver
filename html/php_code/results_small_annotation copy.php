@@ -44,7 +44,7 @@
 			$name_file = './metaclade2/output/results/3_arch/test_withoutDAMA.arch.txt';
 			$data = file($name_file);}
 		natsort($data);
-
+		
 		if ($data){
 			echo "<a id = 'dl_link' href=".$name_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
 			echo "<div style='overflow-x:auto;'>";
@@ -67,14 +67,14 @@
 				{$line = preg_split("/[\s,]+/", $line);
 				array_push($seq_id, $line[0]);}
 			$count_id = array_count_values($seq_id);
+
 			foreach($data as $line){
 				$s_line = preg_split("/[\s,]+/", $line);
 				echo "<tr>";
 				$i = 0;
 				foreach($s_line as $item){
 					if($i == 0 and $count_id[$item]>0)
-						{
-						echo "<td rowspan='".$count_id[$item]."'><a href='architecture.php?id=".$item."'>". $item ."</a></td>";
+						{echo "<td rowspan='".$count_id[$item]."'>" . $item . "</td>";
 						$count_id[$item]=0;}
 					else if(in_array($i, array(1, 2, 3, 5)))
 						{echo "<td>" . $item . "</td>";}
@@ -85,22 +85,23 @@
 						{echo "<td>" . $item . "</td>";}
 					$i++;}
 				echo "</tr>";
-				$c++;
 			}		
 			echo "</tbody>
 			</table>";
 			fclose($results_file);}
-	echo "<div class='info'>";
-	echo "<input type='button' class='bouton_info' value='Info' onclick='close_open_info(this);' />";
-	echo "<div class='contenu_info'>";
-	echo 'Informations entered by the user:<br/>';
-	echo 'Dama: '.$dama.'<br/>';
-	echo 'Erreur: '.$erreur.'<br/>';
-	echo 'Data: '.$data_type.'<br/>';
-	echo 'E-value: '.$e_value.'<br/>';
-	echo 'DAMA e-value: '.$DAMA_evalue.'<br/>';
-	echo "</div>";
-	echo "</div>";
+			echo "<div class='info'>";
+			echo "<input type='button' class='bouton_info' value='Info' onclick='close_open_info(this);' />";
+			echo "<div class='contenu_info'>";
+			echo 'Informations entered by the user:<br/>';
+			echo 'PFAM domains selected: '.$pfam.'<br/>';
+			echo 'Dama: '.$dama.'<br/>';
+			echo 'Erreur: '.$erreur.'<br/>';
+			echo 'Data: '.$data_type.'<br/>';
+			echo 'E-value: '.$e_value.'<br/>';
+			echo 'DAMA e-value: '.$DAMA_evalue.'<br/>';
+			echo "</div>";
+			echo "</div>";
+			echo "</div>";
 	?>
 	</section>
 <?php include("./includes/footer.php"); ?>

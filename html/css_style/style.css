@@ -7,10 +7,9 @@ body {
 	margin: 0px;
 	padding: 0px;
 	background-color:white;
-	color: rgb(50, 10, 95)}
+	color: rgb(50, 10, 95);}
 
 *{
-
 	font-family: Verdana, Arial, sans-serif, Georgia, 'Times New Roman';
 	word-wrap: break-word;}
 
@@ -46,7 +45,7 @@ footer{
 	overflow: hidden;
 	width:100%;
 	border-top: 3px rgb(0, 0, 0) solid;
-		background-image: linear-gradient(rgba(150, 156, 240, 0.521), rgba(32, 47, 255, 0.521));
+	background-image: linear-gradient(rgba(150, 156, 240, 0.521), rgba(32, 47, 255, 0.521));
 	color: gainsboro;
 	font-size: initial;}
 
@@ -54,6 +53,12 @@ h2{
 	text-align: center;
 	font-size: 35px;}
 
+fieldset
+{
+	border: black, 2px;
+	padding:16px;
+	width: 650px;	
+}
 /* Navigation bar */
 .topnav {
 	overflow: hidden;
@@ -149,15 +154,22 @@ h2{
 		text-align: left;}} 
 
 /* Results table appearence */
+
 .table_container{
-	overflow: scroll;}
+	width: 100%;
+	overflow: scroll;
+}
 table{
 	border: 2px solid black;
 	border-collapse: collapse;
 	width: 100%;
 	line-height: 200%;
 	text-align: center;
-	margin: 15px;}
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 5px;
+	margin-bottom: 15px;
+	}
 
 th{
 	height: 60px;
@@ -168,7 +180,8 @@ th{
 
 td{
 	border: 1px solid black;
-	height: 40px;}
+	height: 40px;
+	width: 16.5%;}
 
 tbody [rowspan],
 tbody [rowspan] ~ th,

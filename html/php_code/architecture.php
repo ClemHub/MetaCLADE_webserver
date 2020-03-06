@@ -42,17 +42,25 @@
 
 	echo "<text x='3' y='25' fill='black'>1</text><line x1='1' y1='0' x2='1' y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
 	
-	echo "<text x=". (2005/5) ." y='25' fill='black'>". $length/5 ."</text><line x1=". (2000/5) . " y1='0' x2=". (2000/5) . " y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
+	echo "<text x=". round(2005/5) ." y='25' fill='black'>". round($length/5) ."</text><line x1=". round(2000/5) . " y1='0' x2=". round(2000/5) . " y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
 	
-	echo "<text x=". 2*(2005/5) ." y='25' fill='black'>". 2*($length/5) ."</text><line x1=". 2*(2000/5) ." y1='0' x2=". 2*(2000/5) ." y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
+	echo "<text x=". round(2*(2005/5)) ." y='25' fill='black'>". round(2*($length/5)) ."</text><line x1=". round(2*(2000/5)) ." y1='0' x2=". round(2*(2000/5)) ." y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
 	
-	echo "<text x=". 3*(2005/5) ."  y='25' fill='black'>". 3*($length/5) ."</text><line x1=". 3*(2000/5) ."  y1='0' x2=". 3*(2000/5) ."  y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
+	echo "<text x=". round(3*(2005/5)) ."  y='25' fill='black'>". round(3*($length/5)) ."</text><line x1=". round(3*(2000/5)) ."  y1='0' x2=". round(3*(2000/5)) ."  y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
 	
-	echo "<text x=". 4*(2005/5) ." y='25' fill='black'>". 4*($length/5) ."</text><line x1='". 4*(2000/5) ."' y1='0' x2='". 4*(2000/5) ."' y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
+	echo "<text x=". round(4*(2005/5)) ." y='25' fill='black'>". round(4*($length/5)) ."</text><line x1='". round(4*(2000/5)) ."' y1='0' x2='". round(4*(2000/5)) ."' y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
 
 	echo "<text x='2005' y='25' fill='black'>".$length."</text><line x1='2000' y1='0' x2='2000' y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/></svg>";
 
 	$mysqli -> close();
+
+	$dama = $_POST['dama'];
+	$e_value = $_POST['evalue_range'];
+	$DAMA_evalue = $_POST['dama_evalue_range'];
+	echo '<br>Dama: '.$dama.'<br/>';
+	echo 'E-value: '.$e_value.'<br/>';
+	echo 'DAMA e-value: '.$DAMA_evalue.'<br/>';
+
 	?>
 
 	</section>

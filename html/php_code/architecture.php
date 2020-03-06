@@ -4,7 +4,8 @@
 	<section id = 'contact'>
 	<h2> Architecture </h2>
 	<?php
-	echo "<h4> Sequence ID: " . $_GET['id'] . " <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Move your mouse over the colored domain to show more detailed information about it.</span></span></h4>";
+	$seq_id = $_GET['id'];
+	echo "<h4> Sequence ID: " . $seq_id . " <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Move your mouse over the colored domain to show more detailed information about it.</span></span></h4>";
 	$username = "root"; 
 	$password = "myclade"; 
 	$database = "METACLADE"; 
@@ -12,7 +13,8 @@
 	if (!$mysqli) {
 		die("Connection failed: " . mysqli_connect_error());
 	}
-	$sql = "SELECT * FROM Results WHERE SeqID='".$_GET['id']."'";
+	$database = $_GET['db'];
+	$sql = "SELECT * FROM ". $database ." WHERE SeqID='".$seq_id."'";
 	$result = mysqli_query($mysqli, $sql);
 	echo "<svg height='30' width='2000' style='border:1px dashed #ccc' overflow='scroll'>";
 	if (mysqli_num_rows($result) > 0) {
@@ -28,7 +30,7 @@
 			//echo 'Width:'.$width.'<br>';
 			//echo 'Start:'.$start.'<br>';
 			//echo 'Stop:'.$stop.'<br><br>';
-			echo "<g><a xlink:href='http://pfam.xfam.org/family/".$pfam."'><rect x='".$start."' y='5' width='". $width ."' height='20' style='fill:".$color.";fill-opacity:0.7;stroke-width:1;stroke:;'/>";
+			echo "<g><a xlink:href='http://pfam.xfam.org/family/".$pfam."' target='_blank'><rect x='".$start."' y='5' width='". $width ."' height='20' style='fill:".$color.";fill-opacity:0.7;stroke-width:1;stroke:;'/>";
 			echo "<text x='".$start."' y='20' font-size='15'fill='black'>".$pfam."</text></a></g>";
 		}
 	} else {

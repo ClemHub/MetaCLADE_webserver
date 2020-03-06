@@ -18,7 +18,7 @@
 			<div class = 'metaclade_e-value'>
 			<label for='evalue_range'>E-value threshold for MetaCLADE:</label>
 			<input type="range" id='evalue_range' name="evalue_range" min='0' max="1" value="1e-3" step='1e-10' oninput="this.form.evalue_nb.value=this.value" />
-			<input type="number" name="evalue_nb" min='0' max="1" value="1e-3" step='1e-10' oninput="this.form.evalue_range.value=this.value" />
+			<input type="number" id='evalue_nb' name="evalue_nb" min='0' max="1" value="1e-3" step='1e-10' oninput="this.form.evalue_range.value=this.value" />
 			<span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>The default value is set to 1e-3.<br/> Results with an e-value superior to or equal to one will we filtered automatically.</span></span>
 			</div>
 			
@@ -40,8 +40,8 @@
 			</fieldset>
 			<div id='submission'>
 			<br/>
-			<input type="submit" value="Search" name = "submit"/><input type="reset" value="Reset" />
-			<span class='tooltip'><input type="button" value="Exemple " onclick="fill_exemple_form('large')"/><span class='tooltiptext'>You are going to load an exemple dataset precalculated. If you modify the parameters it will not impact the results.</span></span>
+			<input type="submit" value="Search" name = "submit"/><input type="reset" value="Reset" onclick="reset_btn('large')"/>
+			<span class='tooltip'><input type="button" value="Example " onclick="fill_exemple_form('large')"/><span class='tooltiptext'>You are going to load an example dataset precalculated. If you modify the parameters it will be considered for the results.</span></span>
 			</div>			
 		</form>	
 		</section>

@@ -29,3 +29,22 @@
 			<a href="javascript:void(0);" class="icon" onclick="nav_function()">&#9776;</a>
 		</div>
 	</div>
+
+	<?php
+	function convert_txtTOcsv($conn, $name_file){
+			if(!file_exists('results')){
+				mkdir ('results', 0777);}
+			$file = file($name_file);
+			$csv = fopen('results/results.csv', 'w');
+			foreach($file as $line){
+				$line = preg_split("/[\s,]+/", $line);
+				$line = array_slice($line, 0, 12);
+				$line = join(',', $line);
+				fwrite($csv, $line."\n");}
+			fclose($csv);
+			$sql = "LOAD DATA LOCAL INFILE 'results/results.csv' INTO'MetaCLADE_results'  FIELDS TERMINATED BY ',' LINES TERMINATED BY '\\n'";
+			$request = $conn->query($sql);
+			if(!request){
+				echo("Error description: " . $mysqli -> error);}
+			else{echo 'ooook';echo $mysqli -> error;}}
+	?>

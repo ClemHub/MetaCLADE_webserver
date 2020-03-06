@@ -87,16 +87,37 @@ function small_form_submission() {
 function fill_exemple_form(form){
 	if(form == 'small'){
 		document.small_annotation_form.pfam_domains.value = "PF00875,PF03441,PF03167,PF12546"
-		fetch('http://localhost/php_code/exemple.fasta')
+		fetch('http://localhost/php_code/fasta_file/example.fasta')
 		.then(response => response.text())
 		.then((data) => {document.small_annotation_form.sequences.value = data })
 		document.small_annotation_form.action = 'example.php'}
 	else{
-		fetch('http://localhost/php_code/exemple.fasta')
+		fetch('http://localhost/php_code/fasta_file/example.fasta')
 		.then(response => response.text())
 		.then((data) => {document.large_annotation_form.sequences.value = data })
-		document.large_annotation_form.action = 'example.php'}}
+		document.large_annotation_form.action = 'example.php'}
+	document.getElementById("dama_evalue_nb").value = 1e-10;
+	document.getElementById("dama_evalue_range").value = 1e-10;
+	document.getElementById("dama_evalue_nb").disabled = true;
+	document.getElementById("dama_evalue_range").disabled = true;
+	document.getElementById("evalue_nb").value = 1e-3;
+	document.getElementById("evalue_range").value = 1e-3;
+	document.getElementById("evalue_nb").disabled = true;
+	document.getElementById("evalue_range").disabled = true;}
 	
+function reset_btn(form){
+	if(form == 'small'){
+		document.small_annotation_form.action = 'results_small_annotation.php';
+	}
+	else{
+		document.large_annotation_form.action = 'results_large_annotation.php';
+	}
+	document.getElementById("evalue_nb").disabled = false;
+	document.getElementById("evalue_range").disabled = false;
+	document.getElementById("dama_evalue_nb").disabled = false;
+	document.getElementById("dama_evalue_range").disabled = false;
+	document.getElementById("show_dama").style.display = "none";
+}
 
 function nav_function() {
 	var x = document.getElementById("myTopnav");

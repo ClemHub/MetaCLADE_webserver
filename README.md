@@ -18,8 +18,10 @@ The webserver is composed of several pages:
 * References -> list of articles used to build this program and this website
 * Contact -> list of person implied in the project and their informations
 ## Folder structure
+```
 .
 ├── html             # Project source files
 ├── html_js          # Draft of the structure
 ├── metaclade_django # Draft of the webserver designed with django
 └── README.md
+```

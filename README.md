@@ -10,7 +10,7 @@ MetaCLADE is an algorithm used to determine the architecture of sequences, the a
 
 ## Description
 The webserver is composed of several pages:
-* HOME -> presentation of the project
+* Home -> presentation of the project
 * Tools
   * Few domain annotation -> annotation of a given domain list
   * All domain annotation -> annotation of every domain

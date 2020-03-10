@@ -24,4 +24,14 @@ The webserver is composed of several pages:
 ├── html_js          # Draft of the structure
 ├── metaclade_django # Draft of the webserver designed with django
 └── README.md
+
+html
+├── MyCLADE          # php and js scripts
+├── css_style        # css stylesheet
+├── draft           
+└── server_images    # Images used in the webserver
 ```
+
+## Partners
+* Website designed by Clemence BLACHON - trainee at the Laboratory of Computational and Quantitative Biology
+* MetaCLADE implemented by Riccardo Vicedomini

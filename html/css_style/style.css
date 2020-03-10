@@ -53,9 +53,9 @@ h2{
 	text-align: center;
 	font-size: 35px;}
 
-fieldset
+.form_fs
 {
-	border: black, 2px;
+	border: black, 1px;
 	padding:16px;
 	width: 650px;	
 }
@@ -265,3 +265,8 @@ div.info div.contenu_info {
 
 .tooltip:hover .tooltiptext {
 	visibility: visible;}
+
+.contact_fs{
+	width: 25%;
+	float: left;
+}

@@ -1,0 +1,1 @@
+SELECT PFAM32_clans.PFAM_acc_nb, PFAM32_clans.Family, PFAM32_clans.Clan_acc_nb, PFAM32_clans.Clan FROM PFAM32_clans INNER JOIN MetaCLADE_results ON PFAM32_clans.PFAM_acc_nb = MetaCLADE_results.DomainID

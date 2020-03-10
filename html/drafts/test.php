@@ -1,4 +1,4 @@
-/*convert_txtTOcsv('/var/www/html/php_code/results/results.csv');
+/*convert_txtTOcsv('/var/www/html/MyCLADE/results/results.csv');
 		
 
 		$username = "blachon"; 
@@ -11,5 +11,5 @@
 		$sql = "DELETE FROM MetaCLADE_results";
 		$request = $conn->query($sql);
 
-		$sql = "LOAD DATA INFILE '/var/www/html/php_code/results/results.csv' INTO TABLE MetaCLADE_results FIELDS TERMINATED BY ' ' LINES TERMINATED BY '\\n'";
+		$sql = "LOAD DATA INFILE '/var/www/html/MyCLADE/results/results.csv' INTO TABLE MetaCLADE_results FIELDS TERMINATED BY ' ' LINES TERMINATED BY '\\n'";
 		$request = $conn->query($sql);*/

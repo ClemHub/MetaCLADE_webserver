@@ -24,7 +24,8 @@ The webserver is composed of several pages:
 ├── html_js          # Draft of the structure
 ├── metaclade_django # Draft of the webserver designed with django
 └── README.md
-
+```
+```
 html
 ├── MyCLADE          # php and js scripts
 ├── css_style        # css stylesheet

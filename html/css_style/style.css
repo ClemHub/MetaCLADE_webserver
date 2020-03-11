@@ -56,7 +56,6 @@ section{
 	margin: auto;
 	padding: 20px;
 	padding-bottom: 140px;
-	overflow: auto;
 	text-align: justify;
 	min-height: 100%;}
 
@@ -227,7 +226,8 @@ tfoot {
 /* Form styling */
 textarea{
 	margin: 10px;
-	padding: 10px;}
+	padding: 10px;
+	width: 85%;}
 
 #e-value_dama {
 	-webkit-appearance: none;
@@ -266,7 +266,8 @@ div.info div.contenu_info {
 .form_fs{
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.486);
 	max-width: 50%;
-	margin: auto;}
+	margin: auto;
+text-align: center;}
 
 #submission{
 	margin: auto;

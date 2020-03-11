@@ -105,7 +105,7 @@ function fill_exemple_form(form){
 	document.getElementById("evalue_range").value = 1e-3;
 	document.getElementById("evalue_nb").disabled = true;
 	document.getElementById("evalue_range").disabled = true;}
-	
+
 function reset_btn(form){
 	if(form == 'small'){
 		document.small_annotation_form.action = 'results_small_annotation.php';
@@ -117,17 +117,14 @@ function reset_btn(form){
 	document.getElementById("evalue_range").disabled = false;
 	document.getElementById("dama_evalue_nb").disabled = false;
 	document.getElementById("dama_evalue_range").disabled = false;
-	document.getElementById("show_dama").style.display = "none";
-}
+	document.getElementById("show_dama").style.display = "none";}
 
 function nav_function() {
 	var x = document.getElementById("myTopnav");
 	if (x.className === "topnav") {
-	  x.className += " responsive";
-	} else {
-	  x.className = "topnav";
-	}
-}
+		x.className += " responsive";}
+	else{
+		x.className = "topnav";}}
 
 function close_open_info(bouton) {
 	var divContenu = bouton.nextSibling;
@@ -137,29 +134,25 @@ function close_open_info(bouton) {
 	}
 	else {
 		divContenu.style.display = 'block';}}
-		
+
 function ShowHideDiv() {
 	var yes_btn = document.getElementById("yes_btn");
 	var evalue_dama = document.getElementById("show_dama");
-	evalue_dama.style.display = yes_btn.checked ? "block" : "none";
-}
+	evalue_dama.style.display = yes_btn.checked ? "block" : "none";}
 
 function ran_col() {
 	var color = '#';
 	var letters = ['000000','FF0000','00FF00','0000FF','FFFF00','00FFFF','FF00FF','C0C0C0'];
 	color += letters[Math.floor(Math.random() * letters.length)];
-	document.getElementById('posts').style.background = color;
-}
+	document.getElementById('posts').style.background = color;}
 
 function showTooltip(evt, text) {
 	let tooltip = document.getElementById("tooltip");
 	tooltip.innerHTML = text;
 	tooltip.style.display = "block";
 	tooltip.style.left = evt.pageX + 10 + 'px';
-	tooltip.style.top = evt.pageY + 10 + 'px';
-  }
-  
-  function hideTooltip() {
+	tooltip.style.top = evt.pageY + 10 + 'px';  }
+
+function hideTooltip() {
 	var tooltip = document.getElementById("tooltip");
-	tooltip.style.display = "none";
-  }
+	tooltip.style.display = "none";}

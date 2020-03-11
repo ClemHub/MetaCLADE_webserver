@@ -46,7 +46,7 @@
 	<h4 id='method'>Method</h4>
 	<p>
 	MetaCLADE is a method used for the annotation of protein domains in metagenomic or metatranscriptomic reads.<br/>
-	Every known domains are represented by a few hundred probabilistic models called clade-centered-models (CCMs) and with consensus models (SCM)
+	Every known domains are represented by a few hundred probabilistic models called clade-centered-models (CCMs) and with consensus models (SCM)<br/>
 	Pipeline:
 	<ol type="1" class="ordonned_list">
 		<li>Identification of domain hits</li>

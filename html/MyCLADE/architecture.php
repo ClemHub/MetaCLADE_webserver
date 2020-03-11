@@ -16,7 +16,7 @@
 	$database = $_GET['db'];
 	$sql = "SELECT * FROM ". $database ." WHERE SeqID='".$seq_id."'";
 	$result = mysqli_query($mysqli, $sql);
-	echo "<svg height='30' width='2000' style='border:1px dashed #ccc' overflow='scroll'>";
+	echo "<svg height='30' width='100%' style='border:1px dashed #ccc' overflow='scroll'>";
 	if (mysqli_num_rows($result) > 0) {
 		while($row = mysqli_fetch_assoc($result)) {
 			$length = $row['Seq_length'];
@@ -27,30 +27,30 @@
 			$result2 = mysqli_query($mysqli, $sql);
 			$row2 = mysqli_fetch_assoc($result2);
 			$nb_aa = ($stop-$start);
-			$width = ($nb_aa*2000)/$length;
-			$scaled_start = (2000/$length)*$start;
+			$width = ($nb_aa*100)/$length;
+			$scaled_start = ($start*100)/$length;
 			$color = sprintf('#%06X', mt_rand(0, 0xFFFFFF));
-			echo "<g><a xlink:href='http://pfam.xfam.org/family/".$pfam."' target='_blank'><rect x='".$scaled_start."' y='5' width='". $width ."' height='20' style='fill:".$color.";fill-opacity:0.7;stroke-width:1;stroke:;'><title>PFAM Acc Number: ".$pfam."\nFamily: ".$row2['Family']."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nClan Acc Number: ".$row2['Clan_acc_nb']."\nClan: ".$row2['Clan']."\n\nE-value: ".$row['e_value']."</title></rect>";
-			echo "<text x='".$scaled_start."' y='20' font-size='15'fill='black'>".$pfam."</text></a></g>";
+			echo "<g><a xlink:href='http://pfam.xfam.org/family/".$pfam."' target='_blank'><rect x='".$scaled_start."%' y='5' width='". $width ."%' height='20' style='fill:".$color.";fill-opacity:0.7;stroke-width:1;stroke:;'><title>PFAM Acc Number: ".$pfam."\nFamily: ".$row2['Family']."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nClan Acc Number: ".$row2['Clan_acc_nb']."\nClan: ".$row2['Clan']."\n\nModel species: ".$row['Model species']."\n\nE-value: ".$row['e_value']."</title></rect>";
+			echo "<text x='".$scaled_start."%' y='20' font-size='15'fill='black'>".$pfam."</text></a></g>";
 		}
 	} else {
 		echo "0 results";
 	}
 	echo "</svg>";
 	
-	echo "<svg height='40' width='2050'><line x1='1' y1='1' x2='2000' y2='1' stroke='#D8D8D8' stroke-width='20' stroke-linecap='butt' />";
+	echo "<svg height='40' width='100%'><line x1='1' y1='1' x2='100%' y2='1' stroke='#D8D8D8' stroke-width='20' stroke-linecap='butt' />";
 
-	echo "<text x='3' y='25' fill='black'>1</text><line x1='1' y1='0' x2='1' y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
+	echo "<text x='0.1%' y='25' fill='black'>1</text><line x1='1' y1='0' x2='1' y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
 	
-	echo "<text x=". round(2005/5) ." y='25' fill='black'>". round($length/5) ."</text><line x1=". round(2000/5) . " y1='0' x2=". round(2000/5) . " y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
+	echo "<text x=20.1% y='25' fill='black'>". round($length/5) ."</text><line x1=20% y1='0' x2=20% y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
 	
-	echo "<text x=". round(2*(2005/5)) ." y='25' fill='black'>". round(2*($length/5)) ."</text><line x1=". round(2*(2000/5)) ." y1='0' x2=". round(2*(2000/5)) ." y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
+	echo "<text x=40.1% y='25' fill='black'>". round(2*($length/5)) ."</text><line x1=40% y1='0' x2=40% y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
 	
-	echo "<text x=". round(3*(2005/5)) ."  y='25' fill='black'>". round(3*($length/5)) ."</text><line x1=". round(3*(2000/5)) ."  y1='0' x2=". round(3*(2000/5)) ."  y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
+	echo "<text x=60.1%  y='25' fill='black'>". round(3*($length/5)) ."</text><line x1=60%  y1='0' x2=60% y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
 	
-	echo "<text x=". round(4*(2005/5)) ." y='25' fill='black'>". round(4*($length/5)) ."</text><line x1='". round(4*(2000/5)) ."' y1='0' x2='". round(4*(2000/5)) ."' y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
+	echo "<text x=80.1% y='25' fill='black'>". round(4*($length/5)) ."</text><line x1=80% y1='0' x2=80% y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
 
-	echo "<text x='2005' y='25' fill='black'>".$length."</text><line x1='2000' y1='0' x2='2000' y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/></svg>";
+	echo "<text x='98%' y='25' fill='black'>".$length."</text><line x1='99.9%' y1='0' x2='99.9%' y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/></svg>";
 
 	$mysqli -> close();
 	?>

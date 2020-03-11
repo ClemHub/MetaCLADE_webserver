@@ -1,8 +1,7 @@
 <?php include("./includes/header.php"); ?>
 
 	<section class = 'tools'>
-		<h2> Annotation of a fixed number of domains for a large sequences dataset </h2>
-		<h3>Search for domains:</h3>
+		<h2> Annotation of a fixed number of domains for a large sequences dataset <br><span id = 'subtitle'>Searching for domains</span></h2>
 		
 		<form name="small_annotation_form" method = POST action="results_small_annotation.php" enctype="multipart/form-data" onsubmit="return small_form_submission()">
 			<fieldset class='form_fs'><legend><h4>Input data:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Be careful to the format, take a look at the exemple to see the format we are expecting.</span></span></h4></legend>

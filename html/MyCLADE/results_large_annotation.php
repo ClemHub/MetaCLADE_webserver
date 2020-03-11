@@ -2,16 +2,15 @@
 <?php include("./includes/header.php"); ?>
 	
 	<section>
-	<h2>Results</h2>	
-
+	<h2>Results</h2>
 	<?php
 
 	//Taking form informations
 	$sequences = $_POST['sequences'];
-	$dama = $_COOKIE['dama'];
+	$dama = $_SESSION['dama'];
 	if($dama){
-		$DAMA_evalue = $_COOKIE['DAMA-evalue'];}
-	$e_value = $_COOKIE['evalue'];
+		$DAMA_evalue = $_SESSION['DAMA-evalue'];}
+	$e_value = $_SESSION['evalue'];
 
 	//File uploading and check up
 	if($sequences == ""){
@@ -35,28 +34,30 @@
 		$data_type = 'Sequences entered manually.<br/>';
 		file_put_contents('./fasta_file/fasta_tmp.fa', $sequences);}
 
-	// MetaCLADE program
-	if($dama){
-		echo exec("./metaclade2_tool/metaclade2 -i ./fasta_file/fasta_temp.fa -N results -W ./ -j 2 -e ".$e_value." -E ".$DAMA_evalue);
-		$name_file = './metaclade2_tool/output/results/3_arch/test_withDAMA.arch.txt';}
-	else{
-		echo exec("./metaclade2_tool/metaclade2 -i ./fasta_file/fasta_temp.fa -N results -W ./ -j 2 -e ".$e_value);
-		$name_file = './metaclade2_tool/output/results/3_arch/test_withoutDAMA.arch.txt';}
+	/* MetaCLADE program
+	if($dama){./metaclade2/metaclade2 -i ./fasta_file/fasta_temp.fa -N results -d $pfam -W ../ -j 2}
+	else{./metaclade2/metaclade2 -i ./fasta_file/fasta_temp.fa -a -N results -d $pfam -W ../ -j 2}*/
+
+	//Choice of the file according the use of DAMA or not
+	if($dama == 'true'){
+		$name_file = 'http://localhost/MyCLADE/metaclade2/output/results/3_arch/test_withDAMA.arch.txt';}
+	else {
+		$name_file = 'http://localhost/MyCLADE/metaclade2/output/results/3_arch/test_withoutDAMA.arch.txt';}
 
 	//Reinisialisation of the database and insertion of the new results
-	$username = "blachon"; 
-	$password = "myclade"; 
-	$database = "METACLADE"; 
+	$username = "blachon";
+	$password = "myclade";
+	$database = "METACLADE";
+	$db_table = 'MetaCLADE_results';
 	$conn = mysqli_connect("localhost", $username, $password, $database);
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);}
 
-	$sql = "DELETE FROM MetaCLADE_results";
+	$sql = "DELETE FROM ".$db_table;
 	$request = $conn->query($sql);
 	
 	results_to_db($conn, $name_file);
-	$database = 'MetaCLADE_results';
-	$sql = "SELECT * FROM ". $database. " ORDER BY SeqID, Seq_start";
+	$sql = "SELECT * FROM ". $db_table . " ORDER BY SeqID, Seq_start";
 	$result = $conn->query($sql);
 
 	//Button that allows the user to download the text files with the results
@@ -73,22 +74,29 @@
 		<th class='table_header'>Sequence End</th>
 		<th class='table_header'>Domain Id</th>
 		<th class='table_header'>Model Id</th>
+		<th class='table_header'>Model species</th>
 		<th class='table_header'>E-Value</th>
 		</tr>
 	</thead>
 	<tbody>
 	<?php
+	$old_seq_id = '';
 	if ($result -> num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
-			$seq_id = $row["SeqID"];
-			$link = 'http://pfam.xfam.org/family/'. $row["DomainID"];
-			echo "<tr><td><a href='architecture.php?id=" . $seq_id . "&db=". $database ."'>" . $seq_id . "</a></td>";
+			$new_seq_id = $row["SeqID"];
+			$link = 'http://pfam.xfam.org/family/' . $row["DomainID"];
+			if($new_seq_id != $old_seq_id){
+				$request = "SELECT COUNT(1) FROM " . $db_table . " WHERE SeqID='" . $new_seq_id . "'";
+				$rowspan = $conn->query($request);
+				$rowspan = $rowspan->fetch_assoc();
+				echo "<tr><td rowspan=".$rowspan['COUNT(1)']."><a href='architecture.php?id=" . $new_seq_id . "&db=". $db_table . "'>" . $new_seq_id . "</a></td>";
+				$old_seq_id = $new_seq_id;}
 			echo "<td>" . $row["Seq_start"] . "</td>";
 			echo "<td>" . $row["Seq_stop"]. "</td>";
 			echo "<td><a class = 'pfam_link' href=" . $link . " target='_blank'>" . $row["DomainID"] . "</a></td>";
 			echo "<td>" . $row["ModelID"]. "</td>";
-			echo "<td>" . $row["e_value"]. "</td></tr>";
-		}
+			echo "<td>" . $row["Model species"]. "</td>";
+			echo "<td>" . $row["e_value"]. "</td></tr>";}
 		echo "</tbody></table>";}
 	$conn->close();
 	?>
@@ -98,7 +106,7 @@
 	<input type='button' class='bouton_info' value='Info' onclick='close_open_info(this);' />
 	<div class='contenu_info'>
 	Informations test:<br/>
-	
+	<?php echo $name_file; echo 'dama: '.$dama;?>
 	</div>
 	</div>
 	</div>

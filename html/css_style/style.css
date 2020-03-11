@@ -7,11 +7,34 @@ body {
 	margin: 0px;
 	padding: 0px;
 	background-color:white;
-	color: rgb(50, 10, 95);}
+	color: rgb(50, 10, 95);
+	color: rgb(112, 99, 126);}
 
 *{
 	font-family: Verdana, Arial, sans-serif, Georgia, 'Times New Roman';
 	word-wrap: break-word;}
+
+h2{
+	text-align: center;
+	font-size: 35px;
+	color: rgb(50, 10, 95);}
+
+#subtitle{
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	color: rgb(50, 10, 95);}
+
+h3{
+	font-size: 25px;
+	color: rgb(50, 10, 95);}
+
+h4{
+	font-size: 20px;
+	color: rgb(50, 10, 95);}
+
+p{
+	font-size: 18px;}
 
 #header-menu{
 	display: block;
@@ -19,7 +42,7 @@ body {
 
 header{
 	color: rgb(50, 10, 95);
-	font-size: 28px;
+	font-size: 30px;
 	padding-top: 20px;
 	text-align: center;
 	height: 150px;}
@@ -39,6 +62,7 @@ section{
 
 footer{
 	position: absolute;
+	text-align: center;
 	bottom: 0;
 	left: 0;
 	height: 125px;
@@ -46,19 +70,8 @@ footer{
 	width:100%;
 	border-top: 3px rgb(0, 0, 0) solid;
 	background-image: linear-gradient(rgba(150, 156, 240, 0.521), rgba(32, 47, 255, 0.521));
-	color: gainsboro;
-	font-size: initial;}
+	color: gainsboro;}
 
-h2{
-	text-align: center;
-	font-size: 35px;}
-
-.form_fs
-{
-	border: black, 1px;
-	padding:16px;
-	width: 650px;	
-}
 /* Navigation bar */
 .topnav {
 	overflow: hidden;
@@ -68,7 +81,7 @@ h2{
 	float: left;
 	display: block;
 	font-weight: bold;
-	font-size: 20px;
+	font-size: 25px;
 	text-transform: uppercase;
 	color: rgb(50, 10, 95);
 	text-shadow: 0.1em 0.1em 0.2em rgba(21, 7, 36, 0.459);
@@ -85,14 +98,13 @@ h2{
 
 .dropdown .dropbtn {
 	border: none;
-	font-size: 20px;
+	font-size: 25px;
 	font-weight: bold;
 	text-transform: uppercase;
 	color: rgb(50, 10, 95);
 	text-shadow: 0.1em 0.1em 0.2em rgba(21, 7, 36, 0.459);
 	padding: 14px 16px;
 	background-color: inherit;
-	
 	font-family: inherit;
 	margin: 0;}
 
@@ -108,7 +120,7 @@ h2{
 	float: none;
 	color: rgb(50, 10, 95);
 	font-weight: bold;
-	font-size: 15px;
+	font-size: 20px;
 	background:  rgba(150, 156, 240, 0.521);
 	padding: 12px 16px;
 	text-decoration: none;
@@ -116,25 +128,25 @@ h2{
 	text-align: left;}
 
 .topnav a:hover, .dropdown:hover, .dropbtn:hover{
-	font-size: 25px;
+	font-size: 30px;
 	text-transform: uppercase;
 	text-shadow: 0.1em 0.1em 0.2em rgb(148, 145, 145);}
 
 .dropdown-content a:hover {
-	font-size: 20px;
+	font-size: 25px;
 	text-shadow: 0.1em 0.1em 0.2em rgb(73, 18, 109);}
 
 .dropdown:hover .dropdown-content {
 	display: block;}
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
 	.topnav a:not(:first-child), .dropdown .dropbtn {
 		display: none;}
 	.topnav a.icon {
 		float: right;
 		display: block;}}
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
 	.topnav.responsive {position: relative;}
 	.topnav.responsive a.icon {
 		position: absolute;
@@ -154,50 +166,54 @@ h2{
 		text-align: left;}} 
 
 /* Results table appearence */
-
 .table_container{
 	width: 100%;
-	overflow: scroll;
-}
+	overflow: scroll;}
+
 table{
-	border: 2px solid black;
+	border: 3px solid black;
 	border-collapse: collapse;
 	width: 100%;
 	line-height: 200%;
 	text-align: center;
 	margin-left:auto;
 	margin-right:auto;
-	margin-top: 5px;
-	margin-bottom: 15px;
-	}
+	margin-top: 10px;
+	margin-bottom: 15px;}
 
 th{
 	height: 60px;
-	border: 1px solid black;
+	border: 2px solid black;
 	color: rgb(50, 10, 95);
 	text-shadow: 0.1em 0.1em 0.2em rgba(21, 7, 36, 0.459);
 	background-image: linear-gradient(rgba(32, 47, 255, 0.521), rgba(150, 156, 240, 0.521));}
 
+tr{
+	border-bottom: 3px;
+}
+
 td{
 	border: 1px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
 	height: 40px;
-	width: 16.5%;}
+	max-width: 100%;}
+	tr:hover {background-color: #f5f5f5;}
 
 tbody [rowspan],
 tbody [rowspan] ~ th,
 tbody [rowspan] ~ td,
 
 tfoot {
-	border-top: 2px solid black;}
+	border-top: 3px solid black;}
 
 .table_header{
 	font-weight: bold;}
 
 .spaced_list{
-	list-style: inside;
 	line-height: 200%;
 	text-align: justify;
-	font-size: medium;
+	font-size: 18px;
 	font-weight: initial;}
 
 .ordonned_list{
@@ -205,7 +221,7 @@ tfoot {
 	list-style-type: decimal;
 	line-height: 200%;
 	text-align: justify;
-	font-size: medium;
+	font-size: 18px;
 	font-weight: initial;}
 
 /* Form styling */
@@ -247,6 +263,16 @@ div.info div.contenu_info {
 	margin: 10px;
 	text-decoration: none;}
 
+.form_fs{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.486);
+	max-width: 50%;
+	margin: auto;}
+
+#submission{
+	margin: auto;
+	text-align: center;}
+
+/* Tooltip styling */
 .tooltip {
 	position: relative;
 	display: inline-block;
@@ -258,15 +284,74 @@ div.info div.contenu_info {
 	background-color: black;
 	color: #fff;
 	text-align: center;
-	padding: 5px 0;
+	padding: 10px 0;
 	border-radius: 6px;
 	position: absolute;
+	font-size: 16px;
+	font-weight: normal;
 	z-index: 1;}
 
 .tooltip:hover .tooltiptext {
 	visibility: visible;}
 
-.contact_fs{
-	width: 25%;
-	float: left;
-}
+/* Contact card */ 
+#contact_container{
+	margin: auto;}
+
+.contact_fs {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.486);
+	max-width: 15%;
+	height: 150%;
+	margin: 25px;
+	text-align: center;
+	float: left;}
+
+.contact_img{
+	width: 100%;
+	height: 100%;}
+
+.contact_descr{
+	font-size: 20px;}
+
+.contact_title{
+	font-size: 25px;
+	font-weight: bold;}
+
+.fas, .fab{
+	padding: 20px;
+	font-size: 30px;
+	width: 50px;
+	text-align: center;
+	text-decoration: none;
+	margin: 5px 2px;}
+
+.fas:hover, .fab:hover {
+	opacity: 0.4;}
+
+.fa-twitter {
+	text-decoration: none;
+	background: #55ACEE;
+	color: white;
+	font-size: 35px;
+	padding: 5px;}
+
+.fa-linkedin {
+	text-decoration: none;
+	background: #007bb5;
+	color: white;
+	font-size: 35px;
+	padding: 5px;}
+
+.fa-globe {
+	text-decoration: none;
+	background: #b50097;
+	color: white;
+	font-size: 35px;
+	padding: 5px;}
+
+.fa-at {
+	text-decoration: none;
+	background: #f0960f;
+	color: white;
+	font-size: 35px;
+	padding: 5px;}

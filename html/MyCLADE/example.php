@@ -1,16 +1,19 @@
+<?php include("./includes/cookies.php"); ?>
 <?php include("./includes/header.php"); ?>
 
 	<section id = 'example'>
 	<h2> Example </h2>
 	
 	<?php 
-	$dama = $_POST['dama'];
+	$dama = $_SESSION['dama'];
 	if($dama == 'true'){
+		$DAMA_evalue = '1e<sup>-10</sup>';
 		$name_file = 'http://localhost/data/examplewithDAMA.csv';
 		$db_table = 'Example_withDAMA';}
 	else {
 		$name_file = 'http://localhost/data/examplewithoutDAMA.csv';
 		$db_table = 'Example_withoutDAMA';}
+	$e_value = '1e<sup>-3</sup>';
 
 	$username = "blachon"; 
 	$password = "myclade"; 
@@ -32,12 +35,13 @@
 	<thead>
 		<tr>
 		<th class='table_header'>Sequence ID <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span></th>
-		<th class='table_header'>Sequence start</th>
-		<th class='table_header'>Sequence End</th>
+		<th class='table_header'>Domain position<br>along the sequence</th>
 		<th class='table_header'>Domain Id</th>
-		<th class='table_header'>Model Id</th>
+		<!--<th class='table_header'>Model Id</th>-->
 		<th class='table_header'>Model species</th>
 		<th class='table_header'>E-Value</th>
+		<th class='table_header'>Bitscore</th>
+		<th class='table_header'>Accuracy</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -47,29 +51,47 @@
 		while($row = $result->fetch_assoc()) {
 			$new_seq_id = $row["SeqID"];
 			$link = 'http://pfam.xfam.org/family/' . $row["DomainID"];
-			if($new_seq_id != $old_seq_id){
+			if($old_seq_id == ''){
 				$request = "SELECT COUNT(1) FROM " . $db_table . " WHERE SeqID='" . $new_seq_id . "'";
 				$rowspan = $conn->query($request);
 				$rowspan = $rowspan->fetch_assoc();
-				echo "<tr><td rowspan=".$rowspan['COUNT(1)']."><a href='architecture.php?id=" . $new_seq_id . "&db=". $db_table . "'>" . $new_seq_id . "</a></td>";
+				echo "<tr><td rowspan=" . $rowspan['COUNT(1)'] . "><a class='table_link' href='architecture.php?id=" . $new_seq_id . "&db=" . $db_table . "'>" . $new_seq_id . "</a></td>";
 				$old_seq_id = $new_seq_id;}
-			echo "<td>" . $row["Seq_start"] . "</td>";
-			echo "<td>" . $row["Seq_stop"]. "</td>";
-			echo "<td><a class = 'pfam_link' href=" . $link . " target='_blank'>" . $row["DomainID"] . "</a></td>";
-			echo "<td>" . $row["ModelID"]. "</td>";
-			echo "<td>" . $row["Model species"]. "</td>";
-			echo "<td>" . $row["e_value"]. "</td></tr>";}
+			else if($new_seq_id != $old_seq_id){
+				echo '</tbody>';
+				echo '<tbody>';
+				$request = "SELECT COUNT(1) FROM " . $db_table . " WHERE SeqID='" . $new_seq_id . "'";
+				$rowspan = $conn->query($request);
+				$rowspan = $rowspan->fetch_assoc();
+				echo "<tr><td rowspan=".$rowspan['COUNT(1)']."><a class='table_link' href='architecture.php?id=" . $new_seq_id . "&db=". $db_table . "'>" . $new_seq_id . "</a></td>";
+				$old_seq_id = $new_seq_id;}
+			echo "<td>" . $row["Seq_start"] . " - " . $row["Seq_stop"]. "</td>";
+			echo "<td><a class = 'table_link' href=" . $link . " target='_blank'>" . $row["DomainID"] . "</a></td>";
+			//echo "<td>" . $row["ModelID"]. "</td>";
+			echo "<td id='species_name'>" . $row["Model species"]. "</td>";
+			echo "<td>" . $row["e_value"]. "</td>";
+			echo "<td>" . $row["Bitscore"]. "</td>";
+			echo "<td>" . $row["Accuracy"]. "</td></tr>";}
 		echo "</tbody></table>";}
 	$conn->close();
 	?>
+	</div>
 
 	<!--Information button--> 
 	<div class='info'>
-	<input type='button' class='bouton_info' value='Info' onclick='close_open_info(this);' />
+	<input type='button' class='bouton_info' value='Info' onclick='close_open_info(this);' /></legend>
 	<div class='contenu_info'>
-	Informations test:<br/>
-	<?php echo $name_file?>
-	</div>
+	<dd>Parameters of the test:</dd>
+	<?php
+	echo 'The MetaCLADE e-value applied: ' . $e_value . '<br>';
+	if($dama == 'true'){
+		echo 'You choose to use DAMA to your dataset with a cut-off e-value equal to: ' . $DAMA_evalue;}
+	else if($dama == 'false'){
+		echo 'DAMA was not used to determine the architecture.';}
+	echo '<br><br>';
+	?>
+	<dd>Output explanation:</dd>
+	If the model species is 'unavailable', it is because the most reliable model wa HMMer-3
 	</div>
 	</div>
 	</section>

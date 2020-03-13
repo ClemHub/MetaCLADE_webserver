@@ -16,7 +16,7 @@
 	$database = $_GET['db'];
 	$sql = "SELECT * FROM ". $database ." WHERE SeqID='".$seq_id."'";
 	$result = mysqli_query($mysqli, $sql);
-	echo "<svg height='30' width='100%' style='border:1px dashed #ccc' overflow='scroll'>";
+	echo "<svg height='40' width='100%' style='border:1px dashed #ccc' overflow='scroll'>";
 	if (mysqli_num_rows($result) > 0) {
 		while($row = mysqli_fetch_assoc($result)) {
 			$length = $row['Seq_length'];
@@ -29,9 +29,10 @@
 			$nb_aa = ($stop-$start);
 			$width = ($nb_aa*100)/$length;
 			$scaled_start = ($start*100)/$length;
+			$scaled_stop = ($stop*100)/$length;
 			$color = sprintf('#%06X', mt_rand(0, 0xFFFFFF));
-			echo "<g><a xlink:href='http://pfam.xfam.org/family/".$pfam."' target='_blank'><rect x='".$scaled_start."%' y='5' width='". $width ."%' height='20' style='fill:".$color.";fill-opacity:0.7;stroke-width:1;stroke:;'><title>PFAM Acc Number: ".$pfam."\nFamily: ".$row2['Family']."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nClan Acc Number: ".$row2['Clan_acc_nb']."\nClan: ".$row2['Clan']."\n\nModel species: ".$row['Model species']."\n\nE-value: ".$row['e_value']."</title></rect>";
-			echo "<text x='".$scaled_start."%' y='20' font-size='15'fill='black'>".$pfam."</text></a></g>";
+			echo "<g><a xlink:href='http://pfam.xfam.org/family/".$pfam."' target='_blank'><rect x='".$scaled_start."%' y='5' width='". $width ."%' height='30' style='fill:".$color.";fill-opacity:0.7;stroke-width:1;stroke:;'><title>PFAM Acc Number: ".$pfam."\nFamily: ".$row2['Family']."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nClan Acc Number: ".$row2['Clan_acc_nb']."\nClan: ".$row2['Clan']."\n\nModel species: ".$row['Model species']."\nE-value: ".$row['e_value']."\nBitscore: ".$row['Bitscore']."\nAccuracy: ".$row['Accuracy']."</title></rect>";
+			echo "<text id='pfam_link' x='". $scaled_start ."%' y='25' font-size='15'fill='black'>".$pfam."</text></a></g>";
 		}
 	} else {
 		echo "0 results";
@@ -54,27 +55,4 @@
 
 	$mysqli -> close();
 	?>
-
-
-	<div class='info'>
-	<input type='button' class='bouton_info' value='Info' onclick='close_open_info(this);' />
-	<div class='contenu_info'>
-	Informations test:<br/>
-	<?php
-	echo 'E-value: '.$_COOKIE['evalue'].'<br/>';
-	if($_COOKIE['dama']){
-		echo 'DAMA e-value: '.$_COOKIE['dama-evalue'].'<br/>'; 
-	}
-	else{echo 'DAMA was not to determine the architecture.';}
-	
-	
-	?>
-	</div>
-	</div>
-
-
-	
-
-	</section>
-
 <?php include("./includes/footer.php"); ?>

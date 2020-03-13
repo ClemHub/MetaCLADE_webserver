@@ -91,7 +91,8 @@ function fill_exemple_form(form){
 		fetch('http://localhost/MyCLADE/fasta_file/example.fasta')
 		.then(response => response.text())
 		.then((data) => {document.small_annotation_form.sequences.value = data })
-		document.small_annotation_form.action = 'example.php'}
+		document.small_annotation_form.action = 'example.php';
+		document.getElementById("pfam_domains").disabled = true;}
 	else{
 		fetch('http://localhost/MyCLADE/fasta_file/example.fasta')
 		.then(response => response.text())
@@ -104,15 +105,19 @@ function fill_exemple_form(form){
 	document.getElementById("evalue_nb").value = 1e-3;
 	document.getElementById("evalue_range").value = 1e-3;
 	document.getElementById("evalue_nb").disabled = true;
-	document.getElementById("evalue_range").disabled = true;}
+	document.getElementById("evalue_range").disabled = true;
+	document.getElementById("sequences").disabled = true;}
 
 function reset_btn(form){
 	if(form == 'small'){
 		document.small_annotation_form.action = 'results_small_annotation.php';
+		document.getElementById("pfam_domains").disabled = false;
 	}
 	else{
 		document.large_annotation_form.action = 'results_large_annotation.php';
 	}
+	document.getElementById("sequences").disabled = false;
+	
 	document.getElementById("evalue_nb").disabled = false;
 	document.getElementById("evalue_range").disabled = false;
 	document.getElementById("dama_evalue_nb").disabled = false;

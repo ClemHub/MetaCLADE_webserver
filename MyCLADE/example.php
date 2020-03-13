@@ -50,7 +50,12 @@
 	if ($result -> num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
 			$new_seq_id = $row["SeqID"];
-			$link = 'http://pfam.xfam.org/family/' . $row["DomainID"];
+			$domain_id = $row["DomainID"];
+			$sql2 = "SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$domain_id."'";
+			$domain_result = mysqli_query($conn, $sql2);
+			$family = mysqli_fetch_assoc($domain_result);
+			$family = $family['Family'];
+			$link_id = 'http://pfam.xfam.org/family/' . $domain_id;
 			if($old_seq_id == ''){
 				$request = "SELECT COUNT(1) FROM " . $db_table . " WHERE SeqID='" . $new_seq_id . "'";
 				$rowspan = $conn->query($request);
@@ -59,16 +64,17 @@
 				$old_seq_id = $new_seq_id;}
 			else if($new_seq_id != $old_seq_id){
 				echo '</tbody>';
-				echo '<tbody>';
+				echo '<tbody><tr>';
 				$request = "SELECT COUNT(1) FROM " . $db_table . " WHERE SeqID='" . $new_seq_id . "'";
 				$rowspan = $conn->query($request);
 				$rowspan = $rowspan->fetch_assoc();
-				echo "<tr><td rowspan=".$rowspan['COUNT(1)']."><a class='table_link' href='architecture.php?id=" . $new_seq_id . "&db=". $db_table . "'>" . $new_seq_id . "</a></td>";
+				echo "<td rowspan=".$rowspan['COUNT(1)']."><a class='table_link' href='architecture.php?id=" . $new_seq_id . "&db=". $db_table . "'>" . $new_seq_id . "</a></td>";
 				$old_seq_id = $new_seq_id;}
+			else{echo '<tr>';}
 			echo "<td>" . $row["Seq_start"] . " - " . $row["Seq_stop"]. "</td>";
-			echo "<td><a class = 'table_link' href=" . $link . " target='_blank'>" . $row["DomainID"] . "</a></td>";
+			echo "<td><a class = 'table_link' href=" . $link_id . " target='_blank'>" . $family . "<br>(" . $domain_id . ")</a></td>";
 			//echo "<td>" . $row["ModelID"]. "</td>";
-			echo "<td id='species_name'>" . $row["Model species"]. "</td>";
+			echo "<td class='species_name'>" . $row["Model species"]. "</td>";
 			echo "<td>" . $row["e_value"]. "</td>";
 			echo "<td>" . $row["Bitscore"]. "</td>";
 			echo "<td>" . $row["Accuracy"]. "</td></tr>";}
@@ -79,9 +85,9 @@
 
 	<!--Information button--> 
 	<div class='info'>
-	<input type='button' class='bouton_info' value='Info' onclick='close_open_info(this);' /></legend>
+	<input type='button' class='bouton_info' value='Info' onclick='close_open_info(this);' />
 	<div class='contenu_info'>
-	<dd>Parameters of the test:</dd>
+	Parameters of the test:
 	<?php
 	echo 'The MetaCLADE e-value applied: ' . $e_value . '<br>';
 	if($dama == 'true'){
@@ -90,8 +96,8 @@
 		echo 'DAMA was not used to determine the architecture.';}
 	echo '<br><br>';
 	?>
-	<dd>Output explanation:</dd>
-	If the model species is 'unavailable', it is because the most reliable model wa HMMer-3
+	Output explanation:
+	If the model species is 'unavailable', it is because the most reliable model was HMMer-3
 	</div>
 	</div>
 	</section>

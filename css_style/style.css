@@ -74,8 +74,8 @@ footer {
 
 .img-responsive {
 	height: 100%;
-	margin-left: 7%;
-	margin-right: 7%;
+	margin-left: 4%;
+	margin-right: 4%;
 	margin-top: 8px;
 	margin-bottom:auto;}
 
@@ -194,7 +194,8 @@ th {
 	color: rgb(1, 59, 82);
 	text-shadow: 0.1em 0.1em 0.2em rgba(21, 7, 36, 0.459);
 	background-image: linear-gradient(rgb(39, 155, 201), rgb(116, 194, 224));
-	text-transform: uppercase;}
+	text-transform: uppercase;
+	font-size: 18px;}
 
 tr {
 	border-bottom: 3px;}
@@ -204,7 +205,8 @@ td {
 	border-left: 1px solid black;
 	border-right: 1px solid black;
 	height: 40px;
-	max-width: 100%;}
+	max-width: 100%;
+	font-size: 17px;}
 
 tbody [rowspan], tbody [rowspan] ~ th, tbody [rowspan] ~ td, tfoot {
 	border-top: 3px solid black;}
@@ -257,7 +259,6 @@ textarea {
 div.info {
 	margin-top: 15px;
 	padding: 20px 10px 10px 0px;
-	width: 100%;
 	position: relative;}
 
 div.info input.bouton_info {
@@ -271,7 +272,8 @@ div.info div.contenu_info {
 
 .contenu_info{
 	width: 50%;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.486);}
+	margin-left: 30px;
+	box-shadow: 0 4px 8px 0 rgba(88, 88, 88, 0.486);}
 
 #show_dama {
 	display: none;}
@@ -309,9 +311,10 @@ div.info div.contenu_info {
 	padding: 10px 0;
 	border-radius: 6px;
 	position: absolute;
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: normal;
-	z-index: 1;}
+	z-index: 1;
+	text-transform: initial;}
 
 .tooltip:hover .tooltiptext {
 	visibility: visible;}
@@ -340,6 +343,9 @@ div.info div.contenu_info {
 	font-size: 25px;
 	font-weight: bold;
 	color: rgb(1, 59, 82);}
+
+.social_media_div{
+	margin: auto 0;}
 
 .fas, .fab {
 	padding: 20px;
@@ -380,11 +386,10 @@ div.info div.contenu_info {
 	font-size: 35px;
 	padding: 5px;}
 
-#pfam_link{
-	font-size: 15px;
+.pfam_link{
+	font-size: 18px;
 	font-weight: bold;
 	mix-blend-mode: exclusion;}
 
-#species_name{
-	font-style: italic;
-}
+.species_name{
+	font-style: italic;}

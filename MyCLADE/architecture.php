@@ -31,8 +31,9 @@
 			$scaled_start = ($start*100)/$length;
 			$scaled_stop = ($stop*100)/$length;
 			$color = sprintf('#%06X', mt_rand(0, 0xFFFFFF));
-			echo "<g><a xlink:href='http://pfam.xfam.org/family/".$pfam."' target='_blank'><rect x='".$scaled_start."%' y='5' width='". $width ."%' height='30' style='fill:".$color.";fill-opacity:0.7;stroke-width:1;stroke:;'><title>PFAM Acc Number: ".$pfam."\nFamily: ".$row2['Family']."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nClan Acc Number: ".$row2['Clan_acc_nb']."\nClan: ".$row2['Clan']."\n\nModel species: ".$row['Model species']."\nE-value: ".$row['e_value']."\nBitscore: ".$row['Bitscore']."\nAccuracy: ".$row['Accuracy']."</title></rect>";
-			echo "<text id='pfam_link' x='". $scaled_start ."%' y='25' font-size='15'fill='black'>".$pfam."</text></a></g>";
+			echo "<g><a xlink:href='http://pfam.xfam.org/family/".$pfam."' target='_blank'><rect x='".$scaled_start."%' y='5' width='". $width ."%' height='30' style=' fill:".$color."; fill-opacity:0.7;stroke-width:1;stroke:;'><title>PFAM Acc Number: ".$pfam."\nFamily: ".$row2['Family']."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nClan Acc Number: ".$row2['Clan_acc_nb']."\nClan: ".$row2['Clan']."\n\nModel species: ".$row['Model species']."\nE-value: ".$row['e_value']."\nBitscore: ".$row['Bitscore']."\nAccuracy: ".$row['Accuracy']."</title></rect>";
+			echo "<text class='pfam_link' x='". $scaled_start ."%' y='25' font-size='15' fill='black'>".$pfam."</text></a></g>";
+
 		}
 	} else {
 		echo "0 results";
@@ -55,4 +56,5 @@
 
 	$mysqli -> close();
 	?>
+	</section>
 <?php include("./includes/footer.php"); ?>

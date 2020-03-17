@@ -9,6 +9,7 @@ body {
 	background-color:white;
 	color: rgb(77, 91, 97);
 	font-size: 18px;
+	font-size-adjust: 0.5;
 	overflow-x: hidden;}
 
 * {
@@ -18,24 +19,29 @@ body {
 h2 {
 	text-align: center;
 	font-size: 35px;
+	font-size-adjust: 0.5;
 	color: rgb(1, 59, 82);}
 
 #subtitle {
 	text-align: center;
 	font-size: 30px;
+	font-size-adjust: 0.5;
 	font-weight: bold;
 	color: rgb(1, 59, 82);}
 
 h3 {
 	font-size: 25px;
+	font-size-adjust: 0.5;
 	color: rgb(1, 59, 82);}
 
 h4 {
 	font-size: 20px;
+	font-size-adjust: 0.5;
 	color: rgb(1, 59, 82);}
 
 p {
-	font-size: 18px;}
+	font-size: 18px;
+	font-size-adjust: 0.5;}
 
 #header-menu {
 	display: block;
@@ -44,6 +50,7 @@ p {
 header {
 	color: rgb(1, 59, 82);
 	font-size: 35px;
+	font-size-adjust: 0.5;
 	padding-top: 20px;
 	text-align: center;
 	height: 150px;}
@@ -79,6 +86,10 @@ footer {
 	margin-top: 8px;
 	margin-bottom:auto;}
 
+.btn{
+	font-size: 20px;
+	font-size-adjust: 0.5;}
+
 /* Navigation bar */
 .topnav {
 	overflow: hidden;
@@ -89,6 +100,7 @@ footer {
 	display: block;
 	font-weight: bold;
 	font-size: 25px;
+	font-size-adjust: 0.5;
 	text-transform: uppercase;
 	color: rgb(1, 59, 82);
 	text-shadow: 0.1em 0.1em 0.2em rgba(21, 7, 36, 0.459);
@@ -106,6 +118,7 @@ footer {
 .dropdown .dropbtn {
 	border: none;
 	font-size: 25px;
+	font-size-adjust: 0.5;
 	font-weight: bold;
 	text-transform: uppercase;
 	color: rgb(1, 59, 82);
@@ -129,6 +142,7 @@ footer {
 	color: rgb(1, 59, 82);
 	font-weight: bold;
 	font-size: 20px;
+	font-size-adjust: 0.5;
 	background: white;
 	padding: 12px 16px;
 	text-decoration: none;
@@ -137,11 +151,13 @@ footer {
 
 .topnav a:hover, .dropdown:hover, .dropbtn:hover {
 	font-size: 30px;
+	font-size-adjust: 0.5;
 	text-transform: uppercase;
 	text-shadow: 0.1em 0.1em 0.2em rgb(90, 87, 87);}
 
 .dropdown-content a:hover {
 	font-size: 25px;
+	font-size-adjust: 0.5;
 	text-shadow: 0.1em 0.1em 0.2em rgb(90, 87, 87);}
 
 .dropdown:hover .dropdown-content {
@@ -195,7 +211,8 @@ th {
 	text-shadow: 0.1em 0.1em 0.2em rgba(21, 7, 36, 0.459);
 	background-image: linear-gradient(rgb(39, 155, 201), rgb(116, 194, 224));
 	text-transform: uppercase;
-	font-size: 18px;}
+	font-size: 18px;
+	font-size-adjust: 0.5;}
 
 tr {
 	border-bottom: 3px;}
@@ -206,7 +223,8 @@ td {
 	border-right: 1px solid black;
 	height: 40px;
 	max-width: 100%;
-	font-size: 17px;}
+	font-size: 17px;
+	font-size-adjust: 0.5;}
 
 tbody [rowspan], tbody [rowspan] ~ th, tbody [rowspan] ~ td, tfoot {
 	border-top: 3px solid black;}
@@ -221,6 +239,7 @@ tbody:hover td[rowspan], tr:hover td {
 	line-height: 200%;
 	text-align: justify;
 	font-size: 18px;
+	font-size-adjust: 0.5;
 	font-weight: initial;}
 
 .ordonned_list {
@@ -229,6 +248,7 @@ tbody:hover td[rowspan], tr:hover td {
 	line-height: 200%;
 	text-align: justify;
 	font-size: 18px;
+	font-size-adjust: 0.5;
 	font-weight: initial;}
 
 .table_link{
@@ -312,6 +332,7 @@ div.info div.contenu_info {
 	border-radius: 6px;
 	position: absolute;
 	font-size: 18px;
+	font-size-adjust: 0.5;
 	font-weight: normal;
 	z-index: 1;
 	text-transform: initial;}
@@ -337,10 +358,12 @@ div.info div.contenu_info {
 	height: 100%;}
 
 .contact_descr {
-	font-size: 20px;}
+	font-size: 20px;
+	font-size-adjust: 0.5;}
 
 .contact_title {
 	font-size: 25px;
+	font-size-adjust: 0.5;
 	font-weight: bold;
 	color: rgb(1, 59, 82);}
 
@@ -350,6 +373,7 @@ div.info div.contenu_info {
 .fas, .fab {
 	padding: 20px;
 	font-size: 30px;
+	font-size-adjust: 0.5;
 	width: 50px;
 	text-align: center;
 	text-decoration: none;
@@ -363,6 +387,7 @@ div.info div.contenu_info {
 	background: #55ACEE;
 	color: white;
 	font-size: 35px;
+	font-size-adjust: 0.5;
 	padding: 5px;}
 
 .fa-linkedin {
@@ -370,6 +395,7 @@ div.info div.contenu_info {
 	background: #007bb5;
 	color: white;
 	font-size: 35px;
+	font-size-adjust: 0.5;
 	padding: 5px;}
 
 .fa-globe {
@@ -377,6 +403,7 @@ div.info div.contenu_info {
 	background: #b50097;
 	color: white;
 	font-size: 35px;
+	font-size-adjust: 0.5;
 	padding: 5px;}
 
 .fa-at {
@@ -384,10 +411,12 @@ div.info div.contenu_info {
 	background: #f0960f;
 	color: white;
 	font-size: 35px;
+	font-size-adjust: 0.5;
 	padding: 5px;}
 
 .pfam_link{
 	font-size: 18px;
+	font-size-adjust: 0.5;
 	font-weight: bold;
 	mix-blend-mode: exclusion;}
 

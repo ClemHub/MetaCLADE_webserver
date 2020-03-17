@@ -3,27 +3,29 @@
 
 	<section id = 'example'>
 	<h2> Example </h2>
-	
 	<?php 
 	$dama = $_SESSION['dama'];
 	if($dama == 'true'){
 		$DAMA_evalue = '1e<sup>-10</sup>';
-		$name_file = 'http://localhost/data/examplewithDAMA.csv';
+		$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithDAMA.csv';
 		$db_table = 'Example_withDAMA';}
 	else {
-		$name_file = 'http://localhost/data/examplewithoutDAMA.csv';
+		$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithoutDAMA.csv';
 		$db_table = 'Example_withoutDAMA';}
 	$e_value = '1e<sup>-3</sup>';
-
-	$username = "blachon"; 
-	$password = "myclade"; 
+	$username = "root"; 
+	$password = "myclade2020"; 
 	$database = "METACLADE"; 
 	$conn = mysqli_connect("localhost", $username, $password, $database);
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);}
-
 	$sql = "SELECT * FROM ". $db_table . " ORDER BY SeqID, Seq_start";
-	$result = $conn->query($sql);
+	echo $sql.'<br>';
+	$result = mysqli_query($sql);
+	if($result==true){
+		echo 'true';}
+	else{
+		echo 'Erreur:'.mysqli_error($result).'<br>';}
 
 	//Button that allows the user to download the text files with the results
 	echo "<a id = 'dl_link' href=".$name_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
@@ -49,6 +51,7 @@
 	$old_seq_id = '';
 	if ($result -> num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
+			print_r($row);
 			$new_seq_id = $row["SeqID"];
 			$domain_id = $row["DomainID"];
 			$sql2 = "SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$domain_id."'";

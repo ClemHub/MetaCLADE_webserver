@@ -5,34 +5,15 @@
 	<h2>Results</h2>
 	<?php
 
-	//Taking form informations
+	//Writing sequences into a new fasta file
 	$sequences = $_POST['sequences'];
+	file_put_contents('./fasta_file/fasta_tmp.fa', $sequences);
+
+	//Picking up of parameters informations
 	$dama = $_SESSION['dama'];
 	if($dama){
 		$DAMA_evalue = $_SESSION['DAMA-evalue'];}
 	$e_value = $_SESSION['evalue'];
-
-	//File uploading and check up
-	if($sequences == ""){
-		$directory = './fasta_file/';
-		$file = basename($_FILES['fasta_file']['name']);
-		$taille_maxi = 10000000;
-		$taille = filesize($_FILES['fasta_file']['tmp_name']);
-		$extensions = array('.txt', '.fsa', '.fasta', '.fa');
-		$extension = strrchr($_FILES['fasta_file']['name'], '.'); 
-
-		if(!in_array($extension, $extensions))
-			{$erreur = 'We only accept .fsa, .fasta .fa or .txt files.';}
-		if($taille>$taille_maxi)
-			{$erreur = 'The file is too big.';}
-		if(!isset($erreur)){	
-			if(move_uploaded_file($_FILES['fasta_file']['tmp_name'], $directory . 'fasta_tmp.fa'))
-				{$data_type = 'File: upload.<br/>';}
-			else
-				{$data_type = 'File: error - not uploaded.<br/>';}}}
-	else{
-		$data_type = 'Sequences entered manually.<br/>';
-		file_put_contents('./fasta_file/fasta_tmp.fa', $sequences);}
 
 	/* MetaCLADE program
 	if($dama){./metaclade2/metaclade2 -i ./fasta_file/fasta_temp.fa -N results -d $pfam -W ../ -j 2}
@@ -40,13 +21,13 @@
 
 	//Choice of the file according the use of DAMA or not
 	if($dama == 'true'){
-		$name_file = 'http://localhost/MyCLADE/metaclade2/output/results/3_arch/test_withDAMA.arch.txt';}
+		$name_file = 'http://localhost:8888/MetaCLADE_webserver/MyCLADE/metaclade2/output/results/3_arch/test_withDAMA.arch.txt';}
 	else {
-		$name_file = 'http://localhost/MyCLADE/metaclade2/output/results/3_arch/test_withoutDAMA.arch.txt';}
+		$name_file = 'http://localhost:8888/MetaCLADE_webserver/MyCLADE/metaclade2/output/results/3_arch/test_withoutDAMA.arch.txt';}
 
-	//Reinisialisation of the database and insertion of the new results
-	$username = "blachon";
-	$password = "myclade";
+	//Reinitialisation of the database and insertion of the new results
+	$username = "root";
+	$password = "myclade2020";
 	$database = "METACLADE";
 	$db_table = 'MetaCLADE_results';
 	$conn = mysqli_connect("localhost", $username, $password, $database);

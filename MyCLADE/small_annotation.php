@@ -3,7 +3,7 @@
 	<section class = 'tools'>
 		<h2> Annotation of a fixed number of domains for a large sequences dataset <br><span id = 'subtitle'>Searching for domains</span></h2>
 		
-		<form name="small_annotation_form" method = POST action="results_small_annotation.php" enctype="multipart/form-data" onsubmit="return small_form_submission()">
+		<form name="small_annotation_form" method = POST action="results_small_annotation.php?form=small" enctype="multipart/form-data" onsubmit="return small_form_submission()">
 			<fieldset class='form_fs'><legend><h4>Input data:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Be careful to the format, take a look at the example to see the format we are expecting.</span></span></h4></legend>
 			<div id='pfam_container'>
 			<label for="pfam_domains">PFAM accession number:</label><br/>
@@ -44,8 +44,8 @@
 			</fieldset>
 			<div id='submission'>
 			<br/>
-			<input type="submit" value="Search" name = "submit"/><input type="reset" value="Reset" onclick="reset_btn('small')"/>
-			<span class='tooltip'><input type="button" value="Example " onclick="fill_exemple_form('small')"/><span class='tooltiptext'>You are going to load an example dataset precalculated. The parameters are already defined, you can only chose whether to use DAMA or not.</span></span>
+			<input class='btn' type="submit" value="Search" name = "submit"/><input class='btn' type="reset" value="Reset" onclick="reset_btn('small')"/>
+			<span class='tooltip'><input class='btn' type="button" value="Example " onclick="fill_exemple_form('small')"/><span class='tooltiptext'>You are going to load an example dataset precalculated. The parameters are already defined, you can only chose whether to use DAMA or not.</span></span>
 			</div>
 		</form>
 	</section>

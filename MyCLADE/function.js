@@ -35,13 +35,8 @@ function validatePFAM(pfam_list){
 
 function large_form_submission(){
 	var seq =  document.large_annotation_form.sequences.value;
-	var fasta_file = document.large_annotation_form.querySelector("input[name=fasta_file]");
 	var valid = true;
-	if (seq!="" & fasta_file.files.length !== 0){
-		var ans = confirm('You entered sequences manually and browsed a file.\nIf you press OK, the manually entered sequences will be treated.')
-		if(ans){valid = true}
-		else{valid = false}}
-	if(seq=="" && fasta_file.files.length === 0){
+	if(seq==""){
 		alert("Please enter a set of sequences or browse a fasta file.");
 		valid = false}
 	else if(seq != "" && !validateFasta(seq)){
@@ -52,34 +47,28 @@ function large_form_submission(){
 function small_form_submission() {
 	var seq =  document.small_annotation_form.sequences.value.trim();
 	var pfam_domains = document.small_annotation_form.pfam_domains.value.trim();
-	var fasta_file = document.small_annotation_form.querySelector("input[name=fasta_file]");
-	
 	var valid = true;
-	if (seq!="" & fasta_file.files.length !== 0){
-		var ans = confirm('You entered sequences manually and browsed a file.\nIf you press OK, the manually entered sequences will be treated.')
-		if(ans){valid = true}
-		else{valid = false}}
-	if((seq!="" || fasta_file.files.length !== 0) && pfam_domains==""){
+	if(seq!="" && pfam_domains==""){
 		alert("Please, enter a list of PFAM domains.")
 		valid = false}
-	else if((seq=="" && fasta_file.files.length === 0) && pfam_domains!=""){
+	else if(seq=="" && pfam_domains!=""){
 		if(!validatePFAM(pfam_domains)){
 			alert("\tPlease:\n-Enter a set of sequences or browse a fasta file\n-Respect the PFAM domain format.")
 			valid = false}
 		else{
 			alert("\tPlease, enter:\n-A set of sequences or browse a fasta file.")
 			valid = false}}
-	else if((seq=="" && fasta_file.files.length === 0) && pfam_domains==""){
+	else if(seq=="" && pfam_domains==""){
 		alert("\tPlease, enter:\n-A set of sequences manually or through a fasta file\n-A list of PFAM domains.")
 		valid = false}
-	else if((seq !="" || fasta_file.files.length !== 0) && pfam_domains!=""){
+	else if(seq !="" && pfam_domains!=""){
 		if(seq != "" && !validateFasta(seq) && !validatePFAM(pfam_domains)){
 			alert("\tPlease, respect:\n-The PFAM domain format\n-The fasta format")
 			valid = false}
 		else if(seq != "" && !validateFasta(seq) && validatePFAM(pfam_domains)){
 			alert("\tPlease, respect:\n-The Fasta format")
 			valid = false}
-		else if(((seq!="" && validateFasta(seq)) || seq =="") && !validatePFAM(pfam_domains)){
+		else if(seq!="" && validateFasta(seq) && !validatePFAM(pfam_domains)){
 			alert("\tPlease, respect:\n-The PFAM domain format")
 			valid = false}
 		}
@@ -88,13 +77,13 @@ function small_form_submission() {
 function fill_exemple_form(form){
 	if(form == 'small'){
 		document.small_annotation_form.pfam_domains.value = "PF00875,PF03441,PF03167,PF12546"
-		fetch('http://localhost/MyCLADE/fasta_file/example.fasta')
+		fetch('http://localhost:8888/MetaCLADE_webserver/MyCLADE/fasta_file/example.fasta')
 		.then(response => response.text())
 		.then((data) => {document.small_annotation_form.sequences.value = data })
 		document.small_annotation_form.action = 'example.php';
 		document.getElementById("pfam_domains").disabled = true;}
 	else{
-		fetch('http://localhost/MyCLADE/fasta_file/example.fasta')
+		fetch('http://localhost:8888/MetaCLADE_webserver/MyCLADE/fasta_file/example.fasta')
 		.then(response => response.text())
 		.then((data) => {document.large_annotation_form.sequences.value = data })
 		document.large_annotation_form.action = 'example.php'}
@@ -161,3 +150,13 @@ function showTooltip(evt, text) {
 function hideTooltip() {
 	var tooltip = document.getElementById("tooltip");
 	tooltip.style.display = "none";}
+
+var fileInput = document.querySelector('#fasta_file');
+fileInput.addEventListener('change', function() {
+    var reader = new FileReader();
+    reader.addEventListener('load', function() {
+		var txt = reader.result
+		document.getElementById('sequences').value = txt;
+	});
+    reader.readAsText(fileInput.files[0]);
+});

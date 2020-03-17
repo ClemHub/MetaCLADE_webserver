@@ -3,13 +3,13 @@
 	<section class = 'tools'>
 	<h2> Annotation of a small sequences dataset against a complete library of probabilistic domain models<br><span id = 'subtitle'>Searching for domains</span></h2>
 	
-		<form name="large_annotation_form" method = "post" action="results_large_annotation.php"  enctype="multipart/form-data" onsubmit="return large_form_submission()">
+		<form name="large_annotation_form" method = "post" action="results_large_annotation.php?form=large"  enctype="multipart/form-data" onsubmit="return large_form_submission()">
 			<fieldset class='form_fs'><legend><h4>Input data:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Be careful to the format, take a look at the example to see the format we are expecting.</span></span></h4></legend>
 			<div class='seq_container'>
 			<label for="sequences">Fasta format sequences:</label><br/>
 			<textarea name="sequences" id = "sequences" rows='10' placeholder="Example:&#10;>SeqID_1&#10;sequence_1&#10;>SeqID_2&#10;sequence_2&#10;" autofocus></textarea><br/>
 			<label for="fasta_file">Or browse a fasta file:</label>
-			<input type="file" id="fasta_file" name="fasta_file"/>
+			<input type="file" id="fasta_file" name="fasta_file""/>
 			</div>
 			</fieldset>
 			
@@ -39,8 +39,8 @@
 			</fieldset>
 			<div id='submission'>
 			<br/>
-			<input type="submit" value="Search" name = "submit"/><input type="reset" value="Reset" onclick="reset_btn('large')"/>
-			<span class='tooltip'><input type="button" value="Example " onclick="fill_exemple_form('large')"/><span class='tooltiptext'>You are going to load an example dataset precalculated. If you modify the parameters it will be considered for the results.</span></span>
+			<input class='btn' type="submit" value="Search" name = "submit"/><input class='btn' type="reset" value="Reset" onclick="reset_btn('large')"/>
+			<span class='tooltip'><input class='btn' type="button" value="Example " onclick="fill_exemple_form('large')"/><span class='tooltiptext'>You are going to load an example dataset precalculated. If you modify the parameters it will be considered for the results.</span></span>
 			</div>			
 		</form>	
 		</section>

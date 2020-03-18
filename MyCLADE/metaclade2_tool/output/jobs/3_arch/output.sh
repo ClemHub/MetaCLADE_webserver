@@ -1,1 +1,0 @@
-python3 /var/www/html/MyCLADE/metaclade2_tool/scripts/simple_arch.py -e 0.001 /var/www/html/MyCLADE/metaclade2_tool/output/results/2_filter /var/www/html/MyCLADE/metaclade2_tool/output/results/3_arch/output.arch.txt

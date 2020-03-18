@@ -1,1 +1,0 @@
-python3 /var/www/html/MyCLADE/metaclade2_tool/scripts/simple_arch.py -e 0.001 /var/www/html/MyCLADE/metaclade2_tool/test/test_withDAMA/results/2_filter /var/www/html/MyCLADE/metaclade2_tool/test/test_withDAMA/results/3_arch/test_withDAMA.arch.txt /var/www/html/MyCLADE/metaclade2_tool/data/pfamLists/pfam32/taxid2name.gz

@@ -1,1 +1,0 @@
-python3 /var/www/html/MyCLADE/metaclade2_tool/scripts/filter_hits.py /var/www/html/MyCLADE/metaclade2_tool/testDataSet/results/1_search/PF03167/PF03167.hmm.res /var/www/html/MyCLADE/metaclade2_tool/testDataSet/results/1_search/PF03167/PF03167.ccms.res /var/www/html/MyCLADE/metaclade2_tool/testDataSet/results/2_filter/PF03167.best.res

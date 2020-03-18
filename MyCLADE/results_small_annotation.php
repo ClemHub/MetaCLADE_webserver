@@ -12,28 +12,7 @@
 	if($dama){
 		$DAMA_evalue = $_SESSION['DAMA-evalue'];}
 	$e_value = $_SESSION['evalue'];
-
-	//File uploading and check up
-	if($sequences == ""){
-		$directory = './fasta_file/';
-		$file = basename($_FILES['fasta_file']['name']);
-		$taille_maxi = 10000000;
-		$taille = filesize($_FILES['fasta_file']['tmp_name']);
-		$extensions = array('.txt', '.fsa', '.fasta', '.fa');
-		$extension = strrchr($_FILES['fasta_file']['name'], '.'); 
-
-		if(!in_array($extension, $extensions))
-			{$erreur = 'We only accept .fsa, .fasta .fa or .txt files.';}
-		if($taille>$taille_maxi)
-			{$erreur = 'The file is too big.';}
-		if(!isset($erreur)){
-			if(move_uploaded_file($_FILES['fasta_file']['tmp_name'], $directory . 'fasta_tmp.fa'))
-				{$data_type = 'File: upload.<br/>';}
-			else
-				{$data_type = 'File: error - not uploaded.<br/>';}}}
-	else{
-}
-
+	
 	/* MetaCLADE program
 	if($dama){./metaclade2/metaclade2 -i ./fasta_file/fasta_temp.fa -N results -d $pfam -W ../ -j 2}
 	else{./metaclade2/metaclade2 -i ./fasta_file/fasta_temp.fa -a -N results -d $pfam -W ../ -j 2}*/
@@ -45,8 +24,8 @@
 		$name_file = 'http://localhost:8888/MetaCLADE_webserver/MyCLADE/metaclade2/output/results/3_arch/test_withoutDAMA.arch.txt';}
 
 	//Reinisialisation of the database and insertion of the new results
-	$username = "blachon";
-	$password = "myclade2020";
+	$username = "blachon"; 
+	$password = "myclade"; 
 	$database = "METACLADE";
 	$db_table = 'MetaCLADE_results';
 	$conn = mysqli_connect("localhost", $username, $password, $database);
@@ -57,13 +36,13 @@
 	$request = $conn->query($sql);
 	
 	results_to_db($conn, $name_file);
+
 	$sql = "SELECT * FROM ". $db_table . " ORDER BY SeqID, Seq_start";
-	echo 'sql:'.$sql;
 	$result = $conn->query($sql);
 	if($result==true){
-		echo 'true';}
+		console.log('Connection to db: success');}
 	else{
-		echo 'Erreur:'.$mysqli->error;}
+		console.log('Erreur:'.$mysqli->error);}
 	//Button that allows the user to download the text files with the results
 	echo "<a id = 'dl_link' href=".$name_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
 	?>

@@ -6,7 +6,7 @@
 	<?php
 	$seq_id = $_GET['id'];
 	echo "<h4> Sequence ID: " . $seq_id . " <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Move your mouse over the colored domain to show more detailed information about it.</span></span></h4>";
-	$username = "root"; 
+	$username = "blachon"; 
 	$password = "myclade"; 
 	$database = "METACLADE"; 
 	$mysqli = new mysqli("localhost", $username, $password, $database);

@@ -26,8 +26,8 @@
 		$name_file = 'http://localhost:8888/MetaCLADE_webserver/MyCLADE/metaclade2/output/results/3_arch/test_withoutDAMA.arch.txt';}
 
 	//Reinitialisation of the database and insertion of the new results
-	$username = "root";
-	$password = "myclade2020";
+	$username = "blachon"; 
+	$password = "myclade"; 
 	$database = "METACLADE";
 	$db_table = 'MetaCLADE_results';
 	$conn = mysqli_connect("localhost", $username, $password, $database);
@@ -40,6 +40,10 @@
 	results_to_db($conn, $name_file);
 	$sql = "SELECT * FROM ". $db_table . " ORDER BY SeqID, Seq_start";
 	$result = $conn->query($sql);
+	if($result==true){
+		console.log('Connection to db: success');}
+	else{
+		console.log('Erreur:'.$mysqli->error);}
 
 	//Button that allows the user to download the text files with the results
 	echo "<a id = 'dl_link' href=".$name_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";

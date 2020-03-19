@@ -3,41 +3,50 @@
 	<section>
 	<h2>Results</h2>
 	<?php
-	
-	//Taking form informations
-	$sequences = $_POST['sequences'];
-	$pfam = $_POST['pfam_domains'];
-	$dama = $_SESSION['dama'];
-	if($dama){
-		$DAMA_evalue = $_SESSION['DAMA-evalue'];}
-	$e_value = $_SESSION['evalue'];
-
-	//Choice of the file according the use of DAMA or not
-	if($dama == 'true'){
-		$name_file = 'http://localhost:8888/MetaCLADE_webserver/MyCLADE/metaclade2/output/results/3_arch/test_withDAMA.arch.txt';}
-	else {
-		$name_file = 'http://localhost:8888/MetaCLADE_webserver/MyCLADE/metaclade2/output/results/3_arch/test_withoutDAMA.arch.txt';}
-
 	//Reinisialisation of the database and insertion of the new results
 	$username = "blachon";
-	$password = "myclade2020";
+	$password = "myclade";
 	$database = "METACLADE";
-	$db_table = 'MetaCLADE_results';
 	$conn = mysqli_connect("localhost", $username, $password, $database);
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);}
 
-	$sql = "DELETE FROM ".$db_table;
-	$request = $conn->query($sql);
-	
-	results_to_db($conn, $name_file);
+	//Taking form informations
+	$form = $_GET['form'];
+	echo $form.'<br>';
+	$sequences = $_POST['sequences'];
+	$dama = $_SESSION['dama'];
+	$e_value = $_SESSION['evalue'];
+	echo 'dama: '.$dama.'<br>';
+	if($form=='small' || $form=='large'){
+		$db_table = 'MetaCLADE_results';
+		if($dama == 'true'){
+			$DAMA_evalue = $_SESSION['DAMA-evalue'];
+			$name_file = 'http://localhost:8888/MetaCLADE_webserver/MyCLADE/metaclade2/output/results/3_arch/test_withDAMA.arch.txt';
+			if($form=='small'){
+				$pfam = $_POST['pfam_domains'];}}
+		else if($dama == 'false'){
+			$name_file = 'http://localhost:8888/MetaCLADE_webserver/MyCLADE/metaclade2/output/results/3_arch/test_withoutDAMA.arch.txt';}
+		echo $db_table.'<br>';
+		echo $name_file.'<br>';
+		$sql = "DELETE FROM ".$db_table;
+		$request = $conn->query($sql);
+		results_to_db($conn, $name_file);
+		}
+	else if($form=='example'){
+		if($dama){
+			$DAMA_evalue = $_SESSION['DAMA-evalue'];
+			$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithDAMA.csv';
+			$db_table = 'Example_withDAMA';}
+		else{
+			$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithoutDAMA.csv';
+			$db_table = 'Example_withoutDAMA';
+		}
+	}
+
 	$sql = "SELECT * FROM ". $db_table . " ORDER BY SeqID, Seq_start";
-	echo 'sql:'.$sql;
 	$result = $conn->query($sql);
-	if($result==true){
-		echo 'true';}
-	else{
-		echo 'Erreur:'.$mysqli->error;}
+
 	//Button that allows the user to download the text files with the results
 	echo "<a id = 'dl_link' href=".$name_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
 	?>
@@ -83,15 +92,16 @@
 				$rowspan = $rowspan->fetch_assoc();
 				echo "<td rowspan=".$rowspan['COUNT(1)']."><a class='table_link' href='architecture.php?id=" . $new_seq_id . "&db=". $db_table . "'>" . $new_seq_id . "</a></td>";
 				$old_seq_id = $new_seq_id;}
-			else{echo '<tr>';}
-			echo "<td>" . $row["Seq_start"] . " - " . $row["Seq_stop"]. "</td>";
-			echo "<td><a class = 'table_link' href=" . $link_id . " target='_blank'>" . $family . "<br>(" . $domain_id . ")</a></td>";
-			//echo "<td>" . $row["ModelID"]. "</td>";
-			echo "<td class='species_name'>" . $row["Model species"]. "</td>";
-			echo "<td>" . $row["e_value"]. "</td>";
-			echo "<td>" . $row["Bitscore"]. "</td>";
-			echo "<td>" . $row["Accuracy"]. "</td></tr>";}
-		echo "</tbody></table>";}
+			else{
+				echo '<tr>';}
+				echo "<td>" . $row["Seq_start"] . " - " . $row["Seq_stop"]. "</td>";
+				echo "<td><a class = 'table_link' href=" . $link_id . " target='_blank'>" . $family . "<br>(" . $domain_id . ")</a></td>";
+				//echo "<td>" . $row["ModelID"]. "</td>";
+				echo "<td class='species_name'>" . $row["Model species"]. "</td>";
+				echo "<td>" . $row["e_value"]. "</td>";
+				echo "<td>" . $row["Bitscore"]. "</td>";
+				echo "<td>" . $row["Accuracy"]. "</td></tr>";}
+				echo "</tbody></table>";}
 	$conn->close();
 	?>
 	</div>

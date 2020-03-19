@@ -285,7 +285,8 @@ div.info input.bouton_info {
 	position: absolute;
 	top: -10px;
 	color: rgb(1, 59, 82);
-	text-transform: uppercase;}
+	text-transform: uppercase;
+	}
 
 div.info div.contenu_info {
 	display: none;}

@@ -3,7 +3,7 @@
 	<section class = 'tools'>
 	<h2> Annotation of a small sequences dataset against a complete library of probabilistic domain models<br><span id = 'subtitle'>Searching for domains</span></h2>
 	
-		<form name="large_annotation_form" method = "post" action="results_large_annotation.php?form=large"  enctype="multipart/form-data" onsubmit="return large_form_submission()">
+		<form name="large_annotation_form" method = "post" action="results.php?form=large"  enctype="multipart/form-data" onsubmit="return large_form_submission()">
 			<fieldset class='form_fs'><legend><h4>Input data:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Be careful to the format, take a look at the example to see the format we are expecting.</span></span></h4></legend>
 			<div class='seq_container'>
 			<label for="sequences">Fasta format sequences:</label><br/>

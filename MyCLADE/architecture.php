@@ -2,6 +2,7 @@
 <?php include("./includes/menu.php"); ?>
 
 	<section id = 'contact'>
+	<div id='architecture'>
 	<h2> Architecture </h2>
 	<?php
 	$seq_id = $_GET['id'];
@@ -16,6 +17,7 @@
 	$database = $_GET['db'];
 	$sql = "SELECT * FROM ". $database ." WHERE SeqID='".$seq_id."'";
 	$result = mysqli_query($mysqli, $sql);
+	$pfam_list = array();
 	echo "<svg height='40' width='100%' style='border:1px dashed #ccc' overflow='scroll'>";
 	if (mysqli_num_rows($result) > 0) {
 		while($row = mysqli_fetch_assoc($result)) {
@@ -23,6 +25,7 @@
 			$start = $row['Seq_start'];
 			$stop = $row['Seq_stop'];
 			$pfam = $row['DomainID'];
+			array_push($pfam_list, $pfam);
 			$sql = "SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'";
 			$result2 = mysqli_query($mysqli, $sql);
 			$row2 = mysqli_fetch_assoc($result2);
@@ -53,8 +56,52 @@
 	echo "<text x=80.1% y='25' fill='black'>". round(4*($length/5)) ."</text><line x1=80% y1='0' x2=80% y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
 
 	echo "<text x='98%' y='25' fill='black'>".$length."</text><line x1='99.9%' y1='0' x2='99.9%' y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/></svg>";
-
+	?>
+	</div>
+	<div class='info'>
+	<input type='button' class='bouton_info' value='GO Terms:' onclick='close_open_info(this);' />
+	<div class='contenu_info'>
+	<div class='table_container'>
+	<table>
+	<thead>
+		<tr>
+		<th class='table_header'>Domain ID</th>
+		<th class='table_header'>Family</th>
+		<th class='table_header'>GO Terms</th>
+		</tr>
+	</thead>
+	<?php
+	$pfam_list=array('PF00001', 'PF00004', 'PF03441');
+	$old_pfam = '';
+	foreach($pfam_list as $pfam){
+		echo '<tbody>';
+		$request = "SELECT * FROM GO_terms WHERE Domain='" . $pfam . "'";
+		$rowspan = $mysqli->query($request);
+		$nb = mysqli_num_rows($rowspan);
+		echo "<tr><td rowspan=".$nb.">".$pfam."</td>";
+		if ($nb > 0) {
+			$i = 0;
+			while($row = mysqli_fetch_assoc($rowspan)){
+				if($i==0){
+					echo "<td rowspan=".$nb.">".$row['Family']."</td>";}
+				echo "<td>" . $row['GO_term'] . '</td></tr>';
+				$i++;
+			}}
+		else if (mysqli_num_rows($rowspan) == 0){
+			$sql = "SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'";
+			$result2 = mysqli_query($mysqli, $sql);
+			$row2 = mysqli_fetch_assoc($result2);
+			echo "<td>".$row2['Family']."</td>";
+			echo "<td>Not available</td></tr>";
+		}
+		echo '</tbody>';
+		
+	}
+	echo '</table>';
 	$mysqli -> close();
 	?>
+	</div>
+	</div>
+	</div>
 	</section>
 <?php include("./includes/footer.php"); ?>

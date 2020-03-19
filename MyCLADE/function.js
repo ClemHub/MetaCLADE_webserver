@@ -80,13 +80,13 @@ function fill_exemple_form(form){
 		fetch('http://localhost:8888/MetaCLADE_webserver/MyCLADE/fasta_file/example.fasta')
 		.then(response => response.text())
 		.then((data) => {document.small_annotation_form.sequences.value = data })
-		document.small_annotation_form.action = 'example.php';
+		document.small_annotation_form.action = 'results.php?form=example';
 		document.getElementById("pfam_domains").disabled = true;}
 	else{
 		fetch('http://localhost:8888/MetaCLADE_webserver/MyCLADE/fasta_file/example.fasta')
 		.then(response => response.text())
 		.then((data) => {document.large_annotation_form.sequences.value = data })
-		document.large_annotation_form.action = 'example.php'}
+		document.large_annotation_form.action = 'results.php?form=example'}
 	document.getElementById("dama_evalue_nb").value = 1e-10;
 	document.getElementById("dama_evalue_range").value = 1e-10;
 	document.getElementById("dama_evalue_nb").disabled = true;
@@ -99,11 +99,11 @@ function fill_exemple_form(form){
 
 function reset_btn(form){
 	if(form == 'small'){
-		document.small_annotation_form.action = 'results_small_annotation.php';
+		document.small_annotation_form.action = 'results.php?form=small';
 		document.getElementById("pfam_domains").disabled = false;
 	}
 	else{
-		document.large_annotation_form.action = 'results_large_annotation.php';
+		document.large_annotation_form.action = 'results.php?form=large';
 	}
 	document.getElementById("sequences").disabled = false;
 	

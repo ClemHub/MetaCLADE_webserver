@@ -5,7 +5,7 @@
 
 			<a href="http://www.lcqb.upmc.fr/" target="_blank"><img id="LCQB-logo" class="img-responsive" src="http://localhost:8888/MetaCLADE_webserver/server_images/LCQB-logo.jpg" alt="" style="height: 90%; "></a>
 
-			<a href="http://iscd.sorbonne-universite.fr/" target="_blank"><img id="ISCD-logo" class="img-responsive" src="http://localhost:8888/MetaCLADE_webserver/server_images/logoRouge_2018.png" alt="" style="height: 90%; width:400px"></a>
+			<a href="http://iscd.sorbonne-universite.fr/" target="_blank"><img id="ISCD-logo" class="img-responsive" src="http://localhost:8888/MetaCLADE_webserver/server_images/ISCD-logo.png" alt="" style="height: 90%; width:400px"></a>
 
 	</footer>
 	<script src="function.js"></script>

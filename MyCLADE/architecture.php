@@ -25,7 +25,6 @@
 			$start = $row['Seq_start'];
 			$stop = $row['Seq_stop'];
 			$pfam = $row['DomainID'];
-			array_push($pfam_list, $pfam);
 			$sql = "SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'";
 			$result2 = mysqli_query($mysqli, $sql);
 			$row2 = mysqli_fetch_assoc($result2);
@@ -34,10 +33,12 @@
 			$scaled_start = ($start*100)/$length;
 			$scaled_stop = ($stop*100)/$length;
 			$color = sprintf('#%06X', mt_rand(0, 0xFFFFFF));
-			echo "<g><a xlink:href='http://pfam.xfam.org/family/".$pfam."' target='_blank'><rect x='".$scaled_start."%' y='5' width='". $width ."%' height='30' style=' fill:".$color."; fill-opacity:0.7;stroke-width:1;stroke:;'><title>PFAM Acc Number: ".$pfam."\nFamily: ".$row2['Family']."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nClan Acc Number: ".$row2['Clan_acc_nb']."\nClan: ".$row2['Clan']."\n\nModel species: ".$row['Model species']."\nE-value: ".$row['e_value']."\nBitscore: ".$row['Bitscore']."\nAccuracy: ".$row['Accuracy']."</title></rect>";
-			echo "<text class='pfam_link' x='". $scaled_start ."%' y='25' font-size='15' fill='black'>".$pfam."</text></a></g>";
-
+			echo "<g><a xlink:href='http://pfam.xfam.org/family/".$pfam."' target='_blank'><rect x='".$scaled_start."%' y='5' width='". $width ."%' height='30' style=' fill:".$color."; fill-opacity:0.7; stroke-width:1; stroke:3'>";
+			echo "<title>PFAM Acc Number: ".$pfam."\nFamily: ".$row2['Family']."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nClan Acc Number: ".$row2['Clan_acc_nb']."\nClan: ".$row2['Clan']."\n\nModel species: ".$row['Model species']."\nE-value: ".$row['e_value']."\nBitscore: ".$row['Bitscore']."\nAccuracy: ".$row['Accuracy']."</title></rect>";
+			echo "<text x='". $scaled_start ."%' y='25' style='font-size:15px; font-size-adjust: 0.5; fill:white; font-weight:bold; mix-blend-mode: exclusion;' >".$pfam."</text></a></g>";
+			$pfam_list[$pfam]=$row['e_value'];
 		}
+	
 	} else {
 		echo "0 results";
 	}
@@ -68,12 +69,12 @@
 		<th class='table_header'>Domain ID</th>
 		<th class='table_header'>Family</th>
 		<th class='table_header'>GO Terms</th>
+		<th class='table_header'>E-value</th>
 		</tr>
 	</thead>
 	<?php
-	$pfam_list=array('PF00001', 'PF00004', 'PF03441');
-	$old_pfam = '';
-	foreach($pfam_list as $pfam){
+	//$pfam_list=array('PF00001', 'PF00004', 'PF03441');
+	foreach($pfam_list as $pfam => $evalue){
 		echo '<tbody>';
 		$request = "SELECT * FROM GO_terms WHERE Domain='" . $pfam . "'";
 		$rowspan = $mysqli->query($request);
@@ -84,7 +85,8 @@
 			while($row = mysqli_fetch_assoc($rowspan)){
 				if($i==0){
 					echo "<td rowspan=".$nb.">".$row['Family']."</td>";}
-				echo "<td>" . $row['GO_term'] . '</td></tr>';
+				echo "<td>" . $row['GO_term'] . '</td>';
+				echo "<td>".$evalue."</td></tr>";
 				$i++;
 			}}
 		else if (mysqli_num_rows($rowspan) == 0){
@@ -92,12 +94,14 @@
 			$result2 = mysqli_query($mysqli, $sql);
 			$row2 = mysqli_fetch_assoc($result2);
 			echo "<td>".$row2['Family']."</td>";
-			echo "<td>Not available</td></tr>";
+			echo "<td>Not available</td>";
+			echo "<td>".$evalue."</td></tr>";
 		}
 		echo '</tbody>';
 		
 	}
 	echo '</table>';
+	print_r($pfam_list2);
 	$mysqli -> close();
 	?>
 	</div>

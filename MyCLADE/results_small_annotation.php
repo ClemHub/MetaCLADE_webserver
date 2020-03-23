@@ -1,8 +1,10 @@
-<?php include("./includes/cookies.php"); ?>
-<?php include("./includes/header.php"); ?>
-	<section>
-	<h2>Results</h2>
-	<?php
+<?php 
+include("./includes/cookies.php");
+include("./includes/header.php"); 
+
+	echo "<section>";
+	echo "<h2>Results</h2>";
+
 	
 	//Taking form informations
 	$sequences = $_POST['sequences'];

@@ -96,6 +96,7 @@ function fill_exemple_form(form){
 	document.getElementById("evalue_nb").value = 1e-3;
 	document.getElementById("evalue_range").value = 1e-3;
 	document.getElementById("evalue_nb").disabled = true;
+	document.getElementById("email").disabled = true;
 	document.getElementById("evalue_range").disabled = true;
 	document.getElementById("sequences").disabled = true;}
 
@@ -113,6 +114,7 @@ function reset_btn(form){
 	document.getElementById("evalue_range").disabled = false;
 	document.getElementById("dama_evalue_nb").disabled = false;
 	document.getElementById("dama_evalue_range").disabled = false;
+	document.getElementById("email").disabled = false;
 	document.getElementById("show_dama").style.display = "none";}
 
 function nav_function() {

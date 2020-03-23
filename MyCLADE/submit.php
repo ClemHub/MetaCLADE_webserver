@@ -1,3 +1,4 @@
+<?php include("./includes/cookies.php"); ?>
 <?php include("./includes/header.php"); ?>
 
 	<section id='Submission'>
@@ -5,6 +6,7 @@
     <h3>This server is a multi-source domain annotation for quantitative <em>metagenomic and metatranscriptomic</em> functional profiling.</h3>
 		<p class = 'text'>
 		<?php 
+
 		/*if($_GET['form']=='large'){
 				$sequences = $_POST['sequences'];
 				file_put_contents('./fasta_file/fasta_tmp.fa', $sequences);
@@ -34,12 +36,22 @@
 				else{./metaclade2/metaclade2 -i ./fasta_file/fasta_temp.fa -a -N results -d $pfam -W ../ -j 2}
 
 		} */
+
+		$jobid = generateRandomString();
+
+		$msg=submit($jobid, $email);
+
+		$email = $_POST['email']; //email is a field with the email of the user. If you don't have, just remove this piece of code
+		if($email){                                                                                                                                                                        
+		$mail_header= "Subject: $appname queued ( $jobid )\n";
+		$mail_header= $mail_header . "Content-Type: text/html\n";
+		$mail_header= $mail_header . "MIME-Version:\n";
+		$mail= $mail_header . "\n".$msg;
+		sendMail($mail, "no-reply@lcqb.upmc.fr", $email);
+		};
+
+		header("location: $hostname/$appname/status.php?jobid=$jobid&email=$email");
 		?>
-		Biochemical and regulatory pathways have until recently been thought and modelled within one cell type, one organism, one species. This vision is being dramatically changed by the advent of whole microbiome sequencing studies, revealing the role of symbiotic microbial populations in fundamental biochemical functions. The new landscape we face requires the reconstruction of biochemical and regulatory pathways at the community level in a given environment. In order to understand how environmental factors affect the genetic material and the dynamics of the expression from one environment to another, one wishes to quantitatively relate genetic information with these factors. For this, we need to be as precise as possible in evaluating the quantity of gene protein sequences or transcripts associated to a given pathway. We wish to estimate the precise abundance of protein domains, but also recognise their weak presence or absence.
-		</p>
-		<p>
-		We introduce MetaCLADE2, and improved profile-based domain annotation pipeline based on the multi-source domain annotation strategy. It provides a domain annotation realised directly from reads, and reaches an improved identification of the catalog of functions in a microbiome. MetaCLADE2 can be applied to either metagenomic or metatranscriptomic datasets as well as proteomes.
-		</p>
 	</section>
 
 

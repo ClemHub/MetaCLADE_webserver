@@ -42,6 +42,12 @@
 				<span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>The default value is set to 1e<sup>-10</sup>, we advice you to avoid an e-value higher than 1e<sup>-5</sup>.<br/> Results with an e-value superior to or equal to one will we filtered automatically.</span></span>
 			</div>
 			</fieldset>
+			<fieldset class='form_fs'><legend><h4>E-mail adress:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>It is optionnal and would be use to send you your job details.</span></span></h4></legend>
+
+			<div id = 'email_address'>
+			<input type="email" id="email" pattern=".+@.+\..+" placeholder = 'Your email address (qptionnal)'>
+			</div>
+			</fieldset>
 			<div id='submission'>
 			<br/>
 			<input class='btn' type="submit" value="Search" name = "submit"/><input class='btn' type="reset" value="Reset" onclick="reset_btn('small')"/>

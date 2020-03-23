@@ -22,11 +22,13 @@
 		$db_table = 'MetaCLADE_results';
 		if($dama == 'true'){
 			$DAMA_evalue = $_SESSION['DAMA-evalue'];
-			$name_file = 'http://localhost:8888/MetaCLADE_webserver/MyCLADE/metaclade2/output/results/3_arch/test_withDAMA.arch.txt';
+			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/MyCLADE/metaclade2/output/results/3_arch/test_withDAMA.arch.txt';
+			$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/metaclade2/output/results/3_arch/test_withDAMA.arch.txt';
 			if($form=='small'){
 				$pfam = $_POST['pfam_domains'];}}
 		else if($dama == 'false'){
-			$name_file = 'http://localhost:8888/MetaCLADE_webserver/MyCLADE/metaclade2/output/results/3_arch/test_withoutDAMA.arch.txt';}
+			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/MyCLADE/metaclade2/output/results/3_arch/test_withoutDAMA.arch.txt';}
+			$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/metaclade2/output/results/3_arch/test_withoutDAMA.arch.txt';}
 		echo $db_table.'<br>';
 		echo $name_file.'<br>';
 		$sql = "DELETE FROM ".$db_table;
@@ -36,10 +38,12 @@
 	else if($form=='example'){
 		if($dama){
 			$DAMA_evalue = $_SESSION['DAMA-evalue'];
-			$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithDAMA.csv';
+			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithDAMA.csv';
+			$name_file = 'http://localhost/MetaCLADE_webserver/data/examplewithDAMA.csv';
 			$db_table = 'Example_withDAMA';}
 		else{
-			$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithoutDAMA.csv';
+			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithoutDAMA.csv';
+			$name_file = 'http://localhost/MetaCLADE_webserver/data/examplewithoutDAMA.csv';
 			$db_table = 'Example_withoutDAMA';
 		}
 	}

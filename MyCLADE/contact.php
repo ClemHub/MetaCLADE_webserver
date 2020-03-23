@@ -6,7 +6,8 @@
 
 	<div id='contact_container'>
 		<fieldset class = 'contact_fs'><legend class = "contact_title">Alessandra Carbonne</legend>
-		<img id="AC" class="contact_img" src="http://localhost:8888/MetaCLADE_webserver/server_images/AC-picture.png" alt="" >
+		<!-- <img id="AC" class="contact_img" src="http://localhost:8888/MetaCLADE_webserver/server_images/AC-picture.png" alt="" > -->
+		<img id="AC" class="contact_img" src="http://localhost/MetaCLADE_webserver/server_images/AC-picture.png" alt="" >
 		<p class="contact_descr">
 		PI - Analytical Genomics
 		</p>
@@ -21,7 +22,8 @@
 		</fieldset>
 
 		<fieldset class = 'contact_fs'><legend class = "contact_title">Riccardo Vicedomini</legend>
-		<img id="RV" class="contact_img" src="http://localhost:8888/MetaCLADE_webserver/server_images/AC-picture.png" alt="" >
+		<!-- <img id="AC" class="contact_img" src="http://localhost:8888/MetaCLADE_webserver/server_images/AC-picture.png" alt="" > -->
+		<img id="RV" class="contact_img" src="http://localhost/MetaCLADE_webserver/server_images/AC-picture.png" alt="" >
 		<p class="contact_descr">
 		PI - Analytical Genomics
 		</p>
@@ -36,7 +38,8 @@
 		</fieldset>
 
 		<fieldset class = 'contact_fs'><legend class = "contact_title">Personne 3</legend>
-		<img id="P3" class="contact_img" src="http://localhost:8888/MetaCLADE_webserver/server_images/AC-picture.png" alt="" >
+		<!-- <img id="P3" class="contact_img" src="http://localhost:8888/MetaCLADE_webserver/server_images/AC-picture.png" alt="" > -->
+		<img id="AC" class="contact_img" src="http://localhost/MetaCLADE_webserver/server_images/AC-picture.png" alt="" >
 		<p class="contact_descr">
 		PI - Analytical Genomics
 		</p>
@@ -51,7 +54,8 @@
 		</fieldset>
 
 		<fieldset class = 'contact_fs'><legend class = "contact_title">Personne 4</legend>
-		<img id="P4" class="contact_img" src="http://localhost:8888/MetaCLADE_webserver/server_images/AC-picture.png" alt="" >
+		<!-- <img id="P4" class="contact_img" src="http://localhost:8888/MetaCLADE_webserver/server_images/AC-picture.png" alt="" > -->
+		<img id="AC" class="contact_img" src="http://localhost/MetaCLADE_webserver/server_images/AC-picture.png" alt="" >
 		<p class="contact_descr">
 		PI - Analytical Genomics
 		</p>
@@ -66,7 +70,8 @@
 		</fieldset>
 
 		<fieldset class = 'contact_fs'><legend class = "contact_title">Personne 5</legend>
-		<img id="P5" class="contact_img" src="http://localhost:8888/MetaCLADE_webserver/server_images/AC-picture.png" alt="" >
+		<!-- <img id="P5" class="contact_img" src="http://localhost:8888/MetaCLADE_webserver/server_images/AC-picture.png" alt="" > -->
+		<img id="AC" class="contact_img" src="http://localhost/MetaCLADE_webserver/server_images/AC-picture.png" alt="" >
 		<p class="contact_descr">
 		PI - Analytical Genomics
 		</p>

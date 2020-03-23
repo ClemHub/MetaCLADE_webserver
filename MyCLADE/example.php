@@ -7,10 +7,12 @@
 	$dama = $_SESSION['dama'];
 	if($dama == 'true'){
 		$DAMA_evalue = '1e<sup>-10</sup>';
-		$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithDAMA.csv';
+		//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithDAMA.csv';
+		$name_file = 'http://localhost/MetaCLADE_webserver/data/examplewithDAMA.csv';
 		$db_table = 'Example_withDAMA';}
 	else {
-		$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithoutDAMA.csv';
+		//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithoutDAMA.csv';
+		$name_file = 'http://localhost/MetaCLADE_webserver/data/examplewithoutDAMA.csv';
 		$db_table = 'Example_withoutDAMA';}
 	$e_value = '1e<sup>-3</sup>';
 	$username = "blachon"; 

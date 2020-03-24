@@ -113,7 +113,7 @@
 	<div class='info'>
 	<input type='button' class='bouton_info' value='Info' onclick='close_open_info(this);' />
 	<div class='contenu_info'>
-	Parameters of the test:
+	<h4>Parameters of the test:</h4>
 	<?php
 	echo 'The MetaCLADE e-value applied: ' . $e_value . '<br>';
 	if($dama == 'true'){

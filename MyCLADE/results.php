@@ -3,6 +3,16 @@
 	<section>
 	<h2>Results</h2>
 	<?php
+
+	function results_to_db($conn, $name_file){
+		$file = file($name_file);
+		foreach($file as $row){
+			$row = preg_split("/\t/", $row);
+			$sql = "INSERT INTO MetaCLADE_results VALUES ('$row[0]', $row[1], $row[2], $row[3], '$row[4]', '$row[5]', $row[6], $row[7], $row[8], $row[9], $row[10], $row[11], '$row[12]')";
+			$request = $conn->query($sql);}
+			if(!request){
+				echo("Error description: " . $mysqli -> error);}};
+
 	//Reinisialisation of the database and insertion of the new results
 	$username = "blachon";
 	$password = "myclade";
@@ -13,41 +23,30 @@
 
 	//Taking form informations
 	$form = $_GET['form'];
-	echo $form.'<br>';
 	$sequences = $_POST['sequences'];
 	$dama = $_SESSION['dama'];
-	$e_value = $_SESSION['evalue'];
-	echo 'dama: '.$dama.'<br>';
 	if($form=='small' || $form=='large'){
+		$e_value = $_SESSION['evalue'];
 		$db_table = 'MetaCLADE_results';
+		$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/jobs/ID1/testDataSet/results/3_arch/testDataSet.arch.txt';
 		if($dama == 'true'){
 			$DAMA_evalue = $_SESSION['DAMA-evalue'];
-			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/MyCLADE/metaclade2/output/results/3_arch/test_withDAMA.arch.txt';
-			$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/metaclade2/output/results/3_arch/test_withDAMA.arch.txt';
 			if($form=='small'){
 				$pfam = $_POST['pfam_domains'];}}
-		else if($dama == 'false'){
-			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/MyCLADE/metaclade2/output/results/3_arch/test_withoutDAMA.arch.txt';}
-			$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/metaclade2/output/results/3_arch/test_withoutDAMA.arch.txt';}
-		echo $db_table.'<br>';
-		echo $name_file.'<br>';
 		$sql = "DELETE FROM ".$db_table;
 		$request = $conn->query($sql);
-		results_to_db($conn, $name_file);
-		}
+		results_to_db($conn, $name_file);}
 	else if($form=='example'){
-		if($dama){
-			$DAMA_evalue = $_SESSION['DAMA-evalue'];
+		$e_value = 0.001;
+		if($dama == 'true'){
+			$DAMA_evalue = 1e-10;
 			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithDAMA.csv';
-			$name_file = 'http://localhost/MetaCLADE_webserver/data/examplewithDAMA.csv';
+			$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
 			$db_table = 'Example_withDAMA';}
-		else{
+		else if($dama == 'false'){
 			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithoutDAMA.csv';
-			$name_file = 'http://localhost/MetaCLADE_webserver/data/examplewithoutDAMA.csv';
-			$db_table = 'Example_withoutDAMA';
-		}
-	}
-
+			$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
+			$db_table = 'Example_withoutDAMA';}}
 	$sql = "SELECT * FROM ". $db_table . " ORDER BY SeqID, Seq_start";
 	$result = $conn->query($sql);
 

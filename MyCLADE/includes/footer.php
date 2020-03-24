@@ -17,7 +17,7 @@
 			<a href="http://iscd.sorbonne-universite.fr/" target="_blank"><img id="ISCD-logo" class="img-responsive" src="http://localhost/MetaCLADE_webserver/server_images/ISCD-logo.png" alt="" style="height: 90%; width:400px"></a>
 
 	</footer>
-	<script src="function.js"></script>
+	<script src="./includes/function.js"></script>
 </div>
 </body>
 </html>

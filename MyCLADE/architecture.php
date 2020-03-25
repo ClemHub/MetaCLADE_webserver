@@ -63,7 +63,7 @@
 	?>
 	</div>
 	<div class='info'>
-	<input type='button' class='bouton_info' value='GO Terms:' onclick='close_open_info(this);' />
+	<input type='button' class='bouton_info' value='GO Terms and results informations:' onclick='close_open_info(this);' />
 	<div class='contenu_info'>
 	<div class='table_container' id='architecture'>
 	<table>

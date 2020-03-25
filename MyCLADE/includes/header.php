@@ -1,7 +1,8 @@
 <?php
-include 'http://localhost/MetaCLADE_webserver/MyCLADE/includes/configure.php';
-include 'http://localhost/MetaCLADE_webserver/MyCLADE/includes/logfunctions.php';
-include 'http://localhost/MetaCLADE_webserver/MyCLADE/includes/functions.php';
+include("./includes/cookies.php");
+include('./includes/configure.php');
+include('./includes/logfunctions.php');
+include('./includes/functions.php');
 ?>
 
 <!DOCTYPE html>

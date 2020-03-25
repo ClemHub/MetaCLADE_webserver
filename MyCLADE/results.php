@@ -1,17 +1,11 @@
-<?php include("./includes/cookies.php"); ?>
-<?php include("./includes/header.php"); ?>
+<?php
+include("./includes/header.php");
+?>
 	<section>
 	<h2>Results</h2>
 	<?php
 
-	function results_to_db($conn, $name_file){
-		$file = file($name_file);
-		foreach($file as $row){
-			$row = preg_split("/\t/", $row);
-			$sql = "INSERT INTO MetaCLADE_results VALUES ('$row[0]', $row[1], $row[2], $row[3], '$row[4]', '$row[5]', $row[6], $row[7], $row[8], $row[9], $row[10], $row[11], '$row[12]')";
-			$request = $conn->query($sql);}
-			if(!request){
-				echo("Error description: " . $mysqli -> error);}};
+
 
 	//Reinisialisation of the database and insertion of the new results
 	$username = "blachon";
@@ -36,7 +30,7 @@
 		$sql = "DELETE FROM ".$db_table;
 		$request = $conn->query($sql);
 		results_to_db($conn, $name_file);}
-	else if($form=='example'){
+	else if($form=='small_example' || $form=='large_example'){
 		$e_value = 0.001;
 		if($dama == 'true'){
 			$DAMA_evalue = 1e-10;
@@ -115,6 +109,18 @@
 	<div class='contenu_info'>
 	<h4>Parameters of the test:</h4>
 	<?php
+	if($form == 'small'){
+		echo 'Only the domains ID you gave in input was searched into the sequences.<br>';
+	}
+	else if($form == 'large'){
+		echo 'All the domain library was used to analyse the sequences entered.<br>';
+	}
+	else if($form == 'small_example'){
+		echo 'Only the domains ID gave as an example was used to treat our test data set.<br>';
+	}
+	else if($form == 'large_example'){
+		echo 'All the domain of the library was used to treat our test data set.<br>';
+	}
 	echo 'The MetaCLADE e-value applied: ' . $e_value . '<br>';
 	if($dama == 'true'){
 		echo 'You choose to use DAMA to your dataset with a cut-off e-value equal to: ' . $DAMA_evalue;}

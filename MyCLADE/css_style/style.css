@@ -292,7 +292,8 @@ div.info div.contenu_info {
 	display: none;}
 
 .contenu_info{
-	width: 50%;
+	width: auto;
+	padding: 15px;
 	margin-left: 30px;
 	box-shadow: 0 4px 8px 0 rgba(88, 88, 88, 0.486);}
 

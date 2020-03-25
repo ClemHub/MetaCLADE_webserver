@@ -18,6 +18,7 @@
 	$sql = "SELECT * FROM ". $database ." WHERE SeqID='".$seq_id."'";
 	$result = mysqli_query($mysqli, $sql);
 	$pfam_list = array();
+	$test = array();
 	echo "<svg height='40' width='100%' style='border:1px dashed #ccc' overflow='scroll'>";
 	if (mysqli_num_rows($result) > 0) {
 		while($row = mysqli_fetch_assoc($result)) {
@@ -37,6 +38,7 @@
 			echo "<title>PFAM Acc Number: ".$pfam."\nFamily: ".$row2['Family']."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nClan Acc Number: ".$row2['Clan_acc_nb']."\nClan: ".$row2['Clan']."\n\nModel species: ".$row['Model species']."\nE-value: ".$row['e_value']."\nBitscore: ".$row['Bitscore']."\nAccuracy: ".$row['Accuracy']."</title></rect>";
 			echo "<text x='". $scaled_start ."%' y='25' style='font-size:15px; font-size-adjust: 0.5; fill:white; font-weight:bold; mix-blend-mode: exclusion;' >".$pfam."</text></a></g>";
 			$pfam_list[$pfam]=$row['e_value'];
+			$test[$pfam]=$row;
 		}
 	
 	} else {
@@ -57,51 +59,64 @@
 	echo "<text x=80.1% y='25' fill='black'>". round(4*($length/5)) ."</text><line x1=80% y1='0' x2=80% y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
 
 	echo "<text x='98%' y='25' fill='black'>".$length."</text><line x1='99.9%' y1='0' x2='99.9%' y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/></svg>";
+
 	?>
 	</div>
 	<div class='info'>
 	<input type='button' class='bouton_info' value='GO Terms:' onclick='close_open_info(this);' />
 	<div class='contenu_info'>
-	<div class='table_container'>
+	<div class='table_container' id='architecture'>
 	<table>
 	<thead>
 		<tr>
 		<th class='table_header'>Domain ID</th>
 		<th class='table_header'>Family</th>
+		<th class='table_header'>Domain position<br>along the sequence</th>
+		<!--<th class='table_header'>Model Id</th>-->
+		<th class='table_header'>Model species</th>		
+		<th class='table_header'>E-Value</th>
+		<th class='table_header'>Bitscore</th>
+		<th class='table_header'>Accuracy</th>
 		<th class='table_header'>GO Terms</th>
-		<th class='table_header'>E-value</th>
 		</tr>
 	</thead>
+	
 	<?php
-	//$pfam_list=array('PF00001', 'PF00004', 'PF03441');
-	foreach($pfam_list as $pfam => $evalue){
+	$test=Array('PF00001 ' => Array('SeqID' => 'tr|A0A072NB93|A0A072NB93_9DEIO', 'Seq_start' => 591, 'Seq_stop' => 753, 'Seq_length' => 766, 'DomainID' => 'PF00001', 'ModelID' => 'A0A0G0AUB5_9BACT_52-217', 'Model_start' => 1, 'Model_stop' => 162, 'Model_size' => 163, 'e_value' => 5.6e-75, 'Bitscore' => 238.8, 'Accuracy' => 0.99, 'Model species' => 'Candidatus Roizmanbacteria bacterium GW2011_GWC2_34_23'), 'PF00004' => Array ( 'SeqID' => 'tr|A0A072NB93|A0A072NB93_9DEIO', 'Seq_start' => 12, 'Seq_stop' => 141, 'Seq_length' => 766, 'DomainID' => 'PF00004', 'ModelID' => 'A6FVP5_9RHOB_1-137', 'Model_start' => 1, 'Model_stop' => 129, 'Model_size' => 130, 'e_value' => 8.2e-36, 'Bitscore' => 111.3, 'Accuracy' => 0.97, 'Model species' => 'Roseobacter sp. AzwK-3b'), 'PF03441' => Array ( 'SeqID' => 'tr|A0A072NB93|A0A072NB93_9DEIO', 'Seq_start' => 314, 'Seq_stop' => 465, 'Seq_length' => 766, 'DomainID' => 'PF03441', 'ModelID' => 'F3L3D9_9GAMM_269-463', 'Model_start' => 4, 'Model_stop' => 153, 'Model_size' => 155, 'e_value' => 6.2e-49, 'Bitscore' => 153.4, 'Accuracy' => 0.94, 'Model species' => 'Halieaceae bacterium IMCC3088'));
+
+	foreach($test as $pfam => $data){
 		echo '<tbody>';
+		$link_id = 'http://pfam.xfam.org/family/' . $pfam;
 		$request = "SELECT * FROM GO_terms WHERE Domain='" . $pfam . "'";
 		$rowspan = $mysqli->query($request);
 		$nb = mysqli_num_rows($rowspan);
-		echo "<tr><td rowspan=".$nb.">".$pfam."</td>";
+		echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
 		if ($nb > 0) {
 			$i = 0;
 			while($row = mysqli_fetch_assoc($rowspan)){
 				if($i==0){
-					echo "<td rowspan=".$nb.">".$row['Family']."</td>";}
-				echo "<td>" . $row['GO_term'] . '</td>';
-				echo "<td>".$evalue."</td></tr>";
+					echo "<td rowspan=".$nb.">" . $row['Family']."</td>";
+					echo "<td rowspan=".$nb.">" . $data["Seq_start"] . " - " . $data["Seq_stop"]. "</td>";
+					echo "<td rowspan=".$nb." class='species_name'>" . $data["Model species"]. "</td>";
+					echo "<td rowspan=".$nb.">".$data['e_value']."</td>";
+					echo "<td rowspan=".$nb.">" . $data["Bitscore"]. "</td>";
+					echo "<td rowspan=".$nb.">" . $data["Accuracy"]. "</td>";}
+				echo "<td>" . $row['GO_term'] . '</td></tr>';
 				$i++;
 			}}
-		else if (mysqli_num_rows($rowspan) == 0){
+		else if ($nb == 0){
 			$sql = "SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'";
 			$result2 = mysqli_query($mysqli, $sql);
 			$row2 = mysqli_fetch_assoc($result2);
-			echo "<td>".$row2['Family']."</td>";
-			echo "<td>Not available</td>";
-			echo "<td>".$evalue."</td></tr>";
-		}
-		echo '</tbody>';
-		
-	}
+			echo "<td rowspan=".$nb.">" . $row2['Family']."</td>";
+			echo "<td>" . $data["Seq_start"] . " - " . $data["Seq_stop"]. "</td>";
+			echo "<td class='species_name'>" . $data["Model species"]. "</td>";
+			echo "<td>".$data['e_value']."</td>";
+			echo "<td>" . $data["Bitscore"]. "</td>";
+			echo "<td>" . $data["Accuracy"]. "</td>";
+			echo "<td>Not available</td></tr>";}
+		echo '</tbody>';}
 	echo '</table>';
-	print_r($pfam_list2);
 	$mysqli -> close();
 	?>
 	</div>

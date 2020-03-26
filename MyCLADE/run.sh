@@ -17,6 +17,14 @@
 #trap before_exit EXIT
 
 #if you have the user email, send a notification about the beginning of the job
+MCLADE_LIB_PATH=""
+MCLADE_EVALUECUTOFF=1e-3
+MCLADE_EVALUECUTCONF=1e-10
+MCLADE_USEDAMA=false
+MCLADE_USESGE=false
+MCLADE_WORKDIR=${PWD}
+NTHREADS=1
+NJOBS=16
 
 opts="i:N:ad:D:e:E:W:t:j:hV"
 longopts="input:,name:,arch,domain-list:,domain-file:,evalue-cutoff:,evalue-cutconf:,work-dir,threads:,jobs:,help,version,sge,pe:,queue:,time-limit:"

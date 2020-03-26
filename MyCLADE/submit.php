@@ -18,30 +18,32 @@ include("./includes/header.php");
 			return $randomString;};
 
 		function submit($jobid, $email){
-			//ARGS is the list of arguments you have extracted from your form. Only this is escaped because it is the only things given by the user.
-				$command="qsub -w $approot/jobs -N $jobid $approot/run.sh ".escapeshellarg(ARGS); 
+			$sequences = $_POST['sequences'];
+			file_put_contents('http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid.'/data.fa', $sequences);
+			$e_value = $_SESSION['evalue'];
+			$dama = $_SESSION['dama'];
+			$args = escapeshellarg('-i http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid.'/data.fa')." ".escapeshellarg('-N '.$jobid)." ".escapeshellarg('-e e_value')." ".escapeshellarg('-W http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid)." ".escapeshellarg('-j '.$nb_jobs)." ";
+			if($dama){
+				$DAMA_evalue = $_SESSION['DAMA-evalue'];
+				$args = $args . escapeshellarg('-a ') . escapeshellarg(' -E ' . $DAMA_evalue);}
+			if($_GET['small']=='large'){
+				$pfam = $_POST['pfam_domains'];
+				$args = $args .escapeshellarg('-d '.$pfam);}
+			//ARGS is the list of arguments you have extracted from your form. Only this is escaped because it is the only things given by the user. 
 			//Sublit your job
-				shell_exec("$command");
-			
-				$link="$appurl/status.php?jobid=$jobid"; #status.php is a page that show he status of your job
-				$msg="<strong>Your job has been correctly submitted</strong><br><br>";
-				$msg= $msg . "You can follow job progress as well as downloading the results going to <a target=_blank href=$link> $link </a><br>";
-				$msg= $msg . "<br>Your data will be removed one month after the end of the job.<br>";
-				$msg= $msg . "The job will be stopped if longer than 48 hours.<br>";
-				$msg= $msg . "If you need some help, contact the web developer ($webdevel).<br>";
-				return $msg;};
+			$command="qsub -w $approot/jobs -N $jobid $approot/run.sh " . $args;
+			shell_exec("$command");
+		
+			$link="$appurl/status.php?jobid=$jobid"; #status.php is a page that show he status of your job
+			$msg="<strong>Your job has been correctly submitted</strong><br><br>";
+			$msg= $msg . "You can follow job progress as well as downloading the results going to <a target=_blank href=$link> $link </a><br>";
+			$msg= $msg . "<br>Your data will be removed one month after the end of the job.<br>";
+			$msg= $msg . "The job will be stopped if longer than 48 hours.<br>";
+			$msg= $msg . "If you need some help, contact the web developer ($webdevel).<br>";
+			return $msg;};
 
 		$jobid = generateRandomString();
 		mkdir('http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid);
-
-		$sequences = $_POST['sequences'];
-		file_put_contents('http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid.'/data.fa', $sequences);
-		$e_value = $_SESSION['evalue'];
-		$dama = $_SESSION['dama'];
-		if($dama){
-			$DAMA_evalue = $_SESSION['DAMA-evalue'];}
-		if($_GET['small']=='large'){
-			$pfam = $_POST['pfam_domains'];}
 
 		$msg = submit($jobid, $email);
 

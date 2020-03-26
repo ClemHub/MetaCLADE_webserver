@@ -22,4 +22,3 @@ trap before_exit EXIT
 #put here your commands
 
 #if you have the user email, send a notification about the correct end of the job
-

@@ -76,7 +76,7 @@ while [ -n "${1}" ]; do
     shift
 done
 
-if [a]
+if [$a = 'true']
 then 
     metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -d "$MCLADE_DOMLIST" -e "$MCLADE_EVALUECUTOFF" -a -E "$MCLADE_EVALUECUTCONF" -W "$MCLADE_WORKDIR" -j "$NJOBS" 
 else 

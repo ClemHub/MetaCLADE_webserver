@@ -66,12 +66,16 @@ include("./includes/header.php");
 		<tbody>
 		<?php
 	//}
-	foreach($data as $seqID => $domain_list){
-		echo '<br>'.$seqID;
-		foreach($domain_list as $domain){
-			echo $domain.'-';
+	foreach($data as $seq_id => $domain_list){
+		echo "<tr><td><a class='table_link' href='architecture.php?id=" . $seq_id . "&db=" . $db_table . "'>" . $seq_id . "</a></td>";
+		echo "<td>";
+		foreach($domain_list as $domain_id){
+			$link_id = 'http://pfam.xfam.org/family/' . $domain_id;
+			echo "<a class = 'table_link' href=".$link_id." target='_blank'>" . $domain_id . "   </a>"
 		}
+		echo "</td></tr>"
 	}
+	echo "</tbody></table>";
 	$conn->close();
 	?>
 	</div>

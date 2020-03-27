@@ -66,29 +66,12 @@ include("./includes/header.php");
 		<tbody>
 		<?php
 	//}
-	$old_seq_id = '';
-	if ($result -> num_rows > 0) {
-		while($row = $result->fetch_assoc()) {
-			$new_seq_id = $row["SeqID"];
-			$domain_id = $row["DomainID"];
-			$link_id = 'http://pfam.xfam.org/family/' . $domain_id;
-			if($old_seq_id == ''){
-				$request = "SELECT COUNT(1) FROM " . $db_table . " WHERE SeqID='" . $new_seq_id . "'";
-				$rowspan = $conn->query($request);
-				$rowspan = $rowspan->fetch_assoc();
-				echo "<tr><td rowspan=" . $rowspan['COUNT(1)'] . "><a class='table_link' href='architecture.php?id=" . $new_seq_id . "&db=" . $db_table . "'>" . $new_seq_id . "</a></td>";
-				$old_seq_id = $new_seq_id;}
-			else if($new_seq_id != $old_seq_id){
-				echo '</tbody>';
-				echo '<tbody><tr>';
-				$request = "SELECT COUNT(1) FROM " . $db_table . " WHERE SeqID='" . $new_seq_id . "'";
-				$rowspan = $conn->query($request);
-				$rowspan = $rowspan->fetch_assoc();
-				echo "<td rowspan=".$rowspan['COUNT(1)']."><a class='table_link' href='architecture.php?id=" . $new_seq_id . "&db=". $db_table . "'>" . $new_seq_id . "</a></td>";
-				$old_seq_id = $new_seq_id;}
-			else{
-				echo '<tr>';}}
-				echo "</tbody></table>";}
+	foreach($data as $seqID => $domain_list){
+		echo $seqID;
+		echo "<br>";
+		print_r($domain_list);
+		echo "<br>";
+	}
 	$conn->close();
 	?>
 	</div>

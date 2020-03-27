@@ -5,8 +5,6 @@ include("./includes/header.php");
 	<h2>Results</h2>
 	<?php
 
-
-
 	//Reinisialisation of the database and insertion of the new results
 	$username = "blachon";
 	$password = "myclade";
@@ -41,39 +39,41 @@ include("./includes/header.php");
 			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithoutDAMA.csv';
 			$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
 			$db_table = 'Example_withoutDAMA';}}
-	$sql = "SELECT * FROM ". $db_table . " ORDER BY SeqID, Seq_start";
+	$data = array();
+	$sql = "SELECT SeqID, DomainID, Seq_start FROM ". $db_table . " ORDER BY SeqID, Seq_start";
 	$result = $conn->query($sql);
-
+	if ($result -> num_rows > 0) {
+		while($row = $result->fetch_assoc()){
+			$seq_id = $row["SeqID"];
+			$domain_id = $row["DomainID"];
+			if(array_key_exists($seq_id, $fruits)){
+				array_push($data[$seq_id], $domain_id);}
+			else{
+				$data[$seq_id]=array($domain_id);}
+		}}
+	print_r($data);
+	echo '<br>';
 	//Button that allows the user to download the text files with the results
 	echo "<a id = 'dl_link' href=".$name_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
-	?>
-
-	<!-- Table with the results -->
-	<div class='table_container'>
-	<table>
-	<thead>
-		<tr>
-		<th class='table_header'>Sequence ID <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span></th>
-		<th class='table_header'>Domain position<br>along the sequence</th>
-		<th class='table_header'>Domain Id</th>
-		<!--<th class='table_header'>Model Id</th>-->
-		<th class='table_header'>Model species</th>		
-		<th class='table_header'>E-Value</th>
-		<th class='table_header'>Bitscore</th>
-		<th class='table_header'>Accuracy</th>
-		</tr>
-	</thead>
-	<tbody>
-	<?php
+	//if($form=='small'){
+		?>
+		<!-- Table with the results -->
+		<div class='table_container'>
+		<table>
+		<thead>
+			<tr>
+			<th class='table_header'>Sequence ID <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span></th>
+			<th class='table_header'>Domain Id</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php
+	//}
 	$old_seq_id = '';
 	if ($result -> num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
 			$new_seq_id = $row["SeqID"];
 			$domain_id = $row["DomainID"];
-			$sql2 = "SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$domain_id."'";
-			$domain_result = mysqli_query($conn, $sql2);
-			$family = mysqli_fetch_assoc($domain_result);
-			$family = $family['Family'];
 			$link_id = 'http://pfam.xfam.org/family/' . $domain_id;
 			if($old_seq_id == ''){
 				$request = "SELECT COUNT(1) FROM " . $db_table . " WHERE SeqID='" . $new_seq_id . "'";
@@ -90,14 +90,7 @@ include("./includes/header.php");
 				echo "<td rowspan=".$rowspan['COUNT(1)']."><a class='table_link' href='architecture.php?id=" . $new_seq_id . "&db=". $db_table . "'>" . $new_seq_id . "</a></td>";
 				$old_seq_id = $new_seq_id;}
 			else{
-				echo '<tr>';}
-				echo "<td>" . $row["Seq_start"] . " - " . $row["Seq_stop"]. "</td>";
-				echo "<td><a class = 'table_link' href=" . $link_id . " target='_blank'>" . $family . "<br>(" . $domain_id . ")</a></td>";
-				//echo "<td>" . $row["ModelID"]. "</td>";
-				echo "<td class='species_name'>" . $row["Model species"]. "</td>";
-				echo "<td>" . $row["e_value"]. "</td>";
-				echo "<td>" . $row["Bitscore"]. "</td>";
-				echo "<td>" . $row["Accuracy"]. "</td></tr>";}
+				echo '<tr>';}}
 				echo "</tbody></table>";}
 	$conn->close();
 	?>

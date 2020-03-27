@@ -67,10 +67,10 @@ include("./includes/header.php");
 		<?php
 	//}
 	foreach($data as $seqID => $domain_list){
-		echo $seqID;
-		echo "<br>";
-		print_r($domain_list);
-		echo "<br>";
+		echo '<br>'.$seqID;
+		foreach($domain_list as $domain){
+			echo $domain.'-';
+		}
 	}
 	$conn->close();
 	?>

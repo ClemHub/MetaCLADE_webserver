@@ -52,6 +52,7 @@ include("./includes/header.php");
 				$data[$seq_id]=array($domain_id);}}}
 	//Button that allows the user to download the text files with the results
 	echo "<a id = 'dl_link' href=".$name_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
+	print_r(array_count_values($data));
 	//if($form=='small'){
 		?>
 		<!-- Table with the results -->
@@ -71,9 +72,9 @@ include("./includes/header.php");
 		echo "<td>";
 		foreach($domain_list as $domain_id){
 			$link_id = 'http://pfam.xfam.org/family/' . $domain_id;
-			echo "<a class = 'table_link' href=".$link_id." target='_blank'>" . $domain_id . "   </a>"
+			echo "<a class = 'table_link' href=".$link_id." target='_blank'>" . $domain_id . "   </a>";
 		}
-		echo "</td></tr>"
+		echo "</td></tr>";
 	}
 	echo "</tbody></table>";
 	$conn->close();

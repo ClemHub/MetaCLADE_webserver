@@ -65,7 +65,7 @@
 	<!-- <div class='info'>
 	<input type='button' class='bouton_info' value='GO Terms and results informations:' onclick='close_open_info(this);' />
 	<div class='contenu_info'> -->
-	<div class='table_container' id='architecture'>
+	<div class='table_container' id='architecture_data'>
 	<table id='data_table'>
 	<thead>
 		<tr>
@@ -101,7 +101,7 @@
 					echo "<td rowspan=".$nb.">".$data['e_value']."</td>";
 					echo "<td rowspan=".$nb.">" . $data["Bitscore"]. "</td>";
 					echo "<td rowspan=".$nb.">" . $data["Accuracy"]. "</td>";}
-				echo "<td>" . $row['GO_term'] . '</td></tr>';
+				echo "" . $row['GO_term'] . '</tr>';
 				$i++;
 			}}
 		else if ($nb == 0){

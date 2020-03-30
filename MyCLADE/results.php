@@ -72,7 +72,7 @@ include("./includes/header.php");
 		echo "<td>";
 		foreach($domain_list as $domain_id){
 			$link_id = 'http://pfam.xfam.org/family/' . $domain_id;
-			echo "<a class = 'table_link' href=".$link_id." target='_blank'>" . $domain_id . "   </a>";
+			echo "<a class = 'table_link' href=".$link_id." target='_blank'>" . $domain_id . ", </a>";
 		}
 		echo "</td></tr>";
 	}

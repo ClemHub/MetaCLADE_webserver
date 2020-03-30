@@ -74,9 +74,9 @@
 		<th class='table_header'>Domain position<br>along the sequence</th>
 		<!--<th class='table_header'>Model Id</th>-->
 		<th class='table_header'>Model species</th>		
-		<th class='table_header'>E-Value</th>
-		<th class='table_header'>Bitscore</th>
-		<th class='table_header'>Accuracy</th>
+		<th class='table_header'>E-Value <input type='button'><i class='fas fa-caret-down'></i></input></th>
+		<th class='table_header'>Bitscore <input type='button'><i class='fas fa-caret-down'></i></input></th>
+		<th class='table_header'>Accuracy <input type='button'><i class='fas fa-caret-down'></i></input></th>
 		<th class='table_header'>GO Terms</th>
 		</tr>
 	</thead>
@@ -98,7 +98,7 @@
 					echo "<td rowspan=".$nb.">" . $row['Family']."</td>";
 					echo "<td rowspan=".$nb.">" . $data["Seq_start"] . " - " . $data["Seq_stop"]. "</td>";
 					echo "<td rowspan=".$nb." class='species_name'>" . $data["Model species"]. "</td>";
-					echo "<td rowspan=".$nb.">".$data['e_value']."<input type='button' value='fas fa-caret-down'></td>";
+					echo "<td rowspan=".$nb.">".$data['e_value']."</td>";
 					echo "<td rowspan=".$nb.">" . $data["Bitscore"]. "</td>";
 					echo "<td rowspan=".$nb.">" . $data["Accuracy"]. "</td>";}
 				echo "<td>" . $row['GO_term'] . '</td></tr>';

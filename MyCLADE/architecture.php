@@ -101,7 +101,7 @@
 					echo "<td rowspan=".$nb.">".$data['e_value']."</td>";
 					echo "<td rowspan=".$nb.">" . $data["Bitscore"]. "</td>";
 					echo "<td rowspan=".$nb.">" . $data["Accuracy"]. "</td>";}
-				echo "" . $row['GO_term'] . '</tr>';
+				echo "<td>" . $row['GO_term'] . '</td></tr>';
 				$i++;
 			}}
 		else if ($nb == 0){

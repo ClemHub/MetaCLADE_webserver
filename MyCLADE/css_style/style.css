@@ -259,6 +259,9 @@ tbody:hover td[rowspan], tr:hover td {
 .table_link:hover{
 	color: rgb(1, 59, 82);}
 
+.sort_button{
+	background: none;
+}
 /* Form styling */
 textarea {
 	margin: 10px;

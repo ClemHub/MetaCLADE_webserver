@@ -261,6 +261,8 @@ tbody:hover td[rowspan], tr:hover td {
 
 .sort_button{
 	background: none;
+	border: none;
+	width: fit-content;
 }
 /* Form styling */
 textarea {

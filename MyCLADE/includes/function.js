@@ -175,8 +175,6 @@ function sortTable(col_nb) {
 	  for (i = 1; i < (rows.length - 1); i++) {
 		shouldSwitch = false;
 		x = rows[i].getElementsByTagName("TD")[col_nb];
-		alert(x)
-		alert(y)
 		y = rows[i + 1].getElementsByTagName("TD")[col_nb];
 		if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
 		  shouldSwitch = true;

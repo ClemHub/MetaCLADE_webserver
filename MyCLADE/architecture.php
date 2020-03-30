@@ -62,9 +62,9 @@
 
 	?>
 	</div>
-	<div class='info'>
+	<!-- <div class='info'>
 	<input type='button' class='bouton_info' value='GO Terms and results informations:' onclick='close_open_info(this);' />
-	<div class='contenu_info'>
+	<div class='contenu_info'> -->
 	<div class='table_container' id='architecture'>
 	<table id='data_table'>
 	<thead>
@@ -120,7 +120,7 @@
 	$mysqli -> close();
 	?>
 	</div>
-	</div>
-	</div>
+	<!-- </div>
+	</div> -->
 	</section>
 <?php include("./includes/footer.php"); ?>

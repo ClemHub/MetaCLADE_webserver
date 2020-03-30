@@ -165,7 +165,7 @@ fileInput.addEventListener('change', function() {
     reader.readAsText(fileInput.files[0]);
 });
 
-function sortTable() {
+function sortTable(col_nb) {
 	var table, rows, switching, i, x, y, shouldSwitch;
 	table = document.getElementById("data_table");
 	switching = true;
@@ -182,8 +182,8 @@ function sortTable() {
 		shouldSwitch = false;
 		/*Get the two elements you want to compare,
 		one from current row and one from the next:*/
-		x = rows[i].getElementsByTagName("TD")[0];
-		y = rows[i + 1].getElementsByTagName("TD")[0];
+		x = rows[i].getElementsByTagName("TD")[col_nb];
+		y = rows[i + 1].getElementsByTagName("TD")[col_nb];
 		//check if the two rows should switch place:
 		if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
 		  //if so, mark as a switch and break the loop:

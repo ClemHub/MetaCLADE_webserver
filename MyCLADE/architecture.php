@@ -74,9 +74,9 @@
 		<th class='table_header'>Domain position<br>along the sequence</th>
 		<!--<th class='table_header'>Model Id</th>-->
 		<th class='table_header'>Model species</th>		
-		<th class='table_header'>E-Value <button class='sort_button'><i class='fas fa-caret-down'></i></button></th>
-		<th class='table_header'>Bitscore <button class='sort_button'><i class='fas fa-caret-down'></i></button></th>
-		<th class='table_header'>Accuracy <button class='sort_button'><i class='fas fa-caret-down'></i></button></th>
+		<th class='table_header'>E-Value <button class='sort_button' onclick='sortTable(4)'><i class='fas fa-caret-down'></i></button></th>
+		<th class='table_header'>Bitscore <button class='sort_button' onclick='sortTable(5)'><i class='fas fa-caret-down'></i></button></th>
+		<th class='table_header'>Accuracy <button class='sort_button' onclick='sortTable(6)'><i class='fas fa-caret-down'></i></button></th>
 		<th class='table_header'>GO Terms</th>
 		</tr>
 	</thead>

@@ -76,7 +76,7 @@
 		<th class='table_header'>Model species</th>		
 		<th class='table_header'>E-Value <input type='button'><i class='fas fa-caret-down'></i></input></th>
 		<th class='table_header'>Bitscore <input type='button'><i class='fas fa-caret-down'></i></input></th>
-		<th class='table_header'>Accuracy <input type='button'><i class='fas fa-caret-down'></i></input></th>
+		<th class='table_header'>Accuracy <button><i class='fas fa-caret-down'></i></button></th>
 		<th class='table_header'>GO Terms</th>
 		</tr>
 	</thead>

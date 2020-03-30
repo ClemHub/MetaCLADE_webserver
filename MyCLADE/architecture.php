@@ -66,7 +66,7 @@
 	<input type='button' class='bouton_info' value='GO Terms and results informations:' onclick='close_open_info(this);' />
 	<div class='contenu_info'>
 	<div class='table_container' id='architecture'>
-	<table>
+	<table id='data_table'>
 	<thead>
 		<tr>
 		<th class='table_header'>Domain ID</th>
@@ -98,7 +98,7 @@
 					echo "<td rowspan=".$nb.">" . $row['Family']."</td>";
 					echo "<td rowspan=".$nb.">" . $data["Seq_start"] . " - " . $data["Seq_stop"]. "</td>";
 					echo "<td rowspan=".$nb." class='species_name'>" . $data["Model species"]. "</td>";
-					echo "<td rowspan=".$nb.">".$data['e_value']."</td>";
+					echo "<td rowspan=".$nb.">".$data['e_value']."<input type='button' value='fas fa-caret-down'></td>";
 					echo "<td rowspan=".$nb.">" . $data["Bitscore"]. "</td>";
 					echo "<td rowspan=".$nb.">" . $data["Accuracy"]. "</td>";}
 				echo "<td>" . $row['GO_term'] . '</td></tr>';

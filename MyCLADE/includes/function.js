@@ -165,33 +165,37 @@ fileInput.addEventListener('change', function() {
     reader.readAsText(fileInput.files[0]);
 });
 
-/*VERSION LONGUE*/
-const compare = function(ids, asc){
-	return function(row1, row2){
-	  const tdValue = function(row, ids){
-		return row.children[ids].textContent;
+function sortTable() {
+	var table, rows, switching, i, x, y, shouldSwitch;
+	table = document.getElementById("data_table");
+	switching = true;
+	/*Make a loop that will continue until
+	no switching has been done:*/
+	while (switching) {
+	  //start by saying: no switching is done:
+	  switching = false;
+	  rows = table.rows;
+	  /*Loop through all table rows (except the
+	  first, which contains table headers):*/
+	  for (i = 1; i < (rows.length - 1); i++) {
+		//start by saying there should be no switching:
+		shouldSwitch = false;
+		/*Get the two elements you want to compare,
+		one from current row and one from the next:*/
+		x = rows[i].getElementsByTagName("TD")[0];
+		y = rows[i + 1].getElementsByTagName("TD")[0];
+		//check if the two rows should switch place:
+		if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+		  //if so, mark as a switch and break the loop:
+		  shouldSwitch = true;
+		  break;
+		}
 	  }
-	  const tri = function(v1, v2){
-		if (v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2)){
-		  return v1 - v2;
-		}
-		else {
-		  return v1.toString().localeCompare(v2);
-		}
-		return v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2);
-	  };
-	  return tri(tdValue(asc ? row1 : row2, ids), tdValue(asc ? row2 : row1, ids));
+	  if (shouldSwitch) {
+		/*If a switch has been marked, make the switch
+		and mark that a switch has been done:*/
+		rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+		switching = true;
+	  }
 	}
   }
-  
-  const tbody = document.querySelector('tbody');
-  const thx = document.querySelectorAll('th');
-  const trxb = tbody.querySelectorAll('tr');
-  thx.forEach(function(th){
-	th.addEventListener('click', function(){
-	  let classe = Array.from(trxb).sort(compare(Array.from(thx).indexOf(th), this.asc = !this.asc));
-	  classe.forEach(function(tr){
-		 tbody.appendChild(tr)
-	  });
-	})
-  });

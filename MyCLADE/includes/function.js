@@ -23,6 +23,8 @@ function validateFasta(fasta) {
 function validatePFAM(pfam_list){
 	var pfam_exp = /^PF\d{5}$/;
 	pfam_list = pfam_list.split(',');
+	alert(pfam_list);
+	alert(pfam_list.length);
 	valid = true;
 		for(var pfam in pfam_list){
 			if(!pfam_exp.test(pfam_list[pfam])){

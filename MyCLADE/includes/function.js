@@ -25,13 +25,10 @@ function validatePFAM(pfam_list){
 	pfam_list = pfam_list.split(',');
 	valid = true;
 	len_pfam = pfam_list.length();
-	if(len_pfam > 10){
-		valid = false}
-	else{
 		for(var pfam in pfam_list){
 			if(!pfam_exp.test(pfam_list[pfam])){
 				valid = false;
-				break;}}}
+				break;}}
 	return valid;}
 
 function large_form_submission(){

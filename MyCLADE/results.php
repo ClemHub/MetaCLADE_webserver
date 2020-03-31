@@ -43,16 +43,18 @@ include("./includes/header.php");
 	if($form=='small' || $form=='small_example'){
 	$domain_list = explode(",", $_POST[pfam_domains]);
 	echo "<form action =''>";
+	echo "<fieldset class='form_fs'><legend><h4>Domain table:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domain table you want to visualize.</span></span></h4></legend>";
 	echo "<div id = 'main_pfam'>";
 	foreach($domain_list as $domain_id){
 		echo "<input type='radio' id=".$domain_id." name=".$domain_id." value=".$domain_id.">";
 		echo "<label for=".$domain_id.">".$domain_id."</label>";}
-	echo "</div>";
+	echo "</div></fieldset>";
+	echo "<fieldset class='form_fs'><legend><h4>Other domains:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domains you want to visualize with the first domain you have selected.</span></span></h4></legend>";
 	echo "<div id = 'other_pfam'>";
 	foreach($domain_list as $domain_id){
 		echo "<input type='radio' id=".$domain_id." name=".$domain_id." value=".$domain_id.">";
 		echo "<label for=".$domain_id.">".$domain_id."</label>";}
-	echo "</div>";
+	echo "</div></fieldset>";
 	echo "</form>";}
 	$data = array();
 	$domain_list = array();

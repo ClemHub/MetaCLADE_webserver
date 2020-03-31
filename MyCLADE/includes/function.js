@@ -22,15 +22,16 @@ function validateFasta(fasta) {
 
 function validatePFAM(pfam_list){
 	var pfam_exp = /^PF\d{5}$/;
-	console.log(pfam_list)
 	pfam_list = pfam_list.split(',');
-	console.log(pfam_list)
 	valid = true;
-	for(var pfam in pfam_list){
-		console.log(pfam_list[pfam])
-		if(!pfam_exp.test(pfam_list[pfam])){
-			valid = false;
-			break;}}
+	len_pfam = pfam_list.length();
+	if(len_pfam > 10){
+		valid = false}
+	else{
+		for(var pfam in pfam_list){
+			if(!pfam_exp.test(pfam_list[pfam])){
+				valid = false;
+				break;}}}
 	return valid;}
 
 function large_form_submission(){

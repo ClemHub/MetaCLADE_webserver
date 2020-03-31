@@ -4,7 +4,7 @@
 		<h2> Annotation of a fixed number of domains for a large sequences dataset <br><span id = 'subtitle'>Searching for domains</span></h2>
 		
 		<form name="small_annotation_form" method = POST action="results.php?form=small" enctype="multipart/form-data" onsubmit="return small_form_submission()">
-			<fieldset class='form_fs'><legend><h4>Input data:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Be careful to the format, take a look at the example to see the format we are expecting.</span></span></h4></legend>
+			<fieldset class='form_fs'><legend><h4>Input data:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Be careful to the format, take a look at the example to see the format we are expecting.<br>And do not enter more than 10 domains.</span></span></h4></legend>
 			<div id='pfam_container'>
 			<label for="pfam_domains">PFAM accession number:</label><br/>
 			<textarea name="pfam_domains" id = "pfam_domains" rows='10' placeholder="Example:&#10;PF04523,PF06584,PF06325" autofocus></textarea>

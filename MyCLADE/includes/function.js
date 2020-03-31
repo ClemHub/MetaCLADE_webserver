@@ -41,7 +41,7 @@ function large_form_submission(){
 		alert("Please enter a set of sequences or browse a fasta file.");
 		valid = false}
 	else if(seq != "" && !validateFasta(seq)){
-		alert("Please respect the Fasta format")
+		alert("Please respect the Fasta format and do not enter more than 10 domains.")
 		valid = false}
 	return valid;}
 

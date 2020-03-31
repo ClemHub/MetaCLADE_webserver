@@ -166,40 +166,29 @@ fileInput.addEventListener('change', function() {
     reader.readAsText(fileInput.files[0]);
 });
 
-function sortTable(col_nb) {
+function sortTable(col_nb){
 	var table, rows, switching, i, x, y, shouldSwitch;
 	table = document.getElementById("data_table");
 	switching = true;
-	/*Make a loop that will continue until
-	no switching has been done:*/
 	while (switching) {
-	  //start by saying: no switching is done:
-	  switching = false;
-	  rows = table.rows;
-	  /*Loop through all table rows (except the
-	  first, which contains table headers):*/
-	  for (i = 1; i < (rows.length - 1); i++) {
-		//start by saying there should be no switching:
-		shouldSwitch = false;
-		/*Get the two elements you want to compare,
-		one from current row and one from the next:*/
-		x = rows[i].getElementsByTagName("TD")[col_nb];
-		y = rows[i + 1].getElementsByTagName("TD")[col_nb];
-		//check if the two rows should switch place:
-		//alert(x.innerHTML)
-		//alert(y.innerHTML)
-		if (x.innerHTML > y.innerHTML) {
-		  //if so, mark as a switch and break the loop:
-		  //alert('ok')
-		  shouldSwitch = true;
-		  break;
-		}
-	  }
-	  if (shouldSwitch) {
-		/*If a switch has been marked, make the switch
-		and mark that a switch has been done:*/
-		rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-		switching = true;
-	  }
-	}
-  }
+		switching = false;
+		rows = table.rows;
+		for (i = 1; i < (rows.length - 1); i++) {
+			shouldSwitch = false;
+			x = rows[i].getElementsByTagName("TD")[col_nb];
+			y = rows[i + 1].getElementsByTagName("TD")[col_nb];
+			if (x.innerHTML > y.innerHTML) {
+				shouldSwitch = true;
+				break;}}
+		if (shouldSwitch) {
+			rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+			switching = true;}}}
+
+function sort_result(domain_id){
+	var table, rows, i, x;
+	table = document.getElementById("result");
+	for(i = 1; i < (rows.length - 1); i++){
+		x = rows[i].getElementsByTagName("TD")[1];
+		should_keep = x.includes(domain_id);
+		if(should_keep==false){
+			table.deleteRow(i);}}}

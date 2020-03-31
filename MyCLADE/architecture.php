@@ -86,16 +86,12 @@
 	foreach($test as $pfam => $data){
 		echo '<tbody>';
 		$link_id = 'http://pfam.xfam.org/family/' . $pfam;
-		$request = "SELECT * FROM GO_terms WHERE Domain='" . $pfam . "'";
-		$rowspan = $mysqli->query($request);
-		$nb = mysqli_num_rows($rowspan);
 		//$nb=0;
         echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
         $sql = "SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'";
-        $result2 = mysqli_query($mysqli, $sql);
-        $row2 = mysqli_fetch_assoc($result2);
-        echo "<td>" . $row2['Family']."</td>";
-		echo "<td>" . $row['Family']."</td>";
+        $result = mysqli_query($mysqli, $sql);
+        $row = mysqli_fetch_assoc($result);
+        echo "<td>" . $row['Family']."</td>";
 		echo "<td>" . $data["Seq_start"] . " - " . $data["Seq_stop"]. "</td>";
 		echo "<td class='species_name'>" . $data["Model species"]. "</td>";
 		echo "<td>".$data['e_value']."</td>";
@@ -103,7 +99,6 @@
 		echo "<td>" . $data["Accuracy"]. "</td></tr>";
 		echo '</tbody>';}
 	echo '</table>';
-	$mysqli -> close();
 	?>
 	</div>
 	</div>

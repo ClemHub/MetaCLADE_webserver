@@ -177,7 +177,7 @@ function sortTable(col_nb) {
 	  rows = table.rows;
 	  /*Loop through all table rows (except the
 	  first, which contains table headers):*/
-	  for (i = col_nb; i < (rows.length - 1); i++) {
+	  for (i = 1; i < (rows.length - 1); i++) {
 		//start by saying there should be no switching:
 		shouldSwitch = false;
 		/*Get the two elements you want to compare,

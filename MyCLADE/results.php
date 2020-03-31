@@ -40,19 +40,28 @@ include("./includes/header.php");
 			$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
 			$db_table = 'Example_withoutDAMA';}}
 	$data = array();
+	$domain_list = array();
 	$sql = "SELECT SeqID, DomainID, Seq_start FROM ". $db_table . " ORDER BY SeqID, Seq_start";
 	$result = $conn->query($sql);
 	if ($result -> num_rows > 0) {
 		while($row = $result->fetch_assoc()){
 			$seq_id = $row["SeqID"];
 			$domain_id = $row["DomainID"];
+			array_push($domain_list, $domain_id);
 			if(array_key_exists($seq_id, $data)){
 				array_push($data[$seq_id], $domain_id);}
 			else{
 				$data[$seq_id]=array($domain_id);}}}
 	//Button that allows the user to download the text files with the results
 	echo "<a id = 'dl_link' href=".$name_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
-	//if($form=='small'){
+
+	if(form=='small'){
+		echo "<div id = 'pfam_selection'>";
+		foreach($domain_list as $domain_id){
+			echo "<input type='radio' id=".$domain_id." name=".$domain_id." value=".$domain_id.">";
+			echo "<label for=".$domain_id.">".$domain_id."</label>";}
+		echo "</div>";}
+
 		?>
 		<!-- Table with the results -->
 		<div class='table_container'>
@@ -65,7 +74,7 @@ include("./includes/header.php");
 		</thead>
 		<tbody>
 		<?php
-	//}
+
 	foreach($data as $seq_id => $domain_list){
 		echo "<tr><td><a class='table_link' href='architecture.php?id=" . $seq_id . "&db=" . $db_table . "'>" . $seq_id . "</a></td>";
 		echo "<td>";

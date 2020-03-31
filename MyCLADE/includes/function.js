@@ -41,7 +41,7 @@ function large_form_submission(){
 		alert("Please enter a set of sequences or browse a fasta file.");
 		valid = false}
 	else if(seq != "" && !validateFasta(seq)){
-		alert("Please respect the Fasta format and do not enter more than 10 domains.")
+		alert("Please respect the Fasta format.")
 		valid = false}
 	return valid;}
 
@@ -50,27 +50,27 @@ function small_form_submission() {
 	var pfam_domains = document.small_annotation_form.pfam_domains.value.trim();
 	var valid = true;
 	if(seq!="" && pfam_domains==""){
-		alert("Please, enter a list of PFAM domains.")
+		alert("Please, enter a list of PFAM domains and do not enter more than 10 domains.")
 		valid = false}
 	else if(seq=="" && pfam_domains!=""){
 		if(!validatePFAM(pfam_domains)){
-			alert("\tPlease:\n-Enter a set of sequences or browse a fasta file\n-Respect the PFAM domain format.")
+			alert("\tPlease:\n-Enter a set of sequences or browse a fasta file\n-Respect the PFAM domain format and do not enter more than 10 domains.")
 			valid = false}
 		else{
 			alert("\tPlease, enter:\n-A set of sequences or browse a fasta file.")
 			valid = false}}
 	else if(seq=="" && pfam_domains==""){
-		alert("\tPlease, enter:\n-A set of sequences manually or through a fasta file\n-A list of PFAM domains.")
+		alert("\tPlease, enter:\n-A set of sequences manually or through a fasta file\n-A list of 10 PFAM domains maximum.")
 		valid = false}
 	else if(seq !="" && pfam_domains!=""){
 		if(seq != "" && !validateFasta(seq) && !validatePFAM(pfam_domains)){
-			alert("\tPlease, respect:\n-The PFAM domain format\n-The fasta format")
+			alert("\tPlease, respect:\n-The PFAM domain format and do not enter more than 10 domains.\n-The fasta format")
 			valid = false}
 		else if(seq != "" && !validateFasta(seq) && validatePFAM(pfam_domains)){
 			alert("\tPlease, respect:\n-The Fasta format")
 			valid = false}
 		else if(seq!="" && validateFasta(seq) && !validatePFAM(pfam_domains)){
-			alert("\tPlease, respect:\n-The PFAM domain format")
+			alert("\tPlease, respect:\n-The PFAM domain format and do not enter more than 10 domains.")
 			valid = false}
 		}
 	return valid}

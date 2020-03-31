@@ -190,5 +190,6 @@ function sort_result(domain_id){
 	for(i = 1; i < (rows.length - 1); i++){
 		x = rows[i].getElementsByTagName("TD")[1];
 		should_keep = x.includes(domain_id);
+		alert(should_keep);
 		if(should_keep==false){
 			table.deleteRow(i);}}}

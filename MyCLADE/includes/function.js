@@ -187,6 +187,7 @@ function sortTable(col_nb){
 function sort_result(domain_id){
 	var table, rows, i, x;
 	table = document.getElementById("result");
+	alert(table)
 	for(i = 1; i < (rows.length - 1); i++){
 		x = rows[i].getElementsByTagName("TD")[1];
 		should_keep = x.includes(domain_id);

@@ -52,9 +52,8 @@ include("./includes/header.php");
 				array_push($data[$seq_id], $domain_id);}
 			else{
 				$data[$seq_id]=array($domain_id);}}}
-
-	print_r($domain_list);
 	if(form=='small'){
+		print_r($domain_list);
 		echo "<div id = 'pfam_selection'>";
 		foreach($domain_list as $domain_id){
 			echo "<input type='radio' id=".$domain_id." name=".$domain_id." value=".$domain_id.">";

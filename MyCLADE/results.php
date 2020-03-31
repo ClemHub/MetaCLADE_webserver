@@ -41,7 +41,7 @@ include("./includes/header.php");
 			$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
 			$db_table = 'Example_withoutDAMA';}}
 	if($form=='small' || $form=='small_example'){
-		$domain_list = explode(",", $_POST[pfam_domains]);
+		$domain_list = explode(",", $_POST['pfam_domains']);
 		print_r($domain_list);
 		echo "<form action =''>";
 		echo "<fieldset class='form_fs'><legend><h4>Domain table:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domain table you want to visualize.</span></span></h4></legend>";

@@ -112,7 +112,6 @@
 		<tr>
 		<th class='table_header'>Domain ID</th>
 		<th class='table_header'>Family</th>
-		<th class='table_header'>Domain position<br>along the sequence</th>
 		<th class='table_header'>GO Terms</th>
 		</tr>
 	</thead>
@@ -126,7 +125,6 @@
 		$request = "SELECT * FROM GO_terms WHERE Domain='" . $pfam . "'";
 		$rowspan = $mysqli->query($request);
 		$nb = mysqli_num_rows($rowspan);
-		//$nb=0;
 		echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
 		if ($nb > 0) {
 			$i = 0;

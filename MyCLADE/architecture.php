@@ -129,7 +129,7 @@
 			while($row = mysqli_fetch_assoc($rowspan)){
 				if($i==0){
 					echo "<td rowspan=".$nb.">" . $row['Family']."</td>";}
-				echo "<td>" . $row['GO_term'] . '</td>';
+				echo "<td>" . $row['GO_term'] . '</td></tr>';
 				$i++;
 			}}
 		else if ($nb == 0){
@@ -137,8 +137,7 @@
 			$result2 = mysqli_query($mysqli, $sql);
 			$row2 = mysqli_fetch_assoc($result2);
 			echo "<td>" . $row2['Family']."</td>";
-			echo "<td>Not available</td>";}
-		echo '</tr>';
+			echo "<td>Not available</td></tr>";}
 		}
 	echo '</tbody>';
 	echo '</table>';

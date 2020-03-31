@@ -265,6 +265,7 @@ tbody:hover td[rowspan], tr:hover td {
 	border: none;
 	width: fit-content;
 }
+
 /* Form styling */
 textarea {
 	margin: 10px;

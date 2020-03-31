@@ -77,7 +77,6 @@
 		<th class='table_header'>E-Value <button class='sort_button' onclick='sortTable(4)'><i class='fas fa-caret-down'></i></button></th>
 		<th class='table_header'>Bitscore <button class='sort_button' onclick='sortTable(5)'><i class='fas fa-caret-down'></i></button></th>
 		<th class='table_header'>Accuracy <button class='sort_button' onclick='sortTable(6)'><i class='fas fa-caret-down'></i></button></th>
-		<th class='table_header'>GO Terms</th>
 		</tr>
 	</thead>
 	
@@ -91,7 +90,11 @@
 		$rowspan = $mysqli->query($request);
 		$nb = mysqli_num_rows($rowspan);
 		//$nb=0;
-		echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
+        echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
+        $sql = "SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'";
+        $result2 = mysqli_query($mysqli, $sql);
+        $row2 = mysqli_fetch_assoc($result2);
+        echo "<td>" . $row2['Family']."</td>";
 		echo "<td>" . $row['Family']."</td>";
 		echo "<td>" . $data["Seq_start"] . " - " . $data["Seq_stop"]. "</td>";
 		echo "<td class='species_name'>" . $data["Model species"]. "</td>";

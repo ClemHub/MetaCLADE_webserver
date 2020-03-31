@@ -117,7 +117,7 @@
 	</thead>
 	
 	<?php
-	echo '<tbody>';
+	//echo '<tbody>';
 	foreach($test as $pfam => $data){
 		$link_id = 'http://pfam.xfam.org/family/' . $pfam;
 		$request = "SELECT * FROM GO_terms WHERE Domain='" . $pfam . "'";
@@ -139,7 +139,7 @@
 			echo "<td>" . $row2['Family']."</td>";
 			echo "<td>Not available</td></tr>";}
 		}
-	echo '</tbody>';
+	//echo '</tbody>';
 	echo '</table>';
 	$mysqli -> close();
 	?>

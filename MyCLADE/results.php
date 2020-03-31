@@ -40,7 +40,10 @@ include("./includes/header.php");
 			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithoutDAMA.csv';
 			$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
 			$db_table = 'Example_withoutDAMA';}}
-			
+	if($form=='small'){
+	echo "<form action =''>";
+	print_r($_POST['pfam_domains']);
+	echo "</form>";}
 	$data = array();
 	$domain_list = array();
 	$sql = "SELECT SeqID, DomainID, Seq_start FROM ". $db_table . " ORDER BY SeqID, Seq_start";

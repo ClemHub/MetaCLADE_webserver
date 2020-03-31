@@ -167,7 +167,7 @@ fileInput.addEventListener('change', function() {
 
 function sortTable(col_nb) {
 	var table, rows, switching, i, x, y, shouldSwitch;
-	table = document.getElementById("myTable");
+	table = document.getElementById("data_table");
 	switching = true;
 	/*Make a loop that will continue until
 	no switching has been done:*/

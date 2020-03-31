@@ -59,7 +59,7 @@ include("./includes/header.php");
 		echo "<label for='pfam-select'>Choose a domain:</label>";
 		echo "<option value=''>--Please choose an option--</option>";
 		foreach($domain_list as $domain_id){
-			echo "option value=".$domain_id.">".$domain_id."</option>";}
+			echo "<option value=".$domain_id.">".$domain_id."</option>";}
 		echo "</select></div>";}
 
 	//Button that allows the user to download the text files with the results

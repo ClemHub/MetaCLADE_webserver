@@ -52,9 +52,8 @@ include("./includes/header.php");
 				array_push($data[$seq_id], $domain_id);}
 			else{
 				$data[$seq_id]=array($domain_id);}}}
-	//Button that allows the user to download the text files with the results
-	echo "<a id = 'dl_link' href=".$name_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
 
+	print_r($domain_list);
 	if(form=='small'){
 		echo "<div id = 'pfam_selection'>";
 		foreach($domain_list as $domain_id){
@@ -62,6 +61,8 @@ include("./includes/header.php");
 			echo "<label for=".$domain_id.">".$domain_id."</label>";}
 		echo "</div>";}
 
+	//Button that allows the user to download the text files with the results
+	echo "<a id = 'dl_link' href=".$name_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
 		?>
 		<!-- Table with the results -->
 		<div class='table_container'>

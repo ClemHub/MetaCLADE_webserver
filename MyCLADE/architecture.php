@@ -124,7 +124,6 @@
 		$request = "SELECT * FROM GO_terms WHERE Domain='" . $pfam . "'";
 		$rowspan = $mysqli->query($request);
 		$nb = mysqli_num_rows($rowspan);
-		echo $nb;
 		echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
 		if ($nb > 0) {
 			$i = 0;
@@ -140,7 +139,8 @@
 			$row2 = mysqli_fetch_assoc($result2);
 			echo "<td>" . $row2['Family']."</td>";
 			echo "<td>Not available</td></tr>";}
-		echo '</tbody>';}
+		}
+	echo '</tbody>';
 	echo '</table>';
 	$mysqli -> close();
 	?>

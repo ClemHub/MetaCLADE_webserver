@@ -40,9 +40,19 @@ include("./includes/header.php");
 			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithoutDAMA.csv';
 			$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
 			$db_table = 'Example_withoutDAMA';}}
-	if($form=='small'){
+	if($form=='small' || $form=='small_example'){
+	$domain_list = explode(",", $_POST[pfam_domains]);
 	echo "<form action =''>";
-	print_r($_POST['pfam_domains']);
+	echo "<div id = 'main_pfam'>";
+	foreach($domain_list as $domain_id){
+		echo "<input type='radio' id=".$domain_id." name=".$domain_id." value=".$domain_id.">";
+		echo "<label for=".$domain_id.">".$domain_id."</label>";}
+	echo "</div>";
+	echo "<div id = 'other_pfam'>";
+	foreach($domain_list as $domain_id){
+		echo "<input type='radio' id=".$domain_id." name=".$domain_id." value=".$domain_id.">";
+		echo "<label for=".$domain_id.">".$domain_id."</label>";}
+	echo "</div>";
 	echo "</form>";}
 	$data = array();
 	$domain_list = array();

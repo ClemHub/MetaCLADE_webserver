@@ -34,11 +34,13 @@ include("./includes/header.php");
 			$DAMA_evalue = 1e-10;
 			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithDAMA.csv';
 			$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
-			$db_table = 'Example_withDAMA';}
+			$db_table = 'Example_withDAMA';
+			print_r($_POST['pfam_domains']);}
 		else if($dama == 'false'){
 			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithoutDAMA.csv';
 			$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
 			$db_table = 'Example_withoutDAMA';}}
+			
 	$data = array();
 	$domain_list = array();
 	$sql = "SELECT SeqID, DomainID, Seq_start FROM ". $db_table . " ORDER BY SeqID, Seq_start";
@@ -52,17 +54,6 @@ include("./includes/header.php");
 				array_push($data[$seq_id], $domain_id);}
 			else{
 				$data[$seq_id]=array($domain_id);}}}
-	if($form=='small'){
-		echo "<div id = 'all_pfam'>";
-		foreach($domain_list as $domain_id){
-			echo "<input type='radio' id=".$domain_id." name=".$domain_id." value=".$domain_id.">";
-			echo "<label for=".$domain_id.">".$domain_id."</label>";}
-		echo "</div>";
-		echo "<div id = 'pfam_selection'>";
-		foreach($domain_list as $domain_id){
-			echo "<input type='radio' id=".$domain_id." name=".$domain_id." value=".$domain_id.">";
-			echo "<label for=".$domain_id.">".$domain_id."</label>";}
-		echo "</div>";}
 
 	//Button that allows the user to download the text files with the results
 	echo "<a id = 'dl_link' href=".$name_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";

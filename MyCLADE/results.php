@@ -55,6 +55,11 @@ include("./includes/header.php");
 	if($form=='small'){
 		//print_r($domain_list);
 		echo "<div id = 'pfam_selection'>";
+		foreach($domain_list as $domain_id){
+			echo "<input type='radio' id=".$domain_id." name=".$domain_id." value=".$domain_id.">";
+			echo "<label for=".$domain_id.">".$domain_id."</label>";}
+		echo "</div>";
+		echo "<div id = 'all_pfam'>";
 		echo "<select name='pfam'>";
 		echo "<label for='pfam-select'>Choose a domain:</label>";
 		echo "<option value=''>--Please choose an option--</option>";

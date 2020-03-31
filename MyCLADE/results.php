@@ -28,22 +28,31 @@ include("./includes/header.php");
 		$sql = "DELETE FROM ".$db_table;
 		$request = $conn->query($sql);
 		results_to_db($conn, $name_file);}
-	else if($form=='small_example' || $form=='large_example'){
+	else if($form=='large_example'){
 		$e_value = 0.001;
 		if($dama == 'true'){
 			$DAMA_evalue = 1e-10;
 			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithDAMA.csv';
 			$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
-			$db_table = 'Example_withDAMA';
-			print_r($_POST['pfam_domains']);}
+			$db_table = 'Example_withDAMA';}
+		else if($dama == 'false'){
+			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithoutDAMA.csv';
+			$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
+			$db_table = 'Example_withoutDAMA';}}
+	else if($form=='small_example'){
+		$e_value = 0.001;
+		$pfam = "PF00875,PF03441,PF03167,PF12546";
+		if($dama == 'true'){
+			$DAMA_evalue = 1e-10;
+			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithDAMA.csv';
+			$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
+			$db_table = 'Example_withDAMA';}
 		else if($dama == 'false'){
 			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithoutDAMA.csv';
 			$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
 			$db_table = 'Example_withoutDAMA';}}
 	if($form=='small' || $form=='small_example'){
-		$domain = $_POST['pfam_domains'];
-		echo $domain.'<br>';
-		$domain_list = explode(",", $domain);
+		$domain_list = explode(",", $pfam);
 		print_r($domain_list);
 		echo "<form action =''>";
 		echo "<fieldset class='form_fs'><legend><h4>Domain table:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domain table you want to visualize.</span></span></h4></legend>";

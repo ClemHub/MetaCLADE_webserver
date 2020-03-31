@@ -24,7 +24,6 @@ function validatePFAM(pfam_list){
 	var pfam_exp = /^PF\d{5}$/;
 	pfam_list = pfam_list.split(',');
 	valid = true;
-	len_pfam = pfam_list.length();
 		for(var pfam in pfam_list){
 			if(!pfam_exp.test(pfam_list[pfam])){
 				valid = false;

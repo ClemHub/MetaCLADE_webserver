@@ -129,10 +129,11 @@
 			$i = 0;
 			while($row = mysqli_fetch_assoc($rowspan)){
 				if($i==0){
-					echo "<td rowspan=".$nb.">" . $row['Family']."</td>";}
-				echo "<td>" . $row['GO_term'] . '</td></tr>';
+					echo "<td rowspan=".$nb.">" . $row['Family']."</td><td>";}
+				echo $row['GO_term'] . '</tr>';
 				$i++;
-			}}
+			}
+			echo '</td>';}
 		else if ($nb == 0){
 			$sql = "SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'";
 			$result2 = mysqli_query($mysqli, $sql);

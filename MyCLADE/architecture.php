@@ -106,8 +106,8 @@
 	<div class='info'>
 	<input type='button' class='bouton_info' value='GO-terms:' onclick='close_open_info(this);' />
 	<div class='contenu_info'>
-	<div class='table_container' id='architecture_data'>
-	<table id='data_table'>
+	<div class='table_container' id='goterms'>
+	<table id='go_terms_table'>
 	<thead>
 		<tr>
 		<th class='table_header'>Domain ID</th>

@@ -54,18 +54,18 @@ include("./includes/header.php");
 				$data[$seq_id]=array($domain_id);}}}
 	if($form=='small'){
 		//print_r($domain_list);
-		echo "<div id = 'pfam_selection'>";
-		foreach($domain_list as $domain_id){
-			echo "<input type='radio' id=".$domain_id." name=".$domain_id." value=".$domain_id.">";
-			echo "<label for=".$domain_id.">".$domain_id."</label>";}
-		echo "</div>";
 		echo "<div id = 'all_pfam'>";
 		echo "<select name='pfam'>";
 		echo "<label for='pfam-select'>Choose a domain:</label>";
 		echo "<option value=''>--Please choose an option--</option>";
 		foreach($domain_list as $domain_id){
 			echo "<option value=".$domain_id.">".$domain_id."</option>";}
-		echo "</select></div>";}
+		echo "</select></div>";
+		echo "<div id = 'pfam_selection'>";
+		foreach($domain_list as $domain_id){
+			echo "<input type='radio' id=".$domain_id." name=".$domain_id." value=".$domain_id.">";
+			echo "<label for=".$domain_id.">".$domain_id."</label>";}
+		echo "</div>";}
 
 	//Button that allows the user to download the text files with the results
 	echo "<a id = 'dl_link' href=".$name_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";

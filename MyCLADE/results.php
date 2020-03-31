@@ -67,7 +67,7 @@ include("./includes/header.php");
 			echo "<input type='radio' id=".$domain_id." name=".$domain_id." value=".$domain_id.">";
 			echo "<label for=".$domain_id.">".$domain_id."</label>";}
 		echo "</div>";
-		echo "<input class='btn' type='submit' value='Search' name = 'submit'/><input class='btn' type='reset' value='Reset''/>";
+		echo "<br><input class='btn' type='submit' value='Search' name = 'submit'/><input class='btn' type='reset' value='Reset''/>";
 		echo "</fieldset>";
 		echo "</form>";}
 	$data = array();

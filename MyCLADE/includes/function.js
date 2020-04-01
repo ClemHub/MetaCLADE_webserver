@@ -196,12 +196,11 @@ function filter_table(){
 		// Hide the row initially.
 		tr[i].style.display = "none";
 		td = tr[i].getElementsByTagName("td");
-		for (var j = 0; j < td.length; j++) {
-		cell = tr[i].getElementsByTagName("td")[j];
+		cell = tr[i].getElementsByTagName("td")[1];
 		if (cell) {
 			if (cell.innerHTML.toUpperCase().indexOf(filter) > -1) {
 			tr[i].style.display = "";
-			break;}}}}}
+			break;}}}}
 
 function uncheckAll(divid) {
 	var checks = document.querySelectorAll('#' + divid + ' input[type="checkbox"]');
@@ -214,7 +213,16 @@ function filter_all_domains(){
 	var array = []
 	var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
 	for (var i = 0; i < checkboxes.length; i++) {
-	  array.push(checkboxes[i].value)
-	}
-	alert(array)
+	  array.push(checkboxes[i].value)}
+	table = document.getElementById("result");
+	tr = table.getElementsByTagName("tr");
+	for (i = 1; i < tr.length; i++) {
+		// Hide the row initially.
+		tr[i].style.display = "none";
+		td = tr[i].getElementsByTagName("td");
+		cell = tr[i].getElementsByTagName("td")[1];
+		if (cell) {
+			if (cell.innerHTML.toUpperCase().indexOf(filter) > -1) {
+			tr[i].style.display = "";
+			break;}}}
 }

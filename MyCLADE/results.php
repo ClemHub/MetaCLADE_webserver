@@ -70,7 +70,7 @@ include("./includes/header.php");
 			echo "<input type='checkbox' id=".$domain_id." name='domain_cb' value=".$domain_id.">";
 			echo "<label for=".$domain_id.">".$domain_id."</label>";}
 		echo "</div>";
-		echo "<br><input class='btn' type='button' value='Search' name = 'search' onclick='filter_all_domains()'/><input class='btn' type='reset' value='Reset''/>";
+		echo "<br><input class='btn' type='button' value='Search' name = 'search' onclick='filter_all_domains()'/><input class='btn' type='reset' value='Reset' onclick='reset_table()'/>";
 		echo "</fieldset>";
 		echo "</form>";}
 	$data = array();

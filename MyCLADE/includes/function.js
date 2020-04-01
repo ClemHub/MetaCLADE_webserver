@@ -207,19 +207,8 @@ function uncheckAll(divid) {
 		if(!check.disabled){
 			check.checked = false;}}}
 
-function filter_all_domains(){
-	var filter = []
-	var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
-	for (var i = 0; i < checkboxes.length; i++) {
-		filter.push(checkboxes[i].value)}
-	  for (i = 1; i < tr.length; i++) {
-		// Hide the row initially.
-		tr[i].style.display = "none";
-		td = tr[i].getElementsByTagName("td");
-		for (var j = 0; j < td.length; j++) {
-		cell = tr[i].getElementsByTagName("td")[j];
-		if (cell) {
-			for(f = 0; f < filter.length; f++)
-			if (cell.innerHTML.toUpperCase().indexOf(filter[f]) > -1) {
-			tr[i].style.display = "";{
-			break;}}}}}}
+function reset_table(){
+	table = document.getElementById("results");
+	tr = table.getElementsByTagName("tr");
+	tr[i].style.display = "";
+}

@@ -196,11 +196,12 @@ function filter_table(){
 		// Hide the row initially.
 		tr[i].style.display = "none";
 		td = tr[i].getElementsByTagName("td");
-		cell = tr[i].getElementsByTagName("td")[1];
+		for (var j = 0; j < td.length; j++) {
+		cell = tr[i].getElementsByTagName("td")[j];
 		if (cell) {
 			if (cell.innerHTML.toUpperCase().indexOf(filter) > -1) {
 			tr[i].style.display = "";
-			break;}}}}
+			break;}}}}}
 
 function uncheckAll(divid) {
 	var checks = document.querySelectorAll('#' + divid + ' input[type="checkbox"]');

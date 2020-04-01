@@ -67,10 +67,10 @@ include("./includes/header.php");
 		echo "<div id = 'other_pfam'>";
 		echo "<h5>Other domain:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domains you want to visualize with the first one you selected.</span></span></h5>";
 		foreach($domain_list as $domain_id){
-			echo "<input type='checkbox' id=".$domain_id." name=".$domain_id." value=".$domain_id.">";
+			echo "<input type='checkbox' id=".$domain_id." name='domain_cb' value=".$domain_id.">";
 			echo "<label for=".$domain_id.">".$domain_id."</label>";}
 		echo "</div>";
-		echo "<br><input class='btn' type='submit' value='Search' name = 'submit'/><input class='btn' type='reset' value='Reset''/>";
+		echo "<br><input class='btn' type='button' value='Search' name = 'search' onclick='filter_all_domains()'/><input class='btn' type='reset' value='Reset''/>";
 		echo "</fieldset>";
 		echo "</form>";}
 	$data = array();

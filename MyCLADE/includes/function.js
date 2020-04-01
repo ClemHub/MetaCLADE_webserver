@@ -209,9 +209,7 @@ function uncheckAll(divid) {
 
 function reset_table(){
 	var table, tr, i;
-	alert('ok');
-	table = document.getElementById("results");
-	alert('table')
+	table = document.getElementById("result");
 	tr = table.getElementsByTagName("tr");
 	alert('tr')
 	for (i = 0; i < tr.length; i++) {

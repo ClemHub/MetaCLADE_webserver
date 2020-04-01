@@ -224,7 +224,7 @@ function filter_all_domains(){
 		for (var j = 0; j < td.length; j++) {
 		cell = tr[i].getElementsByTagName("td")[j];
 		if (cell) {
-			for(k=0; k < filter.length; k++){
+			for(k=0; k < filter.length; k++){alert(filter[k])
 			if (cell.innerHTML.toUpperCase().indexOf(filter[k]) > -1) {
 				tr[i].style.display = "";}
 			break;}}}}}

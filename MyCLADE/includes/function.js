@@ -211,9 +211,10 @@ function uncheckAll(divid) {
 			check.checked = false;}}}
 
 function filter_all_domains(){
-	var checked_list = Array();
-	$("input:checkbox[name=domain_cb]:checked").each(function(){
-		checked_list.push($(this).val());
-	});
-	alert(checked_list)
+	var array = []
+	var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+	for (var i = 0; i < checkboxes.length; i++) {
+	  array.push(checkboxes[i].value)
+	}
+	alert(array)
 }

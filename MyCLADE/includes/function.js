@@ -186,7 +186,6 @@ function sortTable(col_nb){
 
 function filter_table(){
 	var input, filter, table, tr, td, cell, i, j;
-	$("input[name='other_domains']").attr("checked",false);
 	input = document.getElementById("domain_select");
 	filter = input.value.toUpperCase();
 	document.getElementById(filter).checked=true

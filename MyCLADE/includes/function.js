@@ -186,9 +186,10 @@ function sortTable(col_nb){
 
 function filter_table(){
 	var input, filter, table, tr, td, cell, i, j;
+	uncheckAll('other_pfam');
 	input = document.getElementById("domain_select");
 	filter = input.value.toUpperCase();
-	document.getElementById(filter).checked=true
+	document.getElementById(filter).checked=true;
 	table = document.getElementById("result");
 	tr = table.getElementsByTagName("tr");
 	for (i = 1; i < tr.length; i++) {
@@ -201,3 +202,10 @@ function filter_table(){
 			if (cell.innerHTML.toUpperCase().indexOf(filter) > -1) {
 			tr[i].style.display = "";
 			break;}}}}}
+
+function uncheckAll(divid) {
+	var checks = document.querySelectorAll('#' + divid + ' input[type="checkbox"]');
+	for(var i =0; i< checks.length;i++){
+		var check = checks[i];
+		if(!check.disabled){
+			check.checked = false;}}}

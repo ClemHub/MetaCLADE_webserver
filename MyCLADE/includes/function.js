@@ -185,7 +185,7 @@ function sortTable(col_nb){
 			switching = true;}}}
 
 function filter_table(){
-	var input, filter, table, tr, td, cell, i, j;
+	var input, filter, table, tr, td, i;
 	uncheckAll('other_pfam');
 	input = document.getElementById("domain_select");
 	filter = input.value.toUpperCase();
@@ -208,10 +208,11 @@ function uncheckAll(divid) {
 			check.checked = false;}}}
 
 function reset_table(){
+	var table, tr, i
 	alert('ok')
-	var table = document.getElementById("results");
-	var tr = table.getElementsByTagName("tr");
-	for (var i = 0; i < tr.length; i++) {
+	table = document.getElementById("results");
+	tr = table.getElementsByTagName("tr");
+	for (i = 0; i < tr.length; i++) {
 		alert(i);
 		tr[i].style.display = "";
 	}}

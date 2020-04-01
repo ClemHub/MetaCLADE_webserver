@@ -184,7 +184,7 @@ function sortTable(col_nb){
 			rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
 			switching = true;}}}
 
-function myFunction(){
+function filter_table(){
 	var input, filter, table, tr, td, cell, i, j;
 	input = document.getElementById("domain_select");
 	filter = input.value.toUpperCase();

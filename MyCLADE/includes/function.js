@@ -184,25 +184,19 @@ function sortTable(col_nb){
 			rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
 			switching = true;}}}
 
-function myFunction() {
+function myFunction(){
 	var input, filter, table, tr, td, cell, i, j;
-	input = document.getElementById("myInput");
+	input = document.getElementById("domain_select");
 	filter = input.value.toUpperCase();
-	table = document.getElementById("myTable");
+	table = document.getElementById("result");
 	tr = table.getElementsByTagName("tr");
 	for (i = 1; i < tr.length; i++) {
 		// Hide the row initially.
 		tr[i].style.display = "none";
-	
 		td = tr[i].getElementsByTagName("td");
 		for (var j = 0; j < td.length; j++) {
 		cell = tr[i].getElementsByTagName("td")[j];
 		if (cell) {
 			if (cell.innerHTML.toUpperCase().indexOf(filter) > -1) {
 			tr[i].style.display = "";
-			break;
-			} 
-		}
-		}
-	}
-	}
+			break;}}}}}

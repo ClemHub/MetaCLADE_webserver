@@ -188,6 +188,7 @@ function myFunction(){
 	var input, filter, table, tr, td, cell, i, j;
 	input = document.getElementById("domain_select");
 	filter = input.value.toUpperCase();
+	alert(filter)
 	table = document.getElementById("result");
 	tr = table.getElementsByTagName("tr");
 	for (i = 1; i < tr.length; i++) {

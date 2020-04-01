@@ -200,7 +200,7 @@ function filter_table(){
 		cell = tr[i].getElementsByTagName("td")[j];
 		if (cell) {
 			if (cell.innerHTML.toUpperCase().indexOf(filter) > -1) {
-			tr[i].style.display = "";
+				tr[i].style.display = "";
 			break;}}}}}
 
 function uncheckAll(divid) {
@@ -211,7 +211,7 @@ function uncheckAll(divid) {
 			check.checked = false;}}}
 
 function filter_all_domains(){
-	var array = []
+	var filter = []
 	var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
 	for (var i = 0; i < checkboxes.length; i++) {
 	  array.push(checkboxes[i].value)}
@@ -221,9 +221,10 @@ function filter_all_domains(){
 		// Hide the row initially.
 		tr[i].style.display = "none";
 		td = tr[i].getElementsByTagName("td");
-		cell = tr[i].getElementsByTagName("td")[1];
+		for (var j = 0; j < td.length; j++) {
+		cell = tr[i].getElementsByTagName("td")[j];
 		if (cell) {
-			if (cell.innerHTML.toUpperCase().indexOf(filter) > -1) {
-			tr[i].style.display = "";
-			break;}}}
-}
+			for(k=0; k < filter.length; k++){
+			if (cell.innerHTML.toUpperCase().indexOf(filter[k]) > -1) {
+				tr[i].style.display = "";}
+			break;}}}}}

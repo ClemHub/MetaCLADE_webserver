@@ -60,7 +60,7 @@ include("./includes/header.php");
 		echo "<select name='domain_table' id='domain_select' onchange='filter_table()'>";
 		echo "<option value=''>--Please select a domain--</option>";
 		foreach($domain_list as $domain_id){
-			echo "<option value='$domain_id'>$domain_id</option>";
+			echo "<option name='other_domains' value='$domain_id'>$domain_id</option>";
 			}
 		echo "</select>";
 		echo "</div>";

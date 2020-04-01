@@ -185,9 +185,8 @@ function sortTable(col_nb){
 			switching = true;}}}
 
 function filter_table(domain_id){
-	alert('domain_id')
+	alert(domain_id)
 	$("#result tr").show();
-	var filterTerm=domain_id
-	var targJQ_Selector = "#result td:nth-of-type(3):contains('" + filterTerm + "')";
+	var targJQ_Selector = "#result td:nth-of-type(1):contains('" + domain_id + "')";
 	$(targJQ_Selector).parent ().hide ();
 }

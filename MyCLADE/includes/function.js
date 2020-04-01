@@ -189,7 +189,6 @@ function filter_table(){
 	input = document.getElementById("domain_select");
 	filter = input.value.toUpperCase();
 	document.getElementById(filter).checked=true
-	document.getElementById(filter).disabled=true
 	table = document.getElementById("result");
 	tr = table.getElementsByTagName("tr");
 	for (i = 1; i < tr.length; i++) {

@@ -208,7 +208,8 @@ function uncheckAll(divid) {
 			check.checked = false;}}}
 
 function reset_table(){
+	alert('ok')
 	table = document.getElementById("results");
 	tr = table.getElementsByTagName("tr");
-	tr[i].style.display = "";
+	tr.style.display = "";
 }

@@ -184,14 +184,9 @@ function sortTable(col_nb){
 			rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
 			switching = true;}}}
 
-function sort_result(domain_id){
-	var table, rows, id, i, x;
-	table = document.getElementById("result");
-	var id = $(this).attr("id");
-	alert('bonjour :' + id)
-	for(i = 1; i < (rows.length - 1); i++){
-		x = rows[i].getElementsByTagName("TD")[1];
-		should_keep = x.includes(domain_id);
-		alert(should_keep);
-		if(should_keep==false){
-			table.deleteRow(i);}}}
+function filter_table(domain_id){
+	$(".result tr").show();
+	var filterTerm=domain_id
+	var targJQ_Selector = ".filterMe td:nth-of-type(3):contains('" + filterTerm + "')";
+	$(targJQ_Selector).parent ().hide ();
+}

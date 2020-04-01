@@ -208,10 +208,12 @@ function uncheckAll(divid) {
 			check.checked = false;}}}
 
 function reset_table(){
-	var table, tr, i
-	alert('ok')
+	var table, tr, i;
+	alert('ok');
 	table = document.getElementById("results");
+	alert('table')
 	tr = table.getElementsByTagName("tr");
+	alert('tr')
 	for (i = 0; i < tr.length; i++) {
 		alert(i);
 		tr[i].style.display = "";

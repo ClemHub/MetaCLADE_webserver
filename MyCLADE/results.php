@@ -62,6 +62,7 @@ include("./includes/header.php");
 		foreach($domain_list as $domain_id){
 			echo "<option' value='$domain_id'>$domain_id</option>";
 			}
+		echo "</select>";
 		echo "</div>";
 		echo "<div id = 'other_pfam'>";
 		echo "<h5>Other domain:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domains you want to visualize with the first one you selected.</span></span></h5>";

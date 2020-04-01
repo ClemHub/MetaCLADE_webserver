@@ -211,10 +211,18 @@ function uncheckAll(divid) {
 			check.checked = false;}}}
 
 function filter_all_domains(){
-	var array = []
+	var filter = []
 	var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
 	for (var i = 0; i < checkboxes.length; i++) {
-	  array.push(checkboxes[i].value)
-	}
-	alert(array)
-}
+		filter.push(checkboxes[i].value)}
+	  for (i = 1; i < tr.length; i++) {
+		// Hide the row initially.
+		tr[i].style.display = "none";
+		td = tr[i].getElementsByTagName("td");
+		for (var j = 0; j < td.length; j++) {
+		cell = tr[i].getElementsByTagName("td")[j];
+		if (cell) {
+			for(f = 0; f < filter.length; f++)
+			if (cell.innerHTML.toUpperCase().indexOf(filter[f]) > -1) {
+			tr[i].style.display = "";{
+			break;}}}}}}

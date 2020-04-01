@@ -185,8 +185,9 @@ function sortTable(col_nb){
 			switching = true;}}}
 
 function filter_table(domain_id){
-	alert(domain_id)
+	alert('ok')
 	$("#result tr").show();
-	var targJQ_Selector = "#result td:nth-of-type(1):contains('" + domain_id + "')";
+	var filterTerm='PF12546'
+	var targJQ_Selector = "#result td:nth-of-type(1):contains('" + filterTerm + "')";
 	$(targJQ_Selector).parent ().hide ();
 }

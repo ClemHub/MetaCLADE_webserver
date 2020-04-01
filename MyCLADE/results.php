@@ -57,8 +57,11 @@ include("./includes/header.php");
 		echo "<fieldset class='form_fs'><legend><h4>Domain visualization:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domain table you want to visualize.</span></span></h4></legend>";
 		echo "<div id = 'main_pfam'>";
 		echo "<h5>Domain table:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domain table you want to visualize.</span></span></h5>";
+		echo "<select name='domain_table' id='domain_select'>";
+		echo "<option' value=''>--Please select a domain--</option>";
 		foreach($domain_list as $domain_id){
-			echo "<input type='button' id=".$domain_id." name='main_domain' value=".$domain_id." onclick='filter_table($domain_id)'>";}
+			echo "<option' value='$domain_id'>$domain_id</option>";
+			}
 		echo "</div>";
 		echo "<div id = 'other_pfam'>";
 		echo "<h5>Other domain:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domains you want to visualize with the first one you selected.</span></span></h5>";

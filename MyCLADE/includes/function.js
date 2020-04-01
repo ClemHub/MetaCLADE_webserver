@@ -184,10 +184,25 @@ function sortTable(col_nb){
 			rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
 			switching = true;}}}
 
-function filter_table(domain_id){
-	alert('ok')
-	$("#result tr").show();
-	var filterTerm='PF12546'
-	var targJQ_Selector = "#result td:nth-of-type(1):contains('" + filterTerm + "')";
-	$(targJQ_Selector).parent ().hide ();
-}
+function myFunction() {
+	var input, filter, table, tr, td, cell, i, j;
+	input = document.getElementById("myInput");
+	filter = input.value.toUpperCase();
+	table = document.getElementById("myTable");
+	tr = table.getElementsByTagName("tr");
+	for (i = 1; i < tr.length; i++) {
+		// Hide the row initially.
+		tr[i].style.display = "none";
+	
+		td = tr[i].getElementsByTagName("td");
+		for (var j = 0; j < td.length; j++) {
+		cell = tr[i].getElementsByTagName("td")[j];
+		if (cell) {
+			if (cell.innerHTML.toUpperCase().indexOf(filter) > -1) {
+			tr[i].style.display = "";
+			break;
+			} 
+		}
+		}
+	}
+	}

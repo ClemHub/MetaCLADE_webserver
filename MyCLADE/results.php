@@ -58,7 +58,7 @@ include("./includes/header.php");
 		echo "<div id = 'main_pfam'>";
 		echo "<h5>Domain table:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domain table you want to visualize.</span></span></h5>";
 		foreach($domain_list as $domain_id){
-			echo "<input type='button' id=".$domain_id." name='main_domain' value=".$domain_id." onclick='filter_table('$domain_id')'>";}
+			echo "<input type='button' id=".$domain_id." name='main_domain' value=".$domain_id." onclick='filter_table($domain_id)'>";}
 		echo "</div>";
 		echo "<div id = 'other_pfam'>";
 		echo "<h5>Other domain:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domains you want to visualize with the first one you selected.</span></span></h5>";

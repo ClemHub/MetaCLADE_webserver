@@ -218,7 +218,7 @@ function reset_table(){
 
 function filter_all_domains(){
 	var filter, checkboxes, table, tr, td, i, f;
-	filter = Array;
+	filter = [];
 	checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
 	alert(checkboxes.length)
 	for (i = 0; i < checkboxes.length; i++){

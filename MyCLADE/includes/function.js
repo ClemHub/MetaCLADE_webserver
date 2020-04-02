@@ -223,6 +223,7 @@ function filter_all_domains(){
 	checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
 	alert('ok2')
 	for (i = 0; i < checkboxes.length; i++){
+		alert(i)
 		filter.push(checkboxes[i].value)}
 	alert(filter)
 	table = document.getElementById("result");

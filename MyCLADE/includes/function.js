@@ -211,8 +211,26 @@ function reset_table(){
 	var table, tr, i;
 	table = document.getElementById("result");
 	tr = table.getElementsByTagName("tr");
-	alert('tr')
 	for (i = 0; i < tr.length; i++) {
 		alert(i);
 		tr[i].style.display = "";
 	}}
+
+function search_filter(){
+	var filter, checkboxes, table, tr, td, i, f;
+	filter = Array;
+	checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+	for (var i = 0; i < checkboxes.length; i++){
+		filter.push(checkboxes[i].value)}
+	alert(filter)
+	table = document.getElementById("result");
+	tr = table.getElementsByTagName("tr");
+	for (i = 0; i < tr.length; i++) {
+		td = tr[i].getElementsByTagName("td")[1];
+		if (td) {
+			for (f= 0; f < filter.length; f++){
+				if (td.innerHTML.toUpperCase().indexOf(filter[f]) > -1) {
+					tr[i].style.display = "";
+				} else {
+					tr[i].style.display = "none";
+					break}}}}}

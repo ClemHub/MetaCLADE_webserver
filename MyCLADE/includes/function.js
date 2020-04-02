@@ -219,7 +219,9 @@ function reset_table(){
 function filter_all_domains(){
 	var filter, checkboxes, table, tr, td, i, f;
 	filter = Array;
+	alert('ok1')
 	checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+	alert('ok2')
 	for (var i = 0; i < checkboxes.length; i++){
 		filter.push(checkboxes[i].value)}
 	alert(filter)

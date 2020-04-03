@@ -212,7 +212,6 @@ function reset_table(){
 	table = document.getElementById("result");
 	tr = table.getElementsByTagName("tr");
 	for (i = 0; i < tr.length; i++) {
-		alert(i);
 		tr[i].style.display = "";
 	}}
 
@@ -220,11 +219,8 @@ function filter_all_domains(){
 	var filter, checkboxes, table, tr, td, i, f;
 	filter = [];
 	checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
-	alert(checkboxes.length)
 	for (i = 0; i < checkboxes.length; i++){
-		alert(checkboxes[i].value)
-		filter.push(checkboxes[i].value)
-		alert('ok')}
+		filter.push(checkboxes[i].value)}
 	alert(filter)
 	table = document.getElementById("result");
 	tr = table.getElementsByTagName("tr");

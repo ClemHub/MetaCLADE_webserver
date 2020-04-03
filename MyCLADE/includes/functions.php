@@ -7,6 +7,4 @@ function results_to_db($conn, $name_file){
 		$request = $conn->query($sql);}
 		if(!request){
 			echo("Error description: " . $mysqli -> error);}};
-
-
 ?>

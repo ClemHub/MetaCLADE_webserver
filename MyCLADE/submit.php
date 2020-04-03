@@ -22,7 +22,7 @@ include("./includes/header.php");
 			file_put_contents('http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid.'/data.fa', $sequences);
 			$e_value = $_SESSION['evalue'];
 			$dama = $_SESSION['dama'];
-			$args = escapeshellarg('-i http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid.'/data.fa')." ".escapeshellarg('-N '.$jobid)." ".escapeshellarg('-e e_value')." ".escapeshellarg('-W http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid)." ".escapeshellarg('-j '.$nb_jobs)." ";
+			$args = escapeshellarg('-i http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid.'/data.fa')." ".escapeshellarg('-N '.$jobid)." ".escapeshellarg('-e e_value')." ".escapeshellarg('-W http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid)." ".escapeshellarg('--sge')." ".escapeshellarg('--pe smp')."".escapeshellarg('-j '.$nb_jobs)." ";
 			if($dama){
 				$DAMA_evalue = $_SESSION['DAMA-evalue'];
 				$args = $args . escapeshellarg('-a ') . escapeshellarg(' -E ' . $DAMA_evalue);}
@@ -31,7 +31,8 @@ include("./includes/header.php");
 				$args = $args .escapeshellarg('-d '.$pfam);}
 			//ARGS is the list of arguments you have extracted from your form. Only this is escaped because it is the only things given by the user. 
 			//Sublit your job
-			$command="qsub -w $approot/jobs -N $jobid $approot/run.sh " . $args;
+			echo "command is launch";
+			$command="qsub -w http://localhost/MetaCLADE_webserver/MyCLADE/jobs -N $jobid http://localhost/MetaCLADE_webserver/MyCLADE/run.sh " . $args;
 			shell_exec("$command");
 		
 			$link="$appurl/status.php?jobid=$jobid"; #status.php is a page that show he status of your job
@@ -55,6 +56,7 @@ include("./includes/header.php");
 			$mail= $mail_header . "\n".$msg;
 			sendMail($mail, "no-reply@lcqb.upmc.fr", $email);};
 
+		//redirection vers page de resultats avec ?form et ?jobid
 		//header("location: $hostname/$appname/status.php?job_id=$jobid&email=$email");
 		?>
 	</section>

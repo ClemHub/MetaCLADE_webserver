@@ -19,6 +19,7 @@ include("./includes/header.php");
 
 		function submit($jobid, $email){
 			$sequences = $_POST['sequences'];
+			echo $sequences.'<br>';
 			file_put_contents('http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid.'/data.fa', $sequences);
 			$e_value = $_SESSION['evalue'];
 			$dama = $_SESSION['dama'];
@@ -34,7 +35,7 @@ include("./includes/header.php");
 			echo "command is launch";
 			$command="qsub -w http://localhost/MetaCLADE_webserver/MyCLADE/jobs -N $jobid http://localhost/MetaCLADE_webserver/MyCLADE/run.sh " . $args;
 			shell_exec("$command");
-		
+			echo "here";
 			$link="$appurl/status.php?jobid=$jobid"; #status.php is a page that show he status of your job
 			$msg="<strong>Your job has been correctly submitted</strong><br><br>";
 			$msg= $msg . "You can follow job progress as well as downloading the results going to <a target=_blank href=$link> $link </a><br>";

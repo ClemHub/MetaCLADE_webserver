@@ -1,15 +1,5 @@
 <?php include("./includes/header.php"); ?>
-<script language='javascript'>
-var fileInput = document.querySelector('#fasta_file');
-fileInput.addEventListener('change', function() {
-    var reader = new FileReader();
-    reader.addEventListener('load', function() {
-		var txt = reader.result
-		document.getElementById('sequences').value = txt;
-	});
-    reader.readAsText(fileInput.files[0]);
-});
-</script> 
+
 	<section class = 'tools'>
 		<h2> Annotation of a fixed number of domains for a large sequences dataset <br><span id = 'subtitle'>Searching for domains</span></h2>
 		

@@ -36,7 +36,7 @@ include("./includes/header.php");
 			$command="qsub -w http://localhost/MetaCLADE_webserver/MyCLADE/jobs -N $jobid http://localhost/MetaCLADE_webserver/MyCLADE/run.sh " . $args;
 			shell_exec("$command");
 			echo "here";
-			$link="$appurl/status.php?jobid=$jobid"; #status.php is a page that show he status of your job
+			//$link="$appurl/status.php?jobid=$jobid"; #status.php is a page that show he status of your job
 			$msg="<strong>Your job has been correctly submitted</strong><br><br>";
 			$msg= $msg . "You can follow job progress as well as downloading the results going to <a target=_blank href=$link> $link </a><br>";
 			$msg= $msg . "<br>Your data will be removed one month after the end of the job.<br>";
@@ -45,6 +45,7 @@ include("./includes/header.php");
 			return $msg;};
 
 		$jobid = generateRandomString();
+		echo 'Your job ID is:'.$jobid;
 		mkdir('http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid);
 
 		$msg = submit($jobid, $email);

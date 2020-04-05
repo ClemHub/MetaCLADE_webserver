@@ -27,11 +27,11 @@ include("./includes/header.php");
 			$dama = $_SESSION['dama'];
 			echo 'DAMA: '.$dama.' <br>';
 			$args = escapeshellarg('-i http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid.'/data.fa')." ".escapeshellarg('-N '.$jobid)." ".escapeshellarg('-e '.$e_value)." ".escapeshellarg('-W http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid)." ".escapeshellarg('--sge ')." ".escapeshellarg('--pe smp ')." ".escapeshellarg('-j '.$nb_jobs)." ";
-			if($dama){
+			if($dama == 'true'){
 				$DAMA_evalue = $_SESSION['DAMA-evalue'];
 				echo 'DAMA e-value: '.$DAMA_evalue.' <br>';	
 				$args = $args . escapeshellarg('-a ') . escapeshellarg(' -E ' . $DAMA_evalue);}
-			if($_GET['small']=='large'){
+			if($_GET['form']=='small'){
 				$pfam = $_POST['pfam_domains'];
 				echo 'PFAM domains: '.$pfam.' <br>';	
 				$args = $args .escapeshellarg('-d '.$pfam);}

@@ -34,8 +34,9 @@ include("./includes/header.php");
 			//Sublit your job
 			echo "command is launch<br>";
 			$command="qsub -w http://localhost/MetaCLADE_webserver/MyCLADE/jobs -N $jobid http://localhost/MetaCLADE_webserver/MyCLADE/run.sh " . $args;
-			shell_exec("$command");
+			$output = shell_exec("$command");
 			echo "after shell_exec<br>";
+			echo 'output: '.$output.'<br>';
 			//$link="$appurl/status.php?jobid=$jobid"; #status.php is a page that show he status of your job
 			$msg="<strong>Your job has been correctly submitted</strong><br><br>";
 			$msg= $msg . "You can follow job progress as well as downloading the results going to <a target=_blank href=$link> $link </a><br>";

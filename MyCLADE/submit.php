@@ -32,10 +32,10 @@ include("./includes/header.php");
 				$args = $args .escapeshellarg('-d '.$pfam);}
 			//ARGS is the list of arguments you have extracted from your form. Only this is escaped because it is the only things given by the user. 
 			//Sublit your job
-			echo "command is launch";
+			echo "command is launch<br>";
 			$command="qsub -w http://localhost/MetaCLADE_webserver/MyCLADE/jobs -N $jobid http://localhost/MetaCLADE_webserver/MyCLADE/run.sh " . $args;
 			shell_exec("$command");
-			echo "here";
+			echo "after shell_exec<br>";
 			//$link="$appurl/status.php?jobid=$jobid"; #status.php is a page that show he status of your job
 			$msg="<strong>Your job has been correctly submitted</strong><br><br>";
 			$msg= $msg . "You can follow job progress as well as downloading the results going to <a target=_blank href=$link> $link </a><br>";
@@ -49,7 +49,7 @@ include("./includes/header.php");
 		mkdir('http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid);
 
 		$msg = submit($jobid, $email);
-
+		echo $msg;
 		$email = $_POST['email'];
 		if($email){
 			$mail_header= "Subject: $appname queued ( $jobid )\n";

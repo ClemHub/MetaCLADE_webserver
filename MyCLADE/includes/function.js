@@ -103,11 +103,11 @@ function fill_exemple_form(form){
 
 function reset_btn(form){
 	if(form == 'small'){
-		document.small_annotation_form.action = 'results.php?form=small';
+		document.small_annotation_form.action = 'submit.php?form=small';
 		document.getElementById("pfam_domains").disabled = false;
 	}
 	else{
-		document.large_annotation_form.action = 'results.php?form=large';
+		document.large_annotation_form.action = 'submit.php?form=large';
 	}
 	document.getElementById("sequences").disabled = false;
 	

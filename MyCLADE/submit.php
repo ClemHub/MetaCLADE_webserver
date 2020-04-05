@@ -34,7 +34,7 @@ include("./includes/header.php");
 			//Sublit your job
 			echo "command is launch<br>";
 			$command="qsub -w http://localhost/MetaCLADE_webserver/MyCLADE/jobs -N $jobid http://localhost/MetaCLADE_webserver/MyCLADE/run.sh " . $args;
-			echo $'command: '.$command.'<br>';
+			echo 'command: '.$command.'<br>';
 			$output = shell_exec("$command");
 			echo "after shell_exec<br>";
 			echo 'output: '.$output.'<br>';

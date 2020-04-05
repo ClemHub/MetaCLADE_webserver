@@ -18,13 +18,14 @@ include("./includes/header.php");
 			return $randomString;};
 
 		function submit($jobid, $email){
+			mkdir('http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid, 0, true);
 			$sequences = $_POST['sequences'];
 			echo $sequences.'<br>';
 			file_put_contents('http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid.'/data.fa', $sequences);
 			$e_value = $_SESSION['evalue'];
 			echo 'e-value: '.$e-value.' <br>';
 			$dama = $_SESSION['dama'];
-			echo 'e-value: '.$dama.' <br>';
+			echo 'DAMA: '.$dama.' <br>';
 			$args = escapeshellarg('-i http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid.'/data.fa')." ".escapeshellarg('-N '.$jobid)." ".escapeshellarg('-e '.$e_value)." ".escapeshellarg('-W http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid)." ".escapeshellarg('--sge ')." ".escapeshellarg('--pe smp ')." ".escapeshellarg('-j '.$nb_jobs)." ";
 			if($dama){
 				$DAMA_evalue = $_SESSION['DAMA-evalue'];
@@ -37,7 +38,7 @@ include("./includes/header.php");
 			//ARGS is the list of arguments you have extracted from your form. Only this is escaped because it is the only things given by the user. 
 			//Sublit your job
 			echo "command is launch<br>";
-			$command="qsub -w http://localhost/MetaCLADE_webserver/MyCLADE/jobs -N $jobid http://localhost/MetaCLADE_webserver/MyCLADE/run.sh " . $args;
+			$command="qsub -wd http://localhost/MetaCLADE_webserver/MyCLADE/jobs -N $jobid http://localhost/MetaCLADE_webserver/MyCLADE/run.sh " . $args;
 			echo 'command: '.$command.'<br>';
 			$output = shell_exec("$command");
 			echo "after shell_exec<br>";
@@ -52,8 +53,6 @@ include("./includes/header.php");
 
 		$jobid = generateRandomString();
 		echo 'Your job ID is:'.$jobid;
-		mkdir('http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid);
-
 		$msg = submit($jobid, $email);
 		echo $msg;
 		$email = $_POST['email'];

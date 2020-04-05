@@ -22,13 +22,17 @@ include("./includes/header.php");
 			echo $sequences.'<br>';
 			file_put_contents('http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid.'/data.fa', $sequences);
 			$e_value = $_SESSION['evalue'];
+			echo 'e-value: $e-value <br>';
 			$dama = $_SESSION['dama'];
+			echo 'e-value: $dama <br>';
 			$args = escapeshellarg('-i http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid.'/data.fa')." ".escapeshellarg('-N '.$jobid)." ".escapeshellarg('-e '.$e_value)." ".escapeshellarg('-W http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid)." ".escapeshellarg('--sge ')." ".escapeshellarg('--pe smp ')." ".escapeshellarg('-j '.$nb_jobs)." ";
 			if($dama){
 				$DAMA_evalue = $_SESSION['DAMA-evalue'];
+				echo 'DAMA e-value: $DAMA_evalue <br>';	
 				$args = $args . escapeshellarg('-a ') . escapeshellarg(' -E ' . $DAMA_evalue);}
 			if($_GET['small']=='large'){
 				$pfam = $_POST['pfam_domains'];
+				echo 'PFAM domains: $pfam <br>';	
 				$args = $args .escapeshellarg('-d '.$pfam);}
 			//ARGS is the list of arguments you have extracted from your form. Only this is escaped because it is the only things given by the user. 
 			//Sublit your job

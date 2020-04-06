@@ -18,7 +18,7 @@ function generateRandomString($length = 10) {
 
 function submit($jobid, $email){
 	mkdir('http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid, 0, true);
-	$sequences = $_POST['sequences'];
+	$sequences = $_SESSION['sequences'];
 	echo $sequences.'<br>';
 	file_put_contents('http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid.'/data.fa', $sequences);
 	$e_value = $_SESSION['evalue'];
@@ -31,7 +31,7 @@ function submit($jobid, $email){
 		echo 'DAMA e-value: '.$DAMA_evalue.' <br>';	
 		$args = $args . escapeshellarg('-a ') . escapeshellarg(' -E ' . $DAMA_evalue);}
 	if($_GET['form']=='small'){
-		$pfam = $_POST['pfam_domains'];
+		$pfam = $_SESSION['pfam_domains'];
 		echo 'PFAM domains: '.$pfam.' <br>';	
 		$args = $args .escapeshellarg('-d '.$pfam);}
 	//ARGS is the list of arguments you have extracted from your form. Only this is escaped because it is the only things given by the user. 

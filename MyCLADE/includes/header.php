@@ -1,5 +1,5 @@
 <?php
-//include("./includes/cookies.php");
+include("./includes/cookies.php");
 include('./includes/configure.php');
 include('./includes/logfunctions.php');
 include('./includes/functions.php');

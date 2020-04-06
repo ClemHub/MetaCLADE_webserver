@@ -10,7 +10,7 @@
 	$username = "blachon"; 
 	$password = "myclade"; 
 	$database = "METACLADE"; 
-	$mysqli = new mysqli("localhost:1234", $username, $password, $database);
+	$mysqli = new mysqli($hostname, $username, $password, $database);
 	if (!$mysqli) {
 		die("Connection failed: " . mysqli_connect_error());
 	}

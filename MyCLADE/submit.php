@@ -9,14 +9,6 @@ include("./includes/header.php");
 		<p class = 'text'>
 		<?php 
 
-		function generateRandomString($length = 10) {
-			$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-			$charactersLength = strlen($characters);
-			$randomString = '';
-			for ($i = 0; $i < $length; $i++) {
-				$randomString .= $characters[rand(0, $charactersLength - 1)];}
-			return $randomString;};
-
 		function submit($jobid, $email){
 			mkdir('http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid, 0, true);
 			$sequences = $_POST['sequences'];

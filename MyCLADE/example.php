@@ -8,11 +8,11 @@
 	if($dama == 'true'){
 		$DAMA_evalue = '1e<sup>-10</sup>';
 		//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithDAMA.csv';
-		$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
+		$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
 		$db_table = 'Example_withDAMA';}
 	else {
 		//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithoutDAMA.csv';
-		$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
+		$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
 		$db_table = 'Example_withoutDAMA';}
 	$e_value = '1e<sup>-3</sup>';
 	$username = "blachon"; 

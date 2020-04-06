@@ -9,7 +9,7 @@ include("./includes/header.php");
 	$username = "blachon";
 	$password = "myclade";
 	$database = "METACLADE";
-	$conn = mysqli_connect("localhost:1234", $username, $password, $database);
+	$conn = mysqli_connect("localhost", $username, $password, $database);
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);}
 

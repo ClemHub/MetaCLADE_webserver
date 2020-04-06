@@ -1,66 +1,58 @@
-
 <?php
-include("./includes/header.php"); 
+
+include 'configure.php';
+include 'logfunctions.php';
+
+#Generate a random jobid. By default it is 10 character long
+function generateRandomString($length = 10) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+};
+
+function submit($jobid, $email){
+//Prepare the environment for the script (saving files for example)
+
+//ARGS is the list of arguments you have extracted from your form. Only this is escaped because it is the only things given by the user.
+	$command="qsub -w $approot/jobs -N $jobid $approot/run.sh ".escapeshellarg(ARGS); 
+//Sublit your job
+	shell_exec("$command");
+
+	$link="$appurl/status.php?jobid=$jobid"; #status.php is a page that show he status of your job
+
+	$msg="<strong>Your job has been correctly submitted</strong><br><br>";
+	$msg= $msg . "You can follow job progress as well as downloading the results going to <a target=_blank href=$link> $link </a><br>";
+
+	$msg= $msg . "<br>Your data will be removed one month after the end of the job.<br>";
+	$msg= $msg . "The job will be stopped if longer than 48 hours.<br>";
+
+
+	$msg= $msg . "If you need some help, contact the web developer ($webdevel).<br>";
+
+	return $msg;
+};
+
+// File put contents fails if you try to put a file in a directory that doesn't exist.
+// This creates the directory.
+
+
+$jobid = generateRandomString();
+
+$msg=submit($jobid, $email);
+
+$email = $_POST['email']; //email is a field with the email of the user. If you don't have, just remove this piece of code
+if($email){                                                                                                                                                                        
+$mail_header= "Subject: $appname queued ( $jobid )\n";
+$mail_header= $mail_header . "Content-Type: text/html\n";
+$mail_header= $mail_header . "MIME-Version:\n";
+$mail= $mail_header . "\n".$msg;
+sendMail($mail, "no-reply@lcqb.upmc.fr", $email);
+};
+
+header("location: $hostname/$appname/status.php?jobid=$jobid&email=$email");
+
 ?>
-
-	<section id='Submission'>
-	<h2> Your job is running... </h2>
-    <h3>This server is a multi-source domain annotation for quantitative <em>metagenomic and metatranscriptomic</em> functional profiling.</h3>
-		<p class = 'text'>
-		<?php 
-
-		function generateRandomString($length = 10) {
-			$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-			$charactersLength = strlen($characters);
-			$randomString = '';
-			for ($i = 0; $i < $length; $i++) {
-				$randomString .= $characters[rand(0, $charactersLength - 1)];}
-			return $randomString;};
-
-		function submit($jobid, $email){
-			//ARGS is the list of arguments you have extracted from your form. Only this is escaped because it is the only things given by the user.
-				$command="qsub -w $approot/jobs -N $jobid $approot/run.sh ".escapeshellarg(ARGS); 
-			//Sublit your job
-				shell_exec("$command");
-			
-				$link="$appurl/status.php?jobid=$jobid"; #status.php is a page that show he status of your job
-				$msg="<strong>Your job has been correctly submitted</strong><br><br>";
-				$msg= $msg . "You can follow job progress as well as downloading the results going to <a target=_blank href=$link> $link </a><br>";
-				$msg= $msg . "<br>Your data will be removed one month after the end of the job.<br>";
-				$msg= $msg . "The job will be stopped if longer than 48 hours.<br>";
-				$msg= $msg . "If you need some help, contact the web developer ($webdevel).<br>";
-
-				return $msg;};
-
-		$jobid = generateRandomString();
-		mkdir('http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid);
-		$sequences = $_POST['sequences'];
-		file_put_contents('http://localhost/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid.'/data.fa', $sequences);
-		$e_value = $_SESSION['evalue'];
-		if($_GET['form']=='large'){
-				$dama = $_SESSION['dama'];
-				if($dama){
-					$DAMA_evalue = $_SESSION['DAMA-evalue'];}}
-
-		else if($_GET['small']=='large'){
-				$pfam = $_POST['pfam_domains'];
-				$dama = $_SESSION['dama'];
-				if($dama){
-					$DAMA_evalue = $_SESSION['DAMA-evalue'];}}
-
-		$msg = submit($jobid, $email);
-
-		$email = $_POST['email'];
-		if($email){
-			$mail_header= "Subject: $appname queued ( $jobid )\n";
-			$mail_header= $mail_header . "Content-Type: text/html\n";
-			$mail_header= $mail_header . "MIME-Version:\n";
-			$mail= $mail_header . "\n".$msg;
-			sendMail($mail, "no-reply@lcqb.upmc.fr", $email);};
-
-		header("location: $hostname/$appname/status.php?job_id=$jobid&email=$email");
-		?>
-	</section>
-
-
-<?php include("./includes/footer.php"); ?>

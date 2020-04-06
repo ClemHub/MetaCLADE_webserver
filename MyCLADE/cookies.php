@@ -8,5 +8,5 @@
 		$_SESSION['pfam_domains'] = $_POST['pfam_domains'];
 		$form = $_GET['form'];
 
-		header("location: http://localhost:1234/MetaCLADE_webserver/MyCLADE/submit.php?form=".$form);
+		header("location: ".$appurl."MyCLADE/submit.php?form=".$form);
 ?>

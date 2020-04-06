@@ -20,17 +20,29 @@ The webserver is composed of several pages:
 ## Folder structure
 ```
 .
-├── html             # Project source files
-├── html_js          # Draft of the structure
-├── metaclade_django # Draft of the webserver designed with django
+├── data              # All data (example, pfam, go-terms)
+├── drafts            # Draft used to try and keep some stuff in memory
+├── Francesco_example # Model of the submission part
+├── MyCLADE           # PHP files, css stylesheet, JS functions... (all the structure of the webserver)
+├── server_images     # Images used for the webserver
 └── README.md
 ```
 ```
-html
-├── MyCLADE          # php and js scripts
-├── css_style        # css stylesheet
-├── draft           
-└── server_images    # Images used in the webserver
+MyCLADE
+├── css_style              # css stylesheet
+├── includes               # every functions (PHP, js...)
+├── jobs                   # directory used to keep the jobs
+├── architecture.php       # architecture representation webpage
+├── contact.php            # contact webpage
+├── example.php            # example webpage
+├── help.php               # help webpage
+├── home.php               # home webpage
+├── large_annotation.php   # large annotation form webpage
+├── small_annotation.php   # small annotation form webpage
+├── references.php         # references webpage
+├── results.php            # results webpage
+├── submit.php             # submission webpage
+└── run.sh                 # run.sh script
 ```
 
 ## Partners

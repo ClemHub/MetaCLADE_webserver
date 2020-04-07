@@ -177,9 +177,14 @@ function sortTable(col_nb){
 			shouldSwitch = false;
 			x = rows[i].getElementsByTagName("TD")[col_nb];
 			y = rows[i + 1].getElementsByTagName("TD")[col_nb];
+			if(col_nb == 5 || col_nb == 6){
+				if (x.innerHTML < y.innerHTML) {
+					shouldSwitch = true;
+					break;}}
+			else if(col_nb == 4){
 			if (x.innerHTML > y.innerHTML) {
 				shouldSwitch = true;
-				break;}}
+				break;}}}
 		if (shouldSwitch) {
 			rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
 			switching = true;}}}

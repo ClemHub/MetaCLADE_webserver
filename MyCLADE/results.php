@@ -11,6 +11,7 @@ include("./includes/header.php");
 	$database = "METACLADE";
 	$conn = mysqli_connect('localhost', $username, $password, $database);
 	if ($conn->connect_error) {
+		echo "Erreur de débogage : " . mysqli_connect_error() . PHP_EOL;
 		die("Connection failed: " . $conn->connect_error);}
 
 	//Taking form informations

@@ -9,7 +9,7 @@ include("./includes/header.php");
 	$username = "blachon";
 	$password = "myclade";
 	$database = "METACLADE";
-	$conn = mysqli_connect('localhost', $username, $password, $database);
+	$conn = mysqli_connect($hostname, $username, $password, $database);
 	if ($conn->connect_error) {
 		echo "Erreur de débogage : " . mysqli_connect_error() . PHP_EOL;
 		die("Connection failed: " . $conn->connect_error);}
@@ -19,10 +19,9 @@ include("./includes/header.php");
 	$sequences = $_POST['sequences'];
 	$dama = $_SESSION['dama'];
 	if($form=='small' || $form=='large'){
-		echo '1<br>';
 		$e_value = $_SESSION['evalue'];
 		$db_table = 'MetaCLADE_results';
-		$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/jobs/ID1/testDataSet/results/3_arch/testDataSet.arch.txt';
+		$name_file = $appurl.'/MyCLADE/jobs/ID1/testDataSet/results/3_arch/testDataSet.arch.txt';
 		if($dama == 'true'){
 			$DAMA_evalue = $_SESSION['DAMA-evalue'];
 			if($form=='small'){
@@ -31,35 +30,27 @@ include("./includes/header.php");
 		$request = $conn->query($sql);
 		results_to_db($conn, $name_file);}
 	else if($form=='large_example'){
-		echo '2<br>';
 		$e_value = 0.001;
 		if($dama == 'true'){
-		echo '2a<br>';
 			$DAMA_evalue = 1e-10;
 			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithDAMA.csv';
-			$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
+			$name_file = $appurl.'/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
 			$db_table = 'Example_withDAMA';}
 		else if($dama == 'false'){
-		echo '2b<br>';
-
 			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithoutDAMA.csv';
-			$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
+			$name_file = $appurl.'/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
 			$db_table = 'Example_withoutDAMA';}}
 	else if($form=='small_example'){
-		echo '3<br>';
 		$e_value = 0.001;
 		$pfam = "PF00875,PF03441,PF03167,PF12546";
 		if($dama == 'true'){
-		echo '3a<br>';
 			$DAMA_evalue = 1e-10;
 			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithDAMA.csv';
-			$name_file = 'http://localhost/MetaCLADE_webserver//MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
+			$name_file = $appurl.'/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
 			$db_table = 'Example_withDAMA';}
 		else if($dama == 'false'){
-		echo '3b<br>';
-
 			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithoutDAMA.csv';
-			$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
+			$name_file = $appurl.'/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
 			$db_table = 'Example_withoutDAMA';}}
 	if($form=='small' || $form=='small_example'){
 		$domain_list = explode(",", $pfam);
@@ -83,11 +74,7 @@ include("./includes/header.php");
 		echo "<br><input class='btn' type='button' value='Search' name = 'search' onclick='filter_all_domains()'/><input class='btn' type='reset' value='Reset' onclick='reset_table()'/>";
 		echo "</fieldset>";
 		echo "</form>";}
-		echo 'here<br>';
-		echo $name_file;
-		echo '<br>';
-		echo $db_table;
-		echo '<br>';
+
 	$data = array();
 	$domain_list = array();
 	$sql = "SELECT SeqID, DomainID, Seq_start FROM ". $db_table . " ORDER BY e_value";

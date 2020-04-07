@@ -52,6 +52,7 @@ include("./includes/header.php");
 			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithoutDAMA.csv';
 			$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
 			$db_table = 'Example_withoutDAMA';}}
+	echo $name_file;
 	if($form=='small' || $form=='small_example'){
 		$domain_list = explode(",", $pfam);
 		echo "<form action =''>";

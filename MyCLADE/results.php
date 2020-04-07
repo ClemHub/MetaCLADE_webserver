@@ -9,7 +9,7 @@ include("./includes/header.php");
 	$username = "blachon";
 	$password = "myclade";
 	$database = "METACLADE";
-	$conn = mysqli_connect($hostname, $username, $password, $database);
+	$conn = mysqli_connect('localhost', $username, $password, $database);
 	if ($conn->connect_error) {
 		echo "Erreur de débogage : " . mysqli_connect_error() . PHP_EOL;
 		die("Connection failed: " . $conn->connect_error);}

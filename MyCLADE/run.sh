@@ -78,8 +78,8 @@ done
 
 if [$a = 'true']
 then 
-    metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -d "$MCLADE_DOMLIST" -e "$MCLADE_EVALUECUTOFF" -a -E "$MCLADE_EVALUECUTCONF" -W "$MCLADE_WORKDIR" -j "$NJOBS" 
+    metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -d "$MCLADE_DOMLIST" -e "$MCLADE_EVALUECUTOFF" -a -E "$MCLADE_EVALUECUTCONF" -W "$MCLADE_WORKDIR" -j 2 
 else 
-    metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -e "$MCLADE_EVALUECUTOFF" -W "$MCLADE_WORKDIR" -j "$NJOBS"
+    metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -e "$MCLADE_EVALUECUTOFF" -W "$MCLADE_WORKDIR" -j 2
 fi
 #if you have the user email, send a notification about the correct end of the job

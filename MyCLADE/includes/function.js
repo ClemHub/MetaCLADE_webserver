@@ -78,14 +78,12 @@ function small_form_submission() {
 function fill_exemple_form(form){
 	if(form == 'small'){
 		document.small_annotation_form.pfam_domains.value = "PF00875,PF03441,PF03167,PF12546"
-		//fetch('http://localhost:8888/MetaCLADE_webserver/MyCLADE/fasta_file/example.fasta')
 		fetch('http://localhost:1234/MetaCLADE_webserver/MyCLADE/fasta_file/example.fasta')
 		.then(response => response.text())
 		.then((data) => {document.small_annotation_form.sequences.value = data })
 		document.small_annotation_form.action = 'cookies.php?form=small_example';
 		document.getElementById("pfam_domains").disabled = true;}
 	else{
-		//fetch('http://localhost:8888/MetaCLADE_webserver/MyCLADE/fasta_file/example.fasta')
 		fetch('http://localhost:1234/MetaCLADE_webserver/MyCLADE/fasta_file/example.fasta')
 		.then(response => response.text())
 		.then((data) => {document.large_annotation_form.sequences.value = data })
@@ -226,7 +224,6 @@ function filter_all_domains(){
 	checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
 	for (i = 0; i < checkboxes.length; i++){
 		filter.push(checkboxes[i].value)}
-	alert(filter)
 	table = document.getElementById("result");
 	tr = table.getElementsByTagName("tr");
 	for (i = 0; i < tr.length; i++) {

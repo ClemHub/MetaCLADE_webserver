@@ -1,6 +1,5 @@
 <?php 
 include('./includes/header.php'); 
-include('./includes/menu.php'); 
 
 	echo "<section id = 'contact'>";
 	echo "<h2> Contact </h2>";

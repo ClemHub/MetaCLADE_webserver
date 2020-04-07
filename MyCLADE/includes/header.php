@@ -21,7 +21,7 @@ echo "<head>";
 			echo "<div id='header-menu'>";
 				echo "<header><h1>MyCLADE</h1></header>";
 				echo "<div class='topnav' id='myTopnav'>";
-					echo "<a href='http://localhost:1234/MetaCLADE_webserver/MyCLADE/home.php' class = 'active'>Home</a>";
+					echo "<a href='".$appurl."/MetaCLADE_webserver/MyCLADE/home.php' class = 'active'>Home</a>";
 				echo "<div class='dropdown'>";
 				echo "<button class='dropbtn'>Tools";
 				echo "<i class='fa fa-caret-down'></i>";

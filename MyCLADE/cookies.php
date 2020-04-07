@@ -8,7 +8,7 @@
 		$_SESSION['pfam_domains'] = $_POST['pfam_domains'];
 		$form = $_GET['form'];
 		if($form=='small' || $form=='large'){
-			header("location: localhost/MetaCLADE_webserver/MyCLADE/submit.php?form=".$form);}
+			header("location: submit.php?form=".$form);}
 		else if ($form == 'large_example' || $form=='small_example'){
-			header("location: localhost/MetaCLADE_webserver/MyCLADE/results.php?form=".$form);}
+			header("location: results.php?form=".$form);}
 ?>

@@ -21,7 +21,7 @@ include("./includes/header.php");
 	if($form=='small' || $form=='large'){
 		$e_value = $_SESSION['evalue'];
 		$db_table = 'MetaCLADE_results';
-		$name_file = $appurl.'/MyCLADE/jobs/ID1/testDataSet/results/3_arch/testDataSet.arch.txt';
+		$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/jobs/ID1/testDataSet/results/3_arch/testDataSet.arch.txt';
 		if($dama == 'true'){
 			$DAMA_evalue = $_SESSION['DAMA-evalue'];
 			if($form=='small'){
@@ -34,11 +34,11 @@ include("./includes/header.php");
 		if($dama == 'true'){
 			$DAMA_evalue = 1e-10;
 			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithDAMA.csv';
-			$name_file = $appurl.'/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
+			$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
 			$db_table = 'Example_withDAMA';}
 		else if($dama == 'false'){
 			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithoutDAMA.csv';
-			$name_file = $appurl.'/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
+			$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
 			$db_table = 'Example_withoutDAMA';}}
 	else if($form=='small_example'){
 		$e_value = 0.001;
@@ -50,7 +50,7 @@ include("./includes/header.php");
 			$db_table = 'Example_withDAMA';}
 		else if($dama == 'false'){
 			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithoutDAMA.csv';
-			$name_file = $appurl.'/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
+			$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
 			$db_table = 'Example_withoutDAMA';}}
 	if($form=='small' || $form=='small_example'){
 		$domain_list = explode(",", $pfam);

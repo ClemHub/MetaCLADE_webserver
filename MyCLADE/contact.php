@@ -3,12 +3,10 @@ include('./includes/header.php');
 
 	echo "<section id = 'contact'>";
 	echo "<h2> Contact </h2>";
-	echo $appurl."/server_images/AC-picture.png";
-	echo '<br>';
-	echo "http://localhost:1234/MetaCLADE_webserver/server_images/AC-picture.png";
+
 	echo "<div id='contact_container'>";
 		echo "<fieldset class = 'contact_fs'><legend class = 'contact_title'>Alessandra Carbonne</legend>";
-		echo "<img id='AC' class='contact_img' src='".$appurl."/server_images/AC-picture.png' alt='' >";
+		echo "<img id='AC' class='contact_img' src='http://".$appurl."/server_images/AC-picture.png' alt='' >";
 		echo "<p class='contact_descr'>";
 		echo "PI - Analytical Genomics</p>";
 		echo "<p class='contact_descr'>Sorbonne Université</p>";	
@@ -19,7 +17,7 @@ include('./includes/header.php');
 
 
 		echo "<fieldset class = 'contact_fs'><legend class = 'contact_title'>Riccardo Vicedomini</legend>";
-		echo "<img id='RV' class='contact_img' src='".$appurl."/server_images/AC-picture.png' alt='' >";
+		echo "<img id='RV' class='contact_img' src='http://"".$appurl."/server_images/AC-picture.png' alt='' >";
 		echo "<p class='contact_descr'>";
 		echo "PI - Analytical Genomics</p>";
 		echo "<p class='contact_descr'>Sorbonne Université</p>";	
@@ -29,7 +27,7 @@ include('./includes/header.php');
 		echo "<a href='#' class='fas fa-at'></a></div></fieldset>";
 
 		echo "<fieldset class = 'contact_fs'><legend class = 'contact_title'>Riccardo Vicedomini</legend>";
-		echo "<img id='RV' class='contact_img' src='".$appurl."/server_images/AC-picture.png' alt='' >";
+		echo "<img id='RV' class='contact_img' src='http://"".$appurl."/server_images/AC-picture.png' alt='' >";
 		echo "<p class='contact_descr'>";
 		echo "PI - Analytical Genomics</p>";
 		echo "<p class='contact_descr'>Sorbonne Université</p>";	
@@ -39,7 +37,7 @@ include('./includes/header.php');
 		echo "<a href='#' class='fas fa-at'></a></div></fieldset>";
 
 		echo "<fieldset class = 'contact_fs'><legend class = 'contact_title'>Riccardo Vicedomini</legend>";
-		echo "<img id='RV' class='contact_img' src='".$appurl."/server_images/AC-picture.png' alt='' >";
+		echo "<img id='RV' class='contact_img' src='http://"".$appurl."/server_images/AC-picture.png' alt='' >";
 		echo "<p class='contact_descr'>";
 		echo "PI - Analytical Genomics</p>";
 		echo "<p class='contact_descr'>Sorbonne Université</p>";	
@@ -49,7 +47,7 @@ include('./includes/header.php');
 		echo "<a href='#' class='fas fa-at'></a></div></fieldset>";
 
 		echo "<fieldset class = 'contact_fs'><legend class = 'contact_title'>Riccardo Vicedomini</legend>";
-		echo "<img id='RV' class='contact_img' src='".$appurl."/server_images/AC-picture.png' alt='' >";
+		echo "<img id='RV' class='contact_img' src='http://"".$appurl."/server_images/AC-picture.png' alt='' >";
 		echo "<p class='contact_descr'>";
 		echo "PI - Analytical Genomics</p>";
 		echo "<p class='contact_descr'>Sorbonne Université</p>";	

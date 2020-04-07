@@ -51,7 +51,7 @@ include("./includes/header.php");
 		else if($dama == 'false'){
 			//$name_file = 'http://localhost:8888/MetaCLADE_webserver/data/examplewithoutDAMA.csv';
 			$name_file = 'http://localhost/MetaCLADE_webserver/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
-			$db_table = 'Example_withoutDAMA';}
+			$db_table = 'Example_withoutDAMA';}}
 	if($form=='small' || $form=='small_example'){
 		$domain_list = explode(",", $pfam);
 		echo "<form action =''>";
@@ -74,7 +74,7 @@ include("./includes/header.php");
 		echo "<br><input class='btn' type='button' value='Search' name = 'search' onclick='filter_all_domains()'/><input class='btn' type='reset' value='Reset' onclick='reset_table()'/>";
 		echo "</fieldset>";
 		echo "</form>";}
-	echo $name_file;
+		echo $name_file;
 	$data = array();
 	$domain_list = array();
 	$sql = "SELECT SeqID, DomainID, Seq_start FROM ". $db_table . " ORDER BY e_value";
@@ -88,7 +88,7 @@ include("./includes/header.php");
 				array_push($data[$seq_id], $domain_id);}
 			else{
 				$data[$seq_id]=array($domain_id);}}}
-	
+
 	//Button that allows the user to download the text files with the results
 	echo "<a id = 'dl_link' href=".$name_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
 		?>

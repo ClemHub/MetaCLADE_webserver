@@ -3,7 +3,7 @@ include('./includes/header.php');
 
 	echo "<section id = 'contact'>";
 	echo "<h2> Contact </h2>";
-	echo $appurl;
+	echo $appurl."/server_images/AC-picture.png";
 	echo "<div id='contact_container'>";
 		echo "<fieldset class = 'contact_fs'><legend class = 'contact_title'>Alessandra Carbonne</legend>";
 		echo "<img id='AC' class='contact_img' src=".$appurl."/server_images/AC-picture.png' alt='' >";

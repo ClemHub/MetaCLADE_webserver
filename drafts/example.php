@@ -18,7 +18,7 @@
 	$username = "blachon"; 
 	$password = "myclade"; 
 	$database = "METACLADE"; 
-	$conn = mysqli_connect("localhost", $username, $password, $database);
+	$conn = mysqli_connect($hostname, $username, $password, $database);
 	if (!$conn) {
 		die("Connection failed: " . mysqli_connect_error());
 	}

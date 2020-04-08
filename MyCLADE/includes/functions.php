@@ -44,7 +44,7 @@ function submit($jobid, $email){
 	echo 'output: '.$output.'<br>';
 	//$link="$appurl/status.php?jobid=$jobid"; #status.php is a page that show he status of your job
 	$msg="<strong>Your job has been correctly submitted</strong><br><br>";
-	$msg= $msg . "You can follow job progress as well as downloading the results going to <a target=_blank href=$link> $link </a><br>";
+	//$msg= $msg . "You can follow job progress as well as downloading the results going to <a target=_blank href=$link> $link </a><br>";
 	$msg= $msg . "<br>Your data will be removed one month after the end of the job.<br>";
 	$msg= $msg . "The job will be stopped if longer than 48 hours.<br>";
 	$msg= $msg . "If you need some help, contact the web developer ($webdevel).<br>";

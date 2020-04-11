@@ -13,7 +13,7 @@ echo "<head>";
 	echo "<link rel='stylesheet' type='text/css'  href='http://localhost:1234/MetaCLADE_webserver/MyCLADE/css_style/style.css'>";
 	echo "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>";
 	echo "<script src='https://kit.fontawesome.com/a076d05399.js'></script>";
-	echo "<title>Home</title></head>";
+	echo "<title>MetaCLADE</title></head>";
 
 
 	echo "<body>";

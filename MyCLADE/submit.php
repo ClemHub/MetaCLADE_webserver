@@ -12,7 +12,7 @@ include("./includes/header.php");
 		$jobid = generateRandomString();
 		echo 'Your job ID is:'.$jobid,'<br>';
 		echo $appsroot.'/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid.'<br>';
-		mkdir($appsroot.'/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid, 7777, true);
+		mkdir($appsroot.'/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid, 0777, true);
 		$msg = submit($jobid, $email);
 		echo $msg;
 		$email = $_POST['email'];

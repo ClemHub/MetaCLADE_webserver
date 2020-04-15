@@ -17,7 +17,6 @@ function generateRandomString($length = 10) {
 	return $randomString;};
 
 function submit($jobid, $email){
-	mkdir($appurl.'/MyCLADE/jobs/'.$jobid, 0, true);
 	$sequences = $_SESSION['sequences'];
 	echo $sequences.'<br>';
 	file_put_contents($appurl.'/MyCLADE/jobs/'.$jobid.'/data.fa', $sequences);
@@ -37,7 +36,7 @@ function submit($jobid, $email){
 	//ARGS is the list of arguments you have extracted from your form. Only this is escaped because it is the only things given by the user. 
 	//Sublit your job
 	echo "command is launch<br>";
-	$command="qsub -wd /var/www/html/MetaCLADE_webserver/MyCLADE/jobs/".$jobid."/ -N $jobid /var/www/html/MetaCLADE_webserver/MyCLADE/run.sh " . $args;
+	$command="qsub -wd /var/www/html/MetaCLADE_webserver/MyCLADE/jobs/".$jobid."/ -N $jobid /var/www/html/MetaCLADE_webserver/drafts/run_test.sh";
 	echo 'command: '.$command.'<br>';
 	$output = shell_exec("$command");
 	echo "after shell_exec<br>";

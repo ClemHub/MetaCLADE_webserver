@@ -10,7 +10,8 @@ include("./includes/header.php");
 		<?php
 
 		$jobid = generateRandomString();
-		echo 'Your job ID is:'.$jobid;
+		echo 'Your job ID is:'.$jobid,'<br>';
+		mkdir($appurl.'/MyCLADE/jobs/'.$jobid, 0, true);
 		$msg = submit($jobid, $email);
 		echo $msg;
 		$email = $_POST['email'];
@@ -21,8 +22,7 @@ include("./includes/header.php");
 			$mail= $mail_header . "\n".$msg;
 			sendMail($mail, "no-reply@lcqb.upmc.fr", $email);};
 
-		//redirection vers page de resultats avec ?form et ?jobid
-		//header("location: $hostname/$appname/status.php?job_id=$jobid&email=$email");
+		header("location: $hostname/$appname/status.php?job_id=$jobid&email=$email");
 		?>
 	</section>
 

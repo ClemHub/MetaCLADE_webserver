@@ -19,7 +19,8 @@ function generateRandomString($length = 10) {
 function submit($jobid, $email){
 	$sequences = $_SESSION['sequences'];
 	//echo $sequences.'<br>';
-	file_put_contents($appsroot.'/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid.'/data.fa', $sequences);
+	echo 'test'.file_put_contents($appsroot.'/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid.'/data.fa', $sequences);
+	echo '<br>';
 	$e_value = $_SESSION['evalue'];
 	//echo 'e-value: '.$e-value.' <br>';
 	$dama = $_SESSION['dama'];

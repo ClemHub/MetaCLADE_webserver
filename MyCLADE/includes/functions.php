@@ -17,6 +17,8 @@ function generateRandomString($length = 10) {
 	return $randomString;};
 
 function submit($jobid, $email){
+	global $appsroot;
+	global $webdevel;
 	$sequences = $_SESSION['sequences'];
 	//echo $sequences.'<br>';
 	if(is_dir($appsroot.'/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid)){
@@ -31,7 +33,7 @@ function submit($jobid, $email){
 	$dama = $_SESSION['dama'];
 	//echo 'DAMA: '.$dama.' <br>';
 	$nb_jobs = 2;
-	$args = escapeshellarg('-i /var/www/html/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid.'/data.fa')." ".escapeshellarg('-N '.$jobid)." ".escapeshellarg('-e '.$e_value)." ".escapeshellarg('-W http://localhost:1234/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid)." ".escapeshellarg('--sge ')." ".escapeshellarg('--pe smp ')." ".escapeshellarg('-j '.$nb_jobs)." ";
+	$args = escapeshellarg('-i '.$appsroot.'/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid.'/data.fa')." ".escapeshellarg('-N '.$jobid)." ".escapeshellarg('-e '.$e_value)." ".escapeshellarg('-W http://localhost:1234/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid)." ".escapeshellarg('--sge ')." ".escapeshellarg('--pe smp ')." ".escapeshellarg('-j '.$nb_jobs)." ";
 	if($dama == 'true'){
 		$DAMA_evalue = $_SESSION['DAMA-evalue'];
 		//echo 'DAMA e-value: '.$DAMA_evalue.' <br>';	
@@ -43,7 +45,7 @@ function submit($jobid, $email){
 	//ARGS is the list of arguments you have extracted from your form. Only this is escaped because it is the only things given by the user. 
 	//Sublit your job
 	echo "command is launch<br>";
-	$command="qsub -wd /var/www/html/MetaCLADE_webserver/MyCLADE/jobs/".$jobid."/ -N $jobid /var/www/html/MetaCLADE_webserver/drafts/run_test.sh";
+	$command="qsub -wd ".$appsroot."/MetaCLADE_webserver/MyCLADE/jobs/".$jobid."/ -N $jobid ".$appsroot."/MetaCLADE_webserver/drafts/run_test.sh";
 	echo 'command: '.$command.'<br>';
 	$output = shell_exec("$command");
 	echo "after shell_exec<br>";

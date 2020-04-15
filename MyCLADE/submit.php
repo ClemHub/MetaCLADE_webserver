@@ -24,7 +24,7 @@ include("./includes/header.php");
 			$mail_header= $mail_header . "Content-Type: text/html\n";
 			$mail_header= $mail_header . "MIME-Version:\n";
 			$mail= $mail_header . "\n".$msg;
-			sendMail($mail, "no-reply@lcqb.upmc.fr", $email);};
+			mail($mail, "no-reply@lcqb.upmc.fr", $email);};
 
 		//header("location: $hostname/$appname/status.php?job_id=$jobid&email=$email");
 		?>

@@ -45,7 +45,7 @@
 			<fieldset class='form_fs'><legend><h4>E-mail adress:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>It is optionnal and would be use to send you your job details.</span></span></h4></legend>
 
 			<div id = 'email_address'>
-			<input type="email" id="email" pattern=".+@.+\..+" placeholder = 'Optionnal'>
+			<input type="email" name="email" id="email" pattern=".+@.+\..+" placeholder = 'Optionnal'>
 			</div>
 			</fieldset>
 			<div id='submission'>

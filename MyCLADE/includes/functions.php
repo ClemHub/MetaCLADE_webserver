@@ -19,7 +19,7 @@ function generateRandomString($length = 10) {
 function submit($jobid, $email){
 	$sequences = $_SESSION['sequences'];
 	//echo $sequences.'<br>';
-	if(file_exists($appsroot.'/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid)){
+	if(is_dir($appsroot.'/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid)){
 		echo 'The path directory is correct';}
 	else{
 		echo 'The path directory is WRONG';

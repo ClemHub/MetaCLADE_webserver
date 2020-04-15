@@ -19,7 +19,6 @@ include("./includes/header.php");
 		echo 'Mail: '.$email.'<br>';
 		$msg = submit($jobid, $email);
 		echo $msg;
-		$email = $_POST['email'];
 		if($email){
 			$mail_header= "Subject: $appname queued ( $jobid )\n";
 			$mail_header= $mail_header . "Content-Type: text/html\n";

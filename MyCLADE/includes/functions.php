@@ -30,6 +30,7 @@ function submit($jobid, $email){
 	//echo 'e-value: '.$e-value.' <br>';
 	$dama = $_SESSION['dama'];
 	//echo 'DAMA: '.$dama.' <br>';
+	$nb_jobs = 2;
 	$args = escapeshellarg('-i /var/www/html/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid.'/data.fa')." ".escapeshellarg('-N '.$jobid)." ".escapeshellarg('-e '.$e_value)." ".escapeshellarg('-W http://localhost:1234/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid)." ".escapeshellarg('--sge ')." ".escapeshellarg('--pe smp ')." ".escapeshellarg('-j '.$nb_jobs)." ";
 	if($dama == 'true'){
 		$DAMA_evalue = $_SESSION['DAMA-evalue'];
@@ -52,6 +53,6 @@ function submit($jobid, $email){
 	//$msg= $msg . "You can follow job progress as well as downloading the results going to <a target=_blank href=$link> $link </a><br>";
 	$msg= $msg . "<br>Your data will be removed one month after the end of the job.<br>";
 	$msg= $msg . "The job will be stopped if longer than 48 hours.<br>";
-	$msg= $msg . "If you need some help, contact the web developer ($webdevel).<br>";
+	$msg= $msg . "If you need some help, contact the web developer (".$webdevel.").<br>";
 	return $msg;};
 ?>

@@ -16,7 +16,7 @@ include("./includes/header.php");
 		mkdir($appsroot.'/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid, 0777, true);
 		umask($oldmask);
 		$email = $_SESSION['email'];
-		echo $email;
+		echo 'Mail: '.$email.'<br>';
 		$msg = submit($jobid, $email);
 		echo $msg;
 		$email = $_POST['email'];

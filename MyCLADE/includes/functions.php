@@ -18,20 +18,20 @@ function generateRandomString($length = 10) {
 
 function submit($jobid, $email){
 	$sequences = $_SESSION['sequences'];
-	echo $sequences.'<br>';
-	file_put_contents($appurl.'/MyCLADE/jobs/'.$jobid.'/data.fa', $sequences);
+	//echo $sequences.'<br>';
+	file_put_contents($appsroot.'/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid.'/data.fa', $sequences);
 	$e_value = $_SESSION['evalue'];
-	echo 'e-value: '.$e-value.' <br>';
+	//echo 'e-value: '.$e-value.' <br>';
 	$dama = $_SESSION['dama'];
-	echo 'DAMA: '.$dama.' <br>';
+	//echo 'DAMA: '.$dama.' <br>';
 	$args = escapeshellarg('-i /var/www/html/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid.'/data.fa')." ".escapeshellarg('-N '.$jobid)." ".escapeshellarg('-e '.$e_value)." ".escapeshellarg('-W http://localhost:1234/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid)." ".escapeshellarg('--sge ')." ".escapeshellarg('--pe smp ')." ".escapeshellarg('-j '.$nb_jobs)." ";
 	if($dama == 'true'){
 		$DAMA_evalue = $_SESSION['DAMA-evalue'];
-		echo 'DAMA e-value: '.$DAMA_evalue.' <br>';	
+		//echo 'DAMA e-value: '.$DAMA_evalue.' <br>';	
 		$args = $args . escapeshellarg('-a ') . escapeshellarg(' -E ' . $DAMA_evalue);}
 	if($_GET['form']=='small'){
 		$pfam = $_SESSION['pfam_domains'];
-		echo 'PFAM domains: '.$pfam.' <br>';	
+		//echo 'PFAM domains: '.$pfam.' <br>';	
 		$args = $args .escapeshellarg('-d '.$pfam);}
 	//ARGS is the list of arguments you have extracted from your form. Only this is escaped because it is the only things given by the user. 
 	//Sublit your job

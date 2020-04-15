@@ -22,7 +22,7 @@ function submit($jobid, $email){
 	if(file_exists($appsroot.'/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid)){
 		echo 'The path directory is correct';}
 	else{
-		echo 'The path directory is WRONG'
+		echo 'The path directory is WRONG';
 	}
 	echo '<br>';
 	file_put_contents($appsroot.'/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid.'/data.fa', $sequences);

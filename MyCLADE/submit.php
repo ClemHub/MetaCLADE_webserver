@@ -11,7 +11,7 @@ include("./includes/header.php");
 
 		$jobid = generateRandomString();
 		echo 'Your job ID is:'.$jobid,'<br>';
-		mkdir($appurl.'/MyCLADE/jobs/'.$jobid, 0, true);
+		//mkdir($appurl.'/MyCLADE/jobs/'.$jobid, 0, true);
 		$msg = submit($jobid, $email);
 		echo $msg;
 		$email = $_POST['email'];

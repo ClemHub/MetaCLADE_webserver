@@ -78,6 +78,7 @@ while [ -n "${1}" ]; do
     esac
     shift
 done
+/bin/mkdir "$MCLADE_JOBNAME"
 /bin/echo The job is getting started on: `date`
 /bin/echo Running on host: `hostname`.
 /bin/echo In directory: `pwd`

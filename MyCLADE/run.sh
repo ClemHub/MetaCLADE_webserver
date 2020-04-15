@@ -1,4 +1,6 @@
 #!/bin/bash
+#
+# Usage: MetaCLADE.sh
 
 PBS -l walltime=48:00:00
 
@@ -8,6 +10,7 @@ set -e # exit when any command fails
 cd $PBS_O_WORKDIR
 Log file for the application
 LOGFILE="logfile.txt"
+#$ -cwd
 
 function before_exit {
 #Execute something whenever there is an errur in the script
@@ -75,11 +78,16 @@ while [ -n "${1}" ]; do
     esac
     shift
 done
-
+/bin/echo The job is getting started on: `date`
+/bin/echo Running on host: `hostname`.
+/bin/echo In directory: `pwd`
 if [$a = 'true']
 then 
-    metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -d "$MCLADE_DOMLIST" -e "$MCLADE_EVALUECUTOFF" -a -E "$MCLADE_EVALUECUTCONF" -W "$MCLADE_WORKDIR" -j 2 
+   ./home/blachon/Documents/Tools/metaclade2/metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -d "$MCLADE_DOMLIST" -e "$MCLADE_EVALUECUTOFF" -a -E "$MCLADE_EVALUECUTCONF" -W "$MCLADE_WORKDIR" -j 2 
 else 
-    metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -e "$MCLADE_EVALUECUTOFF" -W "$MCLADE_WORKDIR" -j 2
+   ./home/blachon/Documents/Tools/metaclade2/metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -e "$MCLADE_EVALUECUTOFF" -W "$MCLADE_WORKDIR" -j 2
 fi
+/bin/echo The job is over. Starting on: `date`
+
+
 #if you have the user email, send a notification about the correct end of the job

@@ -30,8 +30,8 @@ function submit($jobid, $email){
 	//echo 'DAMA: '.$dama.' <br>';
 	$nb_jobs = 2;
 	$input_file = escapeshellarg($approot.'/MyCLADE/jobs/'.$jobid.'/data.fa');
-	$args = '-N '.$jobid.escapeshellarg(' -i '.$approot.'/MyCLADE/jobs/'.$jobid.'/data.fa ')." ".escapeshellarg('-e '.$e_value.' ')." ".escapeshellarg('-W '.$approot.'/MyCLADE/jobs/'.$jobid.' ')." ".escapeshellarg('-j '.$nb_jobs.' ')." ";
-	//$args = '-i '.$input_file.' -e '.$e_value.' -W '.$approot.'/MyCLADE/jobs/'.$jobid.' -j '.$nb_jobs.' ';
+	$args = escapeshellarg('-i '.$approot.'/MyCLADE/jobs/'.$jobid.'/data.fa ').' -N '.$jobid.' '.escapeshellarg('-e '.$e_value.' ')." ".escapeshellarg('-W '.$approot.'/MyCLADE/jobs/'.$jobid.' ')." ".escapeshellarg('-j '.$nb_jobs.' ')." ";
+	$args = '-i '.$input_file.' -e '.$e_value.' -W '.$approot.'/MyCLADE/jobs/'.$jobid.' -j '.$nb_jobs.' ';
 	if($dama == 'true'){
 		$DAMA_evalue = $_SESSION['DAMA-evalue'];
 		//echo 'DAMA e-value: '.$DAMA_evalue.' <br>';	
@@ -44,7 +44,6 @@ function submit($jobid, $email){
 		//$args = $args . '-d '.$pfam;}
 	//ARGS is the list of arguments you have extracted from your form. Only this is escaped because it is the only things given by the user. 
 	//Sublit your job
-	echo $args;
 	echo "command is launch<br>";
 	$command="qsub -wd ".$approot."/MyCLADE/jobs/".$jobid."/ -N $jobid ".$approot."/MyCLADE/run.sh ".$args;
 	echo 'command: '.$command.'<br>';

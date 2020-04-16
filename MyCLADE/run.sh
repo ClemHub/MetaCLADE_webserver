@@ -79,16 +79,11 @@ while [ -n "${1}" ]; do
     shift
 done
 
-/bin/echo The job is getting started on: 'date'
-/bin/echo Running on host: 'hostname'.
-/bin/echo In directory: 'pwd'
 if [$a = 'true']
 then 
-   /home/blachon/Documents/Tools/metaclade2/metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -d "$MCLADE_DOMLIST" -e "$MCLADE_EVALUECUTOFF" -a -E "$MCLADE_EVALUECUTCONF" -W "$MCLADE_WORKDIR" -j 2 --sge --pe smp 
+   /home/blachon/Documents/Tools/metaclade2/metaclade2 -i "$INPUT_FASTA" -N dataset -d "$MCLADE_DOMLIST" -e "$MCLADE_EVALUECUTOFF" -a -E "$MCLADE_EVALUECUTCONF" -W "$MCLADE_WORKDIR" -j 2 --sge --pe smp 
 else 
    /home/blachon/Documents/Tools/metaclade2/metaclade2 -i "$INPUT_FASTA" -N dataset -e "$MCLADE_EVALUECUTOFF" -W "$MCLADE_WORKDIR" -j 2 --sge --pe smp
 fi
-/bin/echo The job is over. Starting on: 'date'
-
 
 #if you have the user email, send a notification about the correct end of the job

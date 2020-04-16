@@ -18,15 +18,9 @@ function generateRandomString($length = 10) {
 
 function submit($jobid, $email){
 	global $approot;
-	echo $approot;
 	global $webdevel;
 	$sequences = $_SESSION['sequences'];
 	//echo $sequences.'<br>';
-	if(is_dir($approot.'/MyCLADE/jobs/'.$jobid)){
-		echo 'The path directory is correct';}
-	else{
-		echo 'The path directory is WRONG';
-	}
 	echo '<br>';
 	file_put_contents($approot.'/MyCLADE/jobs/'.$jobid.'/data.fa', $sequences);
 	$e_value = $_SESSION['evalue'];
@@ -45,12 +39,12 @@ function submit($jobid, $email){
 		$args = $args .escapeshellarg('-d '.$pfam);}
 	//ARGS is the list of arguments you have extracted from your form. Only this is escaped because it is the only things given by the user. 
 	//Sublit your job
-	echo "command is launch<br>";
+	//echo "command is launch<br>";
 	$command="qsub -wd ".$approot."/MyCLADE/jobs/".$jobid."/ -N $jobid ".$approot."/drafts/run_test.sh";
-	echo 'command: '.$command.'<br>';
+	//echo 'command: '.$command.'<br>';
 	$output = shell_exec("$command");
-	echo "after shell_exec<br>";
-	echo 'output: '.$output.'<br>';
+	//echo "after shell_exec<br>";
+	//echo 'output: '.$output.'<br>';
 	//$link="$appurl/status.php?jobid=$jobid"; #status.php is a page that show he status of your job
 	$msg="<strong>Your job has been correctly submitted</strong><br><br>";
 	//$msg= $msg . "You can follow job progress as well as downloading the results going to <a target=_blank href=$link> $link </a><br>";

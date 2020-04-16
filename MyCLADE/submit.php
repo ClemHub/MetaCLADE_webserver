@@ -11,12 +11,10 @@ include("./includes/header.php");
 
 		$jobid = generateRandomString();
 		echo 'Your job ID is:'.$jobid,'<br>';
-		echo $appsroot.'/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid.'<br>';
 		$oldmask = umask(0);
 		mkdir($appsroot.'/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid, 0777, true);
 		umask($oldmask);
 		$email = $_SESSION['email'];
-		echo 'Mail: '.$email.'<br>';
 		$msg = submit($jobid, $email);
 		echo $msg;
 		if($email){

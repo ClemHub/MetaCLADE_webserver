@@ -7,9 +7,9 @@
 set -e # exit when any command fails
 
 #Goes on the working directory
-cd $PBS_O_WORKDIR
+#cd $PBS_O_WORKDIR
 #Log file for the application
-LOGFILE="logfile.txt"
+#LOGFILE="logfile.txt"
 #$ -cwd
 
 #function before_exit {
@@ -84,9 +84,9 @@ done
 /bin/echo In directory: `pwd`
 if [$a = 'true']
 then 
-   ./home/blachon/Documents/Tools/metaclade2/metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -d "$MCLADE_DOMLIST" -e "$MCLADE_EVALUECUTOFF" -a -E "$MCLADE_EVALUECUTCONF" -W "$MCLADE_WORKDIR" -j 2 
+   /home/blachon/Documents/Tools/metaclade2/metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -d "$MCLADE_DOMLIST" -e "$MCLADE_EVALUECUTOFF" -a -E "$MCLADE_EVALUECUTCONF" -W "$MCLADE_WORKDIR" -j 2 
 else 
-   ./home/blachon/Documents/Tools/metaclade2/metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -e "$MCLADE_EVALUECUTOFF" -W "$MCLADE_WORKDIR" -j 2
+   /home/blachon/Documents/Tools/metaclade2/metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -e "$MCLADE_EVALUECUTOFF" -W "$MCLADE_WORKDIR" -j 2
 fi
 /bin/echo The job is over. Starting on: `date`
 

@@ -28,7 +28,7 @@ function submit($jobid, $email){
 	$dama = $_SESSION['dama'];
 	//echo 'DAMA: '.$dama.' <br>';
 	$nb_jobs = 2;
-	$args = escapeshellarg('-i '.$approot.'/MyCLADE/jobs/'.$jobid.'/data.fa')." ".escapeshellarg('-N '.$jobid)." ".escapeshellarg('-e '.$e_value)." ".escapeshellarg('-W http://localhost:1234/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid)." ".escapeshellarg('--sge ')." ".escapeshellarg('--pe smp ')." ".escapeshellarg('-j '.$nb_jobs)." ";
+	$args = escapeshellarg('-i '.$approot.'/MyCLADE/jobs/'.$jobid.'/data.fa')." ".escapeshellarg('-N '.$jobid)." ".escapeshellarg('-e '.$e_value)." ".escapeshellarg('-W '.$approot.'/MyCLADE/jobs/'.$jobid)." ".escapeshellarg('--sge ')." ".escapeshellarg('--pe smp ')." ".escapeshellarg('-j '.$nb_jobs)." ";
 	if($dama == 'true'){
 		$DAMA_evalue = $_SESSION['DAMA-evalue'];
 		//echo 'DAMA e-value: '.$DAMA_evalue.' <br>';	

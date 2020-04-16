@@ -1,94 +1,17 @@
-#!/bin/bash
+#!/bin/sh
 #
-# Usage: MetaCLADE.sh
+# Usage: metaclade.sh [time]]
+#        default for time is 60 seconds
 
-PBS -l walltime=48:00:00
-
-set -e # exit when any command fails
-
-#Goes on the working directory
-cd $PBS_O_WORKDIR
-#Log file for the application
-LOGFILE="logfile.txt"
+# -- our name ---
+#$ -N MetaCLADE
+#$ -S /bin/sh
+# Make sure that the .e and .o file arrive in the
+# working directory
 #$ -cwd
-
-#function before_exit {
-#Execute something whenever there is an errur in the script
-#if you have the user email, send a notification about the fact the job ended with errors
-#}
-
-#trap before_exit EXIT
-
-#if you have the user email, send a notification about the beginning of the job
-MCLADE_LIB_PATH=""
-MCLADE_EVALUECUTOFF=1e-3
-MCLADE_EVALUECUTCONF=1e-10
-MCLADE_USEDAMA=false
-MCLADE_USESGE=false
-MCLADE_WORKDIR=${PWD}
-NTHREADS=1
-NJOBS=16
-
-opts="i:N:ad:D:e:E:W:t:j:hV"
-longopts="input:,name:,arch,domain-list:,domain-file:,evalue-cutoff:,evalue-cutconf:,work-dir,threads:,jobs:,help,version,sge,pe:,queue:,time-limit:"
-ARGS=$(getopt -o "${opts}" -l "${longopts}" -n "${CMD_NAME}" -- "${@}")
-if [ $? -ne 0 ] || [ $# -eq 0 ]; then # do not change the order of this test!
-    print_usage
-    exit 1
-fi
-eval set -- "${ARGS}"
-
-while [ -n "${1}" ]; do
-    case ${1} in
-        -i|--input)
-            shift
-            INPUT_FASTA=${1}
-            ;;
-        -N|--name)
-            shift
-            MCLADE_JOBNAME=${1}
-            ;;
-        -a|--arch)
-            MCLADE_USEDAMA=true
-            ;;
-        -e|--evalue-cutoff)
-            shift
-            MCLADE_EVALUECUTOFF=${1}
-            ;;
-        -E|--evalue-cutconf)
-            shift
-            MCLADE_EVALUECUTCONF=${1}
-            ;;
-        -d|--domain-list)
-            shift
-            MCLADE_DOMLIST=${1}
-            ;;
-        -W|--work-dir)
-            shift
-            MCLADE_WORKDIR=${1}
-            ;;
-        -j|--max-jobs)
-            shift
-            NJOBS=${1}
-            ;;
-        --)
-            shift
-            break
-            ;;
-    esac
-    shift
-done
-
-/bin/echo The job is getting started on: `date`
-/bin/echo Running on host: `hostname`.
-/bin/echo In directory: `pwd`
-if [$a = 'true']
-then 
-   ./home/blachon/Documents/Tools/metaclade2/metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -d "$MCLADE_DOMLIST" -e "$MCLADE_EVALUECUTOFF" -a -E "$MCLADE_EVALUECUTCONF" -W "$MCLADE_WORKDIR" -j 2 
-else 
-   ./home/blachon/Documents/Tools/metaclade2/metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -e "$MCLADE_EVALUECUTOFF" -W "$MCLADE_WORKDIR" -j 2
-fi
-/bin/echo The job is over. Starting on: `date`
-
-
-#if you have the user email, send a notification about the correct end of the job
+#Merge the standard out and standard error to one file
+#$ -j y
+/home/blachon/Documents/Tools/metaclade2/metaclade2 -i /var/www/html/MetaCLADE_webserver/MyCLADE/fasta_file/example.fasta -N testDataSet -d PF00875,PF03441,PF03167,PF12546 -W ./ --sge --pe smp -j 2 -t 2
+# Send mail at submission and completion of script
+#$ -m be
+#$ -M clemenceblachon@gmail.com

@@ -29,18 +29,18 @@ function submit($jobid, $email){
 	$dama = $_SESSION['dama'];
 	//echo 'DAMA: '.$dama.' <br>';
 	$nb_jobs = 2;
-	//$input_file = escapeshellarg($approot.'/MyCLADE/jobs/'.$jobid.'/data.fa');
-	$args = escapeshellarg('-i '.$approot.'/MyCLADE/jobs/'.$jobid.'/data.fa').escapeshellarg(' -N '.$jobid).escapeshellarg(' -e '.$e_value).escapeshellarg(' -W '.$approot.'/MyCLADE/jobs/'.$jobid).escapeshellarg(' -j '.$nb_jobs)." ";
+	$input_file = escapeshellarg($approot.'/MyCLADE/jobs/'.$jobid.'/data.fa');
+	$args = escapeshellarg('-i '.$approot.'/MyCLADE/jobs/'.$jobid.'/data.fa ')." ".escapeshellarg('-N '.$jobid.' ')." ".escapeshellarg('-e '.$e_value.' ')." ".escapeshellarg('-W '.$approot.'/MyCLADE/jobs/'.$jobid.' ')." ".escapeshellarg('-j '.$nb_jobs.' ')." ";
 	//$args = '-i '.$input_file.' -e '.$e_value.' -W '.$approot.'/MyCLADE/jobs/'.$jobid.' -j '.$nb_jobs.' ';
 	if($dama == 'true'){
 		$DAMA_evalue = $_SESSION['DAMA-evalue'];
 		//echo 'DAMA e-value: '.$DAMA_evalue.' <br>';	
-		$args = $args . escapeshellarg('-a ') . escapeshellarg(' -E ' . $DAMA_evalue);}
+		$args = $args . escapeshellarg('-a ') . escapeshellarg(' -E ' . $DAMA_evalue.' ');}
 		//$args = $args . '-a -E ' . $DAMA_evalue . ' ';}
 	if($_GET['form']=='small'){
 		$pfam = $_SESSION['pfam_domains'];
 		//echo 'PFAM domains: '.$pfam.' <br>';	
-		$args = $args .escapeshellarg('-d '.$pfam);}
+		$args = $args .escapeshellarg('-d '.$pfam.' ');}
 		//$args = $args . '-d '.$pfam;}
 	//ARGS is the list of arguments you have extracted from your form. Only this is escaped because it is the only things given by the user. 
 	//Sublit your job

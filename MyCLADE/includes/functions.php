@@ -43,8 +43,7 @@ function submit($jobid, $email){
 	$command="qsub -wd ".$approot."/MyCLADE/jobs/".$jobid."/ -N $jobid ".$approot."/drafts/run_test.sh";
 	echo 'command: '.$command.'<br>';
 	echo '<br>';
-	//$output = shell_exec("$command");
-	$output = shell_exec("ls -l");
+	$output = shell_exec("$command");
 	echo "after shell_exec<br>";
 	echo 'output: '.$output.'<br>';
 	echo '<br>';

@@ -9,9 +9,10 @@ function results_to_db($conn, $name_file){
 			echo("Error description: " . $mysqli -> error);}};
 
 function generateRandomString($length = 10) {
+	$characters_wo_digit = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	$charactersLength = strlen($characters);
-	$randomString = '';
+	$randomString = $characters[rand(0, strlen($characters_wo_digit) - 1)];
 	for ($i = 0; $i < $length; $i++) {
 		$randomString .= $characters[rand(0, $charactersLength - 1)];}
 	return $randomString;};

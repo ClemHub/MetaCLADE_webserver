@@ -2,7 +2,7 @@
 #
 # Usage: MetaCLADE.sh
 
-PBS -l walltime=48:00:00
+#PBS -l walltime=48:00:00
 
 set -e # exit when any command fails
 

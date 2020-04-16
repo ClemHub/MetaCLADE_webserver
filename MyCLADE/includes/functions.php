@@ -41,7 +41,7 @@ function submit($jobid, $email){
 	//ARGS is the list of arguments you have extracted from your form. Only this is escaped because it is the only things given by the user. 
 	//Sublit your job
 	echo "command is launch<br>";
-	$command="qsub -wd ".$approot."/MyCLADE/jobs/".$jobid."/ -N $jobid ".$approot."/MyCLADE/run.sh ".$args;
+	$command="qsub -wd ".$approot."/MyCLADE/jobs/".$jobid."/ -N $jobid ".$approot."/MyCLADE/run.sh ";//.$args;
 	echo 'command: '.$command.'<br>';
 	echo '<br>';
 	$output = shell_exec("$command");

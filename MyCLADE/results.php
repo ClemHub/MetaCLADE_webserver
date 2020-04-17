@@ -14,14 +14,14 @@ include("./includes/header.php");
 		echo "Erreur de débogage : " . mysqli_connect_error() . PHP_EOL;
 		die("Connection failed: " . $conn->connect_error);}
 
+	$job_id = $_GET['job_id'];
 	//Taking form informations
 	$form = $_GET['form'];
-	$sequences = $_POST['sequences'];
 	$dama = $_SESSION['dama'];
 	if($form=='small' || $form=='large'){
 		$e_value = $_SESSION['evalue'];
 		$db_table = 'MetaCLADE_results';
-		$name_file = $appurl.'/MyCLADE/jobs/ID1/testDataSet/results/3_arch/testDataSet.arch.txt';
+		$name_file = $appurl."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
 		if($dama == 'true'){
 			$DAMA_evalue = $_SESSION['DAMA-evalue'];
 			if($form=='small'){

@@ -8,7 +8,7 @@ include("./includes/header.php");
     <h3>This server is a multi-source domain annotation for quantitative <em>metagenomic and metatranscriptomic</em> functional profiling.</h3>
 		<p class = 'text'>
 		<?php
-
+		$form = $_GET['form'];
 		$jobid = generateRandomString();
 		echo 'Your job ID is:'.$jobid,'<br>';
 		$oldmask = umask(0);
@@ -24,7 +24,7 @@ include("./includes/header.php");
 			$mail= $mail_header . "\n".$msg;
 			mail($mail, "no-reply@lcqb.upmc.fr", $email);};
 
-		header("location: $hostname/$appname/MyCLADE/status.php?job_id=".$jobid.".&email=".$email);
+		header("location: $hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$jobid.".&email=".$email);
 		?>
 	</section>
 

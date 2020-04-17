@@ -19,7 +19,6 @@ include("./includes/header.php");
 	$form = $_GET["form"];
 	$dama = $_SESSION["dama"];
 	if($form=="small" || $form=="large"){
-		echo "<script> alert('ooook1') </script>";
 		$e_value = $_SESSION['evalue'];
 		$db_table = "MetaCLADE_results";
 		$name_file = $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";

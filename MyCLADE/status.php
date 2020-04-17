@@ -9,7 +9,7 @@ include("./includes/header.php");
 		<?php
         $form = $_GET['form'];
         $job_id = $_GET['job_id'];
-        echo "Your job ".$job_id." is still running.<br>";
+        echo "Your job ".$job_id." is running.<br>";
         echo "You can save the link to access the results later thanks to this link<br>";
         echo "This page will be refreshed every 20 seconds<br>";
 

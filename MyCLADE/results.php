@@ -33,20 +33,20 @@ include("./includes/header.php");
 		$e_value = 0.001;
 		if($dama == 'true'){
 			$DAMA_evalue = 1e-10;
-			$name_file = $appurl.'/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
+			$name_file = $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
 			$db_table = 'Example_withDAMA';}
 		else if($dama == 'false'){
-			$name_file = $appurl.'/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
+			$name_file = $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
 			$db_table = 'Example_withoutDAMA';}}
 	else if($form=='small_example'){
 		$e_value = 0.001;
 		$pfam = "PF00875,PF03441,PF03167,PF12546";
 		if($dama == 'true'){
 			$DAMA_evalue = 1e-10;
-			$name_file = $appurl.'/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
+			$name_file = $approot.'/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
 			$db_table = 'Example_withDAMA';}
 		else if($dama == 'false'){
-			$name_file = $appurl.'/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
+			$name_file = $approot.'/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
 			$db_table = 'Example_withoutDAMA';}}
 	if($form=='small' || $form=='small_example'){
 		$domain_list = explode(",", $pfam);

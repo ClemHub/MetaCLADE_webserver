@@ -11,7 +11,7 @@ include("./includes/header.php");
         $job_id = $_GET["job_id"];
         echo "Your job ".$job_id." is running.<br>";
         echo "You can save the link to access the results later thanks to this link:<br>"; 
-        echo "<a href=$hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$jobid."&email=".$email.">$hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$jobid."</a><br>";
+        echo "<a href=$hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$job_id."&email=".$email.">$hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$jobid."</a><br>";
         echo "<br>This page will be refreshed every 20 seconds<br>";
 
         if(file_exists($approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt")){

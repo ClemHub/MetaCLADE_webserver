@@ -9,13 +9,13 @@ include("./includes/header.php");
 		<p class = 'text'>
 		<?php
 		$form = $_GET['form'];
-		$jobid = generateRandomString();
-		echo 'Your job ID is:'.$jobid,'<br>';
+		$job_id = generateRandomString();
+		echo 'Your job ID is:'.$job_id,'<br>';
 		$oldmask = umask(0);
-		mkdir($appsroot.'/MetaCLADE_webserver/MyCLADE/jobs/'.$jobid, 0777, true);
+		mkdir($appsroot.'/MetaCLADE_webserver/MyCLADE/jobs/'.$job_id, 0777, true);
 		umask($oldmask);
 		$email = $_SESSION['email'];
-		$msg = submit($jobid, $email);
+		$msg = submit($job_id, $email);
 		echo $msg;
 		if($email){
 			$mail_header= "Subject: $appname queued ( $jobid )\n";
@@ -24,7 +24,7 @@ include("./includes/header.php");
 			$mail= $mail_header . "\n".$msg;
 			mail($mail, "no-reply@lcqb.upmc.fr", $email);};
 
-		header("location: $hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$jobid."&email=".$email);
+		header("location: $hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$job_id."&email=".$email);
 		?>
 	</section>
 

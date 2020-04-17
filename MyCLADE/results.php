@@ -25,7 +25,7 @@ include("./includes/header.php");
 		if($dama == "true"){
 			$DAMA_evalue = $_SESSION["DAMA-evalue"];
 			if($form=="small"){
-				$pfam = $_POST["pfam_domains"];}}
+				$pfam = $_SESSION["pfam_domains"];}}
 		$sql = "DELETE FROM ".$db_table;
 		$request = $conn->query($sql);
 		results_to_db($conn, $name_file);}
@@ -47,8 +47,8 @@ include("./includes/header.php");
 			$db_table = "Example_withDAMA";}
 		else if($dama == "false"){
 			$name_file = $appurl."/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";
-			$db_table = 'Example_withoutDAMA';}}
-	if($form=='small' || $form=='small_example'){
+			$db_table = "Example_withoutDAMA";}}
+	if($form=="small" || $form=="small_example"){
 		$domain_list = explode(",", $pfam);
 		echo "<form action =''>";
 		echo "<fieldset class='form_fs'><legend><h4>Domain visualization:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domain table you want to visualize.</span></span></h4></legend>";
@@ -105,7 +105,7 @@ include("./includes/header.php");
 		echo "<tr><td><a class='table_link' href='architecture.php?id=" . $seq_id . "&db=" . $db_table . "'>" . $seq_id . "</a></td>";
 		echo "<td>";
 		foreach($domain_list as $domain_id){
-			$link_id = 'http://pfam.xfam.org/family/' . $domain_id;
+			$link_id = "http://pfam.xfam.org/family/" . $domain_id;
 			echo "<a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a>";
 		}
 		echo "</td></tr>";

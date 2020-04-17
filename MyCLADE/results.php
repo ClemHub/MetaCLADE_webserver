@@ -25,6 +25,7 @@ include("./includes/header.php");
 		if($dama == "true"){
 			$DAMA_evalue = $_SESSION["DAMA-evalue"];
 			if($form=="small"){
+				echo "<script> alert('ooook') </script>";
 				$pfam = $_SESSION["pfam_domains"];}}
 		$sql = "DELETE FROM ".$db_table;
 		$request = $conn->query($sql);

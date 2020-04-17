@@ -139,8 +139,7 @@ include("./includes/header.php");
 		echo 'DAMA was not used to determine the architecture.';}
 	echo '<br><br>';
 	?>
-	Output explanation:
-	If the model species is 'unavailable', it is because the most reliable model was HMMer-3
+
 	</div>
 	</div>
 	</section>

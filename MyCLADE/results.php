@@ -86,6 +86,7 @@ include("./includes/header.php");
 				$data[$seq_id]=array($domain_id);}}}
 
 	//Button that allows the user to download the text files with the results
+	echo $name_file = $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt<br>";
 	echo "<a id = 'dl_link' href=".$name_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
 		?>
 		<!-- Table with the results -->

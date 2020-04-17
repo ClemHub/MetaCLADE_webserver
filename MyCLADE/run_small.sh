@@ -79,7 +79,7 @@ while [ -n "${1}" ]; do
     shift
 done
 #/bin/echo "$MCLADE_USEDAMA"
-if [['$MCLADE_USEDAMA'=true]]
+if $MCLADE_USEDAMA
 then
     /bin/echo "Dama was used"
     /bin/echo "$MCLADE_USEDAMA"

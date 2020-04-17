@@ -24,10 +24,9 @@ include("./includes/header.php");
 		$db_table = "MetaCLADE_results";
 		$name_file = $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
 		if($dama == "true"){
-			$DAMA_evalue = $_SESSION["DAMA-evalue"];
-			if($form=="small"){
-				echo "<script> alert('ooook2') </script>";
-				$pfam = $_SESSION["pfam_domains"];}}
+			$DAMA_evalue = $_SESSION["DAMA-evalue"];}
+		if($form=="small"){
+			$pfam = $_SESSION["pfam_domains"];}
 		$sql = "DELETE FROM ".$db_table;
 		$request = $conn->query($sql);
 		results_to_db($conn, $name_file);}

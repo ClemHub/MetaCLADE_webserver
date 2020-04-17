@@ -25,8 +25,8 @@ function submit($jobid, $email){
 	file_put_contents($approot.'/MyCLADE/jobs/'.$jobid.'/data.fa', $sequences);
 	$e_value = $_SESSION['evalue'];
 	$dama = $_SESSION['dama'];
+	$form = $_GET["form"];
 	$nb_jobs = 2;
-	$input_file = escapeshellarg($approot.'/MyCLADE/jobs/'.$jobid.'/data.fa');
 	//$args = escapeshellarg('-i '.$approot.'/MyCLADE/jobs/'.$jobid.'/data.fa ').escapeshellarg(' -N '.$jobid.' ').escapeshellarg('-e '.$e_value.' ')." ".escapeshellarg('-W '.$approot.'/MyCLADE/jobs/'.$jobid.' ')." ".escapeshellarg('-j '.$nb_jobs.' ')." ";
 	$args = '-i '.$approot.'/MyCLADE/jobs/'.$jobid.'/data.fa -N '.$jobid.' -e '.$e_value.' -W '.$approot.'/MyCLADE/jobs/'.$jobid.' -j '.$nb_jobs.' ';
 	if($dama == 'true'){
@@ -39,7 +39,10 @@ function submit($jobid, $email){
 		$args = $args . '-d '.$pfam;}
 	//ARGS is the list of arguments you have extracted from your form. Only this is escaped because it is the only things given by the user. 
 	//Submit your job
-	$command="qsub -wd ".$approot."/MyCLADE/jobs/".$jobid."/ -N $jobid ".$approot."/MyCLADE/run.sh ".$args;
+	if ($form == 'small'){
+		$command="qsub -wd ".$approot."/MyCLADE/jobs/".$jobid."/ -N $jobid ".$approot."/MyCLADE/run_small.sh ".$args;}
+	else if($form == 'large'){
+		$command="qsub -wd ".$approot."/MyCLADE/jobs/".$jobid."/ -N $jobid ".$approot."/MyCLADE/run_large.sh ".$args;}
 	//echo 'command: '.$command.'<br>';
 	//echo '<br>';
 	$output = shell_exec("$command");

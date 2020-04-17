@@ -9,44 +9,44 @@ include("./includes/header.php");
 	$username = "blachon";
 	$password = "myclade";
 	$database = "METACLADE";
-	$conn = mysqli_connect('localhost', $username, $password, $database);
+	$conn = mysqli_connect("localhost", $username, $password, $database);
 	if ($conn->connect_error) {
 		echo "Erreur de débogage : " . mysqli_connect_error() . PHP_EOL;
 		die("Connection failed: " . $conn->connect_error);}
 
-	$job_id = $_GET['job_id'];
+	$job_id = $_GET["job_id"];
 	//Taking form informations
-	$form = $_GET['form'];
-	$dama = $_SESSION['dama'];
-	if($form=='small' || $form=='large'){
+	$form = $_GET["form"];
+	$dama = $_SESSION["dama"];
+	if($form=="small" || $form=="large"){
 		$e_value = $_SESSION['evalue'];
-		$db_table = 'MetaCLADE_results';
+		$db_table = "MetaCLADE_results";
 		$name_file = $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
-		if($dama == 'true'){
-			$DAMA_evalue = $_SESSION['DAMA-evalue'];
-			if($form=='small'){
-				$pfam = $_POST['pfam_domains'];}}
+		if($dama == "true"){
+			$DAMA_evalue = $_SESSION["DAMA-evalue"];
+			if($form=="small"){
+				$pfam = $_POST["pfam_domains"];}}
 		$sql = "DELETE FROM ".$db_table;
 		$request = $conn->query($sql);
 		results_to_db($conn, $name_file);}
-	else if($form=='large_example'){
+	else if($form=="large_example"){
 		$e_value = 0.001;
-		if($dama == 'true'){
+		if($dama == "true"){
 			$DAMA_evalue = 1e-10;
-			$name_file = $approot.'/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
-			$db_table = 'Example_withDAMA';}
-		else if($dama == 'false'){
-			$name_file = $approot.'/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
-			$db_table = 'Example_withoutDAMA';}}
-	else if($form=='small_example'){
+			$name_file = $approot."/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";
+			$db_table = "Example_withDAMA";}
+		else if($dama == "false"){
+			$name_file = $approot."/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";
+			$db_table = "Example_withoutDAMA";}}
+	else if($form=="small_example"){
 		$e_value = 0.001;
 		$pfam = "PF00875,PF03441,PF03167,PF12546";
-		if($dama == 'true'){
+		if($dama == "true"){
 			$DAMA_evalue = 1e-10;
-			$name_file = $appurl.'/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
-			$db_table = 'Example_withDAMA';}
-		else if($dama == 'false'){
-			$name_file = $appurl.'/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt';
+			$name_file = $appurl."/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";
+			$db_table = "Example_withDAMA";}
+		else if($dama == "false"){
+			$name_file = $appurl."/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";
 			$db_table = 'Example_withoutDAMA';}}
 	if($form=='small' || $form=='small_example'){
 		$domain_list = explode(",", $pfam);

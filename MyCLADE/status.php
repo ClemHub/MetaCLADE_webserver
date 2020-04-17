@@ -15,7 +15,7 @@ include("./includes/header.php");
 
         echo $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
         if(file_exists($approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt")){
-            header("location: $hostname/$appname/MyCLADE/results.php?form=".$form."&job_id=".$job_id.".&email=".$email);
+            header("location: $hostname/$appname/MyCLADE/results.php?form=".$form."&job_id=".$job_id."&email=".$email);
             }
         else{
             header("refresh: 20");}

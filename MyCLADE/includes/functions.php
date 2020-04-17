@@ -21,35 +21,28 @@ function submit($jobid, $email){
 	global $approot;
 	global $webdevel;
 	$sequences = $_SESSION['sequences'];
-	//echo $sequences.'<br>';
 	echo '<br>';
 	file_put_contents($approot.'/MyCLADE/jobs/'.$jobid.'/data.fa', $sequences);
 	$e_value = $_SESSION['evalue'];
-	//echo 'e-value: '.$e-value.' <br>';s
 	$dama = $_SESSION['dama'];
-	//echo 'DAMA: '.$dama.' <br>';
 	$nb_jobs = 2;
 	$input_file = escapeshellarg($approot.'/MyCLADE/jobs/'.$jobid.'/data.fa');
 	//$args = escapeshellarg('-i '.$approot.'/MyCLADE/jobs/'.$jobid.'/data.fa ').escapeshellarg(' -N '.$jobid.' ').escapeshellarg('-e '.$e_value.' ')." ".escapeshellarg('-W '.$approot.'/MyCLADE/jobs/'.$jobid.' ')." ".escapeshellarg('-j '.$nb_jobs.' ')." ";
 	$args = '-i '.$approot.'/MyCLADE/jobs/'.$jobid.'/data.fa -N '.$jobid.' -e '.$e_value.' -W '.$approot.'/MyCLADE/jobs/'.$jobid.' -j '.$nb_jobs.' ';
 	if($dama == 'true'){
-		$DAMA_evalue = $_SESSION['DAMA-evalue'];
-		//echo 'DAMA e-value: '.$DAMA_evalue.' <br>';	
+		$DAMA_evalue = $_SESSION['DAMA-evalue'];	
 		//$args = $args . escapeshellarg('-a ') . escapeshellarg(' -E ' . $DAMA_evalue.' ');}
 		$args = $args . '-a -E ' . $DAMA_evalue . ' ';}
 	if($_GET['form']=='small'){
-		$pfam = $_SESSION['pfam_domains'];
-		//echo 'PFAM domains: '.$pfam.' <br>';	
+		$pfam = $_SESSION['pfam_domains'];	
 		//$args = $args .escapeshellarg('-d '.$pfam.' ');}
 		$args = $args . '-d '.$pfam;}
 	//ARGS is the list of arguments you have extracted from your form. Only this is escaped because it is the only things given by the user. 
-	//Sublit your job
-	//echo "command is launch<br>";
+	//Submit your job
 	$command="qsub -wd ".$approot."/MyCLADE/jobs/".$jobid."/ -N $jobid ".$approot."/MyCLADE/run.sh ".$args;
 	//echo 'command: '.$command.'<br>';
 	//echo '<br>';
 	$output = shell_exec("$command");
-	//echo "after shell_exec<br>";
 	//echo 'output: '.$output.'<br>';
 	//echo '<br>';
 	//$link="$appurl/status.php?jobid=$jobid"; #status.php is a page that show he status of your job
@@ -59,4 +52,18 @@ function submit($jobid, $email){
 	$msg= $msg . "The job will be stopped if longer than 48 hours.<br>";
 	$msg= $msg . "If you need some help, contact the web developer (".$webdevel.").<br>";
 	return $msg;};
+
+	function read_csv($file_name, $separator ="\t"){
+		$row = 0;
+		$donnee = array();    
+		$f = fopen ($nom_fichier,"r");
+		$taille = filesize($nom_fichier)+1;
+		while ($donnee = fgetcsv($f, $taille, $separateur)) {
+			$result[$row] = $donnee;
+			$row++;
+		}
+		fclose ($f);
+		return $result;
+	}
+
 ?>

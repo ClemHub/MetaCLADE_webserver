@@ -10,7 +10,8 @@ include("./includes/header.php");
         $form = $_GET["form"];
         $job_id = $_GET["job_id"];
         echo "Your job ".$job_id." is running.<br>";
-        echo "You can save the link to access the results later thanks to this link<br>";
+        echo "You can save the link to access the results later thanks to this link:"; 
+        echo "<a href=$hostname/$appname/MyCLADE/results.php?form=".$form."&job_id=".$job_id."&email=".$email.">$hostname/$appname/MyCLADE/results.php?form=".$form."&job_id=".$job_id."</a><br>";
         echo "This page will be refreshed every 20 seconds<br>";
 
         echo $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";

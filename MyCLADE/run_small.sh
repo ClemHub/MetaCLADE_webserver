@@ -49,7 +49,7 @@ while [ -n "${1}" ]; do
             MCLADE_JOBNAME=${1}
             ;;
         -a|--arch)
-            MCLADE_USEDAMA='ok'
+            MCLADE_USEDAMA= ok
             ;;
         -e|--evalue-cutoff)
             shift
@@ -79,7 +79,7 @@ while [ -n "${1}" ]; do
     shift
 done
 /bin/echo "$MCLADE_USEDAMA"
-if ['$MCLADE_USEDAMA' = 'ok']
+if ['$MCLADE_USEDAMA' = ok]
 then
     /bin/echo "Dama was used"
    /home/blachon/Documents/Tools/metaclade2/metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -d "$MCLADE_DOMLIST" -e "$MCLADE_EVALUECUTOFF" -a -E "$MCLADE_EVALUECUTCONF" -W "$MCLADE_WORKDIR" -j 2 --sge --pe smp -t 2 

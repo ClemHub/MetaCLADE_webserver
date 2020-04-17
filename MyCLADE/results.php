@@ -19,13 +19,14 @@ include("./includes/header.php");
 	$form = $_GET["form"];
 	$dama = $_SESSION["dama"];
 	if($form=="small" || $form=="large"){
+		echo "<script> alert('ooook1') </script>";
 		$e_value = $_SESSION['evalue'];
 		$db_table = "MetaCLADE_results";
 		$name_file = $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
 		if($dama == "true"){
 			$DAMA_evalue = $_SESSION["DAMA-evalue"];
 			if($form=="small"){
-				echo "<script> alert('ooook') </script>";
+				echo "<script> alert('ooook2') </script>";
 				$pfam = $_SESSION["pfam_domains"];}}
 		$sql = "DELETE FROM ".$db_table;
 		$request = $conn->query($sql);

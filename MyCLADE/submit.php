@@ -24,7 +24,7 @@ include("./includes/header.php");
 			$mail= $mail_header . "\n".$msg;
 			mail($mail, "no-reply@lcqb.upmc.fr", $email);};
 
-		header("location: $hostname/$appname/status.php?job_id=".$jobid.".&email=".$email);
+		header("location: $hostname/$appname/MyCLADE/status.php?job_id=".$jobid.".&email=".$email);
 		?>
 	</section>
 

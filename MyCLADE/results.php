@@ -36,6 +36,7 @@ include("./includes/header.php");
 			`Model species` varchar(75) COLLATE utf8_unicode_ci DEFAULT NULL
 		  ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
 		$request = $conn->query($sql);
+		$db_table = $job_id;
 		$name_file = $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
 		if($dama == "true"){
 			$DAMA_evalue = $_SESSION["DAMA-evalue"];}

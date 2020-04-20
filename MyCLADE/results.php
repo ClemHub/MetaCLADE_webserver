@@ -30,7 +30,7 @@ include("./includes/header.php");
 			$pfam = $_SESSION["pfam_domains"];}
 		$sql = "DELETE FROM ".$db_table;
 		$request = $conn->query($sql);
-		results_to_db($conn, $name_file);}
+		results_to_db($conn, $name_file, $db_table);}
 	else if($form=="large_example"){
 		$e_value = 0.001;
 		if($dama == "true"){

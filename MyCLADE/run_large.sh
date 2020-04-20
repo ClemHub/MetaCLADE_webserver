@@ -74,7 +74,7 @@ while [ -n "${1}" ]; do
     esac
     shift
 done
-/bin/echo "$MCLADE_DOMLIST"
+#/bin/echo "$MCLADE_USEDAMA"
 if $MCLADE_USEDAMA
 then
     /home/blachon/Documents/Tools/metaclade2/metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -e "$MCLADE_EVALUECUTOFF" -a -E "$MCLADE_EVALUECUTCONF" -W "$MCLADE_WORKDIR" -j 2 --sge --pe smp -t 2 

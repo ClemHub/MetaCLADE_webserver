@@ -20,7 +20,22 @@ include("./includes/header.php");
 	$dama = $_SESSION["dama"];
 	if($form=="small" || $form=="large"){
 		$e_value = $_SESSION['evalue'];
-		$db_table = "MetaCLADE_results";
+		$sql = "CREATE TABLE ".$job_id." (
+			`SeqID` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
+			`Seq_start` int(5) DEFAULT NULL,
+			`Seq_stop` int(5) DEFAULT NULL,
+			`Seq_length` int(5) DEFAULT NULL,
+			`DomainID` varchar(7) CHARACTER SET utf8 DEFAULT NULL,
+			`ModelID` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
+			`Model_start` int(5) DEFAULT NULL,
+			`Model_stop` int(5) DEFAULT NULL,
+			`Model_size` int(5) DEFAULT NULL,
+			`e_value` double DEFAULT NULL,
+			`Bitscore` float DEFAULT NULL,
+			`Accuracy` float DEFAULT NULL,
+			`Model species` varchar(75) COLLATE utf8_unicode_ci DEFAULT NULL
+		  ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
+		$request = $conn->query($sql);
 		$name_file = $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
 		if($dama == "true"){
 			$DAMA_evalue = $_SESSION["DAMA-evalue"];}

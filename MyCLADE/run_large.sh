@@ -59,10 +59,6 @@ while [ -n "${1}" ]; do
             shift
             MCLADE_EVALUECUTCONF=${1}
             ;;
-        -d|--domain-list)
-            shift
-            MCLADE_DOMLIST=${1}
-            ;;
         -W|--work-dir)
             shift
             MCLADE_WORKDIR=${1}
@@ -79,11 +75,11 @@ while [ -n "${1}" ]; do
     shift
 done
 /bin/echo "$MCLADE_DOMLIST"
-if [$a = 'true']
+if $MCLADE_USEDAMA
 then
-   /home/blachon/Documents/Tools/metaclade2/metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -d "$MCLADE_DOMLIST" -e "$MCLADE_EVALUECUTOFF" -a -E "$MCLADE_EVALUECUTCONF" -W "$MCLADE_WORKDIR" -j 2 --sge --pe smp -t 2 
+    /home/blachon/Documents/Tools/metaclade2/metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -e "$MCLADE_EVALUECUTOFF" -a -E "$MCLADE_EVALUECUTCONF" -W "$MCLADE_WORKDIR" -j 2 --sge --pe smp -t 2 
 else 
-   /home/blachon/Documents/Tools/metaclade2/metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -d "$MCLADE_DOMLIST" -e "$MCLADE_EVALUECUTOFF" -W "$MCLADE_WORKDIR" -j 2 --sge --pe smp -t 2
+    /home/blachon/Documents/Tools/metaclade2/metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -e "$MCLADE_EVALUECUTOFF" -W "$MCLADE_WORKDIR" -j 2 --sge --pe smp -t 2
 fi
 
 

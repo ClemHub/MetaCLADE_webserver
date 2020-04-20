@@ -27,16 +27,16 @@ function submit($jobid, $email){
 	$dama = $_SESSION['dama'];
 	$form = $_GET["form"];
 	$nb_jobs = 2;
-	//$args = escapeshellarg('-i '.$approot.'/MyCLADE/jobs/'.$jobid.'/data.fa ').escapeshellarg(' -N '.$jobid.' ').escapeshellarg('-e '.$e_value.' ')." ".escapeshellarg('-W '.$approot.'/MyCLADE/jobs/'.$jobid.' ')." ".escapeshellarg('-j '.$nb_jobs.' ')." ";
-	$args = '-i '.$approot.'/MyCLADE/jobs/'.$jobid.'/data.fa -N '.$jobid.' -e '.$e_value.' -W '.$approot.'/MyCLADE/jobs/'.$jobid.' -j '.$nb_jobs.' ';
+	$args = escapeshellarg('-i '.$approot.'/MyCLADE/jobs/'.$jobid.'/data.fa ').escapeshellarg(' -N '.$jobid.' ').escapeshellarg('-e '.$e_value.' ')." ".escapeshellarg('-W '.$approot.'/MyCLADE/jobs/'.$jobid.' ')." ".escapeshellarg('-j '.$nb_jobs.' ')." ";
+	//$args = '-i '.$approot.'/MyCLADE/jobs/'.$jobid.'/data.fa -N '.$jobid.' -e '.$e_value.' -W '.$approot.'/MyCLADE/jobs/'.$jobid.' -j '.$nb_jobs.' ';
 	if($dama == 'true'){
 		$DAMA_evalue = $_SESSION['DAMA-evalue'];	
-		//$args = $args . escapeshellarg('-a ') . escapeshellarg(' -E ' . $DAMA_evalue.' ');}
-		$args = $args . '-a -E ' . $DAMA_evalue . ' ';}
+		$args = $args . escapeshellarg('-a ') . escapeshellarg(' -E ' . $DAMA_evalue.' ');}
+		//$args = $args . '-a -E ' . $DAMA_evalue . ' ';}
 	if($_GET['form']=='small'){
 		$pfam = $_SESSION['pfam_domains'];	
-		//$args = $args .escapeshellarg('-d '.$pfam.' ');}
-		$args = $args . '-d '.$pfam;}
+		$args = $args .escapeshellarg('-d '.$pfam.' ');}
+		//$args = $args . '-d '.$pfam;}
 	//ARGS is the list of arguments you have extracted from your form. Only this is escaped because it is the only things given by the user. 
 	//Submit your job
 	if ($form == 'small'){

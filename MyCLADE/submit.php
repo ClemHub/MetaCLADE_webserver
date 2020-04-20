@@ -18,7 +18,8 @@ include("./includes/header.php");
 		$msg = submit($job_id, $email);
 		echo $msg;
 		if($email){
-			$mail_header= "Subject: $appname queued ( $jobid )\n";
+			echo "An email has bees send";
+			$mail_header= "Subject: $appname queued (".$jobid.")\n";
 			$mail_header= $mail_header . "Content-Type: text/html\n";
 			$mail_header= $mail_header . "MIME-Version:\n";
 			$mail= $mail_header . "\n".$msg;

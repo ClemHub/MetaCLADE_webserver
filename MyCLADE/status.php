@@ -17,6 +17,14 @@ include("./includes/header.php");
 		print_r ($output);
 		$error = false;
 		$end = false;
+		if(!empty($output)){
+			foreach($output as $file){
+				if(preg_match('[a-zA-Z0-9]+\.e[0-9]+', $file)){
+					$e_file = $file;}
+				else if(preg_match('[a-zA-Z0-9]+\.o[0-9]+', $file)){
+					$o_file = $file;}}
+			echo $e_file;
+			echo $o_file;}
 		/*if(!empty($output)){
 			$e_file = file($output[0]);
 			$last_line = $file[count($e_file)-1];

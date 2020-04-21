@@ -29,9 +29,9 @@ include("./includes/header.php");
 		$pfam = "PF00875,PF03441,PF03167,PF12546";
 		if($dama == "true"){
 			$DAMA_evalue = 1e-10;
-			$name_file = $appurl."/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";}
+			$name_file = $approot."/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";}
 		else if($dama == "false"){
-			$name_file = $appurl."/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";}}
+			$name_file = $approot."/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";}}
 	if($form=="small" || $form=="small_example"){
 		$domain_list = explode(",", $pfam);
 		echo "<form action =''>";

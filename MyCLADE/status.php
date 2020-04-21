@@ -19,10 +19,9 @@ include("./includes/header.php");
 		$end = false;
 		if($output){
 			foreach($output as $file){
-				$file = end(explode("/", $file));
-				if(preg_match('[a-zA-Z0-9]+\.e[0-9]+', $file)){
-					$e_file = $file;
-					$last_line = $file[count($e_file)-1];
+				$exploded_file = end(explode("/", $file));
+				if(preg_match('[a-zA-Z0-9]+\.e[0-9]+', $exploded_file)){
+					$last_line = $file[count($file)-1];
 					if ($last_line == "[main] architecture job finished successfully"){
 						$end = true;}}
 				else if(preg_match('[a-zA-Z0-9]+\.o[0-9]+', $file)){
@@ -35,13 +34,13 @@ include("./includes/header.php");
 			$last_line = $o_file[count($o_file)-1];
 			if ($o_file[$i] == "[main] architecture job finished successfully"){
 				$end = true;}
-			}
+			}*/
 		if($end == true and $error == false){
 			header("location: $hostname/$appname/MyCLADE/results.php?form=".$form."&job_id=".$job_id."&email=".$email);}
 		else if($end == false and $error = true){
 			header("location: $hostname/$appname/MyCLADE/error.php?form=".$form."&job_id=".$job_id."&email=".$email);}
 		else{
-			header("refresh: 10");}*/
+			header("refresh: 10");}
 
 		?>
 	</section>

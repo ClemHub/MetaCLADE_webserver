@@ -24,11 +24,9 @@
 	$file_content = fopen($name_file, "r");
 	while(!feof($file_content)){
 		$line = fgets($file_content);
-		echo $line;
-		echo "<br>";
 		$exploded_line = explode("\t", $line);
 		if($line[0]==$seq_id){{
-			print_r($line);
+			echo $line[0];
 			echo "<br>";
 			$length = $row['Seq_length'];
 			$start = $row['Seq_start'];

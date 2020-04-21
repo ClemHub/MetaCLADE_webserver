@@ -18,17 +18,13 @@
 	$name_file = $name_file = $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
 	echo "<h4> Sequence ID: " . $seq_id . " <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Move your mouse over the colored domain to show more detailed information about it.</span></span></h4>";
 	$pfam_list = array();
-	//echo "<svg height='40' width='100%' style='border:1px dashed #ccc' overflow='scroll'>";
+	echo "<svg height='40' width='100%' style='border:1px dashed #ccc' overflow='scroll'>";
 
 	$file_content = fopen($name_file, "r");
 	while(!feof($file_content)){
 		$line = fgets($file_content);
-		//echo $line."<br>";
 		$exploded_line = explode("\t", $line);
-		echo "<br>";
 		if($exploded_line[0]==$seq_id){{
-			echo $exploded_line[0];
-			echo "<br>";
 			$length = $exploded_line[3];
 			$start = $exploded_line[1];
 			$stop = $exploded_line[2];
@@ -47,7 +43,7 @@
 			echo "<text x='". $scaled_start ."%' y='25' style='font-size:15px; font-size-adjust: 0.5; fill:white; font-weight:bold; mix-blend-mode: exclusion;' >".$pfam."</text></a></g>";
 			$pfam_list[$pfam]=$exploded_line;}}
 		}
-	//echo "</svg>";
+	echo "</svg>";
 	
 	echo "<svg height='40' width='100%'><line x1='1' y1='1' x2='100%' y2='1' stroke='#D8D8D8' stroke-width='20' stroke-linecap='butt' />";
 

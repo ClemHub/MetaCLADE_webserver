@@ -20,25 +20,21 @@ include("./includes/header.php");
 	else if($form=="large_example"){
 		$e_value = 0.001;
 		if($dama == "true"){
-			echo 'here1';
 			$DAMA_evalue = 1e-10;
 			$job_id = "example_withDAMA";
 			$name_file = $approot."/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";}
 		else if($dama == "false"){
-			echo 'here2';
 			$job_id = "example_withoutDAMA";
 			$name_file = $approot."/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";}}
 	else if($form=="small_example"){
 		$e_value = 0.001;
 		$pfam = "PF00875,PF03441,PF03167,PF12546";
 		if($dama == "true"){
-			echo 'here3';
 			$DAMA_evalue = 1e-10;
 			$job_id = "example_withDAMA";
 			$name_file = $approot."/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";}
 		else if($dama == "false"){
 			$job_id = "example_withoutDAMA";
-			echo 'here4';
 			$name_file = $approot."/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";}}
 	if($form=="small" || $form=="small_example"){
 		$domain_list = explode(",", $pfam);
@@ -75,7 +71,7 @@ include("./includes/header.php");
 			array_push($data[$seq_id], $domain_id);}
 		else if ($seq_id != ""){
 			$data[$seq_id]=array($domain_id);}}
-
+	print_r($data);
 	//Button that allows the user to download the text files with the results
 	echo "<a id = 'dl_link' href=".$name_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
 		?>

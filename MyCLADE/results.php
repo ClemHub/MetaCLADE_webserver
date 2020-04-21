@@ -5,7 +5,6 @@ include("./includes/header.php");
 	<h2>Results</h2>
 	<?php
 
-
 	//Taking form informations
 	$form = $_GET["form"];
 	$dama = $_SESSION["dama"];

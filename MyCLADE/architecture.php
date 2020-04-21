@@ -7,6 +7,7 @@
 	<?php
 	$seq_id = $_GET['id'];
 	$job_id = $_GET['job_id'];
+
 	$username = "blachon"; 
 	$password = "myclade"; 
 	$database = "METACLADE"; 
@@ -14,9 +15,7 @@
 	if (!$mysqli){
 		die("Connection failed: " . mysqli_connect_error());}
 
-	echo $job_id;
 	$name_file = $name_file = $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
-	echo $name_file;	
 	echo "<h4> Sequence ID: " . $seq_id . " <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Move your mouse over the colored domain to show more detailed information about it.</span></span></h4>";
 	$pfam_list = array();
 	$test = array();
@@ -25,6 +24,8 @@
 	$file_content = fopen($name_file, "r");
 	while(!feof($file_content)){
 		$line = fgets($file_content);
+		echo $line;
+		echo "<br>";
 		$exploded_line = explode("\t", $line);
 		if($line[0]==$seq_id){{
 			print_r($line);

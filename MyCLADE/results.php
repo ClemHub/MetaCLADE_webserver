@@ -6,11 +6,11 @@ include("./includes/header.php");
 	<?php
 
 
-	$job_id = $_GET["job_id"];
 	//Taking form informations
 	$form = $_GET["form"];
 	$dama = $_SESSION["dama"];
 	if($form=="small" || $form=="large"){
+		$job_id = $_GET["job_id"];
 		$e_value = $_SESSION['evalue'];
 		$name_file = $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
 		if($dama == "true"){
@@ -21,16 +21,20 @@ include("./includes/header.php");
 		$e_value = 0.001;
 		if($dama == "true"){
 			$DAMA_evalue = 1e-10;
+			$job_id = "example_withDAMA";
 			$name_file = $approot."/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";}
 		else if($dama == "false"){
+			$job_id = "example_withoutDAMA";
 			$name_file = $approot."/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";}}
 	else if($form=="small_example"){
 		$e_value = 0.001;
 		$pfam = "PF00875,PF03441,PF03167,PF12546";
 		if($dama == "true"){
 			$DAMA_evalue = 1e-10;
+			$job_id = "example_withDAMA";
 			$name_file = $approot."/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";}
 		else if($dama == "false"){
+			$job_id = "example_withoutDAMA";
 			$name_file = $approot."/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";}}
 	if($form=="small" || $form=="small_example"){
 		$domain_list = explode(",", $pfam);

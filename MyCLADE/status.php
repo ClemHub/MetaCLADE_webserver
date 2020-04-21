@@ -34,8 +34,16 @@ include("./includes/header.php");
 						$end = true;}}
 				else if(preg_match("/[a-zA-Z0-9]+\.o[0-9]+/", $file)){
 					echo 'heeeere 2<br>';
-					$o_file = $file;}}}
-		echo $end;
+					$o_file = $file;}}
+			if($end == true and $error == false){
+				header("location: $hostname/$appname/MyCLADE/results.php?form=".$form."&job_id=".$job_id."&email=".$email);}
+			else if($end == false and $error = true){
+				header("location: $hostname/$appname/MyCLADE/error.php?form=".$form."&job_id=".$job_id."&email=".$email);}
+			else{
+				header("refresh: 10");}}
+		else{
+			header("refresh: 10");}
+
 		/*if(!empty($output)){
 			$e_file = file($output[0]);
 			

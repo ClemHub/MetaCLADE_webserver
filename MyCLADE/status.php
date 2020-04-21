@@ -18,21 +18,19 @@ include("./includes/header.php");
 		$error = false;
 		$end = false;
 		if($output){
-			echo 'here<br>';
 			foreach($output as $file){
 				$file = end(explode("/", $file));
-				echo $file.'<br>';
 				if(preg_match('[a-zA-Z0-9]+\.e[0-9]+', $file)){
-					$e_file = $file;}
+					$e_file = $file;
+					$last_line = $file[count($e_file)-1];
+					if ($e_file[$i] == "[main] architecture job finished successfully"){
+						$end = true;}}
 				else if(preg_match('[a-zA-Z0-9]+\.o[0-9]+', $file)){
 					$o_file = $file;}}
-			echo $e_file;
-			echo $o_file;}
+				}
 		/*if(!empty($output)){
 			$e_file = file($output[0]);
-			$last_line = $file[count($e_file)-1];
-			if ($e_file[$i] == "[main] architecture job finished successfully"){
-				$end = true;}
+			
 			$o_file = file($output[0]);
 			$last_line = $o_file[count($o_file)-1];
 			if ($o_file[$i] == "[main] architecture job finished successfully"){

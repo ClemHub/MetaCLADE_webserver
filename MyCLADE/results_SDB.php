@@ -5,6 +5,14 @@ include("./includes/header.php");
 	<h2>Results</h2>
 	<?php
 
+	//Reinisialisation of the database and insertion of the new results
+	$username = "blachon";
+	$password = "myclade";
+	$database = "METACLADE";
+	$conn = mysqli_connect("localhost", $username, $password, $database);
+	if ($conn->connect_error) {
+		echo "Erreur de débogage : " . mysqli_connect_error() . PHP_EOL;
+		die("Connection failed: " . $conn->connect_error);}
 
 	$job_id = $_GET["job_id"];
 	//Taking form informations
@@ -12,26 +20,36 @@ include("./includes/header.php");
 	$dama = $_SESSION["dama"];
 	if($form=="small" || $form=="large"){
 		$e_value = $_SESSION['evalue'];
+		$sql = "CREATE TABLE ".$job_id." (`SeqID` varchar(50) CHARACTER SET utf8 DEFAULT NULL,`Seq_start` int(5) DEFAULT NULL,`Seq_stop` int(5) DEFAULT NULL,`Seq_length` int(5) DEFAULT NULL,`DomainID` varchar(7) CHARACTER SET utf8 DEFAULT NULL,`ModelID` varchar(50) CHARACTER SET utf8 DEFAULT NULL,`Model_start` int(5) DEFAULT NULL,`Model_stop` int(5) DEFAULT NULL,`Model_size` int(5) DEFAULT NULL,`e_value` double DEFAULT NULL,`Bitscore` float DEFAULT NULL,`Accuracy` float DEFAULT NULL,`Model species` varchar(75) COLLATE utf8_unicode_ci DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
+		$request = $conn->query($sql);
+		$db_table = $job_id;
 		$name_file = $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
 		if($dama == "true"){
 			$DAMA_evalue = $_SESSION["DAMA-evalue"];}
 		if($form=="small"){
-			$pfam = $_SESSION["pfam_domains"];}}
+			$pfam = $_SESSION["pfam_domains"];}
+		$sql = "DELETE FROM ".$db_table;
+		$request = $conn->query($sql);
+		results_to_db($conn, $name_file, $db_table);}
 	else if($form=="large_example"){
 		$e_value = 0.001;
 		if($dama == "true"){
 			$DAMA_evalue = 1e-10;
-			$name_file = $approot."/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";}
+			$name_file = $approot."/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";
+			$db_table = "Example_withDAMA";}
 		else if($dama == "false"){
-			$name_file = $approot."/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";}}
+			$name_file = $approot."/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";
+			$db_table = "Example_withoutDAMA";}}
 	else if($form=="small_example"){
 		$e_value = 0.001;
 		$pfam = "PF00875,PF03441,PF03167,PF12546";
 		if($dama == "true"){
 			$DAMA_evalue = 1e-10;
-			$name_file = $appurl."/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";}
+			$name_file = $appurl."/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";
+			$db_table = "Example_withDAMA";}
 		else if($dama == "false"){
-			$name_file = $appurl."/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";}}
+			$name_file = $appurl."/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";
+			$db_table = "Example_withoutDAMA";}}
 	if($form=="small" || $form=="small_example"){
 		$domain_list = explode(",", $pfam);
 		echo "<form action =''>";
@@ -41,7 +59,8 @@ include("./includes/header.php");
 		echo "<select name='domain_table' id='domain_select' onchange='filter_table()'>";
 		echo "<option value=''>--Please select a domain--</option>";
 		foreach($domain_list as $domain_id){
-			echo "<option name='other_domains' value='$domain_id'>$domain_id</option>";}
+			echo "<option name='other_domains' value='$domain_id'>$domain_id</option>";
+			}
 		echo "</select>";
 		echo "</div>";
 		echo "<div id = 'other_pfam'>";
@@ -56,19 +75,17 @@ include("./includes/header.php");
 
 	$data = array();
 	$domain_list = array();
-	$file_content = fopen($name_file, "rb");
-	while(!feof($file_content)){
-		$ligne = fgets($file_content);
-		echo $ligne;
-		}
-	//	while($row = $result->fetch_assoc()){
-	//		$seq_id = $row["SeqID"];
-	//		$domain_id = $row["DomainID"];
-	//		array_push($domain_list, $domain_id);
-	//		if(array_key_exists($seq_id, $data)){
-	//			array_push($data[$seq_id], $domain_id);}
-	//		else{
-	//			$data[$seq_id]=array($domain_id);}}}
+	$sql = "SELECT SeqID, DomainID, Seq_start FROM ". $db_table . " ORDER BY e_value";
+	$result = $conn->query($sql);
+	if ($result -> num_rows > 0) {
+		while($row = $result->fetch_assoc()){
+			$seq_id = $row["SeqID"];
+			$domain_id = $row["DomainID"];
+			array_push($domain_list, $domain_id);
+			if(array_key_exists($seq_id, $data)){
+				array_push($data[$seq_id], $domain_id);}
+			else{
+				$data[$seq_id]=array($domain_id);}}}
 
 	//Button that allows the user to download the text files with the results
 	echo "<a id = 'dl_link' href=".$name_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";

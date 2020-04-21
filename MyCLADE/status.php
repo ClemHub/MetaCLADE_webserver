@@ -15,7 +15,7 @@ include("./includes/header.php");
         echo "<br>This page will be refreshed every 10 seconds<br>";
         //echo approot."/MyCLADE/jobs/".$job_id."/".$job_id.".[eo][0-9]+<br>";
         $output =  glob(approot."/MyCLADE/jobs/".$job_id."/".$job_id.".*");
-        $output =  glob(approot."/MyCLADE/jobs/".$job_id."/".$job_id.".[eo][0-9]+");
+        //$output =  glob(approot."/MyCLADE/jobs/".$job_id."/".$job_id.".[eo][0-9]+");
         print_r($output);
         if(file_exists($approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt")){
             header("location: $hostname/$appname/MyCLADE/results.php?form=".$form."&job_id=".$job_id."&email=".$email);

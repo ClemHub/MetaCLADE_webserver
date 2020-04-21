@@ -10,7 +10,7 @@ include("./includes/header.php");
 		<?php
 		$form = $_GET['form'];
 		$job_id = generateRandomString();
-		echo 'Your job ID is:'.$job_id,'<br>';
+		echo 'Your job ID is: '.$job_id,'<br>';
 		$oldmask = umask(0);
 		mkdir($appsroot.'/MetaCLADE_webserver/MyCLADE/jobs/'.$job_id, 0777, true);
 		umask($oldmask);
@@ -25,7 +25,7 @@ include("./includes/header.php");
 			$mail= $mail_header . "\n".$msg;
 			mail($mail, "no-reply@lcqb.upmc.fr", $email);};
 
-		//header("location: $hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$job_id."&email=".$email);
+		header("location: $hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$job_id."&email=".$email);
 		?>
 	</section>
 

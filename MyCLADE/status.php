@@ -23,7 +23,7 @@ include("./includes/header.php");
 				if(preg_match('[a-zA-Z0-9]+\.e[0-9]+', $file)){
 					$e_file = $file;
 					$last_line = $file[count($e_file)-1];
-					if ($e_file[$i] == "[main] architecture job finished successfully"){
+					if ($last_line == "[main] architecture job finished successfully"){
 						$end = true;}}
 				else if(preg_match('[a-zA-Z0-9]+\.o[0-9]+', $file)){
 					$o_file = $file;}}

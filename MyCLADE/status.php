@@ -14,7 +14,7 @@ include("./includes/header.php");
 		echo "<a href=$hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$job_id."&email=".$email.">$hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$job_id."</a><br>";
 		echo "<br>This page will be refreshed every 10 seconds<br>";
 		$output =  glob($approot."/MyCLADE/jobs/".$job_id."/".$job_id.".*");
-		echo $output;
+		print_r ($output);
 		$error = false;
 		$end = false;
 		/*if(!empty($output)){

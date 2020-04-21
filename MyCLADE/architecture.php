@@ -18,7 +18,6 @@
 	$name_file = $name_file = $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
 	echo "<h4> Sequence ID: " . $seq_id . " <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Move your mouse over the colored domain to show more detailed information about it.</span></span></h4>";
 	$pfam_list = array();
-	$test = array();
 	//echo "<svg height='40' width='100%' style='border:1px dashed #ccc' overflow='scroll'>";
 
 	$file_content = fopen($name_file, "r");
@@ -26,28 +25,27 @@
 		$line = fgets($file_content);
 		//echo $line."<br>";
 		$exploded_line = explode("\t", $line);
-		print_r($exploded_line);
 		echo "<br>";
 		if($exploded_line[0]==$seq_id){{
-			echo $line[0];
+			echo $exploded_line[0];
 			echo "<br>";
-			$length = $row['Seq_length'];
-			$start = $row['Seq_start'];
-			$stop = $row['Seq_stop'];
-			$pfam = $row['DomainID'];
-			$sql = "SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'";
-			$result2 = mysqli_query($mysqli, $sql);
-			$row2 = mysqli_fetch_assoc($result2);
+			$length = $exploded_line[3];
+			$start = $exploded_line[1];
+			$stop = $exploded_line[2];
+			$pfam = $exploded_line[4];
+			//$sql = "SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'";
+			//$result2 = mysqli_query($mysqli, $sql);
+			//$row2 = mysqli_fetch_assoc($result2);
 			$nb_aa = ($stop-$start);
 			$width = ($nb_aa*100)/$length;
 			$scaled_start = ($start*100)/$length;
 			$scaled_stop = ($stop*100)/$length;
 			$color = sprintf('#%06X', mt_rand(0, 0xFFFFFF));
-			//echo "<g><a xlink:href='http://pfam.xfam.org/family/".$pfam."' target='_blank'><rect x='".$scaled_start."%' y='5' width='". $width ."%' height='30' style=' fill:".$color."; fill-opacity:0.7; stroke-width:1; stroke:3'>";
+			echo "<g><a xlink:href='http://pfam.xfam.org/family/".$pfam."' target='_blank'><rect x='".$scaled_start."%' y='5' width='". $width ."%' height='30' style=' fill:".$color."; fill-opacity:0.7; stroke-width:1; stroke:3'>";
 			//echo "<title>PFAM Acc Number: ".$pfam."\nFamily: ".$row2['Family']."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nClan Acc Number: ".$row2['Clan_acc_nb']."\nClan: ".$row2['Clan']."\n\nModel species: ".$row['Model species']."\nE-value: ".$row['e_value']."\nBitscore: ".$row['Bitscore']."\nAccuracy: ".$row['Accuracy']."</title></rect>";
-			//echo "<text x='". $scaled_start ."%' y='25' style='font-size:15px; font-size-adjust: 0.5; fill:white; font-weight:bold; mix-blend-mode: exclusion;' >".$pfam."</text></a></g>";
-			$pfam_list[$pfam]=$row['e_value'];
-			$test[$pfam]=$row;}}
+			echo "<title>PFAM Acc Number: ".$pfam."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nModel species: ".$exploded_line[12]."\nE-value: ".$exploded_line[9]."\nBitscore: ".$row[10]."\nAccuracy: ".$row[11]."</title></rect>";
+			echo "<text x='". $scaled_start ."%' y='25' style='font-size:15px; font-size-adjust: 0.5; fill:white; font-weight:bold; mix-blend-mode: exclusion;' >".$pfam."</text></a></g>";
+			$pfam_list[$pfam]=$exploded_line;}}
 		}
 	//echo "</svg>";
 	
@@ -88,7 +86,7 @@
 	<?php
 	//$test=Array('PF00001 ' => Array('SeqID' => 'tr|A0A072NB93|A0A072NB93_9DEIO', 'Seq_start' => 591, 'Seq_stop' => 753, 'Seq_length' => 766, 'DomainID' => 'PF00001', 'ModelID' => 'A0A0G0AUB5_9BACT_52-217', 'Model_start' => 1, 'Model_stop' => 162, 'Model_size' => 163, 'e_value' => 5.6e-75, 'Bitscore' => 238.8, 'Accuracy' => 0.99, 'Model species' => 'Candidatus Roizmanbacteria bacterium GW2011_GWC2_34_23'), 'PF00004' => Array ( 'SeqID' => 'tr|A0A072NB93|A0A072NB93_9DEIO', 'Seq_start' => 12, 'Seq_stop' => 141, 'Seq_length' => 766, 'DomainID' => 'PF00004', 'ModelID' => 'A6FVP5_9RHOB_1-137', 'Model_start' => 1, 'Model_stop' => 129, 'Model_size' => 130, 'e_value' => 8.2e-36, 'Bitscore' => 111.3, 'Accuracy' => 0.97, 'Model species' => 'Roseobacter sp. AzwK-3b'), 'PF03441' => Array ( 'SeqID' => 'tr|A0A072NB93|A0A072NB93_9DEIO', 'Seq_start' => 314, 'Seq_stop' => 465, 'Seq_length' => 766, 'DomainID' => 'PF03441', 'ModelID' => 'F3L3D9_9GAMM_269-463', 'Model_start' => 4, 'Model_stop' => 153, 'Model_size' => 155, 'e_value' => 6.2e-49, 'Bitscore' => 153.4, 'Accuracy' => 0.94, 'Model species' => 'Halieaceae bacterium IMCC3088'));
 
-	foreach($test as $pfam => $data){
+	foreach($pfam_list as $pfam => $data){
 		echo '<tbody>';
 		$link_id = 'http://pfam.xfam.org/family/' . $pfam;
 		//$nb=0;
@@ -97,11 +95,11 @@
         $result = mysqli_query($mysqli, $sql);
         $row = mysqli_fetch_assoc($result);
         echo "<td>" . $row['Family']."</td>";
-		echo "<td>" . $data["Seq_start"] . " - " . $data["Seq_stop"]. "</td>";
-		echo "<td class='species_name'>" . $data["Model species"]. "</td>";
-		echo "<td>".$data['e_value']."</td>";
-		echo "<td>" . $data["Bitscore"]. "</td>";
-		echo "<td>" . $data["Accuracy"]. "</td></tr>";
+		echo "<td>" . $data[1] . " - " . $data[2]. "</td>";
+		echo "<td class='species_name'>" . $data[12]. "</td>";
+		echo "<td>".$data[9]."</td>";
+		echo "<td>" . $data[10]. "</td>";
+		echo "<td>" . $data[11]. "</td></tr>";
 		echo '</tbody>';}
 	echo '</table>';
 	?>
@@ -123,7 +121,7 @@
 	
 	<?php
 	
-	foreach($test as $pfam => $data){
+	foreach($pfam_list as $pfam => $data){
 		echo '<tbody>';
 		$link_id = 'http://pfam.xfam.org/family/' . $pfam;
 		$request = "SELECT * FROM GO_terms WHERE Domain='" . $pfam . "'";

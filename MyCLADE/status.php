@@ -13,7 +13,8 @@ include("./includes/header.php");
         echo "You can save the link to access the results later thanks to this link:<br>"; 
         echo "<a href=$hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$job_id."&email=".$email.">$hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$job_id."</a><br>";
         echo "<br>This page will be refreshed every 10 seconds<br>";
-        echo glob(approot."/MyCLADE/jobs/".$job_id."/".$job_id.".[0-9]+");
+        $output =  glob(approot."/MyCLADE/jobs/".$job_id."/".$job_id.".[0-9]+");
+        echo $output;
         if(file_exists($approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt")){
             header("location: $hostname/$appname/MyCLADE/results.php?form=".$form."&job_id=".$job_id."&email=".$email);
             }

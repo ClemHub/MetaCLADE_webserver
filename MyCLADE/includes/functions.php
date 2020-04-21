@@ -43,9 +43,7 @@ function submit($jobid, $email){
 		$command="qsub -wd ".$approot."/MyCLADE/jobs/".$jobid."/ -N $jobid ".$approot."/MyCLADE/run_small.sh ".$args;}
 	else if($form == 'large'){
 		$command="qsub -wd ".$approot."/MyCLADE/jobs/".$jobid."/ -N $jobid ".$approot."/MyCLADE/run_large.sh ".$args;}
-	echo $command;
-		//echo 'command: '.$command.'<br>';
-	//echo '<br>';
+	//echo 'command: '.$command.'<br>';
 	$output = shell_exec("$command");
 	//echo 'output: '.$output.'<br>';
 	//echo '<br>';

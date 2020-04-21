@@ -19,7 +19,6 @@ include("./includes/header.php");
             }
         else{
             header("refresh: 10");}
-        
 
 		?>
 	</section>

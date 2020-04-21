@@ -61,17 +61,13 @@ include("./includes/header.php");
 	while(!feof($file_content)){
 		$line = fgets($file_content);
 		$exploded_line = explode("\t", $line);
-		print_r($exploded_line);
-		echo "<br>";
-		}
-	//	while($row = $result->fetch_assoc()){
-	//		$seq_id = $row["SeqID"];
-	//		$domain_id = $row["DomainID"];
-	//		array_push($domain_list, $domain_id);
-	//		if(array_key_exists($seq_id, $data)){
-	//			array_push($data[$seq_id], $domain_id);}
-	//		else{
-	//			$data[$seq_id]=array($domain_id);}}}
+		$seq_id = $exploded_line[0];
+		$domain_id = $exploded_line[4];
+		array_push($domain_list, $domain_id);
+		if(array_key_exists($seq_id, $data)){
+			array_push($data[$seq_id], $domain_id);}
+		else{
+			$data[$seq_id]=array($domain_id);}}
 
 	//Button that allows the user to download the text files with the results
 	echo "<a id = 'dl_link' href=".$name_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";

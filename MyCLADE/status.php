@@ -29,7 +29,7 @@ include("./includes/header.php");
 					echo $last_line;
 					if ($last_line == "[main] architecture job finished successfully"){
 						$end = true;}}
-				else if(preg_match("/[a-zA-Z0-9]+\.o[0-9]+/", $exploded_file)){
+				else if(preg_match("/[a-zA-Z0-9]+\.o[0-9]+/", $file)){
 					echo 'heeeere 2';
 					$o_file = $file;}}}
 		/*if(!empty($output)){

@@ -32,7 +32,6 @@ function submit($jobid, $email){
 	else if($form == 'large'){
 		$command="qsub -wd ".$approot."/MyCLADE/jobs/".$jobid."/ -N $jobid ".$approot."/MyCLADE/run_large.sh ".$args;}
 	$output = shell_exec("$command");
-	echo $output.'<br>';
 	$link = "$hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$job_id."&email=".$email; 
 	$msg="<strong>Your job has been correctly submitted</strong><br><br>";
 	$msg= $msg . "You can follow job progress as well as downloading the results going to <a target=_blank href=$link> $link </a><br>";

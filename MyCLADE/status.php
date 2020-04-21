@@ -18,6 +18,7 @@ include("./includes/header.php");
 		$error = false;
 		$end = false;
 		if($output){
+			echo 'here<br>';
 			foreach($output as $file){
 				if(preg_match('[a-zA-Z0-9]+\.e[0-9]+', $file)){
 					$e_file = $file;}

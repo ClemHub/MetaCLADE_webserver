@@ -29,11 +29,12 @@ include("./includes/header.php");
 					$last_line = $last_line[count($last_line)-1];
 					echo $last_line.'<br>';
 					if ($last_line == "[main] architecture job finished successfully"){
+						echo 'yees<br>';
 						$end = true;}}
 				else if(preg_match("/[a-zA-Z0-9]+\.o[0-9]+/", $file)){
 					echo 'heeeere 2<br>';
 					$o_file = $file;}}}
-		echo $end
+		echo $end;
 		/*if(!empty($output)){
 			$e_file = file($output[0]);
 			

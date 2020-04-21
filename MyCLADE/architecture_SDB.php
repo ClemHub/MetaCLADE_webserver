@@ -6,25 +6,22 @@
 	<h2> Architecture </h2>
 	<?php
 	$seq_id = $_GET['id'];
-	$job_id = $_GET['job_id'];
+	echo "<h4> Sequence ID: " . $seq_id . " <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Move your mouse over the colored domain to show more detailed information about it.</span></span></h4>";
 	$username = "blachon"; 
 	$password = "myclade"; 
 	$database = "METACLADE"; 
 	$mysqli = new mysqli('localhost', $username, $password, $database);
-	if (!$mysqli){
-		die("Connection failed: " . mysqli_connect_error());}
-	echo "<h4> Sequence ID: " . $seq_id . " <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Move your mouse over the colored domain to show more detailed information about it.</span></span></h4>";
+	if (!$mysqli) {
+		die("Connection failed: " . mysqli_connect_error());
+	}
+	$database = $_GET['db'];
+	$sql = "SELECT * FROM ". $database ." WHERE SeqID='".$seq_id."'";
+	$result = mysqli_query($mysqli, $sql);
 	$pfam_list = array();
 	$test = array();
-	//echo "<svg height='40' width='100%' style='border:1px dashed #ccc' overflow='scroll'>";
-
-	$file_content = fopen($name_file, "r");
-	while(!feof($file_content)){
-		$line = fgets($file_content);
-		$exploded_line = explode("\t", $line);
-		if($line[0]==$seq_id){{
-			print_r($line);
-			echo "<br>";
+	echo "<svg height='40' width='100%' style='border:1px dashed #ccc' overflow='scroll'>";
+	if (mysqli_num_rows($result) > 0) {
+		while($row = mysqli_fetch_assoc($result)) {
 			$length = $row['Seq_length'];
 			$start = $row['Seq_start'];
 			$stop = $row['Seq_stop'];
@@ -37,13 +34,17 @@
 			$scaled_start = ($start*100)/$length;
 			$scaled_stop = ($stop*100)/$length;
 			$color = sprintf('#%06X', mt_rand(0, 0xFFFFFF));
-			//echo "<g><a xlink:href='http://pfam.xfam.org/family/".$pfam."' target='_blank'><rect x='".$scaled_start."%' y='5' width='". $width ."%' height='30' style=' fill:".$color."; fill-opacity:0.7; stroke-width:1; stroke:3'>";
-			//echo "<title>PFAM Acc Number: ".$pfam."\nFamily: ".$row2['Family']."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nClan Acc Number: ".$row2['Clan_acc_nb']."\nClan: ".$row2['Clan']."\n\nModel species: ".$row['Model species']."\nE-value: ".$row['e_value']."\nBitscore: ".$row['Bitscore']."\nAccuracy: ".$row['Accuracy']."</title></rect>";
-			//echo "<text x='". $scaled_start ."%' y='25' style='font-size:15px; font-size-adjust: 0.5; fill:white; font-weight:bold; mix-blend-mode: exclusion;' >".$pfam."</text></a></g>";
+			echo "<g><a xlink:href='http://pfam.xfam.org/family/".$pfam."' target='_blank'><rect x='".$scaled_start."%' y='5' width='". $width ."%' height='30' style=' fill:".$color."; fill-opacity:0.7; stroke-width:1; stroke:3'>";
+			echo "<title>PFAM Acc Number: ".$pfam."\nFamily: ".$row2['Family']."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nClan Acc Number: ".$row2['Clan_acc_nb']."\nClan: ".$row2['Clan']."\n\nModel species: ".$row['Model species']."\nE-value: ".$row['e_value']."\nBitscore: ".$row['Bitscore']."\nAccuracy: ".$row['Accuracy']."</title></rect>";
+			echo "<text x='". $scaled_start ."%' y='25' style='font-size:15px; font-size-adjust: 0.5; fill:white; font-weight:bold; mix-blend-mode: exclusion;' >".$pfam."</text></a></g>";
 			$pfam_list[$pfam]=$row['e_value'];
-			$test[$pfam]=$row;}}
+			$test[$pfam]=$row;
 		}
-	//echo "</svg>";
+	
+	} else {
+		echo "0 results";
+	}
+	echo "</svg>";
 	
 	echo "<svg height='40' width='100%'><line x1='1' y1='1' x2='100%' y2='1' stroke='#D8D8D8' stroke-width='20' stroke-linecap='butt' />";
 

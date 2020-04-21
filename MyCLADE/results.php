@@ -54,7 +54,6 @@ include("./includes/header.php");
 		echo "</fieldset>";
 		echo "</form>";}
 	
-	echo $name_file."<br>";
 	$data = array();
 	$domain_list = array();
 	$file_content = fopen($name_file, "r");
@@ -62,15 +61,12 @@ include("./includes/header.php");
 		$line = fgets($file_content);
 		$exploded_line = explode("\t", $line);
 		$seq_id = $exploded_line[0];
-		echo $seq_id."<br>";
 		$domain_id = $exploded_line[4];
 		array_push($domain_list, $domain_id);
 		if(array_key_exists($seq_id, $data)){
 			array_push($data[$seq_id], $domain_id);}
 		else if ($seq_id != ""){
 			$data[$seq_id]=array($domain_id);}}
-	print_r($data);
-	echo "<br>";
 	//Button that allows the user to download the text files with the results
 	echo "<a id = 'dl_link' href=".$name_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
 		?>
@@ -87,7 +83,7 @@ include("./includes/header.php");
 		<?php
 
 	foreach($data as $seq_id => $domain_list){
-		echo "<tr><td><a class='table_link' href='architecture.php?id=" . $seq_id . "&db=" . $db_table . "'>" . $seq_id . "</a></td>";
+		echo "<tr><td><a class='table_link' href='architecture.php?id=" . $seq_id . "&job_id=" . $job_id . "'>" . $seq_id . "</a></td>";
 		echo "<td>";
 		foreach($domain_list as $domain_id){
 			$link_id = "http://pfam.xfam.org/family/" . $domain_id;

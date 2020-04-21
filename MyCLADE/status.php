@@ -20,6 +20,7 @@ include("./includes/header.php");
 		if($output){
 			echo 'here<br>';
 			foreach($output as $file){
+				echo $file;
 				if(preg_match('[a-zA-Z0-9]+\.e[0-9]+', $file)){
 					$e_file = $file;}
 				else if(preg_match('[a-zA-Z0-9]+\.o[0-9]+', $file)){

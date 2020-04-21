@@ -60,9 +60,9 @@ include("./includes/header.php");
 	$file_content = fopen($name_file, "r");
 	while(!feof($file_content)){
 		$line = fgets($file_content);
-		echo $line."<br>";
 		$exploded_line = explode("\t", $line);
 		$seq_id = $exploded_line[0];
+		echo $seq_id."<br>";
 		$domain_id = $exploded_line[4];
 		array_push($domain_list, $domain_id);
 		if(array_key_exists($seq_id, $data)){

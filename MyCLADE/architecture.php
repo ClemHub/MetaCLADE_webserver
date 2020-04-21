@@ -32,9 +32,8 @@
 			while(!feof($pfam_clan)){
 				$line = fgets($pfam_clan);
 				$split_line = explode("\t", $line);
-				print_r($split_line);
-				echo '<br>';
 				if($split_line[0]==$pfam){
+					echo 'ok';
 					$pfam_fam = $split_line[0];
 					$pfam_clan = $split_line[1];
 					break;

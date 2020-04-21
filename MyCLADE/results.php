@@ -60,7 +60,8 @@ include("./includes/header.php");
 	$file_content = fopen($name_file, "r");
 	while(!feof($file_content)){
 		$line = fgets($file_content);
-		echo $line."<br>";
+		$exploded_line = explode("\t", $line);
+		echo $exploded_line;
 		}
 	//	while($row = $result->fetch_assoc()){
 	//		$seq_id = $row["SeqID"];

@@ -21,6 +21,7 @@ include("./includes/header.php");
 			foreach($output as $file){
 				$exploded_file = end(explode("/", $file));
 				echo $exploded_file.'<br>';
+				echo $file.'<br>';
 				if(preg_match('[a-zA-Z0-9]+\.e[0-9]+', $exploded_file)){
 					echo 'heeere';
 					echo $file;
@@ -30,8 +31,7 @@ include("./includes/header.php");
 						$end = true;}}
 				else if(preg_match('[a-zA-Z0-9]+\.o[0-9]+', $exploded_file)){
 					echo 'heeeere 2';
-					$o_file = $file;}}
-				}
+					$o_file = $file;}}}
 		/*if(!empty($output)){
 			$e_file = file($output[0]);
 			

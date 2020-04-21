@@ -27,7 +27,7 @@ function submit($jobid, $email){
 	$dama = $_SESSION['dama'];
 	$form = $_GET["form"];
 	$nb_jobs = 2;
-	$args = escapeshellarg('-i '.$approot.'/MyCLADE/jobs/'.$jobid.'/data.fa ').' '.escapeshellarg('-N '.$jobid).' '.escapeshellarg('-e '.$e_value.' ')." ".escapeshellarg('-W '.$approot.'/MyCLADE/jobs/'.$jobid.' ')." ".escapeshellarg('-j '.$nb_jobs.' ')." ";
+	$args = escapeshellarg('-i '.$approot.'/MyCLADE/jobs/'.$jobid.'/data.fa').' '.escapeshellarg('-N '.$jobid).' '.escapeshellarg('-e '.$e_value)." ".escapeshellarg('-W '.$approot.'/MyCLADE/jobs/'.$jobid)." ".escapeshellarg('-j '.$nb_jobs)." ";
 	//$args = '-i '.$approot.'/MyCLADE/jobs/'.$jobid.'/data.fa -N '.$jobid.' -e '.$e_value.' -W '.$approot.'/MyCLADE/jobs/'.$jobid.' -j '.$nb_jobs.' ';
 	if($dama == 'true'){
 		$DAMA_evalue = $_SESSION['DAMA-evalue'];	

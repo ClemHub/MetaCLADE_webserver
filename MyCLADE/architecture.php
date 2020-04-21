@@ -26,6 +26,8 @@
 		$line = fgets($file_content);
 		//echo $line."<br>";
 		$exploded_line = explode("\t", $line);
+		print_r($exploded_line);
+		echo "<br>";
 		if($exploded_line[0]==$seq_id){{
 			echo $line[0];
 			echo "<br>";

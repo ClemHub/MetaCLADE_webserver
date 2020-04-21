@@ -37,8 +37,8 @@ include("./includes/header.php");
 			$job_id = "example_withDAMA";
 			$name_file = $approot."/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";}
 		else if($dama == "false"){
-			echo 'here4';
 			$job_id = "example_withoutDAMA";
+			echo 'here4';
 			$name_file = $approot."/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";}}
 	if($form=="small" || $form=="small_example"){
 		$domain_list = explode(",", $pfam);

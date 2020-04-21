@@ -21,6 +21,7 @@ include("./includes/header.php");
 			foreach($output as $file){
 				$exploded_file = end(explode("/", $file));
 				if(preg_match('[a-zA-Z0-9]+\.e[0-9]+', $exploded_file)){
+					echo $file;
 					$last_line = $file[count($file)-1];
 					echo $last_line;
 					if ($last_line == "[main] architecture job finished successfully"){

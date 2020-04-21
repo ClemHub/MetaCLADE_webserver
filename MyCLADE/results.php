@@ -60,6 +60,7 @@ include("./includes/header.php");
 	$file_content = fopen($name_file, "r");
 	while(!feof($file_content)){
 		$line = fgets($file_content);
+		echo $line."<br>";
 		$exploded_line = explode("\t", $line);
 		$seq_id = $exploded_line[0];
 		$domain_id = $exploded_line[4];

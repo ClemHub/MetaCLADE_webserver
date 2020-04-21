@@ -67,7 +67,7 @@ include("./includes/header.php");
 		array_push($domain_list, $domain_id);
 		if(array_key_exists($seq_id, $data)){
 			array_push($data[$seq_id], $domain_id);}
-		else{
+		else if ($seq_id != ""){
 			$data[$seq_id]=array($domain_id);}}
 	print_r($data);
 	echo "<br>";

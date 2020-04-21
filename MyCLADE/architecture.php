@@ -29,17 +29,17 @@
 			$start = $exploded_line[1];
 			$stop = $exploded_line[2];
 			$pfam = $exploded_line[4];
-			//$sql = "SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'";
-			//$result2 = mysqli_query($mysqli, $sql);
-			//$row2 = mysqli_fetch_assoc($result2);
+			$sql = "SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'";
+			$result2 = mysqli_query($mysqli, $sql);
+			$row2 = mysqli_fetch_assoc($result2);
 			$nb_aa = ($stop-$start);
 			$width = ($nb_aa*100)/$length;
 			$scaled_start = ($start*100)/$length;
 			$scaled_stop = ($stop*100)/$length;
 			$color = sprintf('#%06X', mt_rand(0, 0xFFFFFF));
 			echo "<g><a xlink:href='http://pfam.xfam.org/family/".$pfam."' target='_blank'><rect x='".$scaled_start."%' y='5' width='". $width ."%' height='30' style=' fill:".$color."; fill-opacity:0.7; stroke-width:1; stroke:3'>";
-			//echo "<title>PFAM Acc Number: ".$pfam."\nFamily: ".$row2['Family']."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nClan Acc Number: ".$row2['Clan_acc_nb']."\nClan: ".$row2['Clan']."\n\nModel species: ".$row['Model species']."\nE-value: ".$row['e_value']."\nBitscore: ".$row['Bitscore']."\nAccuracy: ".$row['Accuracy']."</title></rect>";
-			echo "<title>PFAM Acc Number: ".$pfam."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nModel species: ".$exploded_line[12]."\nE-value: ".$exploded_line[9]."\nBitscore: ".$row[10]."\nAccuracy: ".$row[11]."</title></rect>";
+			echo "<title>PFAM Acc Number: ".$pfam."\nFamily: ".$row2['Family']."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nClan Acc Number: ".$row2['Clan_acc_nb']."\nClan: ".$row2['Clan']."\n\nModel species: ".$exploded_line[12]."\nE-value: ".$exploded_line[9]."\nBitscore: ".$exploded_line[10]."\nAccuracy: ".$exploded_line[11]."</title></rect>";
+			//echo "<title>PFAM Acc Number: ".$pfam."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nModel species: ".$exploded_line[12]."\nE-value: ".$exploded_line[9]."\nBitscore: ".$exploded_line[10]."\nAccuracy: ".$exploded_line[11]."</title></rect>";
 			echo "<text x='". $scaled_start ."%' y='25' style='font-size:15px; font-size-adjust: 0.5; fill:white; font-weight:bold; mix-blend-mode: exclusion;' >".$pfam."</text></a></g>";
 			$pfam_list[$pfam]=$exploded_line;}}
 		}

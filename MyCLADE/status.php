@@ -4,24 +4,35 @@ include("./includes/header.php");
 
 	<section id='Status'>
 	<h2> Your job is running... </h2>
-    <h3>This server is a multi-source domain annotation for quantitative <em>metagenomic and metatranscriptomic</em> functional profiling.</h3>
+	<h3>This server is a multi-source domain annotation for quantitative <em>metagenomic and metatranscriptomic</em> functional profiling.</h3>
 		<p class = 'text'>
 		<?php
-        $form = $_GET["form"];
-        $job_id = $_GET["job_id"];
-        echo "Your job ".$job_id." is running.<br>";
-        echo "You can save the link to access the results later thanks to this link:<br>"; 
-        echo "<a href=$hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$job_id."&email=".$email.">$hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$job_id."</a><br>";
-        echo "<br>This page will be refreshed every 10 seconds<br>";
-        //echo approot."/MyCLADE/jobs/".$job_id."/".$job_id.".[eo][0-9]+<br>";
-        $output =  glob($approot."/MyCLADE/jobs/".$job_id."/".$job_id.".*");
-        //$output =  glob($approot."/MyCLADE/jobs/".$job_id."/".$job_id.".[eo][0-9]+");
-        print_r($output);
-        if(file_exists($approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt")){
-            header("location: $hostname/$appname/MyCLADE/results.php?form=".$form."&job_id=".$job_id."&email=".$email);
-            }
-        else{
-            header("refresh: 10");}
+		$form = $_GET["form"];
+		$job_id = $_GET["job_id"];
+		echo "Your job ".$job_id." is running.<br>";
+		echo "You can save the link to access the results later thanks to this link:<br>"; 
+		echo "<a href=$hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$job_id."&email=".$email.">$hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$job_id."</a><br>";
+		echo "<br>This page will be refreshed every 10 seconds<br>";
+		$output =  glob($approot."/MyCLADE/jobs/".$job_id."/".$job_id.".*");
+		echo $output;
+		$error = false;
+		$end = false;
+		/*if(!empty($output)){
+			$e_file = file($output[0]);
+			$last_line = $file[count($e_file)-1];
+			if ($e_file[$i] == "[main] architecture job finished successfully"){
+				$end = true;}
+			$o_file = file($output[0]);
+			$last_line = $o_file[count($o_file)-1];
+			if ($o_file[$i] == "[main] architecture job finished successfully"){
+				$end = true;}
+			}
+		if($end == true and $error == false){
+			header("location: $hostname/$appname/MyCLADE/results.php?form=".$form."&job_id=".$job_id."&email=".$email);}
+		else if($end == false and $error = true){
+			header("location: $hostname/$appname/MyCLADE/error.php?form=".$form."&job_id=".$job_id."&email=".$email);}
+		else{
+			header("refresh: 10");}*/
 
 		?>
 	</section>

@@ -53,13 +53,14 @@ include("./includes/header.php");
 		echo "<br><input class='btn' type='button' value='Search' name = 'search' onclick='filter_all_domains()'/><input class='btn' type='reset' value='Reset' onclick='reset_table()'/>";
 		echo "</fieldset>";
 		echo "</form>";}
-
+	
+	echo $name_file."<br>";
 	$data = array();
 	$domain_list = array();
-	$file_content = fopen($name_file, "rb");
+	$file_content = fopen($name_file, "r");
 	while(!feof($file_content)){
-		$ligne = fgets($file_content);
-		echo $ligne;
+		$line = fgets($file_content);
+		echo $line."<br>";
 		}
 	//	while($row = $result->fetch_assoc()){
 	//		$seq_id = $row["SeqID"];

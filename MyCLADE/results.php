@@ -6,11 +6,11 @@ include("./includes/header.php");
 	<?php
 
 
-	$job_id = $_GET["job_id"];
 	//Taking form informations
 	$form = $_GET["form"];
 	$dama = $_SESSION["dama"];
 	if($form=="small" || $form=="large"){
+		$job_id = $_GET["job_id"];
 		$e_value = $_SESSION['evalue'];
 		$name_file = $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
 		if($dama == "true"){
@@ -20,18 +20,22 @@ include("./includes/header.php");
 	else if($form=="large_example"){
 		$e_value = 0.001;
 		if($dama == "true"){
+			$job_id = 'example_withDAMA';
 			$DAMA_evalue = 1e-10;
-			$name_file = $approot."/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";}
+			$name_file = $approot."/MyCLADE/jobs/example_withDAMA/example_withDAMA/results/3_arch/example_withDAMA.arch.txt";}
 		else if($dama == "false"){
-			$name_file = $approot."/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";}}
+			$job_id = 'example_withoutDAMA';
+			$name_file = $approot."/MyCLADE/jobs/example_withoutDAMA/example_withoutDAMA/results/3_arch/example_withoutDAMA.arch.txt";}}
 	else if($form=="small_example"){
 		$e_value = 0.001;
 		$pfam = "PF00875,PF03441,PF03167,PF12546";
 		if($dama == "true"){
+			$job_id = 'example_withDAMA';
 			$DAMA_evalue = 1e-10;
-			$name_file = $approot."/MyCLADE/jobs/example_withDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";}
+			$name_file = $approot."/MyCLADE/jobs/example_withDAMA/example_withDAMA/results/3_arch/example_withDAMA.arch.txt";}
 		else if($dama == "false"){
-			$name_file = $approot."/MyCLADE/jobs/example_withoutDAMA/testDataSet/results/3_arch/testDataSet.arch.txt";}}
+			$job_id = 'example_withoutDAMA';
+			$name_file = $approot."/MyCLADE/jobs/example_withoutDAMA/example_withoutDAMA/results/3_arch/example_withoutDAMA.arch.txt";}}
 	if($form=="small" || $form=="small_example"){
 		$domain_list = explode(",", $pfam);
 		echo "<form action =''>";
@@ -83,7 +87,7 @@ include("./includes/header.php");
 		<?php
 
 	foreach($data as $seq_id => $domain_list){
-		echo "<tr><td><a class='table_link' href='architecture.php?id=" . $seq_id . "'>" . $seq_id . "</a></td>";
+		echo "<tr><td><a class='table_link' href='architecture.php?id=" . $seq_id . "&job_id=" . $job_id . "'>" . $seq_id . "</a></td>";
 		echo "<td>";
 		foreach($domain_list as $domain_id){
 			$link_id = "http://pfam.xfam.org/family/" . $domain_id;

@@ -22,7 +22,7 @@ include("./includes/header.php");
 				$exploded_file = end(explode("/", $file));
 				echo $exploded_file.'<br>';
 				echo $file.'<br>';
-				if(preg_match('[a-zA-Z0-9]+\.e[0-9]+', $exploded_file)){
+				if(preg_match('/[a-zA-Z0-9]+\.e[0-9]+/', $exploded_file)){
 					echo 'heeere';
 					echo $file;
 					$last_line = $file[count($file)-1];

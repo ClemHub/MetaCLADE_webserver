@@ -19,6 +19,7 @@ include("./includes/header.php");
 		$end = false;
 		if($output){
 			foreach($output as $file){
+				echo '<br>';
 				$exploded_file = end(explode("/", $file));
 				echo $exploded_file.'<br>';
 				echo $file.'<br>';
@@ -28,7 +29,7 @@ include("./includes/header.php");
 					$last_line = file($file);
 					$last_line = $last_line[count($last_line)-1];
 					echo $last_line.'<br>';
-					if ($last_line == "[main] architecture job finished successfully"){
+					if (preg_match("/\[main\] architecture job finished successfully/", $last_line)){
 						echo 'yees<br>';
 						$end = true;}}
 				else if(preg_match("/[a-zA-Z0-9]+\.o[0-9]+/", $file)){

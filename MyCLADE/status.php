@@ -22,14 +22,14 @@ include("./includes/header.php");
 				$exploded_file = end(explode("/", $file));
 				echo $exploded_file.'<br>';
 				echo $file.'<br>';
-				if(preg_match('/[a-zA-Z0-9]+\.e[0-9]+/', $exploded_file)){
+				if(preg_match("/[a-zA-Z0-9]+\.e[0-9]+/", $file)){
 					echo 'heeere';
 					echo $file;
 					$last_line = $file[count($file)-1];
 					echo $last_line;
 					if ($last_line == "[main] architecture job finished successfully"){
 						$end = true;}}
-				else if(preg_match('[a-zA-Z0-9]+\.o[0-9]+', $exploded_file)){
+				else if(preg_match("/[a-zA-Z0-9]+\.o[0-9]+/", $exploded_file)){
 					echo 'heeeere 2';
 					$o_file = $file;}}}
 		/*if(!empty($output)){

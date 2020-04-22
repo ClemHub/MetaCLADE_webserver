@@ -37,10 +37,10 @@ include("./includes/header.php");
 						echo 'The "o" file match, an error occured';
 						$error = true;}}}
 			echo '<br>End: '.$end.'<br>Error: '.$error.'<br>';
-			if($end == true){
+			if($end){
 				echo "<br><br>The end<br>";}
 				//header("location: $hostname/$appname/MyCLADE/results.php?form=".$form."&job_id=".$job_id."&email=".$email);}
-			else if($error = true){
+			else if($error){
 				echo "<br><br>Error<br>";}
 				//header("location: $hostname/$appname/MyCLADE/error.php?form=".$form."&job_id=".$job_id."&email=".$email);}
 			else{

@@ -36,6 +36,7 @@ include("./includes/header.php");
 					if (preg_match("/failed|exit|error/", $last_line)){
 						echo 'The "o" file match, an error occured';
 						$error = true;}}}
+			echo '<br>End: '.$end.'<br>Error: '.$error.'<br>';
 			if($end == true){
 				echo "<br><br>The end<br>";}
 				//header("location: $hostname/$appname/MyCLADE/results.php?form=".$form."&job_id=".$job_id."&email=".$email);}

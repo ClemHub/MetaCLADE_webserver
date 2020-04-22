@@ -38,14 +38,14 @@ include("./includes/header.php");
 						$error = true;}}}
 			echo '<br>End: '.$end.'<br>Error: '.$error.'<br>';
 			if($end){
-				echo "<br><br>The end<br>";}
-				//header("location: $hostname/$appname/MyCLADE/results.php?form=".$form."&job_id=".$job_id."&email=".$email);}
+				//echo "<br><br>The end<br>";}
+				header("location: $hostname/$appname/MyCLADE/results.php?form=".$form."&job_id=".$job_id."&email=".$email);}
 			else if($error){
-				echo "<br><br>Error<br>";}
-				//header("location: $hostname/$appname/MyCLADE/error.php?form=".$form."&job_id=".$job_id."&email=".$email);}
+				//echo "<br><br>Error<br>";}
+				header("location: $hostname/$appname/MyCLADE/error.php?form=".$form."&job_id=".$job_id."&email=".$email);}
 			else{
-				echo "<br><br>Nothing done yet<br>";}}
-				//header("refresh: 10");}}
+				//echo "<br><br>Nothing done yet<br>";}}
+				header("refresh: 10");}}
 		else{
 			header("refresh: 10");}
 

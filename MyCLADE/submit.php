@@ -9,9 +9,8 @@ include("./includes/header.php");
 		<p class = 'text'>
 		<?php
 		$form = $_GET['form'];
-		$date = date("dmY")-20000;
-		$job_id = generateRandomString()."_".$date ;
-		//$job_id = generateRandomString()."_".date("dmY");
+		shell_exec("rm_dir.sh");
+		$job_id = generateRandomString()."_".date("dmY");
 		echo 'Your job ID is: '.$job_id,'<br>';
 		$oldmask = umask(0);
 		mkdir($appsroot.'/MetaCLADE_webserver/MyCLADE/jobs/'.$job_id, 0777, true);

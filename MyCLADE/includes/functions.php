@@ -10,6 +10,7 @@ function generateRandomString($length = 10) {
 	return $randomString;};
 
 function submit($job_id, $email){
+	global $appurl;
 	global $approot;
 	global $webdevel;
 	$sequences = $_SESSION['sequences'];
@@ -32,7 +33,7 @@ function submit($job_id, $email){
 	else if($form == 'large'){
 		$command="qsub -wd ".$approot."/MyCLADE/jobs/".$job_id."/ -N $job_id ".$approot."/MyCLADE/run_large.sh ".$args;}
 	$output = shell_exec("$command");
-	$link = $hostname."/".$appname."/MyCLADE/status.php?form=".$form."&job_id=".$job_id."&email=".$email; 
+	$link = $appurl."/MyCLADE/status.php?form=".$form."&job_id=".$job_id."&email=".$email; 
 	$msg="<strong>Your job has been correctly submitted</strong><br><br>";
 	$msg= $msg . "You can follow job progress as well as downloading the results going to <a target=_blank href=$link> $link </a><br>";
 	$msg= $msg . "<br>Your data will be removed one month after the end of the job.<br>";

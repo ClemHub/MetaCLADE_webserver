@@ -9,7 +9,7 @@ include("./includes/header.php");
 		<p class = 'text'>
 		<?php
 		$form = $_GET['form'];
-		shell_exec("rm_dir.sh");
+		echo shell_exec("rm_dir.sh");
 		$job_id = generateRandomString()."_".date("dmY");
 		echo 'Your job ID is: '.$job_id,'<br>';
 		$oldmask = umask(0);
@@ -26,7 +26,7 @@ include("./includes/header.php");
 			$mail= $mail_header . "\n".$msg;
 			mail($mail, "no-reply@lcqb.upmc.fr", $email);};
 
-		header("location: $hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$job_id."&email=".$email);
+		//header("location: $hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$job_id."&email=".$email);
 		?>
 	</section>
 

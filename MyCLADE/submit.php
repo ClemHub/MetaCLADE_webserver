@@ -13,7 +13,7 @@ include("./includes/header.php");
 		$job_id = generateRandomString()."_".date("dmY");
 		echo 'Your job ID is: '.$job_id,'<br>';
 		$oldmask = umask(0);
-		mkdir($appsroot.'/MetaCLADE_webserver/MyCLADE/jobs/'.$job_id, 0777, true);
+		mkdir($approot.'/MyCLADE/jobs/'.$job_id, 0777, true);
 		umask($oldmask);
 		$email = $_SESSION['email'];
 		$msg = submit($job_id, $email);

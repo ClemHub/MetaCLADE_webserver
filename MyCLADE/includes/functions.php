@@ -9,17 +9,17 @@ function generateRandomString($length = 10) {
 		$randomString .= $characters[rand(0, $charactersLength - 1)];}
 	return $randomString;};
 
-function submit($jobid, $email){
+function submit($job_id, $email){
 	global $approot;
 	global $webdevel;
 	$sequences = $_SESSION['sequences'];
 	echo '<br>';
-	file_put_contents($approot.'/MyCLADE/jobs/'.$jobid.'/data.fa', $sequences);
+	file_put_contents($approot.'/MyCLADE/jobs/'.$job_id.'/data.fa', $sequences);
 	$e_value = $_SESSION['evalue'];
 	$dama = $_SESSION['dama'];
 	$form = $_GET["form"];
 	$nb_jobs = 2;
-	$args = "-i ".escapeshellarg("$approot/MyCLADE/jobs/".$jobid."/data.fa")." -N ".escapeshellarg($jobid)."  -e ".escapeshellarg($e_value)."  -W ".escapeshellarg("$approot/MyCLADE/jobs/".$jobid)."  -j ".escapeshellarg($nb_jobs);
+	$args = "-i ".escapeshellarg("$approot/MyCLADE/jobs/".$job_id."/data.fa")." -N ".escapeshellarg($job_id)."  -e ".escapeshellarg($e_value)."  -W ".escapeshellarg("$approot/MyCLADE/jobs/".$job_id)."  -j ".escapeshellarg($nb_jobs);
 	if($dama == 'true'){
 		$DAMA_evalue = $_SESSION['DAMA-evalue'];	
 		$args = $args." -a -E ".escapeshellarg($DAMA_evalue);}
@@ -28,11 +28,11 @@ function submit($jobid, $email){
 		$args = $args." -d ".escapeshellarg($pfam);}
 	//Submit your job
 	if ($form == 'small'){
-		$command="qsub -wd ".$approot."/MyCLADE/jobs/".$jobid."/ -N $jobid ".$approot."/MyCLADE/run_small.sh ".$args;}
+		$command="qsub -wd ".$approot."/MyCLADE/jobs/".$job_id."/ -N $job_id ".$approot."/MyCLADE/run_small.sh ".$args;}
 	else if($form == 'large'){
-		$command="qsub -wd ".$approot."/MyCLADE/jobs/".$jobid."/ -N $jobid ".$approot."/MyCLADE/run_large.sh ".$args;}
+		$command="qsub -wd ".$approot."/MyCLADE/jobs/".$job_id."/ -N $job_id ".$approot."/MyCLADE/run_large.sh ".$args;}
 	$output = shell_exec("$command");
-	$link = "$hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$job_id."&email=".$email; 
+	$link = $hostname."/".$appname."/MyCLADE/status.php?form=".$form."&job_id=".$job_id."&email=".$email; 
 	$msg="<strong>Your job has been correctly submitted</strong><br><br>";
 	$msg= $msg . "You can follow job progress as well as downloading the results going to <a target=_blank href=$link> $link </a><br>";
 	$msg= $msg . "<br>Your data will be removed one month after the end of the job.<br>";

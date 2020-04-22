@@ -24,7 +24,7 @@ include("./includes/header.php");
 					if (preg_match("/\[main\] architecture job finished successfully/", $last_line)){
 						$end = true;}
 					else if (preg_match("/failed|exit|error/", $last_line)){
-						$error = false;}
+						$error = true;}
 					else if (preg_match("/search/", $last_line)){
 						echo 'Status of your job: search job (step 1)';}
 					else if (preg_match("/filter/", $last_line)){

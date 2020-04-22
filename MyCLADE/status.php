@@ -19,16 +19,19 @@ include("./includes/header.php");
 		$end = false;
 		if($output){
 			foreach($output as $file){
-				echo '<br>';
-				$exploded_file = end(explode("/", $file));
-				echo 'File: '.$exploded_file.'<br>';
 				if(preg_match("/[a-zA-Z0-9]+\.e[0-9]+/", $file)){
 					$last_line = file($file);
 					$last_line = $last_line[count($last_line)-1];
 					echo 'Last line: '.$last_line.'<br>';
 					if (preg_match("/\[main\] architecture job finished successfully/", $last_line)){
 						echo 'The "e" file match, it is the end';
-						$end = true;}}
+						$end = true;}
+					else if (preg_match("/search/", $last_line)){
+						echo 'Status: search job';}
+					else if (preg_match("/filter/", $last_line)){
+						echo 'Filter job';}
+					else if (preg_match("/computing architecture/", $last_line)){
+						echo 'Architecture job';}}
 				else if(preg_match("/[a-zA-Z0-9]+\.o[0-9]+/", $file)){
 					$last_line = file($file);
 					$last_line = $last_line[count($last_line)-1];

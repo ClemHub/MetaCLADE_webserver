@@ -12,7 +12,7 @@ include("./includes/header.php");
 		echo "Your job ".$job_id." is running.<br>";
 		echo "You can save the link to access the results later thanks to this link:<br>"; 
 		echo "<a href=$hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$job_id."&email=".$email.">$hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$job_id."</a><br>";
-		echo "<br>This page will be refreshed every 10 seconds<br>";
+
 		$output =  glob($approot."/MyCLADE/jobs/".$job_id."/".$job_id.".*");
 		$error = false;
 		$end = false;
@@ -26,16 +26,17 @@ include("./includes/header.php");
 					else if (preg_match("/failed|exit|error/", $last_line)){
 						$error = true;}
 					else if (preg_match("/search/", $last_line)){
-						echo 'Status of your job: search job (step 1)';}
+						echo 'Status of your job: search job (step 1)<br>';}
 					else if (preg_match("/filter/", $last_line)){
-						echo 'Status of your job: filter job (step 2)';}
+						echo 'Status of your job: filter job (step 2)<br>';}
 					else if (preg_match("/computing architecture/", $last_line)){
-						echo 'Status of your job: Architecture job (step 3)';}}
+						echo 'Status of your job: Architecture job (step 3)<br>';}}
 				else if(preg_match("/[a-zA-Z0-9]+\.o[0-9]+/", $file)){
 					$last_line = file($file);
 					$last_line = $last_line[count($last_line)-1];
 					if (preg_match("/failed|exit|error/", $last_line)){
 						$error = true;}}}
+			echo "<br>This page will be refreshed every 10 seconds<br>";
 			if($end){
 				//echo "<br><br>The end<br>";}
 				header("location: $hostname/$appname/MyCLADE/results.php?form=".$form."&job_id=".$job_id."&email=".$email);}

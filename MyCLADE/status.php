@@ -21,26 +21,30 @@ include("./includes/header.php");
 			foreach($output as $file){
 				echo '<br>';
 				$exploded_file = end(explode("/", $file));
-				echo $exploded_file.'<br>';
-				echo $file.'<br>';
+				echo 'File: '.$exploded_file.'<br>';
 				if(preg_match("/[a-zA-Z0-9]+\.e[0-9]+/", $file)){
-					echo 'heeere'.'<br>';
-					echo $file.'<br>';
 					$last_line = file($file);
 					$last_line = $last_line[count($last_line)-1];
-					echo $last_line.'<br>';
+					echo 'Last line: '.$last_line.'<br>';
 					if (preg_match("/\[main\] architecture job finished successfully/", $last_line)){
-						echo 'yees<br>';
+						echo 'The "e" file match, it is the end';
 						$end = true;}}
 				else if(preg_match("/[a-zA-Z0-9]+\.o[0-9]+/", $file)){
-					echo 'heeeere 2<br>';
-					$o_file = $file;}}
-			if($end == true and $error == false){
-				header("location: $hostname/$appname/MyCLADE/results.php?form=".$form."&job_id=".$job_id."&email=".$email);}
-			else if($end == false and $error = true){
-				header("location: $hostname/$appname/MyCLADE/error.php?form=".$form."&job_id=".$job_id."&email=".$email);}
+					$last_line = file($file);
+					$last_line = $last_line[count($last_line)-1];
+					echo 'Last line: '.$last_line.'<br>';
+					if (preg_match("/failed|exit|error/", $last_line)){
+						echo 'The "o" file match, an error occured';
+						$error = true;}}}
+			if($end == true){
+				echo "<br><br>The end<br>";}
+				//header("location: $hostname/$appname/MyCLADE/results.php?form=".$form."&job_id=".$job_id."&email=".$email);}
+			else if($error = true){
+				echo "<br><br>Error<br>";}
+				//header("location: $hostname/$appname/MyCLADE/error.php?form=".$form."&job_id=".$job_id."&email=".$email);}
 			else{
-				header("refresh: 10");}}
+				echo "<br><br>Nothing done yet<br>";}}
+				//header("refresh: 10");}}
 		else{
 			header("refresh: 10");}
 

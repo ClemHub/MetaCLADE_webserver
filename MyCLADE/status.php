@@ -26,11 +26,11 @@ include("./includes/header.php");
 					else if (preg_match("/failed|exit|error/", $last_line)){
 						$error = true;}
 					else if (preg_match("/search/", $last_line)){
-						echo 'Status of your job: search job (step 1)<br>';}
+						echo '<br><strong>Status of your job:</strong> search job (step 1)<br>';}
 					else if (preg_match("/filter/", $last_line)){
-						echo 'Status of your job: filter job (step 2)<br>';}
+						echo '<br><strong>Status of your job:</strong> filter job (step 2)<br>';}
 					else if (preg_match("/computing architecture/", $last_line)){
-						echo 'Status of your job: Architecture job (step 3)<br>';}}
+						echo '<br><strong>Status of your job:</strong> architecture job (step 3)<br>';}}
 				else if(preg_match("/[a-zA-Z0-9]+\.o[0-9]+/", $file)){
 					$last_line = file($file);
 					$last_line = $last_line[count($last_line)-1];

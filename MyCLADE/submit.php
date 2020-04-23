@@ -28,6 +28,4 @@ include("./includes/header.php");
 		header("location: $hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$job_id."&email=".$email);
 		?>
 	</section>
-
-
 <?php include("./includes/footer.php"); ?>

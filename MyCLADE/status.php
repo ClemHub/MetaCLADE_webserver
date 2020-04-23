@@ -9,8 +9,8 @@ include("./includes/header.php");
 		<?php
 		$form = $_GET["form"];
 		$job_id = $_GET["job_id"];
-		echo "Your job ".$job_id." is running.<br>";
-		echo "You can save the link to access the results later thanks to this link and your job will be available for two month:<br>"; 
+		echo "Your job <strong>".$job_id."</strong> is running.<br>";
+		echo "<br>You can save the link to access the results later thanks to this link and your job will be available for two month:<br>"; 
 		echo "<a href=$hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$job_id."&email=".$email.">$hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$job_id."</a><br>";
 
 		$output =  glob($approot."/MyCLADE/jobs/".$job_id."/".$job_id.".*");

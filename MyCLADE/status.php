@@ -47,7 +47,7 @@ include("./includes/header.php");
 				//echo "<br><br>Nothing done yet<br>";}}
 				header("refresh: 10");}}
 		else{
-			echo 'Status of your job: submission of your job';
+			echo '<br><strong>Status of your job:</strong>: submission of your job';
 			header("refresh: 10");}
 
 		/*if(!empty($output)){

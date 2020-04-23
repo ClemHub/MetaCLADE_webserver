@@ -9,9 +9,9 @@ include("./includes/header.php");
 		<?php
 		$form = $_GET["form"];
 		$job_id = $_GET["job_id"];
-		echo "Your job ".$job_id." failed.<br>";
-		echo "Please <a class='table_link' href='".$appurl."/MyCLADE/contact.php'>contact</a> the webdeveloper to understand why.<br>"; //insert link to the contact page
-		echo "<br>Transmit the job ID so the web developer may help you understand where the problem is coming from.<br>";
+		echo "Your job <strong>".$job_id."</strong> failed.<br>";
+		echo "<br>Please <a class='table_link' href='".$appurl."/MyCLADE/contact.php'>contact</a> the webdeveloper to understand why.<br>"; //insert link to the contact page
+		echo "Transmit the job ID so the web developer may help you understand where the problem is coming from.<br>";
 		?>
 	</section>
 

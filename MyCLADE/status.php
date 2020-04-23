@@ -25,6 +25,8 @@ include("./includes/header.php");
 						$end = true;}
 					else if (preg_match("/failed|exit|error/", $last_line)){
 						$error = true;}
+					else if (preg_match("/submission/", $last_line)){
+						echo '<br><strong>Status of your job:</strong> submission of your job<br>';}
 					else if (preg_match("/search/", $last_line)){
 						echo '<br><strong>Status of your job:</strong> search job (step 1)<br>';}
 					else if (preg_match("/filter/", $last_line)){

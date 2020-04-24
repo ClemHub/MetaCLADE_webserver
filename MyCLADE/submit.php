@@ -30,7 +30,7 @@ include("./includes/header.php");
 			$mail= $mail_header . "\n".$msg;
 			mail($mail, "no-reply@lcqb.upmc.fr", $email);};
 
-		//header("location: $hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$job_id);
+		header("location: $hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$job_id);
 		?>
 	</section>
 <?php include("./includes/footer.php"); ?>

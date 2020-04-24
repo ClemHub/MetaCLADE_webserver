@@ -21,7 +21,7 @@ function read_parameters_file($file_name, $separator="\t"){
 class MetaCLADE_DB extends SQLite3 {
 	function __construct() {
 		global $approot;
-		$this->open($approot.'data/MetaCLADE.db');}}
+		$this->open($approot.'/data/MetaCLADE.db');}}
 
 function submit($job_id, $email){
 	global $appurl;

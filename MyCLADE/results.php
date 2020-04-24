@@ -13,7 +13,8 @@ include("./includes/header.php");
 		$parameters = read_parameters_file($approot."/MyCLADE/jobs/".$job_id."/parameters.txt");
 		$e_value = $parameters['E-value'];
 		$name_file = $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
-		if($dama == "true"){
+		if($dama == true){
+			echo 'ookoook';
 			$DAMA_evalue = $parameters["DAMA e-value"];}
 		if($form=="small"){
 			$pfam = $parameters["PFAM"];}}

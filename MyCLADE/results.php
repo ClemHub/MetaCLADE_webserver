@@ -119,9 +119,9 @@ include("./includes/header.php");
 		echo 'All the domain of the library was used to treat our test data set.<br>';
 	}
 	echo 'The MetaCLADE e-value applied: ' . $e_value . '<br>';
-	if($dama == 'true'){
+	if($dama == true){
 		echo 'You choose to use DAMA to your dataset with a cut-off e-value equal to: ' . $DAMA_evalue;}
-	else if($dama == 'false'){
+	else if($dama == false){
 		echo 'DAMA was not used to determine the architecture.';}
 	echo '<br><br>';
 	?>

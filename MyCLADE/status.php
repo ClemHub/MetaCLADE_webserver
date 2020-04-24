@@ -60,7 +60,7 @@ include("./includes/header.php");
 				echo "<li>".$name.": ".$value."</li>";}
 			else if($name == "DAMA e-value" and $DAMA_eval == true){
 				echo "<li>".$name.": ".$value."</li>";}
-			else if($name != "DAMA" and $name != "DAMA e-value"){
+			else if($name != "DAMA" and $name != "DAMA e-value" and $name != ""){
 				echo "<li>".$name.": ".$value."</li>";}}
 		echo "</ul>";
 

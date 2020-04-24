@@ -4,7 +4,6 @@ include("./includes/header.php");
 
 	<section id='Error'>
 	<h2> Your job has stopped... </h2>
-	<h3>This server is a multi-source domain annotation for quantitative <em>metagenomic and metatranscriptomic</em> functional profiling.</h3>
 		<p class = 'text'>
 		<?php
 		$form = $_GET["form"];

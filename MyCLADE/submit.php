@@ -4,17 +4,20 @@ include("./includes/header.php");
 ?>
 
 	<section id='Submission'>
-	<h2> Your job is running... </h2>
-    <h3>This server is a multi-source domain annotation for quantitative <em>metagenomic and metatranscriptomic</em> functional profiling.</h3>
+	<h2> Your job has been submitted... </h2>
 		<p class = 'text'>
 		<?php
 		$form = $_GET['form'];
+		$email = $_POST['email'];
 		$job_id = generateRandomString()."_".date("dmY");
 		echo 'Your job ID is: '.$job_id,'<br>';
 		$oldmask = umask(0);
 		mkdir($approot.'/MyCLADE/jobs/'.$job_id, 0777, true);
 		umask($oldmask);
-		$email = $_SESSION['email'];
+		file_put_contents($approot."/MyCLADE/jobs/".$job_id."/parameters.txt", "E-value:\t".$_POST["evalue_nb"]."\n", FILE_APPEND);
+		file_put_contents($approot."/MyCLADE/jobs/".$job_id."/parameters.txt", "DAMA:\t".$_POST["dama"]."\n", FILE_APPEND);
+		file_put_contents($approot."/MyCLADE/jobs/".$job_id."/parameters.txt", "E-value:\t".$_POST["dama_evalue_nb"]."\n", FILE_APPEND);
+		file_put_contents($approot."/MyCLADE/jobs/".$job_id."/parameters.txt", "E-value:\t".$_POST["pfam_domains"]."\n", FILE_APPEND);
 		$msg = submit($job_id, $email);
 		echo $msg;
 		if($email){

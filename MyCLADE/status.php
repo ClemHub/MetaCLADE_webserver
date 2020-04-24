@@ -4,7 +4,6 @@ include("./includes/header.php");
 
 	<section id='Status'>
 	<h2> Your job is running... </h2>
-	<h3>This server is a multi-source domain annotation for quantitative <em>metagenomic and metatranscriptomic</em> functional profiling.</h3>
 		<p class = 'text'>
 		<?php
 		$form = $_GET["form"];
@@ -49,7 +48,7 @@ include("./includes/header.php");
 				//echo "<br><br>Nothing done yet<br>";}}
 				header("refresh: 10");}}
 		else{
-			echo '<br><strong>Status of your job:</strong>: submission of your job';
+			echo '<br><strong>Status of your job:</strong> submission of your job';
 			header("refresh: 10");}
 
 		/*if(!empty($output)){

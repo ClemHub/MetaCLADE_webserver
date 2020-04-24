@@ -7,15 +7,16 @@ include("./includes/header.php");
 
 	//Taking form informations
 	$form = $_GET["form"];
-	$dama = $_SESSION["dama"];
+	$parameters = read_parameters_file($approot."/MyCLADE/jobs/".$job_id."/parameters.txt");
+	$dama = $parameters["DAMA"];
 	if($form=="small" || $form=="large"){
 		$job_id = $_GET["job_id"];
-		$e_value = $_SESSION['evalue'];
+		$e_value = $parameters['E-value'];
 		$name_file = $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
 		if($dama == "true"){
-			$DAMA_evalue = $_SESSION["DAMA-evalue"];}
+			$DAMA_evalue = $parameters["DAMA e-value"];}
 		if($form=="small"){
-			$pfam = $_SESSION["pfam_domains"];}}
+			$pfam = $parameters["PFAM"];}}
 	else if($form=="large_example"){
 		$e_value = 0.001;
 		if($dama == "true"){

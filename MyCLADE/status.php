@@ -55,7 +55,12 @@ include("./includes/header.php");
 		$DAMA_eval = true;
 		echo "<ul><br><strong>Your job parameters:</strong><br>";
 		foreach($parameters as $name => $value){
-			if($name != "" and $value != "" and $name != "Email"){
+			if($name == "DAMA" and $value == false){
+				$DAMA_eval = false;
+				echo "<li>".$name.": ".$value."</li>";}
+			else if($name == "DAMA e-value" and $DAMA_eval == true){
+				echo "<li>".$name.": ".$value."</li>";}
+			else if($name != "" and $value != "" and $name != "Email"){
 				echo "<li>".$name.": ".$value."</li>";}}
 		echo "</ul>";
 

@@ -7,7 +7,9 @@ include("./includes/header.php");
 
 	//Taking form informations
 	$form = $_GET["form"];
+	echo $form.'<br>';
 	$parameters = read_parameters_file($approot."/MyCLADE/jobs/".$job_id."/parameters.txt");
+	print_r($parameters);
 	$dama = $parameters["DAMA"];
 	if($form=="small" || $form=="large"){
 		$job_id = $_GET["job_id"];

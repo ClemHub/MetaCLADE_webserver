@@ -52,32 +52,17 @@ include("./includes/header.php");
 			header("refresh: 10");}
 
 		$parameters = read_parameters_file($approot."/MyCLADE/jobs/".$job_id."/parameters.txt");
-		//echo "<ul><br><strong>Your job parameters:</strong><br>";
-		echo "<br><strong>Your job parameters:</strong><br>";
+		$DAMA_eval = true;
+		echo "<ul><br><strong>Your job parameters:</strong><br>";
 		foreach($parameters as $name => $value){
-			echo $name."<br>";}
-			//if($name == "DAMA" and $value == false){
-			//	$DAMA_eval = false;
-				//echo "<li>".$name.": ".$value."</li>";}
-			//else if($name == "DAMA e-value" and $DAMA_eval == true){
-				//echo "<li>".$name.": ".$value."</li>";}
-			//else if($name != "DAMA" and $name != "DAMA e-value"){
-				//echo "<li>".$name.": ".$value."</li>";}}
-		//echo "</ul>";
-		/*if(!empty($output)){
-			$e_file = file($output[0]);
-			
-			$o_file = file($output[0]);
-			$last_line = $o_file[count($o_file)-1];
-			if ($o_file[$i] == "[main] architecture job finished successfully"){
-				$end = true;}
-			}
-		if($end == true and $error == false){
-			header("location: $hostname/$appname/MyCLADE/results.php?form=".$form."&job_id=".$job_id."&email=".$email);}
-		else if($end == false and $error = true){
-			header("location: $hostname/$appname/MyCLADE/error.php?form=".$form."&job_id=".$job_id."&email=".$email);}
-		else{
-			header("refresh: 10");}*/
+			if($name == "DAMA" and $value == false){
+				$DAMA_eval = false;
+				echo "<li>".$name.": ".$value."</li>";}
+			else if($name == "DAMA e-value" and $DAMA_eval == true){
+				echo "<li>".$name.": ".$value."</li>";}
+			else if($name != "DAMA" and $name != "DAMA e-value"){
+				echo "<li>".$name.": ".$value."</li>";}}
+		echo "</ul>";
 
 		?>
 	</section>

@@ -56,7 +56,7 @@ include("./includes/header.php");
 		echo "<ul><br><strong>Your job parameters:</strong><br>";
 		//echo "<br><strong>Your job parameters:</strong><br>";
 		print_r($parameters);
-		echo '<br>'.$parameters["DAMA"]
+		echo '<br>'.$parameters["E-value"]
 		//Array ( [E-value] => 1e-3 [DAMA] => false [DAMA e-value] => 1e-10 [PFAM] => PF00875,PF03441,PF03167,PF12546 [Email] => [] => )
 			/*if($name == "DAMA" and $value == 'false'){
 				$DAMA_eval = false;

@@ -26,6 +26,7 @@ function submit($job_id, $email){
 	$parameters = read_parameters_file($approot."/MyCLADE/jobs/".$job_id."/parameters.txt");
 	$e_value = $parameters['E-value'];
 	$dama = $parameters['DAMA'];
+	echo "DAMA: ".$dama;
 	$nb_jobs = 2;
 	$args = "-i ".escapeshellarg("$approot/MyCLADE/jobs/".$job_id."/data.fa")." -N ".escapeshellarg($job_id)."  -e ".escapeshellarg($e_value)."  -W ".escapeshellarg("$approot/MyCLADE/jobs/".$job_id)."  -j ".escapeshellarg($nb_jobs);
 	if($dama == 'true'){

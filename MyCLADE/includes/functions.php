@@ -18,6 +18,11 @@ function read_parameters_file($file_name, $separator="\t"){
 		$data[$line[0]] = $line[1];}
 	return $data;}
 
+class MetaCLADE_DB extends SQLite3 {
+	function __construct() {
+		global $approot;
+		$this->open($approot.'data/MetaCLADE.db');}}
+
 function submit($job_id, $email){
 	global $appurl;
 	global $approot;

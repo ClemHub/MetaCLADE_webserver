@@ -97,7 +97,6 @@ include("./includes/header.php");
 		echo "</td></tr>";
 	}
 	echo "</tbody></table>";
-	$conn->close();
 	?>
 	</div>
 	

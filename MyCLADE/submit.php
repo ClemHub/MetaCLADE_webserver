@@ -17,7 +17,7 @@ include("./includes/header.php");
 		file_put_contents($approot."/MyCLADE/jobs/".$job_id."/parameters.txt", "E-value\t".$_POST["evalue_nb"]."\n", FILE_APPEND);
 		file_put_contents($approot."/MyCLADE/jobs/".$job_id."/parameters.txt", "DAMA\t".$_POST["dama"]."\n", FILE_APPEND);
 		file_put_contents($approot."/MyCLADE/jobs/".$job_id."/parameters.txt", "DAMA e-value\t".$_POST["dama_evalue_nb"]."\n", FILE_APPEND);
-		file_put_contents($approot."/MyCLADE/jobs/".$job_id."/parameters.txt", "E-value\t".$_POST["pfam_domains"]."\n", FILE_APPEND);
+		file_put_contents($approot."/MyCLADE/jobs/".$job_id."/parameters.txt", "PFAM\t".$_POST["pfam_domains"]."\n", FILE_APPEND);
 		file_put_contents($approot."/MyCLADE/jobs/".$job_id."/parameters.txt", "Email\t".$email."\n", FILE_APPEND);
 		$msg = submit($job_id, $email);
 		echo $msg;

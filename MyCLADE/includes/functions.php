@@ -29,6 +29,7 @@ function submit($job_id, $email){
 	$nb_jobs = 2;
 	$args = "-i ".escapeshellarg("$approot/MyCLADE/jobs/".$job_id."/data.fa")." -N ".escapeshellarg($job_id)."  -e ".escapeshellarg($e_value)."  -W ".escapeshellarg("$approot/MyCLADE/jobs/".$job_id)."  -j ".escapeshellarg($nb_jobs);
 	if($dama == 'true'){
+		echo '<br>dama = true<br>';
 		$DAMA_evalue = $parameters['DAMA e-value'];	
 		$args = $args." -a -E ".escapeshellarg($DAMA_evalue);}
 	if($_GET['form']=='small'){

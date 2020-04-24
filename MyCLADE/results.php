@@ -7,12 +7,10 @@ include("./includes/header.php");
 
 	//Taking form informations
 	$form = $_GET["form"];
-	echo $form.'<br>';
-	$parameters = read_parameters_file($approot."/MyCLADE/jobs/".$job_id."/parameters.txt");
-	print_r($parameters);
 	$dama = $parameters["DAMA"];
 	if($form=="small" || $form=="large"){
 		$job_id = $_GET["job_id"];
+		$parameters = read_parameters_file($approot."/MyCLADE/jobs/".$job_id."/parameters.txt");
 		$e_value = $parameters['E-value'];
 		$name_file = $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
 		if($dama == "true"){

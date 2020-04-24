@@ -51,7 +51,11 @@ include("./includes/header.php");
 			echo '<br><strong>Status of your job:</strong> submission of your job';
 			header("refresh: 10");}
 
-		print_r(read_parameters_file($approot."/MyCLADE/jobs/".$job_id."/parameters.txt"));
+		$parameters = read_parameters_file($approot."/MyCLADE/jobs/".$job_id."/parameters.txt");
+		echo "<ul><br><strong>Your job parameters:</strong><br>";
+		foreach($parameters as $name => $value){
+			echo "<li>".$name.": ".$value;}
+		echo "</ul>";
 		/*if(!empty($output)){
 			$e_file = file($output[0]);
 			

@@ -11,6 +11,7 @@
 	$base = $approot.'/data/MetaCLADE.db';
 	try {
 		$bd = new SQLiteDatabase($base);
+		echo 'ok';
 	} catch (SQLiteException $e) {
 		die("La creation ou l'ouverture de la base [$base] a echouee ".
 			"pour la raison suivante: ".$e->getMessage());

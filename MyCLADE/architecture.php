@@ -10,7 +10,7 @@
 
 	echo 'here';
 	$database = new MetaCLADE_DB();
-	if(!$db) {
+	if(!$database) {
 		echo 'problem';
 		echo $db->lastErrorMsg();}
 	else {

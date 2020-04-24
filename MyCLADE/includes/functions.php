@@ -9,23 +9,30 @@ function generateRandomString($length = 10) {
 		$randomString .= $characters[rand(0, $charactersLength - 1)];}
 	return $randomString;};
 
+function read_parameters_file($file_name, $separator="\t"){
+	$file = fopen($file_name, "r");
+	$data = array();
+	while(!feof($file)){
+		$line = fgets($file);
+		$line = explode($separator, $line);
+		$data[$line[0]] = $line[1];}
+	return $data;}
+
 function submit($job_id, $email){
 	global $appurl;
 	global $approot;
 	global $webdevel;
-	$sequences = $_SESSION['sequences'];
-	echo '<br>';
-	file_put_contents($approot.'/MyCLADE/jobs/'.$job_id.'/data.fa', $sequences);
-	$e_value = $_SESSION['evalue'];
-	$dama = $_SESSION['dama'];
 	$form = $_GET["form"];
+	$parameters = read_parameters_file($approot."/MyCLADE/jobs/".$job_id."/parameters.txt");
+	$e_value = $parameters['E-value'];
+	$dama = $parameters['DAMA'];
 	$nb_jobs = 2;
 	$args = "-i ".escapeshellarg("$approot/MyCLADE/jobs/".$job_id."/data.fa")." -N ".escapeshellarg($job_id)."  -e ".escapeshellarg($e_value)."  -W ".escapeshellarg("$approot/MyCLADE/jobs/".$job_id)."  -j ".escapeshellarg($nb_jobs);
 	if($dama == 'true'){
-		$DAMA_evalue = $_SESSION['DAMA-evalue'];	
+		$DAMA_evalue = $parameters['DAMA e-value'];	
 		$args = $args." -a -E ".escapeshellarg($DAMA_evalue);}
 	if($_GET['form']=='small'){
-		$pfam = $_SESSION['pfam_domains'];	
+		$pfam = $parameters['PFAM'];	
 		$args = $args." -d ".escapeshellarg($pfam);}
 	//Submit your job
 	if ($form == 'small'){
@@ -40,13 +47,4 @@ function submit($job_id, $email){
 	$msg= $msg . "The job will be stopped if longer than 48 hours.<br>";
 	$msg= $msg . "If you need some help, contact the web developer (".$webdevel.").<br>";
 	return $msg;};
-
-function read_parameters_file($file_name, $separator="\t"){
-	$file = fopen($file_name, "r");
-	$data = array();
-	while(!feof($file)){
-		$line = fgets($file);
-		$line = explode($separator, $line);
-		$data[$line[0]] = $line[1];}
-	return $data;}
 ?>

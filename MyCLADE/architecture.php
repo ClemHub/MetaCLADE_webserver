@@ -8,10 +8,13 @@
 	$seq_id = $_GET['id'];
 	$job_id = $_GET['job_id'];
 
-	$database = new MetaCLADE_DB();
-	if(!$database) {
-		echo $db->lastErrorMsg();}
-
+	$base = $approot.'/data/MetaCLADE.db';
+	try {
+		$bd = new SQLiteDatabase($base);
+	} catch (SQLiteException $e) {
+		die("La creation ou l'ouverture de la base [$base] a echouee ".
+			"pour la raison suivante: ".$e->getMessage());
+	}
 	$name_file = $name_file = $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
 	echo "<h4> Sequence ID: " . $seq_id . " <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Move your mouse over the colored domain to show more detailed information about it.</span></span></h4>";
 	$pfam_list = array();

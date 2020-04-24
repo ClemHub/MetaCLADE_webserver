@@ -54,21 +54,9 @@ include("./includes/header.php");
 		$parameters = read_parameters_file($approot."/MyCLADE/jobs/".$job_id."/parameters.txt");
 		$DAMA_eval = true;
 		echo "<ul><br><strong>Your job parameters:</strong><br>";
-		//echo "<br><strong>Your job parameters:</strong><br>";
-		print_r($parameters);
-		echo '<br>'.$parameters["E-value"];
-		echo '<br>'.$parameters["DAMA e-value"];
-		echo '<br>'.$parameters["PFAM"];
-		echo '<br>'.$parameters["Email"];
-		//Array ( [E-value] => 1e-3 [DAMA] => false [DAMA e-value] => 1e-10 [PFAM] => PF00875,PF03441,PF03167,PF12546 [Email] => [] => )
-			/*if($name == "DAMA" and $value == 'false'){
-				$DAMA_eval = false;
-				echo "<li>".$name.": ".$value."</li>";}
-			else if($name == "DAMA e-value" and $DAMA_eval == true){
-				echo "<li>".$name.": ".$value."</li>";}
-			else if($name != "DAMA" and $name != "DAMA e-value" and $name != ""){
-				echo "<li>".$name.": ".$value."</li>";}}
-		echo "</ul>";*/
+		foreach($parameters as $name => $value){
+			echo "<li>".$name.": ".$value."</li>";}
+		echo "</ul>";
 
 		?>
 	</section>

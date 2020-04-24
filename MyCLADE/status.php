@@ -51,6 +51,7 @@ include("./includes/header.php");
 			echo '<br><strong>Status of your job:</strong> submission of your job';
 			header("refresh: 10");}
 
+		print_r(read_parameters_file($approot."/MyCLADE/jobs/".$job_id."/parameters.txt"));
 		/*if(!empty($output)){
 			$e_file = file($output[0]);
 			

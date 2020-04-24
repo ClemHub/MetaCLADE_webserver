@@ -41,15 +41,12 @@ function submit($job_id, $email){
 	$msg= $msg . "If you need some help, contact the web developer (".$webdevel.").<br>";
 	return $msg;};
 
-function read_csv($file_name, $separator ="\t"){
-	$row = 0;
-	$donnee = array();    
-	$f = fopen ($nom_fichier,"r");
-	$taille = filesize($nom_fichier)+1;
-	while ($donnee = fgetcsv($f, $taille, $separateur)){
-		$result[$row] = $donnee;
-		$row++;}
-	fclose ($f);
-	return $result;}
-
+function read_parameters_file($file_name, $separator="\t"){
+	$file = fopen($file_name, "r");
+	$data = array();
+	while(!feof($file)){
+		$line = fgets($file);
+		$line = explode($separator, $line);
+		$data[$line[0]] = $line[1];}
+	return $data;}
 ?>

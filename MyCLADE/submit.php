@@ -14,10 +14,11 @@ include("./includes/header.php");
 		$oldmask = umask(0);
 		mkdir($approot.'/MyCLADE/jobs/'.$job_id, 0777, true);
 		umask($oldmask);
-		file_put_contents($approot."/MyCLADE/jobs/".$job_id."/parameters.txt", "E-value:\t".$_POST["evalue_nb"]."\n", FILE_APPEND);
-		file_put_contents($approot."/MyCLADE/jobs/".$job_id."/parameters.txt", "DAMA:\t".$_POST["dama"]."\n", FILE_APPEND);
-		file_put_contents($approot."/MyCLADE/jobs/".$job_id."/parameters.txt", "E-value:\t".$_POST["dama_evalue_nb"]."\n", FILE_APPEND);
-		file_put_contents($approot."/MyCLADE/jobs/".$job_id."/parameters.txt", "E-value:\t".$_POST["pfam_domains"]."\n", FILE_APPEND);
+		file_put_contents($approot."/MyCLADE/jobs/".$job_id."/parameters.txt", "E-value\t".$_POST["evalue_nb"]."\n", FILE_APPEND);
+		file_put_contents($approot."/MyCLADE/jobs/".$job_id."/parameters.txt", "DAMA\t".$_POST["dama"]."\n", FILE_APPEND);
+		file_put_contents($approot."/MyCLADE/jobs/".$job_id."/parameters.txt", "DAMA e-value\t".$_POST["dama_evalue_nb"]."\n", FILE_APPEND);
+		file_put_contents($approot."/MyCLADE/jobs/".$job_id."/parameters.txt", "E-value\t".$_POST["pfam_domains"]."\n", FILE_APPEND);
+		file_put_contents($approot."/MyCLADE/jobs/".$job_id."/parameters.txt", "Email\t".$email."\n", FILE_APPEND);
 		$msg = submit($job_id, $email);
 		echo $msg;
 		if($email){
@@ -28,7 +29,7 @@ include("./includes/header.php");
 			$mail= $mail_header . "\n".$msg;
 			mail($mail, "no-reply@lcqb.upmc.fr", $email);};
 
-		header("location: $hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$job_id."&email=".$email);
+		header("location: $hostname/$appname/MyCLADE/status.php?form=".$form."&job_id=".$job_id);
 		?>
 	</section>
 <?php include("./includes/footer.php"); ?>

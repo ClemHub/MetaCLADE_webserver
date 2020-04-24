@@ -56,7 +56,10 @@ include("./includes/header.php");
 		echo "<ul><br><strong>Your job parameters:</strong><br>";
 		//echo "<br><strong>Your job parameters:</strong><br>";
 		foreach($parameters as $name => $value){
-			echo $name.': '.$value.'<br>';}
+			echo $name.': '.$value.'<br>';
+			if($name == "DAMA" and $value == 'false'){
+				echo 'oook';
+			}}
 			/*if($name == "DAMA" and $value == 'false'){
 				$DAMA_eval = false;
 				echo "<li>".$name.": ".$value."</li>";}

@@ -10,7 +10,8 @@
 
 	$database = new MetaCLADE_DB();
 	if(!$db) {
-	   echo $db->lastErrorMsg();}
+		echo 'problem';
+		echo $db->lastErrorMsg();}
 	else {
 	   echo "Opened database successfully\n";}
 

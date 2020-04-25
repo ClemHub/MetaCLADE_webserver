@@ -62,7 +62,7 @@
 	<thead>
 		<tr>
 		<th class='table_header'>Domain ID</th>
-		<th class='table_header'>Family</th>
+		<!-- <th class='table_header'>Family</th> -->
 		<th class='table_header'>Domain position<br>along the sequence</th>
 		<th class='table_header'>Model species <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>If the model species is 'unavailable', it is because the most reliable model was HMMer-3.</span></span></h4></th>	
 		<th class='table_header'>E-Value <button class='sort_button' onclick='sortTable(4)'><i class='fas fa-caret-down'></i></button></th>
@@ -79,10 +79,10 @@
 		$link_id = 'http://pfam.xfam.org/family/' . $pfam;
 		//$nb=0;
         echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
-        $sql = "SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'";
-        $result = mysqli_query($mysqli, $sql);
-        $row = mysqli_fetch_assoc($result);
-        echo "<td>" . $row['Family']."</td>";
+        //$sql = "SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'";
+        //$result = mysqli_query($mysqli, $sql);
+        //$row = mysqli_fetch_assoc($result);
+        //echo "<td>" . $row['Family']."</td>";
 		echo "<td>" . $data[1] . " - " . $data[2]. "</td>";
 		echo "<td class='species_name'>" . $data[12]. "</td>";
 		echo "<td>".$data[9]."</td>";

@@ -115,6 +115,7 @@
 		$pfam_row = $pfam_row->fetchArray();
 		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
 		$rows = $request->fetchAll();
+		echo "<td>" . $rows."</td>";
 		$nb = count($request);
 		echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
 		if(!$rows){

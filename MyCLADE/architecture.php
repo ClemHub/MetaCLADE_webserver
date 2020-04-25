@@ -33,10 +33,10 @@
 			$color = sprintf('#%06X', mt_rand(0, 0xFFFFFF));
 			echo "<g><a xlink:href='http://pfam.xfam.org/family/".$pfam."' target='_blank'><rect x='".$scaled_start."%' y='5' width='". $width ."%' height='30' style=' fill:".$color."; fill-opacity:0.7; stroke-width:1; stroke:3'>";
 			echo "<title>PFAM Acc Number: ".$pfam."\nFamily: ".$row['Family']."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nClan Acc Number: ".$row['Clan_acc_nb']."\nClan: ".$row['Clan']."\n\nModel species: ".$exploded_line[12]."\nE-value: ".$exploded_line[9]."\nBitscore: ".$exploded_line[10]."\nAccuracy: ".$exploded_line[11]."</title></rect>";
-			echo "<title>PFAM Acc Number: ".$pfam."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nModel species: ".$exploded_line[12]."\nE-value: ".$exploded_line[9]."\nBitscore: ".$exploded_line[10]."\nAccuracy: ".$exploded_line[11]."</title></rect>";
+			//echo "<title>PFAM Acc Number: ".$pfam."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nModel species: ".$exploded_line[12]."\nE-value: ".$exploded_line[9]."\nBitscore: ".$exploded_line[10]."\nAccuracy: ".$exploded_line[11]."</title></rect>";
 			echo "<text x='". $scaled_start ."%' y='25' style='font-size:15px; font-size-adjust: 0.5; fill:white; font-weight:bold; mix-blend-mode: exclusion;' >".$pfam."</text></a></g>";
-			$pfam_list[$pfam]=$exploded_line;}}
-		}
+			$pfam_list[$pfam]=$exploded_line;}}}
+
 	echo "</svg>";
 	
 	echo "<svg height='40' width='100%'><line x1='1' y1='1' x2='100%' y2='1' stroke='#D8D8D8' stroke-width='20' stroke-linecap='butt' />";
@@ -51,10 +51,9 @@
 	
 	echo "<text x=80.1% y='25' fill='black'>". round(4*($length/5)) ."</text><line x1=80% y1='0' x2=80% y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
 
-	echo "<text x='98%' y='25' fill='black'>".$length."</text><line x1='99.9%' y1='0' x2='99.9%' y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/></svg>";
-
+	echo "<text x='98%' y='25' fill='black'>".$length."</text><line x1='99.9%' y1='0' x2='99.9%' y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/></svg></div>";
 	?>
-	</div>
+	
 	<div class='info'>
 	<input type='button' class='bouton_info' value='Results informations:' onclick='close_open_info(this);' />
 	<div class='contenu_info'>
@@ -65,7 +64,6 @@
 		<th class='table_header'>Domain ID</th>
 		<th class='table_header'>Family</th>
 		<th class='table_header'>Domain position<br>along the sequence</th>
-		<!--<th class='table_header'>Model Id</th>-->
 		<th class='table_header'>Model species <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>If the model species is 'unavailable', it is because the most reliable model was HMMer-3.</span></span></h4></th>	
 		<th class='table_header'>E-Value <button class='sort_button' onclick='sortTable(4)'><i class='fas fa-caret-down'></i></button></th>
 		<th class='table_header'>Bitscore <button class='sort_button' onclick='sortTable(5)'><i class='fas fa-caret-down'></i></button></th>

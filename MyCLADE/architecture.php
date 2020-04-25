@@ -113,7 +113,7 @@
 		echo '<tbody>';
 		$link_id = 'http://pfam.xfam.org/family/' . $pfam;
 		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='" . $pfam . "'");
-		$nb = sqlite_num_rows($request);
+		$nb = $request->numRows();
 		echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
 		if ($nb > 0) {
 			$i = 0;

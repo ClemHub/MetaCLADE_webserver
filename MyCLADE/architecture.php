@@ -9,8 +9,7 @@
 	$job_id = $_GET['job_id'];
 
 	$db = new SQLite3($approot.'/data/MetaCLADE.db');
-	$dbhandle = sqlite_open($approot.'/data/MetaCLADE.db');
-	
+
 	$name_file = $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
 	echo "<h4> Sequence ID: " . $seq_id . " <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Move your mouse over the colored domain to show more detailed information about it.</span></span></h4>";
 	$pfam_list = array();
@@ -24,10 +23,8 @@
 			$start = $exploded_line[1];
 			$stop = $exploded_line[2];
 			$pfam = $exploded_line[4];
-			//$row = $db->query("SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
-			$query = sqlite_query($dbhandle, "SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
-			//$row = $row->fetchArray();
-			$row = sqlite_fetch_array($query);
+			$row = $db->query("SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
+			$row = $row->fetchArray();
 			$nb_aa = ($stop-$start);
 			$width = ($nb_aa*100)/$length;
 			$scaled_start = ($start*100)/$length;
@@ -111,26 +108,24 @@
 	
 	<?php	
 
-	// foreach($test as $pfam => $data){
-	// 	echo '<tbody>';
-	// 	$link_id = 'http://pfam.xfam.org/family/' . $pfam;
-	// 	$pfam_row = $db->query("SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
-	// 	$pfam_row = $pfam_row->fetchArray();
-	// 	$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
-	// 	$request->fetchArray();
-	// 	$nb = count($request);
-	// 	echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
-	// 	if(!){
-	// 		echo "<td>" . $pfam_row['Family']."</td>";
-	// 		echo "<td>Not available</td></tr>";}
-	// 	else{
-	// 		$i = 0;
-	// 		while($row = $request->fetchArray()){
-	// 			if($i==0){
-	// 				echo "<td rowspan=".$nb.">" . $pfam_row['Family']."</td>";}
-	// 			echo "<td>" . $row['GO_term'] . '</td></tr>';
-	// 			$i++;}}
-	// 	echo '</tbody>';}
+	foreach($test as $pfam => $data){
+		echo '<tbody>';
+		$link_id = 'http://pfam.xfam.org/family/' . $pfam;
+		$pfam_row = $db->query("SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
+		$pfam_row = $pfam_row->fetchArray();
+		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
+		$nb = sqlite_num_rows($request);
+		echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
+		if(!$request->fetchArray()){
+			echo "<td>" . $pfam_row['Family']."</td>";
+			echo "<td>Not available</td></tr>";}
+		else{
+			while($row = $request->fetchArray()){
+				if($i==0){
+					echo "<td rowspan=".$nb.">" . $pfam_row['Family']."</td>";}
+				echo "<td>" . $row['GO_term'] . '</td></tr>';
+				$i++;}}	
+		echo '</tbody>';}
 	
 	echo '</table>';
 	$db->close();

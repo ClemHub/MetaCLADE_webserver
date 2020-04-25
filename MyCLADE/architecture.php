@@ -15,7 +15,6 @@
 	echo "<h4> Sequence ID: " . $seq_id . " <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Move your mouse over the colored domain to show more detailed information about it.</span></span></h4>";
 	$pfam_list = array();
 	//echo "<svg height='40' width='100%' style='border:1px dashed #ccc' overflow='scroll'>";
-	echo $name_file;
 	$file_content = fopen($name_file, "r");
 	while(!feof($file_content)){
 		$line = fgets($file_content);
@@ -27,6 +26,7 @@
 			$pfam = $exploded_line[4];
 			$row = $db->query("SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
 			$row = $res->fetchArray();
+			echo $row;
 			$nb_aa = ($stop-$start);
 			$width = ($nb_aa*100)/$length;
 			$scaled_start = ($start*100)/$length;

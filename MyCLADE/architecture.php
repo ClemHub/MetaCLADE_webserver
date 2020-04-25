@@ -81,7 +81,7 @@
 		$link_id = 'http://pfam.xfam.org/family/' . $pfam;
 		//$nb=0;
         echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
-        $row = "SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'";
+        $row = $db->query("SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
         $row = $row->fetchArray();;
         echo "<td>" . $row['Family']."</td>";
 		echo "<td>" . $data[1] . " - " . $data[2]. "</td>";

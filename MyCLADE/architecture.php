@@ -63,7 +63,7 @@
 	<thead>
 		<tr>
 		<th class='table_header'>Domain ID</th>
-		<!-- <th class='table_header'>Family</th> -->
+		<th class='table_header'>Family</th>
 		<th class='table_header'>Domain position<br>along the sequence</th>
 		<th class='table_header'>Model species <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>If the model species is 'unavailable', it is because the most reliable model was HMMer-3.</span></span></h4></th>	
 		<th class='table_header'>E-Value <button class='sort_button' onclick='sortTable(4)'><i class='fas fa-caret-down'></i></button></th>

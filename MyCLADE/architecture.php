@@ -52,10 +52,9 @@
 	echo "<text x=80.1% y='25' fill='black'>". round(4*($length/5)) ."</text><line x1=80% y1='0' x2=80% y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
 
 	echo "<text x='98%' y='25' fill='black'>".$length."</text><line x1='99.9%' y1='0' x2='99.9%' y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/></svg>";
-	print_r($pfam_list);
+
 	?>
 	</div>
-	
 	<div class='info'>
 	<input type='button' class='bouton_info' value='Results informations:' onclick='close_open_info(this);' />
 	<div class='contenu_info'>
@@ -66,6 +65,7 @@
 		<th class='table_header'>Domain ID</th>
 		<th class='table_header'>Family</th>
 		<th class='table_header'>Domain position<br>along the sequence</th>
+		<!--<th class='table_header'>Model Id</th>-->
 		<th class='table_header'>Model species <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>If the model species is 'unavailable', it is because the most reliable model was HMMer-3.</span></span></h4></th>	
 		<th class='table_header'>E-Value <button class='sort_button' onclick='sortTable(4)'><i class='fas fa-caret-down'></i></button></th>
 		<th class='table_header'>Bitscore <button class='sort_button' onclick='sortTable(5)'><i class='fas fa-caret-down'></i></button></th>
@@ -75,16 +75,16 @@
 	
 	<?php
 	//$test=Array('PF00001 ' => Array('SeqID' => 'tr|A0A072NB93|A0A072NB93_9DEIO', 'Seq_start' => 591, 'Seq_stop' => 753, 'Seq_length' => 766, 'DomainID' => 'PF00001', 'ModelID' => 'A0A0G0AUB5_9BACT_52-217', 'Model_start' => 1, 'Model_stop' => 162, 'Model_size' => 163, 'e_value' => 5.6e-75, 'Bitscore' => 238.8, 'Accuracy' => 0.99, 'Model species' => 'Candidatus Roizmanbacteria bacterium GW2011_GWC2_34_23'), 'PF00004' => Array ( 'SeqID' => 'tr|A0A072NB93|A0A072NB93_9DEIO', 'Seq_start' => 12, 'Seq_stop' => 141, 'Seq_length' => 766, 'DomainID' => 'PF00004', 'ModelID' => 'A6FVP5_9RHOB_1-137', 'Model_start' => 1, 'Model_stop' => 129, 'Model_size' => 130, 'e_value' => 8.2e-36, 'Bitscore' => 111.3, 'Accuracy' => 0.97, 'Model species' => 'Roseobacter sp. AzwK-3b'), 'PF03441' => Array ( 'SeqID' => 'tr|A0A072NB93|A0A072NB93_9DEIO', 'Seq_start' => 314, 'Seq_stop' => 465, 'Seq_length' => 766, 'DomainID' => 'PF03441', 'ModelID' => 'F3L3D9_9GAMM_269-463', 'Model_start' => 4, 'Model_stop' => 153, 'Model_size' => 155, 'e_value' => 6.2e-49, 'Bitscore' => 153.4, 'Accuracy' => 0.94, 'Model species' => 'Halieaceae bacterium IMCC3088'));
-	
+
 	foreach($pfam_list as $pfam => $data){
 		echo '<tbody>';
 		$link_id = 'http://pfam.xfam.org/family/' . $pfam;
 		//$nb=0;
         echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
-        //$row = $db->query("SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
-        //$row = $row->fetchArray();
-        //echo "<td>" . $row['Family']."</td>";
-        echo "<td>PFAM</td>";
+        $sql = "SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'";
+        $result = mysqli_query($mysqli, $sql);
+        $row = mysqli_fetch_assoc($result);
+        echo "<td>" . $row['Family']."</td>";
 		echo "<td>" . $data[1] . " - " . $data[2]. "</td>";
 		echo "<td class='species_name'>" . $data[12]. "</td>";
 		echo "<td>".$data[9]."</td>";
@@ -114,8 +114,8 @@
 	foreach($pfam_list as $pfam => $data){
 		echo '<tbody>';
 		$link_id = 'http://pfam.xfam.org/family/' . $pfam;
-		$row = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
-		$row = $row->fetchArray();
+		$request = "SELECT * FROM GO_terms WHERE Domain='" . $pfam . "'";
+		$rowspan = $mysqli->query($request);
 		$nb = mysqli_num_rows($rowspan);
 		echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
 		if ($nb > 0) {
@@ -127,8 +127,9 @@
 				$i++;
 			}}
 		else if ($nb == 0){
-			$row2 = $db->query("SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
-			$row2 = $row2->fetchArray();
+			$sql = "SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'";
+			$result2 = mysqli_query($mysqli, $sql);
+			$row2 = mysqli_fetch_assoc($result2);
 			echo "<td>" . $row2['Family']."</td>";
 			echo "<td>Not available</td></tr>";}
 		echo '</tbody>';

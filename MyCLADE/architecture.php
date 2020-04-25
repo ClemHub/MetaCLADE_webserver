@@ -11,7 +11,7 @@
 	$db_name = $approot.'/data/MetaCLADE.db';
 	$myPDO = new PDO('sqlite:'.$db_name);
 
-	$name_file = $name_file = $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
+	$name_file = $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
 	echo "<h4> Sequence ID: " . $seq_id . " <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Move your mouse over the colored domain to show more detailed information about it.</span></span></h4>";
 	$pfam_list = array();
 	//echo "<svg height='40' width='100%' style='border:1px dashed #ccc' overflow='scroll'>";

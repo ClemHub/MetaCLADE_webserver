@@ -78,12 +78,11 @@
 	foreach($pfam_list as $pfam => $data){
 		echo '<tbody>';
 		$link_id = 'http://pfam.xfam.org/family/' . $pfam;
-		//$nb=0;
+		$nb=0;
         echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
-        //$sql = "SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'";
-        //$result = mysqli_query($mysqli, $sql);
-        //$row = mysqli_fetch_assoc($result);
-        //echo "<td>" . $row['Family']."</td>";
+        $row = $db->query("SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
+        $row = $row->fetchArray();
+        echo "<td>" . $row['Family']."</td>";
 		echo "<td>" . $data[1] . " - " . $data[2]. "</td>";
 		echo "<td class='species_name'>" . $data[12]. "</td>";
 		echo "<td>".$data[9]."</td>";

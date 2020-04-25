@@ -117,15 +117,15 @@
 		echo "<td>" . $pfam_row['Family']."</td>";
 		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
 		$i=0;
-		if($request->fetchArray()){
+		if(!$request->fetchArray()){
+			echo "<td>" . $pfam_row['Family']."</td>";
+			echo "<td>Not available</td></tr>";}
+		else{
 			while($row = $request->fetchArray()){
 				if($i==0){
 					echo "<td rowspan=".$nb.">" . $pfam_row['Family']."</td>";}
 				echo "<td>" . $row['GO_term'] . '</td></tr>';
 				$i++;}}
-		else{
-			echo "<td>" . $pfam_row['Family']."</td>";
-			echo "<td>Not available</td></tr>";}
 		
 		//$nb = $request->numRows();
 		//$request = $request->fetchArray();

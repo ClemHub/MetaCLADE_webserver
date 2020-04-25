@@ -124,9 +124,8 @@
 				$i++;
 			}}
 		else if ($nb == 0){
-			$sql = "SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'";
-			$result2 = mysqli_query($mysqli, $sql);
-			$row2 = mysqli_fetch_assoc($result2);
+			$row2 = $db->query("SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
+			$row2 = $row2->fetchArray();
 			echo "<td>" . $row2['Family']."</td>";
 			echo "<td>Not available</td></tr>";}
 		echo '</tbody>';

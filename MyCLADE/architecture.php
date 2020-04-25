@@ -106,8 +106,8 @@
 		</tr>
 	</thead>
 	
-	<?php
-	
+	<?php	
+
 	foreach($test as $pfam => $data){
 		echo '<tbody>';
 		$link_id = 'http://pfam.xfam.org/family/' . $pfam;
@@ -115,12 +115,12 @@
 		$pfam_row = $db->query("SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
 		$pfam_row = $pfam_row->fetchArray();
 		echo "<td>" . $pfam_row['Family']."</td>";
-		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
-		$nb = $request->numRows();
-		echo "<td>" . $nb."</td>";
-		$request = $request->fetchArray();
-		echo "<td>" . $request."</td>";
-		if(!empty($request)){
+		//$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
+		//$nb = $request->numRows();
+		//echo "<td>" . $nb."</td>";
+		//$request = $request->fetchArray();
+		//echo "<td>" . $request."</td>";
+		/*if(!empty($request)){
 			$i = 0;
 			while($row = $request->fetchArray()){
 				if($i==0){
@@ -129,7 +129,7 @@
 				$i++;}}
 		else if (empty($request)){
 			echo "<td>" . $pfam_row['Family']."</td>";
-			echo "<td>Not available</td></tr>";}
+			echo "<td>Not available</td></tr>";}*/
 		echo '</tbody>';}
 	
 	echo '</table>';

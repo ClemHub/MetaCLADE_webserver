@@ -125,6 +125,7 @@
 			echo "<td>" . $pfam_row['Family']."</td>";
 			echo "<td>Not available</td></tr>";}
 		else{
+			$i = 0;
 			foreach($rows as $row){
 				if($i==0){
 					echo "<td rowspan=".$nb.">" . $pfam_row['Family']."</td>";}

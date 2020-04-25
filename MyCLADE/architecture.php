@@ -113,7 +113,6 @@
 		$link_id = 'http://pfam.xfam.org/family/' . $pfam;
 		$pfam_row = $db->query("SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
 		$pfam_row = $pfam_row->fetchArray();
-		echo "<td>" . $pfam_row['Family']."</td>";
 		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
 		$i=0;
 		$nb = count($request);

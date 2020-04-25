@@ -114,7 +114,9 @@
 		echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
 		$pfam_row = $db->query("SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
 		$pfam_row = $pfam_row->fetchArray();
+		echo "<td>" .$pfam_row."</td>";
 		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
+		echo "<td>" .$request."</td>";
 		$nb = $request->numRows();
 		echo "<td>" .$nb."</td>";
 		if ($nb > 0) {

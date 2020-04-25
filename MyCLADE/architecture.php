@@ -127,7 +127,7 @@
 			foreach($rows as $row){
 				if($i==0){
 					echo "<td rowspan=".$nb.">" . $pfam_row['Family']."</td>";}
-				echo "<td>" . $row['GO_term'] . '</td></tr>';
+				echo "<td>" . print_r($row) . '</td></tr>';
 				$i++;}}	
 		echo '</tbody>';}
 	

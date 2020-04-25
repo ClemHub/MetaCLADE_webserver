@@ -110,7 +110,7 @@
 	
 	<?php
 	
-	foreach($pfam_list as $pfam => $data){
+	/*foreach($pfam_list as $pfam => $data){
 		echo '<tbody>';
 		$link_id = 'http://pfam.xfam.org/family/' . $pfam;
 		$request = "SELECT * FROM GO_terms WHERE Domain='" . $pfam . "'";
@@ -132,7 +132,7 @@
 			echo "<td>" . $row2['Family']."</td>";
 			echo "<td>Not available</td></tr>";}
 		echo '</tbody>';
-		}
+		}*/
 	
 	echo '</table>';
 	$db->close();

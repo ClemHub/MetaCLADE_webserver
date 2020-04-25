@@ -10,8 +10,6 @@
 
 	$db_name = $approot.'/data/MetaCLADE.db';
 	$base = new SQLite3($db_name, 0666);
-	echo "SQLite 3 supported.";
-	
 
 	$name_file = $name_file = $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
 	echo "<h4> Sequence ID: " . $seq_id . " <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Move your mouse over the colored domain to show more detailed information about it.</span></span></h4>";
@@ -29,6 +27,7 @@
 			$pfam = $exploded_line[4];
 			$query = "SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'";
 			$results = $base->exec($query);
+			echo $results;
 			$row = $results->fetchArray();
 			echo $row;
 			$nb_aa = ($stop-$start);

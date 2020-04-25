@@ -112,7 +112,9 @@
 		echo '<tbody>';
 		$link_id = 'http://pfam.xfam.org/family/' . $pfam;
 		echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
-		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='" . $pfam . "'");
+		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
+		$request = $request->fetchArray();
+		echo "<td rowspan=".$nb.">" . $row['Family']."</td>";
 		$nb = $request->numRows();
 		if ($nb > 0) {
 			$i = 0;

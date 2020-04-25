@@ -114,7 +114,8 @@
 		echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
 		$pfam_row = $db->query("SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
 		$pfam_row = $pfam_row->fetchArray();
-		if($request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'")){
+		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
+		if($request){
 			$nb = $request->numRows();
 			$i = 0;
 			while($row = $request->fetchArray()){
@@ -122,7 +123,7 @@
 					echo "<td rowspan=".$nb.">" . $pfam_row['Family']."</td>";}
 				echo "<td>" . $row['GO_term'] . '</td></tr>';
 				$i++;}}
-		else if ($nb == 0){
+		else if (!$request){
 			echo "<td>" . $pfam_row['Family']."</td>";
 			echo "<td>Not available</td></tr>";}
 		echo '</tbody>';}

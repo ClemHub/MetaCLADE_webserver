@@ -8,7 +8,6 @@
 	$seq_id = $_GET['id'];
 	$job_id = $_GET['job_id'];
 
-	$db_name = $approot.'/data/MetaCLADE.db';
 	$db = new SQLite3($approot.'/data/MetaCLADE.db');
 
 	$name_file = $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
@@ -112,9 +111,9 @@
 	foreach($pfam_list as $pfam => $data){
 		echo '<tbody>';
 		$link_id = 'http://pfam.xfam.org/family/' . $pfam;
+		echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
 		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='" . $pfam . "'");
 		$nb = $request->numRows();
-		echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
 		if ($nb > 0) {
 			$i = 0;
 			while($row = $request->fetchArray()){

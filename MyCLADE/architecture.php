@@ -109,16 +109,15 @@
 	
 	<?php
 	
-	/*foreach($pfam_list as $pfam => $data){
+	foreach($pfam_list as $pfam => $data){
 		echo '<tbody>';
 		$link_id = 'http://pfam.xfam.org/family/' . $pfam;
-		$request = "SELECT * FROM GO_terms WHERE Domain='" . $pfam . "'";
-		$rowspan = $mysqli->query($request);
-		$nb = mysqli_num_rows($rowspan);
+		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='" . $pfam . "'");
+		$nb = sqlite_num_rows($request);
 		echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
 		if ($nb > 0) {
 			$i = 0;
-			while($row = mysqli_fetch_assoc($rowspan)){
+			while($row = $request->fetchArray()){
 				if($i==0){
 					echo "<td rowspan=".$nb.">" . $row['Family']."</td>";}
 				echo "<td>" . $row['GO_term'] . '</td></tr>';
@@ -131,7 +130,7 @@
 			echo "<td>" . $row2['Family']."</td>";
 			echo "<td>Not available</td></tr>";}
 		echo '</tbody>';
-		}*/
+		}
 	
 	echo '</table>';
 	$db->close();

@@ -59,7 +59,6 @@
 	<input type='button' class='bouton_info' value='Results informations:' onclick='close_open_info(this);' />
 	<div class='contenu_info'>
 	<div class='table_container' id='architecture_data'>
-	print_r($pfam_list);
 	<table id='data_table'>
 	<thead>
 		<tr>

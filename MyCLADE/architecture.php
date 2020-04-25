@@ -112,25 +112,21 @@
 		echo '<tbody>';
 		$link_id = 'http://pfam.xfam.org/family/' . $pfam;
 		echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
+		$pfam_row = $db->query("SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
+		$pfam_row = $pfam_row->fetchArray();
 		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
 		$nb = $request->numRows();
 		if ($nb > 0) {
 			$i = 0;
 			while($row = $request->fetchArray()){
 				if($i==0){
-					$row2 = $db->query("SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
-					$row2 = $row2->fetchArray();
-					echo "<td rowspan=".$nb.">" . $row2['Family']."</td>";}
+					echo "<td rowspan=".$nb.">" . $pfam_row['Family']."</td>";}
 				echo "<td>" . $row['GO_term'] . '</td></tr>';
-				$i++;
-			}}
+				$i++;}}
 		else if ($nb == 0){
-			$row2 = $db->query("SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
-			$row2 = $row2->fetchArray();
-			echo "<td>" . $row2['Family']."</td>";
+			echo "<td>" . $pfam_row['Family']."</td>";
 			echo "<td>Not available</td></tr>";}
-		echo '</tbody>';
-		}
+		echo '</tbody>';}
 	
 	echo '</table>';
 	$db->close();

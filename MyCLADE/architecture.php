@@ -19,6 +19,7 @@
 	$file_content = fopen($name_file, "r");
 	while(!feof($file_content)){
 		$line = fgets($file_content);
+		echo $line;
 		$exploded_line = explode("\t", $line);
 		if($exploded_line[0]==$seq_id){{
 			$length = $exploded_line[3];

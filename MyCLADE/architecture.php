@@ -27,9 +27,10 @@
 			$start = $exploded_line[1];
 			$stop = $exploded_line[2];
 			$pfam = $exploded_line[4];
-			$results = $myPDO->query("SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
-			echo $results;
-			$row = $reponse->fetch();
+			$query = "SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'";
+			$results = $base->exec($query);
+			$row = $results->fetchArray();
+			echo $row;
 			$nb_aa = ($stop-$start);
 			$width = ($nb_aa*100)/$length;
 			$scaled_start = ($start*100)/$length;

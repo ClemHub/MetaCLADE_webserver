@@ -114,15 +114,15 @@
 		$pfam_row = $db->query("SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
 		$pfam_row = $pfam_row->fetchArray();
 		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
-		$request->fetchAll();
+		$rows = $request->fetchAll();
 		$nb = count($request);
 		echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
-		if(!$request){
+		if(!$rows){
 			echo "<td>" . $pfam_row['Family']."</td>";
 			echo "<td>Not available</td></tr>";}
 		else{
 			$i = 0;
-			while($row = $request->fetchArray()){
+			foreach($rows as $row){
 				if($i==0){
 					echo "<td rowspan=".$nb.">" . $pfam_row['Family']."</td>";}
 				echo "<td>" . $row['GO_term'] . '</td></tr>';

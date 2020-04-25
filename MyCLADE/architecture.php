@@ -116,6 +116,7 @@
 		$pfam_row = $pfam_row->fetchArray();
 		echo "<td>" . $pfam_row['Family']."</td>";
 		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
+		$nb = count($request);
 		$i=0;
 		if(!$request->fetchArray()){
 			echo "<td>" . $pfam_row['Family']."</td>";

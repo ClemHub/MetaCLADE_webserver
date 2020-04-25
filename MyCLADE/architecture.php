@@ -117,7 +117,7 @@
 		$rows = array();
 		while($row = $request->fetchArray()){
 			$nb ++;
-			array_push($rows, row);}
+			array_push($rows, $row);}
 		echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
 		if(empty($rows)){
 			echo "<td>" . $pfam_row['Family']."</td>";
@@ -127,7 +127,7 @@
 			foreach($rows as $row){
 				if($i==0){
 					echo "<td rowspan=".$nb.">" . $pfam_row['Family']."</td>";}
-				echo "<td>" . print_r($row) . '</td></tr>';
+				echo "<td>" . $row['GO_term'] . '</td></tr>';
 				$i++;}}	
 		echo '</tbody>';}
 	

@@ -116,7 +116,7 @@
 		$pfam_row = $pfam_row->fetchArray();
 		echo "<td>" . $pfam_row['Family']."</td>";
 		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
-		if($request){
+		if(!empty($request)){
 			$nb = $request->numRows();
 			$request = $request->fetchArray();
 			$i = 0;
@@ -125,7 +125,7 @@
 					echo "<td rowspan=".$nb.">" . $pfam_row['Family']."</td>";}
 				echo "<td>" . $row['GO_term'] . '</td></tr>';
 				$i++;}}
-		else if (!$request){
+		else if (empty($request)){
 			echo "<td>" . $pfam_row['Family']."</td>";
 			echo "<td>Not available</td></tr>";}
 		echo '</tbody>';}

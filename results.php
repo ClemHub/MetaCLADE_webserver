@@ -9,10 +9,10 @@ include("./includes/header.php");
 	$form = $_GET["form"];
 	if($form=="small" || $form=="large"){
 		$job_id = $_GET["job_id"];
-		$parameters = read_parameters_file($appurl."/jobs/".$job_id."/parameters.txt");
+		$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
 		$dama = $parameters["DAMA"];
 		$e_value = $parameters['E-value'];
-		$name_file = $appurl."/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
+		$name_file = $approot."/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
 		if($dama == true){
 			$DAMA_evalue = $parameters["DAMA e-value"];}
 		if($form=="small"){

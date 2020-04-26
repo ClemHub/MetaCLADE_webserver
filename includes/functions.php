@@ -18,10 +18,6 @@ function read_parameters_file($file_name, $separator="\t"){
 		$data[$line[0]] = $line[1];}
 	return $data;}
 
-class MetaCLADE_DB extends SQLite3 {
-	function __construct() {
-		global $appurl;
-		$this->open($appurl.'/data/MetaCLADE.db');}}
 
 function submit($job_id, $email){
 	global $appurl;
@@ -32,7 +28,7 @@ function submit($job_id, $email){
 	$e_value = $parameters['E-value'];
 	$dama = $parameters['DAMA'];
 	$nb_jobs = 2;
-	$args = "-i ".escapeshellarg("$approot/jobs/".$job_id."/data.fa")." -N ".escapeshellarg($job_id)."  -e ".escapeshellarg($e_value)."  -W ".escapeshellarg("$appurl/jobs/".$job_id)."  -j ".escapeshellarg($nb_jobs);
+	$args = "-i ".escapeshellarg("$approot/jobs/".$job_id."/data.fa")." -N ".escapeshellarg($job_id)."  -e ".escapeshellarg($e_value)."  -W ".escapeshellarg("$approot/jobs/".$job_id)."  -j ".escapeshellarg($nb_jobs);
 	if($dama == true){
 		$DAMA_evalue = $parameters['DAMA e-value'];	
 		$args = $args." -a -E ".escapeshellarg($DAMA_evalue);}

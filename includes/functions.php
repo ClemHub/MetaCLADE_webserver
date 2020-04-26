@@ -25,10 +25,10 @@ class MetaCLADE_DB extends SQLite3 {
 
 function submit($job_id, $email){
 	global $appurl;
-	global $appurl;
+	global $approot;
 	global $webdevel;
 	$form = $_GET["form"];
-	$parameters = read_parameters_file($appurl."/jobs/".$job_id."/parameters.txt");
+	$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
 	$e_value = $parameters['E-value'];
 	$dama = $parameters['DAMA'];
 	$nb_jobs = 2;
@@ -41,9 +41,9 @@ function submit($job_id, $email){
 		$args = $args." -d ".escapeshellarg($pfam);}
 	//Submit your job
 	if ($form == 'small'){
-		$command="qsub -wd ".$appurl."/jobs/".$job_id."/ -N $job_id ".$appurl."/run_small.sh ".$args;}
+		$command="qsub -wd ".$approot."/jobs/".$job_id."/ -N $job_id ".$approot."/run_small.sh ".$args;}
 	else if($form == 'large'){
-		$command="qsub -wd ".$appurl."/jobs/".$job_id."/ -N $job_id ".$appurl."/run_large.sh ".$args;}
+		$command="qsub -wd ".$approot."/jobs/".$job_id."/ -N $job_id ".$approot."/run_large.sh ".$args;}
 	$output = shell_exec("$command");
 	$link = $appurl."/status.php?form=".$form."&job_id=".$job_id."&email=".$email; 
 	$msg="<strong>Your job has been correctly submitted</strong><br><br>";

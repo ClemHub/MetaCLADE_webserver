@@ -1,3 +1,0 @@
-[search_hmm] error running: hmmsearch --noali -T 0 --domE 1 --domtblout /var/www/html/MetaCLADE_webserver/drafts/zR6AFb8Mcay/temp/PF13305.domtblout /home/blachon/Documents/Tools/metaclade2/data/models/HMMs/PF13305.hmm.gz /var/www/html/MetaCLADE_webserver/drafts/test.fasta
-parallel: This job failed:
-python3 /home/blachon/Documents/Tools/metaclade2/scripts/search_hmm.py PF13305 hmmsearch /home/blachon/Documents/Tools/metaclade2/data/models/HMMs/PF13305.hmm.gz /var/www/html/MetaCLADE_webserver/drafts/test.fasta /var/www/html/MetaCLADE_webserver/drafts/zR6AFb8Mcay/temp /var/www/html/MetaCLADE_webserver/drafts/zR6AFb8Mcay/results/1_search zR6AFb8Mcay 

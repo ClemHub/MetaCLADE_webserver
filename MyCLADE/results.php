@@ -61,10 +61,9 @@ include("./includes/header.php");
 		echo "</form>";}
 	$data = array();
 	$domain_list = array();
-	$file_content = fopen($name_file, "r");
+	$file_content = fopen($name_file, "rb");
 	while(!feof($file_content)){
 		$line = fgets($file_content);
-		echo $line.'<br>';
 		$exploded_line = explode("\t", $line);
 		$seq_id = $exploded_line[0];
 		$domain_id = $exploded_line[4];

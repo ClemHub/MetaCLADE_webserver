@@ -60,10 +60,10 @@ include("./includes/header.php");
 		echo "</fieldset>";
 		echo "</form>";}
 	$data = array();
-	echo 'file :'.$name_file.'<br>';
 	$domain_list = array();
 	$file_content = fopen($name_file, "r");
 	while(!feof($file_content)){
+		echo 'here';
 		$line = fgets($file_content);
 		$exploded_line = explode("\t", $line);
 		$seq_id = $exploded_line[0];

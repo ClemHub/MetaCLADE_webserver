@@ -21,22 +21,22 @@ include("./includes/header.php");
 	else if($form=="large_example"){
 		$e_value = 0.001;
 		if($dama == "true"){
-			$job_id = 'example_withDAMA';
+			$job_id = 'large_example_withDAMA';
 			$DAMA_evalue = 1e-10;
-			$name_file = $appurl."/MyCLADE/jobs/example_withDAMA/example_withDAMA/results/3_arch/example_withDAMA.arch.txt";}
+			$name_file = $appurl."/MyCLADE/jobs/large_example_withDAMA/large_example_withDAMA/results/3_arch/large_example_withDAMA.arch.txt";}
 		else if($dama == "false"){
-			$job_id = 'example_withoutDAMA';
-			$name_file = $appurl."/MyCLADE/jobs/example_withoutDAMA/example_withoutDAMA/results/3_arch/example_withoutDAMA.arch.txt";}}
+			$job_id = 'large_example_withoutDAMA';
+			$name_file = $appurl."/MyCLADE/jobs/large_example_withoutDAMA/large_example_withoutDAMA/results/3_arch/large_example_withoutDAMA.arch.txt";}}
 	else if($form=="small_example"){
 		$e_value = 0.001;
 		$pfam = "PF00875,PF03441,PF03167,PF12546";
 		if($dama == "true"){
-			$job_id = 'example_withDAMA';
+			$job_id = 'small_example_withDAMA';
 			$DAMA_evalue = 1e-10;
-			$name_file = $appurl."/MyCLADE/jobs/example_withDAMA/example_withDAMA/results/3_arch/example_withDAMA.arch.txt";}
+			$name_file = $appurl."/MyCLADE/jobs/small_example_withDAMA/small_example_withDAMA/results/3_arch/small_example_withDAMA.arch.txt";}
 		else if($dama == "false"){
-			$job_id = 'example_withoutDAMA';
-			$name_file = $appurl."/MyCLADE/jobs/example_withoutDAMA/example_withoutDAMA/results/3_arch/example_withoutDAMA.arch.txt";}}
+			$job_id = 'small_example_withoutDAMA';
+			$name_file = $appurl."/MyCLADE/jobs/small_example_withoutDAMA/small_example_withoutDAMA/results/3_arch/small_example_withoutDAMA.arch.txt";}}
 	if($form=="small" || $form=="small_example"){
 		$domain_list = explode(",", $pfam);
 		echo "<form action =''>";

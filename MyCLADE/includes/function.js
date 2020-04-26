@@ -76,8 +76,6 @@ function small_form_submission() {
 	return valid}
 
 function fill_exemple_form(form){
-	var appurl = '<?$appurl;?>'
-	alert(appurl)
 	if(form == 'small'){
 		document.small_annotation_form.pfam_domains.value = "PF00875,PF03441,PF03167,PF12546"
 		fetch('/MyCLADE/fasta_file/example.fasta')

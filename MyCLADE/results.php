@@ -63,7 +63,6 @@ include("./includes/header.php");
 	$domain_list = array();
 	$file_content = fopen($name_file, "r");
 	while(!feof($file_content)){
-		echo 'here';
 		$line = fgets($file_content);
 		$exploded_line = explode("\t", $line);
 		$seq_id = $exploded_line[0];
@@ -73,6 +72,7 @@ include("./includes/header.php");
 			array_push($data[$seq_id], $domain_id);}
 		else if ($seq_id != ""){
 			$data[$seq_id]=array($domain_id);}}
+	print_r($data);
 	//Button that allows the user to download the text files with the results
 	echo "<a id = 'dl_link' href=".$name_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
 		?>

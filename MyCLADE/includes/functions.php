@@ -20,19 +20,19 @@ function read_parameters_file($file_name, $separator="\t"){
 
 class MetaCLADE_DB extends SQLite3 {
 	function __construct() {
-		global $approot;
-		$this->open($approot.'/data/MetaCLADE.db');}}
+		global $appurl;
+		$this->open($appurl.'/data/MetaCLADE.db');}}
 
 function submit($job_id, $email){
 	global $appurl;
-	global $approot;
+	global $appurl;
 	global $webdevel;
 	$form = $_GET["form"];
-	$parameters = read_parameters_file($approot."/MyCLADE/jobs/".$job_id."/parameters.txt");
+	$parameters = read_parameters_file($appurl."/MyCLADE/jobs/".$job_id."/parameters.txt");
 	$e_value = $parameters['E-value'];
 	$dama = $parameters['DAMA'];
 	$nb_jobs = 2;
-	$args = "-i ".escapeshellarg("$approot/MyCLADE/jobs/".$job_id."/data.fa")." -N ".escapeshellarg($job_id)."  -e ".escapeshellarg($e_value)."  -W ".escapeshellarg("$approot/MyCLADE/jobs/".$job_id)."  -j ".escapeshellarg($nb_jobs);
+	$args = "-i ".escapeshellarg("$appurl/MyCLADE/jobs/".$job_id."/data.fa")." -N ".escapeshellarg($job_id)."  -e ".escapeshellarg($e_value)."  -W ".escapeshellarg("$appurl/MyCLADE/jobs/".$job_id)."  -j ".escapeshellarg($nb_jobs);
 	if($dama == true){
 		$DAMA_evalue = $parameters['DAMA e-value'];	
 		$args = $args." -a -E ".escapeshellarg($DAMA_evalue);}
@@ -41,9 +41,9 @@ function submit($job_id, $email){
 		$args = $args." -d ".escapeshellarg($pfam);}
 	//Submit your job
 	if ($form == 'small'){
-		$command="qsub -wd ".$approot."/MyCLADE/jobs/".$job_id."/ -N $job_id ".$approot."/MyCLADE/run_small.sh ".$args;}
+		$command="qsub -wd ".$appurl."/MyCLADE/jobs/".$job_id."/ -N $job_id ".$appurl."/MyCLADE/run_small.sh ".$args;}
 	else if($form == 'large'){
-		$command="qsub -wd ".$approot."/MyCLADE/jobs/".$job_id."/ -N $job_id ".$approot."/MyCLADE/run_large.sh ".$args;}
+		$command="qsub -wd ".$appurl."/MyCLADE/jobs/".$job_id."/ -N $job_id ".$appurl."/MyCLADE/run_large.sh ".$args;}
 	$output = shell_exec("$command");
 	$link = $appurl."/MyCLADE/status.php?form=".$form."&job_id=".$job_id."&email=".$email; 
 	$msg="<strong>Your job has been correctly submitted</strong><br><br>";

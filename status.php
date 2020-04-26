@@ -12,7 +12,7 @@ include("./includes/header.php");
 		echo "<br>You can save the link to access the results later thanks to this link and your job will be available for two month:<br>"; 
 		echo "<a href=$hostname/$appname/status.php?form=".$form."&job_id=".$job_id."&email=".$email.">$hostname/$appname/status.php?form=".$form."&job_id=".$job_id."</a><br>";
 
-		$output =  glob($appurl."/jobs/".$job_id."/".$job_id.".*");
+		$output =  glob($approot."/jobs/".$job_id."/".$job_id.".*");
 		$error = false;
 		$end = false;
 		if($output){
@@ -51,7 +51,7 @@ include("./includes/header.php");
 			echo '<br><strong>Status of your job:</strong> submission of your job';
 			header("refresh: 10");}
 
-		$parameters = read_parameters_file($appurl."/jobs/".$job_id."/parameters.txt");
+		$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
 		$DAMA_eval = true;
 		echo "<ul><br><strong>Your job parameters:</strong><br>";
 		foreach($parameters as $name => $value){

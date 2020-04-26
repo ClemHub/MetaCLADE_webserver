@@ -7,8 +7,6 @@ include("./includes/header.php");
 
 	//Taking form informations
 	$form = $_GET["form"];
-	echo 'dama:'.$_POST["dama"];
-	$dama = $_POST["dama"];
 	if($form=="small" || $form=="large"){
 		$job_id = $_GET["job_id"];
 		$parameters = read_parameters_file($appurl."/MyCLADE/jobs/".$job_id."/parameters.txt");
@@ -31,10 +29,11 @@ include("./includes/header.php");
 			$name_file = $appurl."/MyCLADE/jobs/large_example_withoutDAMA/large_example_withoutDAMA/results/3_arch/large_example_withoutDAMA.arch.txt";}}
 	else if($form=="small_example"){
 		$e_value = 0.001;
+		$dama = $_POST["dama"];
 		$pfam = "PF00875,PF03441,PF03167,PF12546";
 		if($dama == "true"){
-			$job_id = 'small_example_withDAMA';
 			$DAMA_evalue = 1e-10;
+			$job_id = 'small_example_withDAMA';
 			$name_file = $appurl."/MyCLADE/jobs/small_example_withDAMA/small_example_withDAMA/results/3_arch/small_example_withDAMA.arch.txt";}
 		else if($dama == "false"){
 			$job_id = 'small_example_withoutDAMA';
@@ -61,6 +60,7 @@ include("./includes/header.php");
 		echo "</fieldset>";
 		echo "</form>";}
 	$data = array();
+	echo 'file :'.$name_file.'<br>';
 	$domain_list = array();
 	$file_content = fopen($name_file, "r");
 	while(!feof($file_content)){

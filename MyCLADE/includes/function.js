@@ -80,13 +80,13 @@ function fill_exemple_form(form){
 	alert(appurl)
 	if(form == 'small'){
 		document.small_annotation_form.pfam_domains.value = "PF00875,PF03441,PF03167,PF12546"
-		fetch(appurl+'/MyCLADE/fasta_file/example.fasta')
+		fetch('/MyCLADE/fasta_file/example.fasta')
 		.then(response => response.text())
 		.then((data) => {document.small_annotation_form.sequences.value = data })
 		document.small_annotation_form.action = 'session.php?form=small_example';
 		document.getElementById("pfam_domains").disabled = true;}
 	else{
-		fetch(appurl+'/MyCLADE/fasta_file/example.fasta')
+		fetch('/MyCLADE/fasta_file/example.fasta')
 		.then(response => response.text())
 		.then((data) => {document.large_annotation_form.sequences.value = data })
 		document.large_annotation_form.action = 'session.php?form=large_example'}

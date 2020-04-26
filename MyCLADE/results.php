@@ -37,6 +37,7 @@ include("./includes/header.php");
 		else if($dama == "false"){
 			$job_id = 'small_example_withoutDAMA';
 			$name_file = $appurl."/MyCLADE/jobs/small_example_withoutDAMA/small_example_withoutDAMA/results/3_arch/small_example_withoutDAMA.arch.txt";}}
+	echo $name_file;
 	if($form=="small" || $form=="small_example"){
 		$domain_list = explode(",", $pfam);
 		echo "<form action =''>";
@@ -58,7 +59,6 @@ include("./includes/header.php");
 		echo "<br><input class='btn' type='button' value='Search' name = 'search' onclick='filter_all_domains()'/><input class='btn' type='reset' value='Reset' onclick='reset_table()'/>";
 		echo "</fieldset>";
 		echo "</form>";}
-	echo $name_file;
 	$data = array();
 	$domain_list = array();
 	$file_content = fopen($name_file, "r");

@@ -7,7 +7,7 @@ include("./includes/header.php");
 
 	//Taking form informations
 	$form = $_GET["form"];
-	echo $_POST["dama"];
+	echo 'dama:'.$_POST["dama"];
 	$dama = $_POST["dama"];
 	if($form=="small" || $form=="large"){
 		$job_id = $_GET["job_id"];

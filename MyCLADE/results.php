@@ -10,9 +10,9 @@ include("./includes/header.php");
 	$dama = $parameters["DAMA"];
 	if($form=="small" || $form=="large"){
 		$job_id = $_GET["job_id"];
-		$parameters = read_parameters_file($approot."/MyCLADE/jobs/".$job_id."/parameters.txt");
+		$parameters = read_parameters_file($appurl."/MyCLADE/jobs/".$job_id."/parameters.txt");
 		$e_value = $parameters['E-value'];
-		$name_file = $approot."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
+		$name_file = $appurl."/MyCLADE/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
 		if($dama == true){
 			echo 'ookoook';
 			$DAMA_evalue = $parameters["DAMA e-value"];}
@@ -23,20 +23,20 @@ include("./includes/header.php");
 		if($dama == "true"){
 			$job_id = 'example_withDAMA';
 			$DAMA_evalue = 1e-10;
-			$name_file = $approot."/MyCLADE/jobs/example_withDAMA/example_withDAMA/results/3_arch/example_withDAMA.arch.txt";}
+			$name_file = $appurl."/MyCLADE/jobs/example_withDAMA/example_withDAMA/results/3_arch/example_withDAMA.arch.txt";}
 		else if($dama == "false"){
 			$job_id = 'example_withoutDAMA';
-			$name_file = $approot."/MyCLADE/jobs/example_withoutDAMA/example_withoutDAMA/results/3_arch/example_withoutDAMA.arch.txt";}}
+			$name_file = $appurl."/MyCLADE/jobs/example_withoutDAMA/example_withoutDAMA/results/3_arch/example_withoutDAMA.arch.txt";}}
 	else if($form=="small_example"){
 		$e_value = 0.001;
 		$pfam = "PF00875,PF03441,PF03167,PF12546";
 		if($dama == "true"){
 			$job_id = 'example_withDAMA';
 			$DAMA_evalue = 1e-10;
-			$name_file = $approot."/MyCLADE/jobs/example_withDAMA/example_withDAMA/results/3_arch/example_withDAMA.arch.txt";}
+			$name_file = $appurl."/MyCLADE/jobs/example_withDAMA/example_withDAMA/results/3_arch/example_withDAMA.arch.txt";}
 		else if($dama == "false"){
 			$job_id = 'example_withoutDAMA';
-			$name_file = $approot."/MyCLADE/jobs/example_withoutDAMA/example_withoutDAMA/results/3_arch/example_withoutDAMA.arch.txt";}}
+			$name_file = $appurl."/MyCLADE/jobs/example_withoutDAMA/example_withoutDAMA/results/3_arch/example_withoutDAMA.arch.txt";}}
 	if($form=="small" || $form=="small_example"){
 		$domain_list = explode(",", $pfam);
 		echo "<form action =''>";

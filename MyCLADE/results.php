@@ -58,7 +58,7 @@ include("./includes/header.php");
 		echo "<br><input class='btn' type='button' value='Search' name = 'search' onclick='filter_all_domains()'/><input class='btn' type='reset' value='Reset' onclick='reset_table()'/>";
 		echo "</fieldset>";
 		echo "</form>";}
-	
+	echo $name_file;
 	$data = array();
 	$domain_list = array();
 	$file_content = fopen($name_file, "r");

@@ -34,10 +34,10 @@ include("./includes/header.php");
 		if($dama == "true"){
 			$DAMA_evalue = 1e-10;
 			$job_id = 'small_example_withDAMA';
-			$name_file = $appurl."/MyCLADE/jobs/small_example_withDAMA/small_example_withDAMA/results/3_arch/small_example_withDAMA.arch.txt";}
+			$name_file = $approot."/MyCLADE/jobs/small_example_withDAMA/small_example_withDAMA/results/3_arch/small_example_withDAMA.arch.txt";}
 		else if($dama == "false"){
 			$job_id = 'small_example_withoutDAMA';
-			$name_file = $appurl."/MyCLADE/jobs/small_example_withoutDAMA/small_example_withoutDAMA/results/3_arch/small_example_withoutDAMA.arch.txt";}}
+			$name_file = $approot."/MyCLADE/jobs/small_example_withoutDAMA/small_example_withoutDAMA/results/3_arch/small_example_withoutDAMA.arch.txt";}}
 	if($form=="small" || $form=="small_example"){
 		$domain_list = explode(",", $pfam);
 		echo "<form action =''>";
@@ -59,9 +59,10 @@ include("./includes/header.php");
 		echo "<br><input class='btn' type='button' value='Search' name = 'search' onclick='filter_all_domains()'/><input class='btn' type='reset' value='Reset' onclick='reset_table()'/>";
 		echo "</fieldset>";
 		echo "</form>";}
+	echo $name_file.'<br>';
 	$data = array();
 	$domain_list = array();
-	$file_content = fopen($name_file, "rb");
+	$file_content = fopen($name_file, "r");
 	while(!feof($file_content)){
 		$line = fgets($file_content);
 		$exploded_line = explode("\t", $line);

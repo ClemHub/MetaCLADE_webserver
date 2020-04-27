@@ -34,7 +34,7 @@
 			echo "<title>PFAM Acc Number: ".$pfam."\nFamily: ".$row['Family']."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nClan Acc Number: ".$row['Clan_acc_nb']."\nClan: ".$row['Clan']."\n\nModel species: ".$exploded_line[12]."\nE-value: ".$exploded_line[9]."\nBitscore: ".$exploded_line[10]."\nAccuracy: ".$exploded_line[11]."</title></rect>";
 			//echo "<title>PFAM Acc Number: ".$pfam."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nModel species: ".$exploded_line[12]."\nE-value: ".$exploded_line[9]."\nBitscore: ".$exploded_line[10]."\nAccuracy: ".$exploded_line[11]."</title></rect>";
 			echo "<text x='". $scaled_start ."%' y='25' style='font-size:15px; font-size-adjust: 0.5; fill:white; font-weight:bold; mix-blend-mode: exclusion;' >".$pfam."</text></a></g>";
-			$pfam_list[$pfam]=$exploded_line;}}}
+			$pfam_list=$exploded_line;}}}
 
 	echo "</svg>";
 	
@@ -72,11 +72,11 @@
 	</thead>
 	
 	<?php
-	foreach($pfam_list as $pfam => $data){
+	foreach($pfam_list as $data){
 		echo '<tbody>';
-		$link_id = 'http://pfam.xfam.org/family/' . $pfam;
+		$link_id = 'http://pfam.xfam.org/family/' . $data[4];
 		$nb=0;
-        echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
+        echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data[4]."</a></td>";
         $row = $db->query("SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
         $row = $row->fetchArray();
         echo "<td>" . $row['Family']."</td>";
@@ -108,9 +108,9 @@
 	
 	<?php	
 
-	foreach($pfam_list as $pfam => $data){
+	foreach($pfam_list as $data){
 		echo '<tbody>';
-		$link_id = 'http://pfam.xfam.org/family/' . $pfam;
+		$link_id = 'http://pfam.xfam.org/family/' . $data[4];
 		$link_clan = 'https://pfam.xfam.org/clan/';
 		$pfam_row = $db->query("SELECT DISTINCT PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
 		$pfam_row = $pfam_row->fetchArray();
@@ -126,7 +126,7 @@
 		while($row = $request->fetchArray()){
 			$nb ++;
 			array_push($rows, $row);}
-		echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
+		echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data[4]."</a></td>";
 		if(empty($rows)){
 			echo "<td>" . $pfam_row['Family']."</td>";
 			echo "<td>" . $Clan_acc_nb."</td>";

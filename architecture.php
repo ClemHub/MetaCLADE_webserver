@@ -100,6 +100,8 @@
 		<tr>
 		<th class='table_header'>Domain ID</th>
 		<th class='table_header'>Family</th>
+		<th class='table_header'>Clan< ID/th>
+		<th class='table_header'>Clan Family</th>
 		<th class='table_header'>GO Terms</th>
 		</tr>
 	</thead>
@@ -109,7 +111,7 @@
 	foreach($pfam_list as $pfam => $data){
 		echo '<tbody>';
 		$link_id = 'http://pfam.xfam.org/family/' . $pfam;
-		$pfam_row = $db->query("SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
+		$pfam_row = $db->query("SELECT DISTINCT PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
 		$pfam_row = $pfam_row->fetchArray();
 		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
 		$rows = array();
@@ -119,12 +121,16 @@
 		echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$pfam."</a></td>";
 		if(empty($rows)){
 			echo "<td>" . $pfam_row['Family']."</td>";
+			echo "<td>" . $pfam_row['Clan_acc_nb']."</td>";
+			echo "<td>" . $pfam_row['Clan']."</td>";
 			echo "<td>Not available</td></tr>";}
 		else{
 			$i = 0;
 			foreach($rows as $row){
 				if($i==0){
 					echo "<td rowspan=".$nb.">" . $pfam_row['Family']."</td>";}
+					echo "<td rowspan=".$nb.">" . $pfam_row['Clan_acc_nb']."</td>";}
+					echo "<td rowspan=".$nb.">" . $pfam_row['Clan']."</td>";}
 				echo "<td>" . $row['GO_term'] . '</td></tr>';
 				$i++;}}	
 		echo '</tbody>';}

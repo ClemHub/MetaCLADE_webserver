@@ -1,1 +1,0 @@
-python3 /home/blachon/Documents/Tools/metaclade2/scripts/simple_arch.py -e 0.001 /home/blachon/Documents/Tools/metaclade2/test/testDataSet/results/2_filter /home/blachon/Documents/Tools/metaclade2/test/testDataSet/results/3_arch/testDataSet.arch.txt /home/blachon/Documents/Tools/metaclade2/data/pfamLists/pfam32/taxid2name.gz

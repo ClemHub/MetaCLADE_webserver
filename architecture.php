@@ -111,11 +111,16 @@
 	foreach($pfam_list as $pfam => $data){
 		echo '<tbody>';
 		$link_id = 'http://pfam.xfam.org/family/' . $pfam;
+		$link_clan = 'https://pfam.xfam.org/clan/'
 		$pfam_row = $db->query("SELECT DISTINCT PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
 		$pfam_row = $pfam_row->fetchArray();
 		if($pfam_row['Clan_acc_nb']==""){
 			$pfam_row['Clan_acc_nb']="Not available";
 			$pfam_row['Clan']="Not available";}
+		else{
+			$pfam_row['Clan_acc_nb']="<a class = 'table_link' href=" . $link_clan.$pfam_row['Clan_acc_nb'] . " target='_blank'>".$pfam_row['Clan_acc_nb']."</a>"
+			$pfam_row['Clan']="<a class = 'table_link' href=" . $link_clan.$pfam_row['Clan'] . " target='_blank'>".$pfam_row['ClanClan_acc_nb']."</a>"
+		}
 		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
 		$rows = array();
 		while($row = $request->fetchArray()){

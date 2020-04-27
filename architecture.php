@@ -51,9 +51,7 @@
 	echo "<text x=80.1% y='25' fill='black'>". round(4*($length/5)) ."</text><line x1=80% y1='0' x2=80% y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
 
 	echo "<text x='98%' y='25' fill='black'>".$length."</text><line x1='99.9%' y1='0' x2='99.9%' y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/></svg></div>";
-	echo '<br>';
-	print_r($pfam_list)
-	echo '<br>';
+	
 	?>
 
 	<div class='info'>
@@ -79,7 +77,7 @@
 		$link_id = 'http://pfam.xfam.org/family/' . $data[4];
 		$nb=0;
         echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data[4]."</a></td>";
-        $row = $db->query("SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
+        $row = $db->query("SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$data[4]."'");
         $row = $row->fetchArray();
         echo "<td>" . $row['Family']."</td>";
 		echo "<td>" . $data[1] . " - " . $data[2]. "</td>";
@@ -114,7 +112,7 @@
 		echo '<tbody>';
 		$link_id = 'http://pfam.xfam.org/family/' . $data[4];
 		$link_clan = 'https://pfam.xfam.org/clan/';
-		$pfam_row = $db->query("SELECT DISTINCT PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
+		$pfam_row = $db->query("SELECT DISTINCT PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$data[4]."'");
 		$pfam_row = $pfam_row->fetchArray();
 		if($pfam_row['Clan_acc_nb']==""){
 			$Clan_acc_nb="Not available";

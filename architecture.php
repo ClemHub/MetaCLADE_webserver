@@ -118,8 +118,8 @@
 			$Clan_acc_nb="Not available";
 			$Clan="Not available";}
 		else{
-			$Clan_acc_nb="<a class = 'table_link' href=" . $link_clan.$pfam_row['Clan_acc_nb'] . " target='_blank'>".$pfam_row['Clan_acc_nb']."</a>";
-			$Clan="<a class = 'table_link' href=" . $link_clan.$pfam_row['Clan'] . " target='_blank'>".$pfam_row['ClanClan_acc_nb']."</a>";
+			$Clan_acc_nb="ok";
+			$Clan="pl";
 		}
 		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
 		$rows = array();

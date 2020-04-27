@@ -207,7 +207,7 @@ function filter_table(){
 function filter_arch_table(col_nb, id){
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById(id);
-  filter = Number(input.innerHTML());
+  filter = Number(input.innerHTML(input));
   table = document.getElementById("data_table");
   tr = table.getElementsByTagName("tr");
   for (i = 1; i < tr.length; i++) {

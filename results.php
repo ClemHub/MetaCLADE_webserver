@@ -71,8 +71,8 @@ include("./includes/header.php");
 		if(array_key_exists($seq_id, $data)){
 			array_push($data[$seq_id], $domain_id);}
 		else if ($seq_id != ""){
-			$data[$seq_id]=array($domain_id);}}
-			print_r($data);
+			$data[$seq_id]=array($domain_id);}};
+
 	//Button that allows the user to download the text files with the results
 	echo "<a id = 'dl_link' href=".$name_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
 		?>
@@ -87,7 +87,7 @@ include("./includes/header.php");
 		</thead>
 		<tbody>
 		<?php
-
+	usort($data, 'sort_multiarray');
 	foreach($data as $seq_id => $domain_list){
 		echo "<tr><td><a class='table_link' href='architecture.php?id=" . $seq_id . "&job_id=" . $job_id . "'>" . $seq_id . "</a></td>";
 		echo "<td>";

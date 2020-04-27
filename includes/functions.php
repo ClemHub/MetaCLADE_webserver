@@ -18,6 +18,10 @@ function read_parameters_file($file_name, $separator="\t"){
 		$data[$line[0]] = $line[1];}
 	return $data;}
 
+function sort_multiarray($a, $b){
+	if(count($a)==count($b)){
+		return 0;}
+	return count($a)<count($b)?1:-1;}
 
 function submit($job_id, $email){
 	global $appurl;

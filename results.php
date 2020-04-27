@@ -64,6 +64,7 @@ include("./includes/header.php");
 		echo "</fieldset>";
 		echo "</form>";}
 	$data = array();
+	$best_evalues = array();
 	$domain_list = array();
 	$file_content = fopen($name_file, "r");
 	while(!feof($file_content)){
@@ -73,8 +74,11 @@ include("./includes/header.php");
 		$domain_id = $exploded_line[4];
 		array_push($domain_list, $domain_id);
 		if(array_key_exists($seq_id, $data)){
-			array_push($data[$seq_id], $domain_id);}
+			array_push($data[$seq_id], $domain_id);
+			if($best_evalues[$seq_id]>$exploded_line[9]){
+				$best_evalues[$seq_id]=$exploded_line[9];}}
 		else if ($seq_id != ""){
+			$best_evalues[$seq_id]=$exploded_line[9];
 			$data[$seq_id]=array($domain_id);}};
 
 	//Button that allows the user to download the text files with the results
@@ -87,6 +91,7 @@ include("./includes/header.php");
 			<tr>
 			<th class='table_header'>Sequence ID <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span></th>
 			<th class='table_header'>Domain Id</th>
+			<th class='table_header'>Best e-value</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -97,10 +102,8 @@ include("./includes/header.php");
 		echo "<td>";
 		foreach($domain_list as $domain_id){
 			$link_id = "http://pfam.xfam.org/family/" . $domain_id;
-			echo "<a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a>";
-		}
-		echo "</td></tr>";
-	}
+			echo "<a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a>";}
+		echo "</td><td>".$best_evalues[$seq_id]."</td></tr>";}
 	echo "</tbody></table>";
 	?>
 	</div>

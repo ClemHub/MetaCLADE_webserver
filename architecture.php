@@ -65,9 +65,9 @@
 		<th class='table_header'>Family</th>
 		<th class='table_header'>Domain position<br>along the sequence</th>
 		<th class='table_header'>Model species <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>If the model species is 'unavailable', it is because the most reliable model was HMMer-3.</span></span></h4></th>	
-		<th class='table_header'>E-Value <button class='sort_button' onclick='sortTable(4)'><i class='fas fa-caret-down'></i></button></th>
-		<th class='table_header'>Bitscore <button class='sort_button' onclick='sortTable(5)'><i class='fas fa-caret-down'></i></button></th>
-		<th class='table_header'>Accuracy <button class='sort_button' onclick='sortTable(6)'><i class='fas fa-caret-down'></i></button></th>
+		<th class='table_header'>E-Value <button class='sort_button' onclick='sortTable(4)'><i class='fas fa-caret-down'></i></button><input type='number' onkeyup='filter_arch_table(4)'/></th>
+		<th class='table_header'>Bitscore <button class='sort_button' onclick='sortTable(5)'><i class='fas fa-caret-down'></i></button><input type='number' onkeyup='filter_arch_table(5)'/></th>
+		<th class='table_header'>Accuracy <button class='sort_button' onclick='sortTable(6)'><i class='fas fa-caret-down'></i></button><input type='number' onkeyup='filter_arch_table(6)'/></th>
 		</tr>
 	</thead>
 	

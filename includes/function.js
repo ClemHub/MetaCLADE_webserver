@@ -204,6 +204,25 @@ function filter_table(){
 		} else {
 			tr[i].style.display = "none";}}}}
 
+function filter_arch_table(col_nb){
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("filter");
+  filter = Number(input.innerHTML());
+  table = document.getElementById("data_table");
+  tr = table.getElementsByTagName("tr");
+  for (i = 1; i < tr.length; i++) {
+    td = Number(tr[i].getElementsByTagName("td")[col_nb]);
+	if(col_nb == 4){
+		if(td>filter){
+			tr[i].style.display = "";}
+		else{
+			tr[i].style.display = "none";}}
+    else if(col_nb == 5 || col_nb == 6){
+		if (td<filter){
+			tr[i].style.display = "";}
+		else{
+        	tr[i].style.display = "none";}}}}
+
 function uncheckAll(divid) {
 	var checks = document.querySelectorAll('#' + divid + ' input[type="checkbox"]');
 	for(var i =0; i< checks.length;i++){

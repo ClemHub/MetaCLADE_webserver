@@ -128,8 +128,8 @@
 			$i = 0;
 			foreach($rows as $row){
 				if($i==0){
-					echo "<td rowspan=".$nb.">" . $pfam_row['Family']."</td>";}
-					echo "<td rowspan=".$nb.">" . $pfam_row['Clan_acc_nb']."</td>";}
+					echo "<td rowspan=".$nb.">" . $pfam_row['Family']."</td>";
+					echo "<td rowspan=".$nb.">" . $pfam_row['Clan_acc_nb']."</td>";
 					echo "<td rowspan=".$nb.">" . $pfam_row['Clan']."</td>";}
 				echo "<td>" . $row['GO_term'] . '</td></tr>';
 				$i++;}}	

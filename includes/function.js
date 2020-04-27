@@ -230,9 +230,9 @@ function uncheckAll(divid) {
 		if(!check.disabled){
 			check.checked = false;}}}
 
-function reset_table(){
+function reset_table(id){
 	var table, tr, i;
-	table = document.getElementById("result");
+	table = document.getElementById(id);
 	tr = table.getElementsByTagName("tr");
 	for (i = 0; i < tr.length; i++) {
 		tr[i].style.display = "";

@@ -88,6 +88,7 @@
 		echo '</tbody>';}
 	echo '</table>';
 	?>
+	<input class='btn' type='reset' value='Reset' onclick='reset_table("data_table")'/>
 	</div>
 	</div>
 	</div>

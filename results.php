@@ -72,6 +72,7 @@ include("./includes/header.php");
 			array_push($data[$seq_id], $domain_id);}
 		else if ($seq_id != ""){
 			$data[$seq_id]=array($domain_id);}}
+			print_r($data);
 	//Button that allows the user to download the text files with the results
 	echo "<a id = 'dl_link' href=".$name_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
 		?>

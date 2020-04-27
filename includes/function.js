@@ -204,9 +204,9 @@ function filter_table(){
 		} else {
 			tr[i].style.display = "none";}}}}
 
-function filter_arch_table(col_nb){
+function filter_arch_table(col_nb, id){
   var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("filter");
+  input = document.getElementById(id);
   filter = Number(input.innerHTML());
   table = document.getElementById("data_table");
   tr = table.getElementsByTagName("tr");

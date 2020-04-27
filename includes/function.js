@@ -177,11 +177,11 @@ function sortTable(col_nb){
 			x = rows[i].getElementsByTagName("TD")[col_nb];
 			y = rows[i + 1].getElementsByTagName("TD")[col_nb];
 			if(col_nb == 4){
-				if (x.innerHTML > y.innerHTML) {
+				if (Number(x.innerHTML) > Number(y.innerHTML)) {
 					shouldSwitch = true;
 					break;}}
 			else if(col_nb == 5 || col_nb == 6){
-				if (x.innerHTML < y.innerHTML) {
+				if (parseFloat(x.innerHTML) < parseFloat(y.innerHTML)) {
 					shouldSwitch = true;
 					break;}}}
 		if (shouldSwitch) {

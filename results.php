@@ -23,11 +23,11 @@ include("./includes/header.php");
 		if($dama == "true"){
 			$job_id = 'large_example_withDAMA';
 			$DAMA_evalue = 1e-10;
-			$name_file = $approot."/jobs/large_example_withDAMA/large_example_withDAMA/results/3_arch/large_example_withDAMA.arch.txt";}
+			$name_file = $approot."/jobs/large_example_withDAMA/large_example_withDAMA/results/3_arch/large_example_withDAMA.arch.txt";
 			$dl_file = $appurl."/jobs/large_example_withDAMA/large_example_withDAMA/results/3_arch/large_example_withDAMA.arch.txt";}
 		else if($dama == "false"){
 			$job_id = 'large_example_withoutDAMA';
-			$name_file = $approot."/jobs/large_example_withoutDAMA/large_example_withoutDAMA/results/3_arch/large_example_withoutDAMA.arch.txt";}}
+			$name_file = $approot."/jobs/large_example_withoutDAMA/large_example_withoutDAMA/results/3_arch/large_example_withoutDAMA.arch.txt";
 			$dl_file = $appurl."/jobs/large_example_withoutDAMA/large_example_withoutDAMA/results/3_arch/large_example_withoutDAMA.arch.txt";}}
 	else if($form=="small_example"){
 		$e_value = 0.001;
@@ -36,11 +36,11 @@ include("./includes/header.php");
 		if($dama == "true"){
 			$DAMA_evalue = 1e-10;
 			$job_id = 'small_example_withDAMA';
-			$name_file = $approot."/jobs/small_example_withDAMA/small_example_withDAMA/results/3_arch/small_example_withDAMA.arch.txt";}
+			$name_file = $approot."/jobs/small_example_withDAMA/small_example_withDAMA/results/3_arch/small_example_withDAMA.arch.txt";
 			$dl_file = $appurl."/jobs/small_example_withDAMA/small_example_withDAMA/results/3_arch/small_example_withDAMA.arch.txt";}
 		else if($dama == "false"){
 			$job_id = 'small_example_withoutDAMA';
-			$name_file = $approot."/jobs/small_example_withoutDAMA/small_example_withoutDAMA/results/3_arch/small_example_withoutDAMA.arch.txt";}}
+			$name_file = $approot."/jobs/small_example_withoutDAMA/small_example_withoutDAMA/results/3_arch/small_example_withoutDAMA.arch.txt";
 			$dl_file = $appurl."/jobs/small_example_withoutDAMA/small_example_withoutDAMA/results/3_arch/small_example_withoutDAMA.arch.txt";}}
 	if($form=="small" || $form=="small_example"){
 		$domain_list = explode(",", $pfam);

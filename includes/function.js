@@ -172,7 +172,7 @@ function sortTable(col_nb){
 	while (switching) {
 		switching = false;
 		rows = table.rows;
-		for (i = 1; i < (rows.length - 1); i++) {
+		for (i = 0; i < (rows.length - 1); i++) {
 			shouldSwitch = false;
 			x = rows[i].getElementsByTagName("TD")[col_nb];
 			y = rows[i + 1].getElementsByTagName("TD")[col_nb];
@@ -181,9 +181,9 @@ function sortTable(col_nb){
 					shouldSwitch = true;
 					break;}}
 			else if(col_nb == 4){
-			if (x.innerHTML > y.innerHTML) {
-				shouldSwitch = true;
-				break;}}}
+				if (x.innerHTML > y.innerHTML) {
+					shouldSwitch = true;
+					break;}}}
 		if (shouldSwitch) {
 			rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
 			switching = true;}}}

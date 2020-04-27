@@ -100,7 +100,7 @@
 		<tr>
 		<th class='table_header'>Domain ID</th>
 		<th class='table_header'>Family</th>
-		<th class='table_header'>Clan< ID/th>
+		<th class='table_header'>Clan ID</th>
 		<th class='table_header'>Clan Family</th>
 		<th class='table_header'>GO Terms</th>
 		</tr>
@@ -113,6 +113,9 @@
 		$link_id = 'http://pfam.xfam.org/family/' . $pfam;
 		$pfam_row = $db->query("SELECT DISTINCT PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
 		$pfam_row = $pfam_row->fetchArray();
+		if($pfam_row['Clan_acc_nb']==""){
+			$pfam_row['Clan_acc_nb']="Not available";
+			$pfam_row['Clan']="Not available";}
 		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
 		$rows = array();
 		while($row = $request->fetchArray()){

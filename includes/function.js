@@ -156,12 +156,12 @@ function hideTooltip() {
 
 var fileInput = document.querySelector('#fasta_file');
 fileInput.addEventListener('change', function() {
-    var reader = new FileReader();
-    reader.addEventListener('load', function() {
+	var reader = new FileReader();
+	reader.addEventListener('load', function() {
 		var txt = reader.result
 		document.getElementById('sequences').value = txt;
 	});
-    reader.readAsText(fileInput.files[0]);
+	reader.readAsText(fileInput.files[0]);
 });
 
 function sortTable(col_nb){
@@ -204,24 +204,24 @@ function filter_table(){
 		} else {
 			tr[i].style.display = "none";}}}}
 
-function filter_arch_table(col_nb, id){
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById(id);
-  filter = Number(input.innerHTML);
-  table = document.getElementById("data_table");
-  tr = table.getElementsByTagName("tr");
-  for (i = 1; i < tr.length; i++) {
-    td = Number(tr[i].getElementsByTagName("td")[col_nb]);
-	if(col_nb == 4){
-		if(td>filter){
-			tr[i].style.display = "";}
-		else{
-			tr[i].style.display = "none";}}
-    else if(col_nb == 5 || col_nb == 6){
-		if (td<filter){
-			tr[i].style.display = "";}
-		else{
-        	tr[i].style.display = "none";}}}}
+// function filter_arch_table(col_nb, id){
+//   var input, filter, table, tr, td, i, txtValue;
+//   input = document.getElementById(id);
+//   filter = Number(input.innerHTML);
+//   table = document.getElementById("data_table");
+//   tr = table.getElementsByTagName("tr");
+//   for (i = 1; i < tr.length; i++) {
+// 	td = Number(tr[i].getElementsByTagName("td")[col_nb]);
+// 	if(col_nb == 4){
+// 		if(td>filter){
+// 			tr[i].style.display = "";}
+// 		else{
+// 			tr[i].style.display = "none";}}
+// 	else if(col_nb == 5 || col_nb == 6){
+// 		if (td<filter){
+// 			tr[i].style.display = "";}
+// 		else{
+// 			tr[i].style.display = "none";}}}}
 
 function uncheckAll(divid) {
 	var checks = document.querySelectorAll('#' + divid + ' input[type="checkbox"]');

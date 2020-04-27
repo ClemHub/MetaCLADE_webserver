@@ -87,7 +87,7 @@ include("./includes/header.php");
 		</thead>
 		<tbody>
 		<?php
-	usort($data, 'sort_multiarray');
+	uasort($data, 'sort_multiarray');
 	foreach($data as $seq_id => $domain_list){
 		echo "<tr><td><a class='table_link' href='architecture.php?id=" . $seq_id . "&job_id=" . $job_id . "'>" . $seq_id . "</a></td>";
 		echo "<td>";

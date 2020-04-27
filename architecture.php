@@ -52,7 +52,6 @@
 
 	echo "<text x='98%' y='25' fill='black'>".$length."</text><line x1='99.9%' y1='0' x2='99.9%' y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/></svg></div>";
 
-	print_r($pfam_list);
 	?>
 
 	<div class='info'>

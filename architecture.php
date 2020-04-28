@@ -76,15 +76,15 @@
 		<th class='table_header'>Family</th>
 		<th class='table_header'>Domain position<br>along the sequence</th>
 		<th class='table_header'>Model species <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>If the model species is 'unavailable', it is because the most reliable model was HMMer-3.</span></span></h4></th>	
-		<th class='table_header'>E-Value <button class='sort_button' onclick='sortTable(4)'><i class='fas fa-caret-down'></i></button><input type='number' id='evalue_filter' onkeyup='filter_arch_table(4, "evalue_filter")'/></th>
-		<th class='table_header'>Bitscore <button class='sort_button' onclick='sortTable(5)'><i class='fas fa-caret-down'></i></button><input type='number' id='bitscore_filter' onkeyup='filter_arch_table(5, "bitscore_filter")'/></th>
-		<th class='table_header'>Accuracy <button class='sort_button' onclick='sortTable(6)'><i class='fas fa-caret-down'></i></button><input type='number' id='accuracy_filter' onkeyup='filter_arch_table(6, "accuracy_filter")'/></th>
+		<th class='table_header'>E-Value</th>
+		<th class='table_header'>Bitscore</th>
+		<th class='table_header'>Accuracy</th>
 		</tr>
 	</thead>
 	
 	<?php
+	echo '<tbody>';
 	foreach($pfam_list as $data){
-		echo '<tbody>';
 		$link_id = 'http://pfam.xfam.org/family/' . $data[4];
 		$nb=0;
         echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data[4]."</a></td>";
@@ -95,8 +95,8 @@
 		echo "<td class='species_name'>" . $data[12]. "</td>";
 		echo "<td>".$data[9]."</td>";
 		echo "<td>" . $data[10]. "</td>";
-		echo "<td>" . $data[11]. "</td></tr>";
-		echo '</tbody>';}
+		echo "<td>" . $data[11]. "</td></tr>";}
+		echo '</tbody>';
 	echo '</table>';
 	?>
 	<!--<input class='btn' type='reset' value='Reset' onclick='reset_table("data_table")'/>-->
@@ -127,8 +127,8 @@
 	</thead>
 	
 	<?php
+	echo '<tbody>';
 	foreach($pfam_list as $data){
-		echo '<tbody>';
 		$link_id = 'http://pfam.xfam.org/family/' . $data[4];
 		$link_clan = 'https://pfam.xfam.org/clan/';
 		$pfam_row = $db->query("SELECT DISTINCT PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$data[4]."'");
@@ -159,9 +159,8 @@
 					echo "<td rowspan=".$nb.">" . $Clan_acc_nb."</td>";
 					echo "<td rowspan=".$nb.">" . $Clan."</td>";}
 				echo "<td>" . $row['GO_term'] . '</td></tr>';
-				$i++;}}	
-		echo '</tbody>';}
-	
+				$i++;}}	}
+				echo '</tbody>';
 	echo '</table>';
 	$db->close();
 	?>

@@ -142,9 +142,9 @@ include("./includes/header.php");
   	<script>
 	$(document).ready(function() {
     $('#result').DataTable( 
-		{"order": [[ 0, "asc" ]]},
+		{"order": [[ 2, "desc" ]]},
 		{"pageLength": 50}
 	)});
 	</script>
 	</section>
-<?php include("./includes/footer.php"); ?>
+<?php //include("./includes/footer.php"); ?>

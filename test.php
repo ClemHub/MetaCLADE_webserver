@@ -1,230 +1,24 @@
 <html>
 <head>
-<script src="./includes/jquery.js"></script>
-<style>
-#pagination a {
-display:inline-block;
-margin-right:5px;
-
-}
-
-
-</style>
-<script>
-$(document).ready(function(){
-    $('#data').after('<div id="nav"></div>');
-    var rowsShown = 4;
-    var rowsTotal = $('#data tbody tr').length;
-    var numPages = rowsTotal/rowsShown;
-    for(i = 0;i < numPages;i++) {
-        var pageNum = i + 1;
-        $('#nav').append('<a href="#" rel="'+i+'">'+pageNum+'</a> ');
-    }
-    $('#data tbody tr').hide();
-    $('#data tbody tr').slice(0, rowsShown).show();
-    $('#nav a:first').addClass('active');
-    $('#nav a').bind('click', function(){
-
-        $('#nav a').removeClass('active');
-        $(this).addClass('active');
-        var currPage = $(this).attr('rel');
-        var startItem = currPage * rowsShown;
-        var endItem = startItem + rowsShown;
-        $('#data tbody tr').css('opacity','0.0').hide().slice(startItem, endItem).
-        css('display','table-row').animate({opacity:1}, 300);
-    });
-});
-
-</script>
+  <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
 </head>
 <body>
-	<div id="pagination">
-	
-	
-	</div>
-	<div class="table-responsive">
-                            <table class="table table-bordered table-hover" id="data">
-                                <thead>
-                                    <tr>
-                                        <th>Page</th>
-                                        <th>Visits</th>
-                                        <th>% New Visits</th>
-                                        <th>Revenue</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>/index.html</td>
-                                        <td>1265</td>
-                                        <td>32.3%</td>
-                                        <td>$321.33</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/about.html</td>
-                                        <td>261</td>
-                                        <td>33.3%</td>
-                                        <td>$234.12</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/sales.html</td>
-                                        <td>665</td>
-                                        <td>21.3%</td>
-                                        <td>$16.34</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/blog.html</td>
-                                        <td>9516</td>
-                                        <td>89.3%</td>
-                                        <td>$1644.43</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/404.html</td>
-                                        <td>23</td>
-                                        <td>34.3%</td>
-                                        <td>$23.52</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/services.html</td>
-                                        <td>421</td>
-                                        <td>60.3%</td>
-                                        <td>$724.32</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/blog/post.html</td>
-                                        <td>1233</td>
-                                        <td>93.2%</td>
-                                        <td>$126.34</td>
-                                    </tr>
-									<tr>
-                                        <td>/index.html</td>
-                                        <td>1265</td>
-                                        <td>32.3%</td>
-                                        <td>$321.33</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/about.html</td>
-                                        <td>261</td>
-                                        <td>33.3%</td>
-                                        <td>$234.12</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/sales.html</td>
-                                        <td>665</td>
-                                        <td>21.3%</td>
-                                        <td>$16.34</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/blog.html</td>
-                                        <td>9516</td>
-                                        <td>89.3%</td>
-                                        <td>$1644.43</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/404.html</td>
-                                        <td>23</td>
-                                        <td>34.3%</td>
-                                        <td>$23.52</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/services.html</td>
-                                        <td>421</td>
-                                        <td>60.3%</td>
-                                        <td>$724.32</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/blog/post.html</td>
-                                        <td>1233</td>
-                                        <td>93.2%</td>
-                                        <td>$126.34</td>
-                                    </tr>
-									<tr>
-                                        <td>/index.html</td>
-                                        <td>1265</td>
-                                        <td>32.3%</td>
-                                        <td>$321.33</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/about.html</td>
-                                        <td>261</td>
-                                        <td>33.3%</td>
-                                        <td>$234.12</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/sales.html</td>
-                                        <td>665</td>
-                                        <td>21.3%</td>
-                                        <td>$16.34</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/blog.html</td>
-                                        <td>9516</td>
-                                        <td>89.3%</td>
-                                        <td>$1644.43</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/404.html</td>
-                                        <td>23</td>
-                                        <td>34.3%</td>
-                                        <td>$23.52</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/services.html</td>
-                                        <td>421</td>
-                                        <td>60.3%</td>
-                                        <td>$724.32</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/blog/post.html</td>
-                                        <td>1233</td>
-                                        <td>93.2%</td>
-                                        <td>$126.34</td>
-                                    </tr>
-									<tr>
-                                        <td>/index.html</td>
-                                        <td>1265</td>
-                                        <td>32.3%</td>
-                                        <td>$321.33</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/about.html</td>
-                                        <td>261</td>
-                                        <td>33.3%</td>
-                                        <td>$234.12</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/sales.html</td>
-                                        <td>665</td>
-                                        <td>21.3%</td>
-                                        <td>$16.34</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/blog.html</td>
-                                        <td>9516</td>
-                                        <td>89.3%</td>
-                                        <td>$1644.43</td>
-                                    </tr>
-									
-                                    <tr>
-                                        <td>/404.html</td>
-                                        <td>23</td>
-                                        <td>34.3%</td>
-                                        <td>$23.52</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/services.html</td>
-                                        <td>421</td>
-                                        <td>60.3%</td>
-                                        <td>$724.32</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/blog/post.html</td>
-                                        <td>1233</td>
-                                        <td>93.2%</td>
-                                        <td>$126.34</td>
-                                    </tr>
-									
-                                </tbody>
-                            </table>
-                        </div>
+  <table id="example">
+    <thead>
+      <tr><th>Sites</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>SitePoint</td></tr>
+      <tr><td>Learnable</td></tr>
+      <tr><td>Flippa</td></tr>
+    </tbody>
+  </table>
+  <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+  <script>
+  $(function(){
+    $("#example").dataTable();
+  })
+  </script>
 </body>
 </html>

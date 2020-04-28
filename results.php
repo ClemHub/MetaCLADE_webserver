@@ -140,7 +140,6 @@ include("./includes/header.php");
 	<script>
 	$(document).ready(function(){
 		$('#result').after('<div id="nav"></div>');
-		$('#nav').css({'text-decoration':'none', 'font-weight':'bold', 'color':'rgb(12, 133, 180)', 'justify-content':'center'});
 		var rowsShown = 2;
 		var rowsTotal = $('#result tbody tr').length;
 		var numPages = rowsTotal/rowsShown;
@@ -148,6 +147,7 @@ include("./includes/header.php");
 			var pageNum = i + 1;
 			$('#nav').append('<a href="#" rel="'+i+'">'+pageNum+'</a> ');
 		}
+		$('#nav a').css({'text-decoration':'none', 'font-weight':'bold', 'color':'rgb(12, 133, 180)'});
 		$('#result tbody tr').hide();
 		$('#result tbody tr').slice(0, rowsShown).show();
 		$('#nav a:first').addClass('active');

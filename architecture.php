@@ -162,7 +162,7 @@
 	</div>
 	</section>
 	<script>
-	$(document).onchange(function(){
+	$(document).change(function(){
 		$('#data_table').after('<div id="nav"><strong>Pages: </strong></div>');
 		var rowsShown = 2;
 		var rowsShown= parseInt($('#nb_rows').val());

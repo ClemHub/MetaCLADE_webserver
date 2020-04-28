@@ -205,7 +205,7 @@ table {
 	margin-top: 10px;
 	margin-bottom: 10px;}
 
-table.dataTable th{
+table.dataTable thead tr{
 	height: 60px;
 	border: 2px solid black;
 	color: rgb(1, 59, 82);

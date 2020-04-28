@@ -1,6 +1,6 @@
 <html>
 <head>
-<script src="jquery.js"></script>
+<script src="./includes/jquery.js"></script>
 <style>
 #pagination a {
 display:inline-block;

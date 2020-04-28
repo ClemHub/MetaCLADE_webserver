@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="./includes/jquery.js"></script>
   <meta charset="utf-8">
   <title>Test if jQuery is loaded</title>
 </head>

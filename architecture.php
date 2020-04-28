@@ -154,7 +154,7 @@
 	<script>
 	$(document).ready(function(){
 		$('#data_table').after('<div id="nav"><strong>Pages: </strong></div>');
-		var rowsShown = 1;
+		var rowsShown = 2;
 		var rowsTotal = $('#data_table tbody tr').length;
 		var numPages = rowsTotal/rowsShown;
 		for(i = 0;i < numPages;i++) {

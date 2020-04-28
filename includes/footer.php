@@ -14,6 +14,7 @@
 
 ?>
 	<script src='./includes/function.js'></script>
+	<script src="./includes/jquery.js"></script>
 </div>
 </body>
 </html>

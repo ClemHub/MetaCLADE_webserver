@@ -2,47 +2,47 @@
 include('./includes/configure.php');
 include('./includes/logfunctions.php');
 include('./includes/functions.php');
-
-
-echo "<!DOCTYPE html>";
-echo "<html lang='en'>";
-echo "<head>";
-	echo "<meta charset='utf-8' />";
-	echo "<meta name='viewport' content='width=device-width, initial-scale=1.0'> ";
-	echo "<link rel='stylesheet' type='text/css'  href='".$appurl."/css_style/style.css'>";
-	echo "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>";
-	echo "<script src='https://kit.fontawesome.com/a076d05399.js'></script>";
-	echo "<title>MyCLADE</title></head>";
-
-
-	echo "<body>";
-		echo "<div id='container'>";
-			echo "<div id='header-menu'>";
-				echo "<header><h1>MyCLADE</h1></header>";
-				echo "<div class='topnav' id='myTopnav'>";
-					echo "<a href='".$appurl."/index.php' class = 'active'>Home</a>";
-				echo "<div class='dropdown'>";
-				echo "<button class='dropbtn'>Tools";
-				echo "<i class='fa fa-caret-down'></i>";
-				echo "</button>";
-				echo "<div class='dropdown-content'>";
-				echo "<a href='".$appurl."/small_annotation.php'>Few domains annotation</a>";
-				echo "<a href='".$appurl."/large_annotation.php'>All domains annotation</a>";
-				echo "</div>";
-				echo "</div>";
-				echo "<div class='dropdown'>";
-				echo "<button class='dropbtn'>Help";
-				echo "<i class='fa fa-caret-down'></i>";
-				echo "</button>";
-				echo "<div class='dropdown-content'>";
-				echo "<a href='".$appurl."/help.php#input'>Input</a>";
-				echo "<a href='".$appurl."/help.php#output'>Output</a>";
-				echo "<a href='".$appurl."/help.php#method'>Method</a>";
-				echo "</div>";
-				echo "</div>";
-				echo "<a href='".$appurl."/references.php'>References</a>";
-				echo "<a href='".$appurl."/contact.php'>Contact</a>";
-				echo "<a href='javascript:void(0);' class='icon' onclick='nav_function()'>&#9776;</a>";
-				echo "</div>";
-				echo "</div>";
 ?>
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset='utf-8' />
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'> 
+	<link rel='stylesheet' type='text/css'  href='".$appurl."/css_style/style.css'>
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<script src='./includes/jquery.js'></script>
+	<title>MyCLADE</title></head>
+
+
+	<body>
+		<div id='container'>
+			<div id='header-menu'>
+				<header><h1>MyCLADE</h1></header>
+				<div class='topnav' id='myTopnav'>
+					<a href='".$appurl."/index.php' class = 'active'>Home</a>
+				<div class='dropdown'>
+				<button class='dropbtn'>Tools
+				<i class='fa fa-caret-down'></i>
+				</button>
+				<div class='dropdown-content'>
+				<a href='".$appurl."/small_annotation.php'>Few domains annotation</a>
+				<a href='".$appurl."/large_annotation.php'>All domains annotation</a>
+				</div>
+				</div>
+				<div class='dropdown'>
+				<button class='dropbtn'>Help
+				<i class='fa fa-caret-down'></i>
+				</button>
+				<div class='dropdown-content'>
+				<a href='".$appurl."/help.php#input'>Input</a>
+				<a href='".$appurl."/help.php#output'>Output</a>
+				<a href='".$appurl."/help.php#method'>Method</a>
+				</div>
+				</div>
+				<a href='".$appurl."/references.php'>References</a>
+				<a href='".$appurl."/contact.php'>Contact</a>
+				<a href='javascript:void(0);' class='icon' onclick='nav_function()'>&#9776;</a>
+				</div>
+				</div>

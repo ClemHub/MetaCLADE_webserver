@@ -180,7 +180,7 @@ function filter_table(){
 	input = document.getElementById("domain_select");
 	filter = input.value.toUpperCase();
 	document.getElementById(filter).checked=true;
-	table = document.getElementById("results");
+	table = document.getElementById("result");
 	tr = table.getElementsByTagName("tr");
 	for (i = 0; i < tr.length; i++) {
 		td = tr[i].getElementsByTagName("td")[1];
@@ -229,7 +229,7 @@ function filter_all_domains(){
 	checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
 	for (i = 0; i < checkboxes.length; i++){
 		filter.push(checkboxes[i].value)}
-	table = document.getElementById("results");
+	table = document.getElementById("result");
 	tr = table.getElementsByTagName("tr");
 	for (i = 0; i < tr.length; i++) {
 		td = tr[i].getElementsByTagName("td")[1];

@@ -57,17 +57,6 @@
 	<div class='info'>
 	<input type='button' class='bouton_info' value='Results informations:' onclick='close_open_info(this);' />
 	<div class='contenu_info'>
-	<div class="select_row_form">
-		<strong>Select number of rows: </strong>
-		<select class  ="form-nb_rows" name="nb_rows" id="nb_rows">
-			<?php echo "<option value=".count($pfam_list).">Show ALL Rows</option>"; ?>
-			<option value="1">1</option>
-			<option value="2" selected>2</option>
-			<option value="3">3</option>
-			<option value="20">20</option>
-			<option value="50">50</option>
-		</select>	
-	</div>
 	<div class='table_container' id='architecture_data'>
 	<table id='data_table'>
 	<thead>
@@ -164,9 +153,11 @@
 	<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
   	<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
   	<script>
-	$(function(){
-		$("#data_table").dataTable();
-	})
+	$(document).ready(function() {
+    $('#example').DataTable( {
+        "order": [[ 3, "desc" ]]
+    } );
+} );
 	</script>
 
 <?php include("./includes/footer.php"); ?>

@@ -194,7 +194,7 @@ footer {
 	overflow-x:auto;
 	width: 100%;}
 
-table {
+table.dataTable {
 	border: 3px solid black;
 	border-collapse: collapse;
 	line-height: 200%;
@@ -205,7 +205,7 @@ table {
 	margin-top: 10px;
 	margin-bottom: 10px;}
 
-th {
+th.dataTable {
 	height: 60px;
 	border: 2px solid black;
 	color: rgb(1, 59, 82);
@@ -215,10 +215,10 @@ th {
 	font-size: 18px;
 	font-size-adjust: 0.5;}
 
-tr {
+tr.dataTable {
 	border-bottom: 3px;}
 
-td {
+td.dataTable {
 	border: 1px solid black;
 	border-left: 1px solid black;
 	border-right: 1px solid black;
@@ -227,13 +227,13 @@ td {
 	font-size: 17px;
 	font-size-adjust: 0.5;}
 
-tbody [rowspan], tbody [rowspan] ~ th, tbody [rowspan] ~ td, tfoot {
+tbody.dataTable [rowspan], tbody.dataTable [rowspan] ~ th.dataTable, tbody.dataTable [rowspan] ~ td.dataTable, tfoot.dataTable {
 	border-top: 3px solid black;}
 
-tbody:hover td[rowspan], tr:hover td {
+tbody.dataTable:hover td.dataTable[rowspan], tr.dataTable:hover td.dataTable {
 		background: rgba(155, 187, 196, 0.555); }
 
-.table_header {
+.table_header.dataTable {
 	font-weight: bold;}
 
 .spaced_list {

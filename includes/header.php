@@ -10,6 +10,7 @@ echo "<head>";
 	echo "<meta charset='utf-8' />";
 	echo "<meta name='viewport' content='width=device-width, initial-scale=1.0'> ";
 	echo "<link rel='stylesheet' type='text/css'  href='".$appurl."/css_style/style.css'>";
+	echo "<link rel='stylesheet' href='http://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css'>";
 	echo "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>";
 	echo "<script src='https://kit.fontawesome.com/a076d05399.js'></script>";
 	echo "<script src='./includes/jquery.js'></script>";

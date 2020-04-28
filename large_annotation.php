@@ -53,6 +53,14 @@
 		</section>
 
 		<script type="text/javascript">
-		add_fasta_file();
+			var fileInput = document.querySelector('#fasta_file');
+	fileInput.addEventListener('change', function() {
+		var reader = new FileReader();
+		reader.addEventListener('load', function() {
+			var txt = reader.result
+			document.getElementById('sequences').value = txt;
+		});
+		reader.readAsText(fileInput.files[0]);
+	});
 		</script>
 <?php include("./includes/footer.php"); ?>

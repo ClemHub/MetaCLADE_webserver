@@ -154,16 +154,6 @@ function hideTooltip() {
 	var tooltip = document.getElementById("tooltip");
 	tooltip.style.display = "none";}
 
-var fileInput = document.querySelector('#fasta_file');
-fileInput.addEventListener('change', function() {
-	var reader = new FileReader();
-	reader.addEventListener('load', function() {
-		var txt = reader.result
-		document.getElementById('sequences').value = txt;
-	});
-	reader.readAsText(fileInput.files[0]);
-});
-
 function sortTable(col_nb){
 	var table, rows, switching, i, x, y, shouldSwitch;
 	console.log(col_nb);

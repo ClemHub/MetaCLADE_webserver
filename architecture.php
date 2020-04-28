@@ -57,6 +57,17 @@
 	<div class='info'>
 	<input type='button' class='bouton_info' value='Results informations:' onclick='close_open_info(this);' />
 	<div class='contenu_info'>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+	<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+	<script>
+			$(document).ready(function() {
+			$('#data_table').DataTable( 
+				{"order": [[ 2, "desc" ]]},
+				{"pageLength": 2}
+			)});
+
+	</script>
 	<div class='table_container' id='architecture_data'>
 	<table id='data_table'>
 	<thead>
@@ -95,6 +106,14 @@
 	<div class='info'>
 	<input type='button' class='bouton_info' value='GO-terms:' onclick='close_open_info(this);' />
 	<div class='contenu_info'>
+			<script>
+			$(document).ready(function() {
+			$('#go_terms_table').DataTable( 
+				{"order": [[ 2, "desc" ]]},
+				{"pageLength": 2}
+			)});
+
+			</script>
 	<div class='table_container' id='goterms'>
 	<table id='go_terms_table'>
 	<thead>
@@ -150,16 +169,5 @@
 	</div>
 	</div>
 	</section>
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-	<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
-  	<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
-  	<script>
-	$(document).ready(function() {
-    $('#data_table').DataTable( {
-		"order": [[ 0, "asc" ]]
-		"pageLength": 50
-    } );
-} );
-	</script>
 
 <?php include("./includes/footer.php"); ?>

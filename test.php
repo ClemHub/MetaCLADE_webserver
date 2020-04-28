@@ -11,49 +11,28 @@ margin-right:5px;
 
 </style>
 <script>
-function pagination(){
-		var req_num_row=10;
-		var $tr=jQuery('tbody tr');
-		var total_num_row=$tr.length;
-		var num_pages=0;
-		if(total_num_row % req_num_row ==0){
-			num_pages=total_num_row / req_num_row;
-		}
-		if(total_num_row % req_num_row >=1){
-			num_pages=total_num_row / req_num_row;
-			num_pages++;
-			num_pages=Math.floor(num_pages++);
-		}
-		for(var i=1; i<=num_pages; i++){
-			jQuery('#pagination').append(" "+i+" ");
-		}
-		$tr.each(function(i){
-			jQuery(this).hide();
-			if(i+1 <= req_num_row){
-				$tr.eq(i).show();
-			}
-		
-		});
-		jQuery('#pagination a').click(function(e){
-			e.preventDefault();
-			$tr.hide();
-			var page=jQuery(this).text();
-			var temp=page-1;
-			var start=temp*req_num_row;
-			//alert(start);
-			
-			for(var i=0; i< req_num_row; i++){
-				
-				$tr.eq(start+i).show();
-			
-			}
-		});
-	}
-jQuery('document').ready(function(){
-	pagination();
+$(document).ready(function(){
+    $('#data').after('<div id="nav"></div>');
+    var rowsShown = 4;
+    var rowsTotal = $('#data tbody tr').length;
+    var numPages = rowsTotal/rowsShown;
+    for(i = 0;i < numPages;i++) {
+        var pageNum = i + 1;
+        $('#nav').append('<a href="#" rel="'+i+'">'+pageNum+'</a> ');
+    }
+    $('#data tbody tr').hide();
+    $('#data tbody tr').slice(0, rowsShown).show();
+    $('#nav a:first').addClass('active');
+    $('#nav a').bind('click', function(){
 
-
-
+        $('#nav a').removeClass('active');
+        $(this).addClass('active');
+        var currPage = $(this).attr('rel');
+        var startItem = currPage * rowsShown;
+        var endItem = startItem + rowsShown;
+        $('#data tbody tr').css('opacity','0.0').hide().slice(startItem, endItem).
+        css('display','table-row').animate({opacity:1}, 300);
+    });
 });
 
 </script>
@@ -64,7 +43,7 @@ jQuery('document').ready(function(){
 	
 	</div>
 	<div class="table-responsive">
-                            <table class="table table-bordered table-hover">
+                            <table class="table table-bordered table-hover" id="data">
                                 <thead>
                                     <tr>
                                         <th>Page</th>

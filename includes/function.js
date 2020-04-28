@@ -154,9 +154,6 @@ function hideTooltip() {
 	var tooltip = document.getElementById("tooltip");
 	tooltip.style.display = "none";}
 
-function add_fasta_file(){
-}
-
 function sortTable(col_nb){
 	var table, rows, switching, i, x, y, shouldSwitch;
 	console.log(col_nb);

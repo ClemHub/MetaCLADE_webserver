@@ -61,8 +61,8 @@
 		<strong>Select number of rows: </strong>
 		<select class  ="form-nb_rows" name="nb_rows" id="nb_rows">
 			<?php echo "<option value=".count($pfam_list).">Show ALL Rows</option>"; ?>
-			<option value="1" selected>1</option>
-			<option value="2">2</option>
+			<option value="1">1</option>
+			<option value="2" selected>2</option>
 			<option value="3">3</option>
 			<option value="20">20</option>
 			<option value="50">50</option>

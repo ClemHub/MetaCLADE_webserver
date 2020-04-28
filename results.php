@@ -140,6 +140,7 @@ include("./includes/header.php");
 	<script>
 	$(document).ready(function(){
 		$('#result').after('<div id="nav"></div>');
+		$('#nav').css({'text-decoration':'none', 'font-weight':'bold', 'color':'rgb(12, 133, 180)', 'justify-content':'center'});
 		var rowsShown = 2;
 		var rowsTotal = $('#result tbody tr').length;
 		var numPages = rowsTotal/rowsShown;
@@ -153,7 +154,6 @@ include("./includes/header.php");
 		$('#nav a').bind('click', function(){
 
 			$('#nav a').removeClass('active');
-			$('#nav a').css({'text-decoration':'none', 'font-weight':'bold', 'color':'rgb(12, 133, 180)', 'justify-content':'center'});
 			$(this).addClass('active');
 			var currPage = $(this).attr('rel');
 			var startItem = currPage * rowsShown;

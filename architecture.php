@@ -155,7 +155,7 @@
   	<script>
 	$(document).ready(function() {
     $('#data_table').DataTable( {
-        "order": [[ 3, "desc" ]]
+        "order": [[ 0, "desc" ]]
     } );
 } );
 	</script>

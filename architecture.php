@@ -110,7 +110,7 @@
 			$(document).ready(function() {
 			$('#go_terms_table').DataTable( 
 				{"order": [[ 2, "desc" ]]},
-				{"pageLength": 2}
+				{"lengthMenu": [ [1, 2, 3, -1], [1, 2, 3, "All"] ]}
 			)});
 
 			</script>

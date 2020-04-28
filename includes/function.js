@@ -204,29 +204,44 @@ function filter_table(){
 		} else {
 			tr[i].style.display = "none";}}}}
 
-$(document).ready(function(){
-	$('#results').after('<div id="nav"></div>');
-	var rowsShown = 2;
-	var rowsTotal = $('#results tbody tr').length;
-	var numPages = rowsTotal/rowsShown;
-	for(i = 0;i < numPages;i++) {
-		var pageNum = i + 1;
-		$('#nav').append('<a href="#" rel="'+i+'">'+pageNum+'</a> ');
+function pagination(){
+	var req_num_row=2;
+	var $tr=jQuery('tbody tr');
+	var total_num_row=$tr.length;
+	var num_pages=0;
+	if(total_num_row % req_num_row ==0){
+		num_pages=total_num_row / req_num_row;
 	}
-	$('#results tbody tr').hide();
-	$('#results tbody tr').slice(0, rowsShown).show();
-	$('#nav a:first').addClass('active');
-	$('#nav a').bind('click', function(){
+	if(total_num_row % req_num_row >=1){
+		num_pages=total_num_row / req_num_row;
+		num_pages++;
+		num_pages=Math.floor(num_pages++);
+	}
+	for(var i=1; i<=num_pages; i++){
+		jQuery('#results').append("<a href='#' class='btn'>"+i+"</a>");
+	}
+	$tr.each(function(i){
+		jQuery(this).hide();
+		if(i+1 <= req_num_row){
+			$tr.eq(i).show();
+		}
 
-		$('#nav a').removeClass('active');
-		$(this).addClass('active');
-		var currPage = $(this).attr('rel');
-		var startItem = currPage * rowsShown;
-		var endItem = startItem + rowsShown;
-		$('#results tbody tr').css('opacity','0.0').hide().slice(startItem, endItem).
-		css('display','table-row').animate({opacity:1}, 300);
 	});
-});
+	jQuery('#results a').click(function(e){
+		e.preventDefault();
+		$tr.hide();
+		var page=jQuery(this).text();
+		var temp=page-1;
+		var start=temp*req_num_row;
+		//alert(start);
+
+		for(var i=0; i< req_num_row; i++){
+
+			$tr.eq(start+i).show();
+
+		}
+	});
+}
 
 // function filter_arch_table(col_nb, id){
 //   var input, filter, table, tr, td, i, txtValue;

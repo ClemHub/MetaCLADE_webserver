@@ -162,27 +162,66 @@
 	</div>
 	</section>
 	<script>
-	$(document).ready(function(){
-		$('#data_table').after('<div id="nav"><strong>Pages: </strong></div>');
-		var rowsShown = 2;
-		var rowsShown= parseInt($('#nb_rows').val());
-		var rowsTotal = $('#data_table tbody tr').length;
-		var numPages = rowsTotal/rowsShown;
-		for(i = 0;i < numPages;i++) {
-			var pageNum = i + 1;
-			$('#nav').append('<a href="#" rel="'+i+'">'+pageNum+'</a> ');}
-		$('#nav a').css({'text-decoration':'none', 'color':'rgb(12, 133, 180)', 'justify-content':'center'});
-		$('#data_table tbody tr').hide();
-		$('#data_table tbody tr').slice(0, rowsShown).show();
-		$('#nav a:first').addClass('active');
-		$('#nav a').bind('click', function(){
-			$('#nav a').removeClass('active');
-			$(this).addClass('active');
-			var currPage = $(this).attr('rel');
-			var startItem = currPage * rowsShown;
-			var endItem = startItem + rowsShown;
-			$('#data_table tbody tr').css('opacity','0.0').hide().slice(startItem, endItem).
-			css('display','table-row').animate({opacity:1}, 300);});});
+var initial = 0;
+$(document).ready(function() {
+  getPagination('#data_table');
+});
+
+function getPagination(table) {
+
+  $('#maxRows').on('change', function() {
+    $('.pagination').html(''); // reset pagination 
+    var trnum = 0; // reset tr counter 
+    var maxRows = parseInt($(this).val()); // get Max Rows from select option
+
+
+    var totalRows = $(table + ' tbody tr').length; // numbers of rows 
+    //console.log("maxRows---", maxRows, totalRows);
+    $('#pagin').html(initial + " - " + maxRows);
+    $('#totalData').html(totalRows);
+
+    $(table + ' tr:gt(0)').each(function() { // each TR in  table and not the header
+      trnum++; // Start Counter 
+      if (trnum > maxRows) { // if tr number gt maxRows
+
+        $(this).hide(); // fade it out 
+      }
+      if (trnum <= maxRows) {
+        $(this).show();
+      } // else fade in Important in case if it ..
+    }); //  was fade out to fade it in 
+    if (totalRows > maxRows) { // if tr total rows gt max rows option
+      var pagenum = Math.ceil(totalRows / maxRows); // ceil total(rows/maxrows) to get ..  
+      //	numbers of pages 
+      for (var i = 1; i <= pagenum;) { // for each page append pagination li 
+        $('.pagination').append('<li class"wp" data-page="' + i + '">\
+										  <span>' + i++ + '<span class="sr-only">(current)</span></span>\
+										</li>').show();
+      } // end for i 
+    } // end if row count > max rows
+    $('.pagination li:first-child').addClass('active'); // add active class to the first li 
+    $('.pagination li').on('click', function() { // on click each page
+      var pageNum = $(this).attr('data-page'); // get it's number
+      var total_rows = maxRows * pageNum; //get total no. of rows WRT page
+      $('#pagin').html(total_rows - maxRows + " - " + total_rows);
+      var trIndex = 0; // reset tr counter
+      $('.pagination li').removeClass('active'); // remove active class from all li 
+      $(this).addClass('active'); // add active class to the clicked 
+      $(table + ' tr:gt(0)').each(function() { // each tr in table not the header
+        trIndex++; // tr index counter 
+        // if tr index gt maxRows*pageNum or lt maxRows*pageNum-maxRows fade if out
+        if (trIndex > (maxRows * pageNum) || trIndex <= ((maxRows * pageNum) - maxRows)) {
+          $(this).hide();
+        } else {
+          $(this).show();
+        } //else fade in 
+      }); // end of for each tr in table
+    }); // end of on click pagination list
+  }).trigger('change');
+
+  // end of on select change 
+  // END OF PAGINATION 
+}
 
 	</script>
 <?php include("./includes/footer.php"); ?>

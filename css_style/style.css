@@ -426,3 +426,6 @@ div.info div.contenu_info {
 
 .species_name{
 	font-style: italic;}
+
+div.dataTables_filter, div.dataTables_length {
+		padding: 5px;}

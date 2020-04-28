@@ -139,7 +139,7 @@ include("./includes/header.php");
 	</section>
 	<script>
 	$(document).ready(function(){
-		$('#result').after('<div id="nav"></div>');
+		$('#result').after('<div id="nav">Pages:</div>');
 		var rowsShown = 2;
 		var rowsTotal = $('#result tbody tr').length;
 		var numPages = rowsTotal/rowsShown;

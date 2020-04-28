@@ -156,7 +156,8 @@
   	<script>
 	$(document).ready(function() {
     $('#data_table').DataTable( {
-        "order": [[ 0, "desc" ]]
+		"order": [[ 0, "asc" ]]
+		"pageLength": 50
     } );
 } );
 	</script>

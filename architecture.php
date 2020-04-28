@@ -61,9 +61,9 @@
 		<strong>Select number of rows: </strong>
 		<select class  ="form-nb_rows" name="nb_rows" id="nb_rows">
 			<?php echo "<option value=".count($pfam_list).">Show ALL Rows</option>"; ?>
-			<option value="5">5</option>
-			<option value="10">10</option>
-			<option value="15">15</option>
+			<option value="1" selected>1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
 			<option value="20">20</option>
 			<option value="50">50</option>
 		</select>	
@@ -165,6 +165,7 @@
 	$(document).ready(function(){
 		$('#data_table').after('<div id="nav"><strong>Pages: </strong></div>');
 		var rowsShown = 2;
+		var rowsShown= parseInt($('#nb_rows').val());
 		var rowsTotal = $('#data_table tbody tr').length;
 		var numPages = rowsTotal/rowsShown;
 		for(i = 0;i < numPages;i++) {
@@ -176,7 +177,6 @@
 		$('#nav a:first').addClass('active');
 		$('#nav a').bind('click', function(){
 			$('#nav a').removeClass('active');
-			$('#nav a').css({'font-weight':'bold'});
 			$(this).addClass('active');
 			var currPage = $(this).attr('rel');
 			var startItem = currPage * rowsShown;

@@ -109,9 +109,8 @@
 			<script>
 			$(document).ready(function() {
 			$('#go_terms_table').DataTable( 
-				{"order": [[ 2, "desc" ]],
-				"lengthMenu": [ [1, 2, 3, -1], [1, 2, 3, "All"]]
-			})});
+				{"lengthMenu": [[1, 2, 3, -1], [1, 2, 3, "All"]]
+})});
 
 			</script>
 	<div class='table_container' id='goterms'>

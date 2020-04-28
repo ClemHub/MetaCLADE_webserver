@@ -136,7 +136,6 @@ include("./includes/header.php");
 
 	</div>
 	</div>
-	</section>
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
 	<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
   	<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
@@ -147,4 +146,5 @@ include("./includes/header.php");
 		{"pageLength": 50}
 	)});
 	</script>
+	</section>
 <?php include("./includes/footer.php"); ?>

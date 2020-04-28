@@ -194,7 +194,7 @@ footer {
 	overflow-x:auto;
 	width: 100%;}
 
-table.dataTable {
+table {
 	border: 3px solid black;
 	border-collapse: collapse;
 	line-height: 200%;
@@ -215,10 +215,10 @@ th.dataTable {
 	font-size: 18px;
 	font-size-adjust: 0.5;}
 
-tr.dataTable {
+tr {
 	border-bottom: 3px;}
 
-td.dataTable {
+td {
 	border: 1px solid black;
 	border-left: 1px solid black;
 	border-right: 1px solid black;
@@ -227,13 +227,13 @@ td.dataTable {
 	font-size: 17px;
 	font-size-adjust: 0.5;}
 
-tbody.dataTable [rowspan], tbody.dataTable [rowspan] ~ th.dataTable, tbody.dataTable [rowspan] ~ td.dataTable, tfoot.dataTable {
+tbody [rowspan], tbody [rowspan] ~ th, tbody [rowspan] ~ td, tfoot {
 	border-top: 3px solid black;}
 
-tbody.dataTable:hover td.dataTable[rowspan], tr.dataTable:hover td.dataTable {
+tbody:hover td[rowspan], tr:hover td {
 		background: rgba(155, 187, 196, 0.555); }
 
-.table_header.dataTable {
+.table_header {
 	font-weight: bold;}
 
 .spaced_list {

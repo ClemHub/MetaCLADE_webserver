@@ -57,6 +57,20 @@
 	<div class='info'>
 	<input type='button' class='bouton_info' value='Results informations:' onclick='close_open_info(this);' />
 	<div class='contenu_info'>
+		<h2>Select Number Of Rows</h2>
+				<div class="form-group"> 	<!--		Show Numbers Of Rows 		-->
+			 		<select class  ="form-control" name="state" id="maxRows">
+						 <option value="5000">Show ALL Rows</option>
+						 <option value="5">5</option>
+						 <option value="10">10</option>
+						 <option value="15">15</option>
+						 <option value="20">20</option>
+						 <option value="50">50</option>
+						 <option value="70">70</option>
+						 <option value="100">100</option>
+						</select>
+			 		
+			  	</div>
 	<div class='table_container' id='architecture_data'>
 	<table id='data_table'>
 	<thead>
@@ -147,35 +161,28 @@
 	echo '</table>';
 	$db->close();
 	?>
+
 	</div>
+	<div class='pagination-container' >
+				<nav>
+				  <ul class="pagination">
+            
+            <li data-page="prev" >
+								     <span> < <span class="sr-only">(current)</span></span>
+								    </li>
+				   <!--	Here the JS Function Will Add the Rows -->
+        <li data-page="next" id="prev">
+								       <span> > <span class="sr-only">(current)</span></span>
+								    </li>
+				  </ul>
+				</nav>
+			</div>
+
 	</div>
 	</div>
 	</section>
 	<script>
-	$(document).ready(function(){
-		$('#data_table').after('<div id="nav"><strong>Pages: </strong></div>');
-		var rowsShown = 2;
-		var rowsTotal = $('#data_table tbody tr').length;
-		var numPages = rowsTotal/rowsShown;
-		for(i = 0;i < numPages;i++) {
-			var pageNum = i + 1;
-			$('#nav').append('<a href="#" rel="'+i+'">'+pageNum+'</a> ');
-		}
-		$('#nav a').css({'text-decoration':'none', 'font-weight':'bold', 'color':'rgb(12, 133, 180)', 'justify-content':'center'});
-		$('#data_table tbody tr').hide();
-		$('#data_table tbody tr').slice(0, rowsShown).show();
-		$('#nav a:first').addClass('active');
-		$('#nav a').bind('click', function(){
-
-			$('#nav a').removeClass('active');
-			$(this).addClass('active');
-			var currPage = $(this).attr('rel');
-			var startItem = currPage * rowsShown;
-			var endItem = startItem + rowsShown;
-			$('#data_table tbody tr').css('opacity','0.0').hide().slice(startItem, endItem).
-			css('display','table-row').animate({opacity:1}, 300);
-		});
-	});
+getPagination('#result');
 
 	</script>
 <?php include("./includes/footer.php"); ?>

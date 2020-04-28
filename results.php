@@ -86,7 +86,7 @@ include("./includes/header.php");
 		?>
 		<!-- Table with the results -->
 		<div class='table_container'>
-		<table id = result>
+		<table id = results>
 		<thead>
 			<tr>
 			<th class='table_header'>Sequence ID <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span></th>

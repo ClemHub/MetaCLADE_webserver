@@ -216,7 +216,12 @@ function uncheckAll(divid) {
 		if(!check.disabled){
 			check.checked = false;}}}
 
-
+function reset_table(id){
+	var table, tr, i;
+	table = document.getElementById(id);
+	tr = table.getElementsByTagName("tr");
+	for (i = 0; i < tr.length; i++){
+		tr[i].style.display = "";}}
 
 function filter_all_domains(){
 	var filter, checkboxes, table, tr, td, i, f;

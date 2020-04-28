@@ -60,7 +60,7 @@ include("./includes/header.php");
 			echo "<input type='checkbox' id=".$domain_id." name='domain_cb' value=".$domain_id.">";
 			echo "<label for=".$domain_id.">".$domain_id."</label>";}
 		echo "</div>";
-		echo "<br><input class='btn' type='button' value='Search' name = 'search' onclick='filter_all_domains()'/><input class='btn' type='reset' value='Reset' onclick='reset_table('results')'/>";
+		echo "<br><input class='btn' type='button' value='Search' name = 'search' onclick='filter_all_domains()'/><input class='btn' type='reset' value='Reset' onclick='reset_table('result')'/>";
 		echo "</fieldset>";
 		echo "</form>";}
 	$data = array();
@@ -86,7 +86,7 @@ include("./includes/header.php");
 		?>
 		<!-- Table with the results -->
 		<div class='table_container'>
-		<table id = results>
+		<table id = result>
 		<thead>
 			<tr>
 			<th class='table_header'>Sequence ID <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span></th>

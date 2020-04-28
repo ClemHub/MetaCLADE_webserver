@@ -60,7 +60,7 @@ include("./includes/header.php");
 			echo "<input type='checkbox' id=".$domain_id." name='domain_cb' value=".$domain_id.">";
 			echo "<label for=".$domain_id.">".$domain_id."</label>";}
 		echo "</div>";
-		echo "<br><input class='btn' type='button' value='Search' name = 'search' onclick='filter_all_domains()'/><input class='btn' type='reset' value='Reset' onclick='reset_table('result')'/>";
+		echo "<br><input class='btn' type='button' value='Search' name = 'search' onclick='filter_all_domains()'/><input class='btn' type='reset' value='Reset' onclick='reset_table(result)'/>";
 		echo "</fieldset>";
 		echo "</form>";}
 	$data = array();
@@ -81,10 +81,8 @@ include("./includes/header.php");
 			$best_evalues[$seq_id]=$exploded_line[9];
 			$data[$seq_id]=array($domain_id);}};
 
-	//Button that allows the user to download the text files with the results
 	echo "<br><a id = 'dl_link' href=".$dl_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
 		?>
-		<!-- Table with the results -->
 		<div class='table_container'>
 		<table id = result>
 		<thead>

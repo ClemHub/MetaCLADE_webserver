@@ -142,10 +142,9 @@ include("./includes/header.php");
   	<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
   	<script>
 	$(document).ready(function() {
-    $('#result').DataTable( {
-		"order": [[ 0, "asc" ]]
-		"pageLength": 50
-    } );
-} );
+    $('#result').DataTable( 
+		{"order": [[ 0, "asc" ]]},
+		{"pageLength": 50}
+	)});
 	</script>
 <?php include("./includes/footer.php"); ?>

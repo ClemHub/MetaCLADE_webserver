@@ -170,12 +170,13 @@
 		for(i = 0;i < numPages;i++) {
 			var pageNum = i + 1;
 			$('#nav').append('<a href="#" rel="'+i+'">'+pageNum+'</a> ');}
-		$('#nav a').css({'text-decoration':'none', 'font-weight':'bold', 'color':'rgb(12, 133, 180)', 'justify-content':'center'});
+		$('#nav a').css({'text-decoration':'none', 'color':'rgb(12, 133, 180)', 'justify-content':'center'});
 		$('#data_table tbody tr').hide();
 		$('#data_table tbody tr').slice(0, rowsShown).show();
 		$('#nav a:first').addClass('active');
 		$('#nav a').bind('click', function(){
 			$('#nav a').removeClass('active');
+			$('#nav a').css({'font-weight':'bold'});
 			$(this).addClass('active');
 			var currPage = $(this).attr('rel');
 			var startItem = currPage * rowsShown;

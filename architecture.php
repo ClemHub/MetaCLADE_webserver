@@ -57,6 +57,19 @@
 	<div class='info'>
 	<input type='button' class='bouton_info' value='Results informations:' onclick='close_open_info(this);' />
 	<div class='contenu_info'>
+	<strong>Select number Of rows: </strong>
+	<div class="select_row_form">
+		<select class  ="form-nb_rows" name="nb_rows" id="nb_rows">
+			<?php echo "<option value=".count($pfam_list).">Show ALL Rows</option>"; ?>
+			<option value="5">5</option>
+			<option value="10">10</option>
+			<option value="15">15</option>
+			<option value="20">20</option>
+			<option value="50">50</option>
+			<option value="70">70</option>
+			<option value="100">100</option>
+		</select>	
+	</div>
 	<div class='table_container' id='architecture_data'>
 	<table id='data_table'>
 	<thead>

@@ -427,7 +427,7 @@ div.info div.contenu_info {
 .species_name{
 	font-style: italic;}
 
-#nav{
+#nav a{
 	text-decoration: none;
 	font-weight: bold;
 	color: rgb(12, 133, 180);

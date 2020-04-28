@@ -95,7 +95,7 @@ include("./includes/header.php");
 				{"order": [[ 2, "desc" ]]},
 				{"pageLength": 2}
 			)});
-			table.dataTable thead tr {background-color: green;}
+
 			</script>
 		<div class='table_container'>
 		<table id = result>

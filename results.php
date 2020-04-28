@@ -153,6 +153,7 @@ include("./includes/header.php");
 		$('#nav a').bind('click', function(){
 
 			$('#nav a').removeClass('active');
+			$('#nav a').css({'text-decoration':'none', 'font-weight':'bold', 'color':'rgb(12, 133, 180)', 'justify-content':'center'});
 			$(this).addClass('active');
 			var currPage = $(this).attr('rel');
 			var startItem = currPage * rowsShown;

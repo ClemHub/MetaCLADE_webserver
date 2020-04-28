@@ -154,6 +154,16 @@ function hideTooltip() {
 	var tooltip = document.getElementById("tooltip");
 	tooltip.style.display = "none";}
 
+var fileInput = document.querySelector('#fasta_file');
+fileInput.addEventListener('change', function() {
+	var reader = new FileReader();
+	reader.addEventListener('load', function() {
+		var txt = reader.result
+		document.getElementById('sequences').value = txt;
+	});
+	reader.readAsText(fileInput.files[0]);
+});
+
 function sortTable(col_nb){
 	var table, rows, switching, i, x, y, shouldSwitch;
 	console.log(col_nb);
@@ -184,7 +194,7 @@ function filter_table(){
 	input = document.getElementById("domain_select");
 	filter = input.value.toUpperCase();
 	document.getElementById(filter).checked=true;
-	table = document.getElementById("results");
+	table = document.getElementById("result");
 	tr = table.getElementsByTagName("tr");
 	for (i = 0; i < tr.length; i++) {
 		td = tr[i].getElementsByTagName("td")[1];
@@ -234,7 +244,7 @@ function filter_all_domains(){
 	checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
 	for (i = 0; i < checkboxes.length; i++){
 		filter.push(checkboxes[i].value)}
-	table = document.getElementById("results");
+	table = document.getElementById("result");
 	tr = table.getElementsByTagName("tr");
 	for (i = 0; i < tr.length; i++) {
 		td = tr[i].getElementsByTagName("td")[1];

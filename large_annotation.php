@@ -52,4 +52,7 @@
 		</form>	
 		</section>
 
+		<script type="text/javascript">
+		add_fasta_file();
+		</script>
 <?php include("./includes/footer.php"); ?>

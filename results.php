@@ -95,6 +95,8 @@ include("./includes/header.php");
 			"pageLength": 10,
 			"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ]
 			
+
+			
 		} );
 	} );
 			</script>
@@ -117,7 +119,7 @@ include("./includes/header.php");
 			$link_id = "http://pfam.xfam.org/family/" . $domain_id;
 			echo "<a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a>";}
 		echo "</td><td>".$best_evalues[$seq_id]."</td></tr>";}
-	echo "</tbody></table>";
+	echo "</tbody><tfoot></tfoot></table>";
 	?>
 	</div>
 	

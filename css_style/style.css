@@ -317,10 +317,10 @@ div.info div.contenu_info {
 	color: rgb(1, 59, 82);}
 
 .form_fs {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.486);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.287);
 	max-width: 50%;
-	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-top: 50px;
+	margin-bottom: 50px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;}

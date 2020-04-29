@@ -127,12 +127,11 @@ include("./includes/header.php");
 		<tfoot>
 			<tr>
 			<th class='table_header'></th>
-
 			<?php
 			echo "<th class='table_header'>";
 			echo "<select id='table-filter'>";
 			echo "<option value=''>All</option>";
-			foreach($domain_list as $domain){
+			foreach(array_unique($domain_list) as $domain){
 				echo "<option>".$domain."</option>";
 			}
 			echo "</select></th>";

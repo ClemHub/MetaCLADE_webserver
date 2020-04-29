@@ -157,6 +157,7 @@
 		}
 		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
 		$rows = array();
+		$nb = 0;
 		while($row = $request->fetchArray()){
 			$nb ++;
 			array_push($rows, $row);}

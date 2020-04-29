@@ -98,7 +98,7 @@ include("./includes/header.php");
             this.api().columns([0, 1]).every( function () {
                 var column = this;
                 var select = $('<select><option value=""></option></select>')
-					.appendTo( '#table_filter' )
+					.appendTo( $(column.footer()).empty() )
                     .on( 'change', function () {
                         var val = $.fn.dataTable.util.escapeRegex(
                             $(this).val());
@@ -125,13 +125,13 @@ include("./includes/header.php");
 			<th class='table_header'>Best e-value <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>After comparing every annotated Pfam domains E-value for each sequences.</span></span></th>
 			</tr>
 		</thead>
-		<thead class='filter_head'>
+		<tfoot>
 			<tr>
-			<th class='table_filter'></th>
-			<th class='table_filter'></th>
-			<th class='table_filter'></th>
+			<th class='table_header'>Sequence ID <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span></th>
+			<th class='table_header'>Domain Id</th>
+			<th class='table_header'>Best e-value <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>After comparing every annotated Pfam domains E-value for each sequences.</span></span></th>
 			</tr>
-		</thead>
+		</tfoot>		
 		<tbody>
 		<?php
 	uasort($data, 'sort_multiarray');

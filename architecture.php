@@ -109,8 +109,9 @@
 			<script>
 			$(document).ready(function() {
 			$('#go_terms_table').DataTable( 
-				{"lengthMenu": [[1, 2, 3, -1], [1, 2, 3, "All"]]
-})});
+				{"order": [[ 2, "desc" ]]},
+				{"pageLength": 2}
+			)});
 
 			</script>
 	<div class='table_container' id='goterms'>
@@ -159,7 +160,7 @@
 					echo "<td rowspan=".$nb.">" . $Clan."</td>";}
 				echo "<td>" . $row['GO_term'] . '</td></tr>';
 				$i++;}}	}
-				echo '</tbody>';
+	echo '</tbody>';
 	echo '</table>';
 	$db->close();
 	?>

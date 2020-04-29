@@ -87,14 +87,14 @@ include("./includes/header.php");
 	echo "<br><a id = 'dl_link' href=".$dl_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
 		?>
 			<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-			
 			<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
 			<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
 			<script>
 			$(document).ready(function() {
 			$('#result').DataTable( 
-				{"order": [[ 2, "desc" ]]},
-				{"pageLength": 2}
+				{"order": [[ 2, "desc" ]],
+				"pagingType": "full_numbers",
+				"pageLength": 2}
 			)});
 
 			</script>

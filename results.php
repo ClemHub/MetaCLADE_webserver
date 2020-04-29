@@ -90,11 +90,30 @@ include("./includes/header.php");
 			<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
 			<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
 			<script>
-			$(document).ready(function() {
-				$('#result').DataTable({
-					"order": [[ 2, "desc" ]]});
-			});
-
+	$(document).ready(function() {
+		$('#result').DataTable( {
+			initComplete: function () {
+				this.api().columns().every( function () {
+					var column = this;
+					var select = $('<select><option value=""></option></select>')
+						.appendTo( $(column.footer()).empty() )
+						.on( 'change', function () {
+							var val = $.fn.dataTable.util.escapeRegex(
+								$(this).val()
+							);
+	
+							column
+								.search( val ? '^'+val+'$' : '', true, false )
+								.draw();
+						} );
+	
+					column.data().unique().sort().each( function ( d, j ) {
+						select.append( '<option value="'+d+'">'+d+'</option>' )
+					} );
+				} );
+			}
+		} );
+	} );
 			</script>
 		<div class='table_container'>
 		<table id = result>

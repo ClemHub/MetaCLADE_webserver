@@ -92,15 +92,13 @@ include("./includes/header.php");
 			<script>
 			$(document).ready(function() {
 				$('#result').DataTable({
-					order: [[ 2, "desc" ]],
-					pagingType: full_numbers,
-					pageLength: 2
+					pagingType: "full_numbers",
 				});
 			});
 
 			</script>
 		<div class='table_container'>
-		<table id = result>
+		<table id = result data-order='[[ 2, "desc" ]]' data-page-length='2'>
 		<thead>
 			<tr>
 			<th class='table_header'>Sequence ID <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span></th>

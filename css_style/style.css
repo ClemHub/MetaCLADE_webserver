@@ -207,7 +207,7 @@ table {
 
 table.dataTable thead{
 	height: 60px;
-	border: 1px solid black;
+	border: 2px solid black;
 	color: rgb(1, 59, 82);
 	text-shadow: 0.1em 0.1em 0.2em rgba(21, 7, 36, 0.459);
 	background-image: linear-gradient(rgb(39, 155, 201), rgb(116, 194, 224));
@@ -216,7 +216,7 @@ table.dataTable thead{
 	font-size-adjust: 0.5;}
 
 tr {
-	border-bottom: 2px;}
+	border-bottom: 1px;}
 
 td {
 	border: 0.5px solid black;
@@ -228,7 +228,7 @@ td {
 	font-size-adjust: 0.5;}
 
 tbody [rowspan], tbody [rowspan] ~ th, tbody [rowspan] ~ td, tfoot {
-	border-top: 2px solid black;}
+	border-top: 1px solid black;}
 
 tbody:hover td[rowspan], tr:hover td {
 		background: rgba(155, 187, 196, 0.555); }
@@ -431,4 +431,4 @@ div.info div.contenu_info {
 	font-style: italic;}
 
 div.dataTables_filter, div.dataTables_length {
-		padding: 5px;}
+	padding: 5px;}

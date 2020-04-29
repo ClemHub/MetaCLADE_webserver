@@ -192,7 +192,8 @@ footer {
 /* Results table appearence */
 .table_container {
 	overflow-x:auto;
-	width: 100%;}
+	width: 100%;
+	margin-bottom: 5px;}
 
 table {
 	border: 2px solid black;

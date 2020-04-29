@@ -128,7 +128,7 @@ include("./includes/header.php");
                 column.data().unique().sort().each( function ( d, j ) {
                     select.append( '<option value="'+d+'">'+d+'</option>' )} );} );},
 			
-		$('#min, #max').keyup( function() {
+		$('#min_e-value, #max_e-value').keyup( function() {
         table.draw();
     } );
 

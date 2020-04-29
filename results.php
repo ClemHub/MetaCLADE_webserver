@@ -108,8 +108,8 @@ include("./includes/header.php");
 			} );
 			//$('#min_e-value').keyup( function() {
 			//table.draw();} );
-			$('#table-filter').on('change', function(){
-				table.search(this.value).draw();});
+			//$('#table-filter').on('change', function(){
+			//	table.search(this.value).draw();});
 		});
 		</script>
 		

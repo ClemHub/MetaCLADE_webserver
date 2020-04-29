@@ -109,8 +109,7 @@ include("./includes/header.php");
 		//$('#min_e-value').keyup( function() {
 		//table.draw();} );
 		$('#table-filter').on('change', function(){
-       	table.search(this.value).draw();});
-
+       		table.search(this.value).draw();});
 	} );
 			</script>
 		<div class='table_container'>
@@ -131,7 +130,7 @@ include("./includes/header.php");
 			echo "<select id='table-filter'>";
 			echo "<option value=''>All</option>";
 			foreach(array_unique($domain_list) as $domain){
-				echo "<option>".$domain."</option>";
+				echo "<option value='".$domain."'>".$domain."</option>";
 			}
 			echo "</select></th>";
 			?>

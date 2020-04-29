@@ -94,7 +94,7 @@ include("./includes/header.php");
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
 			var max = Number( $('#max_e-value').val());
-			var age = Number( data[2] ) || 0; // use data for the age column
+			var age = Number( data[2] ); // use data for the age column
 	
 			if ((isNaN( max ) ) || (age <= max ))
 			{

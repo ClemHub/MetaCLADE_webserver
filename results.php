@@ -104,8 +104,7 @@ include("./includes/header.php");
 			"pageLength": 10,
 			"order": [[ 2, "desc" ]],
 			"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
-
-
+			dom: 'lrtip'
 		} );
 		//$('#min_e-value').keyup( function() {
 		//table.draw();} );

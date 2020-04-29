@@ -161,8 +161,8 @@
 		while($row = $request->fetchArray()){
 			$nb ++;
 			array_push($rows, $row);}
-		echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data[4]."</a></td>";
 		if(empty($rows)){
+			echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data[4]."</a></td>";
 			echo "<td>" . $pfam_row['Family']."</td>";
 			echo "<td>" . $Clan_acc_nb."</td>";
 			echo "<td>" . $Clan."</td>";
@@ -171,6 +171,7 @@
 			$i = 0;
 			foreach($rows as $row){
 				if($i==0){
+					echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data[4]."</a></td>";
 					echo "<td rowspan=".$nb.">" . $pfam_row['Family']."</td>";
 					echo "<td rowspan=".$nb.">" . $Clan_acc_nb."</td>";
 					echo "<td rowspan=".$nb.">" . $Clan."</td>";}

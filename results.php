@@ -125,8 +125,9 @@ include("./includes/header.php");
 			</tr>
 		</thead>
 		<tfoot>
-		<th class='table_header'></th>
 			<tr>
+			<th class='table_header'></th>
+
 			<?php
 			echo "<th class='table_header'>";
 			echo "<select id='table-filter'>";

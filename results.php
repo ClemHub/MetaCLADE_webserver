@@ -86,32 +86,32 @@ include("./includes/header.php");
 
 	echo "<br><a id = 'dl_link' href=".$dl_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
 		?>
-			<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-			<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-			<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-			<script>
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+		<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+		<script>
 
-	$.fn.dataTable.ext.search.push(
-		function( settings, data, dataIndex ) {
-			var max = Number( $('#max_e-value').val());
-			var age = Number( data[2] ); // use data for the age column
-			if ((isNaN( max ) ) || (age <= max )){
-				return true;}
-			return false;});
-	
-	$(document).ready(function() {
-		$('#result').DataTable( {
-			"pageLength": 10,
-			"order": [[ 2, "desc" ]],
-			"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
-			dom: 'lrtip'
-		} );
-		//$('#min_e-value').keyup( function() {
-		//table.draw();} );
-		$('#table-filter').on('change', function(){
-       		table.search(this.value).draw();});
-	} );
-			</script>
+		$.fn.dataTable.ext.search.push(
+			function( settings, data, dataIndex ) {
+				var max = Number( $('#max_e-value').val());
+				var age = Number( data[2] ); // use data for the age column
+				if ((isNaN( max ) ) || (age <= max )){
+					return true;}
+				return false;});
+		
+		$(document).ready(function() {
+			$('#result').DataTable( {
+				dom: 'lrtip',
+				"pageLength": 10,
+				"order": [[ 2, "desc" ]],
+				"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
+			} );
+			//$('#min_e-value').keyup( function() {
+			//table.draw();} );
+			$('#table-filter').on('change', function(){
+				table.search(this.value).draw();});} );
+		</script>
+		
 		<div class='table_container'>
 		<table id = result>
 		<div id='select_filter'></div>

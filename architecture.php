@@ -2,6 +2,7 @@
 <?php include("./includes/menu.php"); ?>
 
 	<section id = 'architecture_section'>
+	<div id='previous_page'><i class="fa fa-arrow-left"></i><a class="table_link" href="javascript:history.back()"> Main results page</a></div>
 	<div id='architecture'>
 	<h2> Architecture </h2>
 	<?php
@@ -167,6 +168,5 @@
 	</div>
 	</div>
 	</div>
-	<div id='previous_page'><i class="fa fa-arrow-left"></i><a class="table_link" href="javascript:history.back()"> Main results page</a></div>
 	</section>
 <?php include("./includes/footer.php"); ?>

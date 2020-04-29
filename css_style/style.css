@@ -319,8 +319,8 @@ div.info div.contenu_info {
 .form_fs {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.287);
 	max-width: 50%;
-	padding-top: 50px;
-	padding-bottom: 50px;
+	margin-top: 50px;
+	margin-bottom: 50px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;}
@@ -337,7 +337,7 @@ div.info div.contenu_info {
 
 .tooltip .tooltiptext {
 	visibility: hidden;
-	width: 50px;
+	width: 20px;
 	background-color: black;
 	color: #fff;
 	text-align: center;
@@ -345,6 +345,7 @@ div.info div.contenu_info {
 	margin: 10px;
 	border-radius: 6px;
 	position: absolute;
+	font-size: 12px;
 	font-weight: normal;
 	z-index: 1;
 	text-transform: initial;}

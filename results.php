@@ -95,7 +95,7 @@ include("./includes/header.php");
 			"pageLength": 10,
 			"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
 			initComplete: function () {
-            this.api().columns([0, 1]).every( function () {
+            this.api().columns([0, 1, 2]).every( function () {
                 var column = this;
                 var select = $('<select><option value=""></option></select>')
 					.appendTo( $(column.footer()).empty() )
@@ -127,9 +127,9 @@ include("./includes/header.php");
 		</thead>
 		<tfoot>
 			<tr>
-			<th class='table_header'>Sequence ID <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span></th>
-			<th class='table_header'>Domain Id</th>
-			<th class='table_header'>Best e-value <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>After comparing every annotated Pfam domains E-value for each sequences.</span></span></th>
+			<th class='table_header'></th>
+			<th class='table_header'></th>
+			<th class='table_header'></th>
 			</tr>
 		</tfoot>		
 		<tbody>

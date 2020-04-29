@@ -93,7 +93,7 @@ include("./includes/header.php");
 	$(document).ready(function() {
 		$('#result').DataTable( {
 			"pageLength": 10,
-			"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ]
+			"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
 			initComplete: function () {
             this.api().columns().every( function () {
                 var column = this;

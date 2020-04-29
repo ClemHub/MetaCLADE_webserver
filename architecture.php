@@ -168,7 +168,13 @@
 	</div>
 	</div>
 	</div>
-	<?php echo "<br><a class='table_link' href=results.php?form=".$form."&job_id=".$job_id.">Main results page</a></br>";?>
+	<?php 
+	if($form == 'small_example' or $form == 'large_example'){
+		echo "<br><a class='table_link' href=results.php?form=".$form.">Main results page</a></br>";}
+	else{
+		echo "<br><a class='table_link' href=results.php?form=".$form."&job_id=".$job_id.">Main results page</a></br>";
+	}
+	?>
 	</section>
 
 <?php include("./includes/footer.php"); ?>

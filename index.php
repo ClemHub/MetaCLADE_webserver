@@ -2,13 +2,10 @@
 
 	<section id='home'>
 	<h2> Home </h2>
-    <h3>This server is a multi-source domain annotation for quantitative <em>metagenomic and metatranscriptomic</em> functional profiling.</h3>
+    <h3>MYCLADE: an accurate multi-source domain annotation server designed for a fast exploration of metagenomic and metatranscriptomic sets of sequences</h3>
 		<p class = 'text'>
-		Biochemical and regulatory pathways have until recently been thought and modelled within one cell type, one organism, one species. This vision is being dramatically changed by the advent of whole microbiome sequencing studies, revealing the role of symbiotic microbial populations in fundamental biochemical functions. The new landscape we face requires the reconstruction of biochemical and regulatory pathways at the community level in a given environment. In order to understand how environmental factors affect the genetic material and the dynamics of the expression from one environment to another, one wishes to quantitatively relate genetic information with these factors. For this, we need to be as precise as possible in evaluating the quantity of gene protein sequences or transcripts associated to a given pathway. We wish to estimate the precise abundance of protein domains, but also recognise their weak presence or absence.
-		</p>
-		<p>
-		We introduce MetaCLADE2, and improved profile-based domain annotation pipeline based on the multi-source domain annotation strategy. It provides a domain annotation realised directly from reads, and reaches an improved identification of the catalog of functions in a microbiome. MetaCLADE2 can be applied to either metagenomic or metatranscriptomic datasets as well as proteomes.
-		</p>
+		The understanding of the ever-increasing number of metagenomic sequences accumulating in our databases demands for approaches that rapidly "explore" the content of metagenomic datasets with respect to specific domain targets, avoiding full domain annotation and full assembly. MYCLADE performs a multi-source domain annotation strategy based on a library of probabilistic domain models associated to each domain. It works in two modes: 1. it explores a large dataset of sequences to extract those sequences containing a small pool of specific domains or 2. it annotates a small set of sequences with the full set of Pfam domains. If sequences are sufficiently long, <a href="http://www.lcqb.upmc.fr/dama/
+		" target="_blank"> DAMA </a> can be used to accurately resolve protein domain architectures.</p>
 	</section>
 
 <?php include("./includes/footer.php"); ?>

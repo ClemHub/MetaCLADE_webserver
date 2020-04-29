@@ -319,7 +319,10 @@ div.info div.contenu_info {
 .form_fs {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.486);
 	max-width: 50%;
-	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
 	text-align: center;}
 
 #submission {
@@ -339,9 +342,10 @@ div.info div.contenu_info {
 	color: #fff;
 	text-align: center;
 	padding: 10px 0;
+	margin: 10px;
 	border-radius: 6px;
 	position: absolute;
-	font-size: 18px;
+	font-size: 15px;
 	font-size-adjust: 0.5;
 	font-weight: normal;
 	z-index: 1;

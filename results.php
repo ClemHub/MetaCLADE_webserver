@@ -93,7 +93,7 @@ include("./includes/header.php");
 			$(document).ready(function() {
 				$('#result').DataTable({
 					order: [[ 2, "desc" ]],
-					pagingType: "full_numbers",
+					pagingType: full_numbers,
 					pageLength: 2
 				});
 			});

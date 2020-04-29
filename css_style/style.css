@@ -337,7 +337,7 @@ div.info div.contenu_info {
 
 .tooltip .tooltiptext {
 	visibility: hidden;
-	width: 200px;
+	width: 100px;
 	background-color: black;
 	color: #fff;
 	text-align: center;
@@ -345,8 +345,6 @@ div.info div.contenu_info {
 	margin: 10px;
 	border-radius: 6px;
 	position: absolute;
-	font-size: 8px;
-	font-size-adjust: 0.5;
 	font-weight: normal;
 	z-index: 1;
 	text-transform: initial;}

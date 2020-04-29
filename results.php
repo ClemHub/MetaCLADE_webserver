@@ -104,6 +104,7 @@ include("./includes/header.php");
 			"pageLength": 10,
 			"order": [[ 2, "desc" ]],
 			"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
+
 			initComplete: function () {
             this.api().columns([0, 1]).every( function () {
                 var column = this;
@@ -116,15 +117,11 @@ include("./includes/header.php");
                             .search( val ? '^'+val+'$' : '', true, false )
                             .draw();} );
                 column.data().unique().sort().each( function ( d, j ) {
-                    select.append( '<option value="'+d+'">'+d+'</option>' )
-                } );
-           	 } );
-				}
-			$('#max_e-value').keyup( function() {
-        	table.draw();
-    } );
-
+                    select.append( '<option value="'+d+'">'+d+'</option>' )} );} );},
 			
+			$('#max_e-value').keyup( function() {
+        	table.draw();} );
+
 		} );
 	} );
 			</script>

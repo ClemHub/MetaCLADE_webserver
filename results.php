@@ -87,11 +87,12 @@ include("./includes/header.php");
 	echo "<br><a id = 'dl_link' href=".$dl_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
 		?>
 			<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-			<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+			<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
 			<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 			<script>
 	$(document).ready(function() {
 		$('#result').DataTable( {
+			page_
 			initComplete: function () {
 				this.api().columns().every( function () {
 					var column = this;
@@ -99,21 +100,12 @@ include("./includes/header.php");
 						.appendTo( $(column.footer()).empty() )
 						.on( 'change', function () {
 							var val = $.fn.dataTable.util.escapeRegex(
-								$(this).val()
-							);
-	
+								$(this).val());
 							column
 								.search( val ? '^'+val+'$' : '', true, false )
-								.draw();
-						} );
-	
+								.draw();} );
 					column.data().unique().sort().each( function ( d, j ) {
-						select.append( '<option value="'+d+'">'+d+'</option>' )
-					} );
-				} );
-			}
-		} );
-	} );
+						select.append( '<option value="'+d+'">'+d+'</option>' )} );} );}} );} );
 			</script>
 		<div class='table_container'>
 		<table id = result>

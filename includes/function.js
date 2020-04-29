@@ -139,6 +139,9 @@ function ran_col(){
 	color += letters[Math.floor(Math.random() * letters.length)];
 	document.getElementById('posts').style.background = color;}
 
+function randomHSL(){
+	return "hsla(" + ~~(360 * Math.random()) + "," + "70%,"+"80%,1)"}
+
 function showTooltip(evt, text){
 	let tooltip = document.getElementById("tooltip");
 	tooltip.innerHTML = text;

@@ -125,7 +125,7 @@ include("./includes/header.php");
 			echo "<select id='table-filter'>";
 			echo "<option value=''>All</option>";
 			foreach($seq_id_list as $seq_id){
-				echo "<option value='".$domain."'>".$domain."</option>";
+				echo "<option value='".$seq_id."'>".$seq_id."</option>";
 			}
 			echo "</select></th>";
 

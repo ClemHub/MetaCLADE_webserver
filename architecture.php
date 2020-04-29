@@ -13,7 +13,6 @@
 
 	$name_file = $approot."/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
 	echo "<h4> Sequence ID: " . $seq_id . " <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Move your mouse over the colored domain to show more detailed information about it.</span></span></h4>";
-	echo "<a class='table_link' href=results.php?form=".$form."&job_id=".$job_id.">Results page</a>";
 	$pfam_list = array();
 	echo "<svg height='40' width='100%' style='border:1px dashed #ccc' overflow='scroll'>";
 	$file_content = fopen($name_file, "r");
@@ -169,7 +168,7 @@
 	</div>
 	</div>
 	</div>
-
+	<?php echo "<br><a class='table_link' href=results.php?form=".$form."&job_id=".$job_id.">Main results page</a></br>";?>
 	</section>
 
 <?php include("./includes/footer.php"); ?>

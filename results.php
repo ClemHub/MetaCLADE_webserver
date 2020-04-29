@@ -91,13 +91,6 @@ include("./includes/header.php");
 			<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 			<script>
 
-	$.fn.dataTable.ext.search.push(
-		function( settings, data, dataIndex ) {
-			var max = parseInt( $('#max_e-value').val(), 10 );
-			var e_value = Number( data[2] ) || 0; // use data for the age column
-			if (( isNaN(max)) || (e_value <= max)){
-				return true;}
-			return false;});
 	
 	$(document).ready(function() {
 		$('#result').DataTable( {
@@ -120,11 +113,7 @@ include("./includes/header.php");
                 } );
            	 } );
 				}
-			$('#max_e-value').keyup( function() {
-        	table.draw();
-    } );
-
-			
+		
 		} );
 	} );
 			</script>

@@ -91,14 +91,7 @@ include("./includes/header.php");
 			<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 			<script>
 
-	$.fn.dataTable.ext.search.push(
-		function( settings, data, dataIndex ) {
-			var max = Number( $('#max_e-value').val());
-			var e_value = Number( data[2] ) || 0;
-			if (( isNaN(max)) || (e_value <= max)){
-				return true;}
-			return false;});
-	
+
 	$(document).ready(function() {
 		$('#result').DataTable( {
 			"pageLength": 10,
@@ -119,8 +112,7 @@ include("./includes/header.php");
                 column.data().unique().sort().each( function ( d, j ) {
                     select.append( '<option value="'+d+'">'+d+'</option>' )} );} );},
 			
-			$('#max_e-value').keyup( function() {
-        	table.draw();} );
+
 
 		} );
 	} );

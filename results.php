@@ -90,12 +90,22 @@ include("./includes/header.php");
 			<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
 			<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 			<script>
+
+	$.fn.dataTable.ext.search.push(
+		function( settings, data, dataIndex ) {
+			var max = parseInt( $('#max_e-value').val(), 10 );
+			var e_value = Number( data[2] ) || 0; // use data for the age column
+			if (( isNaN(max)) || (e_value <= max)){
+				return true;}
+			return false;});
+	
 	$(document).ready(function() {
 		$('#result').DataTable( {
 			"pageLength": 10,
+			"order": [[ 2, "desc" ]],
 			"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
 			initComplete: function () {
-            this.api().columns([0, 1, 2]).every( function () {
+            this.api().columns([0, 1]).every( function () {
                 var column = this;
                 var select = $('<select><option value=""></option></select>')
 					.appendTo( $(column.footer()).empty() )
@@ -108,8 +118,11 @@ include("./includes/header.php");
                 column.data().unique().sort().each( function ( d, j ) {
                     select.append( '<option value="'+d+'">'+d+'</option>' )
                 } );
-            } );
-        }
+           	 } );
+				}
+			$('#max_e-value').keyup( function() {
+        	table.draw();
+    } );
 
 			
 		} );
@@ -129,12 +142,12 @@ include("./includes/header.php");
 			<tr>
 			<th class='table_header'></th>
 			<th class='table_header'></th>
-			<th class='table_header'></th>
+			<th class='table_header'><input id='max_e-value' type='number'/> </th>
 			</tr>
 		</tfoot>		
 		<tbody>
 		<?php
-	uasort($data, 'sort_multiarray');
+
 	foreach($data as $seq_id => $domain_list){
 		echo "<tr><td><a class='table_link' href='architecture.php?form=" . $form ."&id=" . $seq_id . "&job_id=" . $job_id . "'>" . $seq_id . "</a></td>";
 		echo "<td>";

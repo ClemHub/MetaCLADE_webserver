@@ -59,16 +59,23 @@
 	<input type='button' class='bouton_info' value='Results informations' onclick='close_open_info(this);' />
 	<div class='contenu_info'>
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-	<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
-	<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
-	<script>
-			$(document).ready(function() {
-			$('#data_table').DataTable( 
-				{"order": [[ 2, "desc" ]]},
-				{"pageLength": 2}
-			)});
+		<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+		<script>
 
-	</script>
+		$(document).ready(function() {
+			var table = $('#result').DataTable( {
+				dom: 'lrtip',
+				"pageLength": 10,
+				"order": [[ 2, "desc" ]],
+				"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
+			} );
+			//$('#min_e-value').keyup( function() {
+			//table.draw();} );
+			//$('#table-filter').on('change', function(){
+			//	table.search(this.value).draw();});
+		});
+		</script>
 	<div class='table_container' id='architecture_data'>
 	<table id='data_table'>
 	<thead>

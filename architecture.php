@@ -167,19 +167,7 @@
 	</div>
 	</div>
 	</div>
-	<?php 
-	if($form == 'small_example' and $job_id=='small_example_withDAMA'){
-		echo "<br><a class='table_link' href=results.php?form=".$form."&dama=true>Main results page</a></br>";}
-	else if($form == 'small_example' and $job_id=='small_example_withoutDAMA'){
-		echo "<br><a class='table_link' href=results.php?form=".$form."&dama=false>Main results page</a></br>";}
-	else if($form == 'large_example' and $job_id=='large_example_withDAMA'){
-		echo "<br><a class='table_link' href=results.php?form=".$form."&dama=true>Main results page</a></br>";}
-	else if($form == 'large_example' and $job_id=='large_example_withoutDAMA'){
-		echo "<br><a class='table_link' href=results.php?form=".$form."&dama=false>Main results page</a></br>";}
-	else{
-		echo "<br><a class='table_link' href=results.php?form=".$form."&job_id=".$job_id.">Main results page</a></br>";
-	}
-	?>
+	<a class="table_link" href="javascript:history.back()">Main results page</a>
 	</section>
 
 <?php include("./includes/footer.php"); ?>

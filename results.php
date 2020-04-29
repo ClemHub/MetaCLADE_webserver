@@ -98,7 +98,7 @@ include("./includes/header.php");
             this.api().columns([0, 1]).every( function () {
                 var column = this;
                 var select = $('<select><option value=""></option></select>')
-					.appendTo( '#filter_head' )
+					.appendTo( '#table_filter' )
                     .on( 'change', function () {
                         var val = $.fn.dataTable.util.escapeRegex(
                             $(this).val());

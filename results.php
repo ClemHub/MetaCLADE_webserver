@@ -100,7 +100,7 @@ include("./includes/header.php");
 				return false;});
 		
 		$(document).ready(function() {
-			$('#result').DataTable( {
+			var table = $('#result').DataTable( {
 				dom: 'lrtip',
 				"pageLength": 10,
 				"order": [[ 2, "desc" ]],
@@ -109,7 +109,8 @@ include("./includes/header.php");
 			//$('#min_e-value').keyup( function() {
 			//table.draw();} );
 			$('#table-filter').on('change', function(){
-				table.search(this.value).draw();});} );
+				table.search(this.value).draw();});
+		});
 		</script>
 		
 		<div class='table_container'>

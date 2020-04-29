@@ -95,37 +95,23 @@ include("./includes/header.php");
 		function( settings, data, dataIndex ) {
 			var max = Number( $('#max_e-value').val());
 			var age = Number( data[2] ); // use data for the age column
-	
-			if ((isNaN( max ) ) || (age <= max ))
-			{
-				return true;
-			}
-			return false;
-		}
-	);
+			if ((isNaN( max ) ) || (age <= max )){
+				return true;}
+			return false;});
 	
 	$(document).ready(function() {
 		$('#result').DataTable( {
 			"pageLength": 10,
 			"order": [[ 2, "desc" ]],
 			"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
-			initComplete: function () {
-            this.api().columns([0, 1]).every( function () {
-                var column = this;
-                var select = $('<select><option value=""></option></select>')
-					.appendTo( $(column.footer()).empty() )
-                    .on( 'change', function () {
-                        var val = $.fn.dataTable.util.escapeRegex(
-                            $(this).val());
-                        column
-                            .search( val ? '^'+val+'$' : '', true, false )
-                            .draw();} );
-                column.data().unique().sort().each( function ( d, j ) {
-                    select.append( '<option value="'+d+'">'+d+'</option>' )} );} );},
+
 
 		} );
-		$('#min_e-value').keyup( function() {
-		table.draw();} );
+		//$('#min_e-value').keyup( function() {
+		//table.draw();} );
+		$('#table-filter').on('change', function(){
+       	table.search(this.value).draw();});
+
 	} );
 			</script>
 		<div class='table_container'>
@@ -139,9 +125,17 @@ include("./includes/header.php");
 			</tr>
 		</thead>
 		<tfoot>
+		<th class='table_header'></th>
 			<tr>
-			<th class='table_header'></th>
-			<th class='table_header'></th>
+			<?php
+			echo "<th class='table_header'>";
+			echo "<select id='table-filter'>";
+			echo "<option value=''>All</option>";
+			foreach($domain_list as $domain){
+				echo "<option>".$domain."</option>";
+			}
+			echo "</select></th>";
+			?>
 			<th class='table_header'><input id='max_e-value' type='number'/></th>
 			</tr>
 		</tfoot>		

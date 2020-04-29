@@ -91,13 +91,6 @@ include("./includes/header.php");
 		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 		<script>
 
-		$.fn.dataTable.ext.search.push(
-			function( settings, data, dataIndex ) {
-				var max = Number( $('#max_e-value').val());
-				var age = Number( data[2] ); // use data for the age column
-				if ((isNaN( max ) ) || (age <= max )){
-					return true;}
-				return false;});
 		
 		$(document).ready(function() {
 			var table = $('#result').DataTable( {
@@ -108,8 +101,8 @@ include("./includes/header.php");
 			} );
 			//$('#min_e-value').keyup( function() {
 			//table.draw();} );
-			//$('#table-filter').on('change', function(){
-			//	table.search(this.value).draw();});
+			$('#table-filter').on('change', function(){
+				table.search(this.value).draw();});
 		});
 		</script>
 		

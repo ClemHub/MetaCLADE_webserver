@@ -167,7 +167,6 @@
 	</div>
 	</div>
 	</div>
-	<a class="table_link" href="javascript:history.back()">Main results page</a>
 	</section>
-
+	<i class="arrow_back"></i><a class="table_link" href="javascript:history.back()">Main results page</a>
 <?php include("./includes/footer.php"); ?>

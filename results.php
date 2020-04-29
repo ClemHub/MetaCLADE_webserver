@@ -95,10 +95,10 @@ include("./includes/header.php");
 			"pageLength": 10,
 			"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
 			initComplete: function () {
-            this.api().columns().every( function () {
+            this.api().columns([0, 1]).every( function () {
                 var column = this;
                 var select = $('<select><option value=""></option></select>')
-					.appendTo( $(column.header()) )
+					.appendTo( '#select_filter' )
                     .on( 'change', function () {
                         var val = $.fn.dataTable.util.escapeRegex(
                             $(this).val());
@@ -117,6 +117,7 @@ include("./includes/header.php");
 			</script>
 		<div class='table_container'>
 		<table id = result>
+		<div id='select_filter'></div>
 		<thead>
 			<tr>
 			<th class='table_header'>Sequence ID <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span></th>
@@ -134,7 +135,7 @@ include("./includes/header.php");
 			$link_id = "http://pfam.xfam.org/family/" . $domain_id;
 			echo "<a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a>";}
 		echo "</td><td>".$best_evalues[$seq_id]."</td></tr>";}
-	echo "</tbody><tfoot></tfoot></table>";
+	echo "</tbody></table>";
 	?>
 	</div>
 	

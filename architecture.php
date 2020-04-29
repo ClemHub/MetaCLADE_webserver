@@ -167,6 +167,6 @@
 	</div>
 	</div>
 	</div>
-	<i class="fa fa-arrow-left"></i><a class="table_link" href="javascript:history.back()">Main results page</a>
+	<div id='previous_page'><i class="fa fa-arrow-left"></i><a class="table_link" href="javascript:history.back()"> Main results page</a></div>
 	</section>
 <?php include("./includes/footer.php"); ?>

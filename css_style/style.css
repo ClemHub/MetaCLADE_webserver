@@ -432,3 +432,7 @@ div.info div.contenu_info {
 
 div.dataTables_filter, div.dataTables_length {
 	padding: 5px;}
+
+#previous_page{
+	position:absolute; bottom:0;
+}

@@ -93,14 +93,10 @@ include("./includes/header.php");
 
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
-			var min = parseInt( $('#min_e-value').val(), 10 );
-			var max = parseInt( $('#max_e-value').val(), 10 );
-			var age = parseFloat( data[3] ) || 0; // use data for the age column
+			var max = Number( $('#max_e-value').val());
+			var age = Number( data[2] ) || 0; // use data for the age column
 	
-			if ( ( isNaN( min ) && isNaN( max ) ) ||
-				( isNaN( min ) && age <= max ) ||
-				( min <= age   && isNaN( max ) ) ||
-				( min <= age   && age <= max ) )
+			if ((isNaN( max ) ) || (age <= max ))
 			{
 				return true;
 			}
@@ -128,7 +124,7 @@ include("./includes/header.php");
                     select.append( '<option value="'+d+'">'+d+'</option>' )} );} );},
 
 		} );
-		$('#min_e-value, #max_e-value').keyup( function() {
+		$('#min_e-value').keyup( function() {
 		table.draw();} );
 	} );
 			</script>
@@ -146,7 +142,7 @@ include("./includes/header.php");
 			<tr>
 			<th class='table_header'></th>
 			<th class='table_header'></th>
-			<th class='table_header'><input id='max_e-value' type='number'/><input id='min_e-value' type='number'/></th>
+			<th class='table_header'><input id='max_e-value' type='number'/></th>
 			</tr>
 		</tfoot>		
 		<tbody>

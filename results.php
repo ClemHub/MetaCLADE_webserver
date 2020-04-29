@@ -114,6 +114,9 @@ include("./includes/header.php");
 			"order": [[ 2, "desc" ]],
 			"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
 
+			$('#min_e-value, #max_e-value').keyup( function() {
+			table.draw();} );
+
 			initComplete: function () {
             this.api().columns([0, 1]).every( function () {
                 var column = this;
@@ -127,10 +130,6 @@ include("./includes/header.php");
                             .draw();} );
                 column.data().unique().sort().each( function ( d, j ) {
                     select.append( '<option value="'+d+'">'+d+'</option>' )} );} );},
-			
-		$('#min_e-value, #max_e-value').keyup( function() {
-        table.draw();
-    } );
 
 		} );
 	} );

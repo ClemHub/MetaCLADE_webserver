@@ -129,7 +129,7 @@ include("./includes/header.php");
 
 		} );
 		$('#min_e-value, #max_e-value').keyup( function() {
-		table.draw();} ),
+		table.draw();} );
 	} );
 			</script>
 		<div class='table_container'>

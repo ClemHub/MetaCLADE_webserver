@@ -103,7 +103,9 @@ include("./includes/header.php");
 			} );
 			//$('#min_e-value').keyup( function() {
 			//table.draw();} );
-			$('#table-filter').on('change', function(){
+			$('#seq-filter').on('change', function(){
+				table.search(this.value).draw();});
+			$('#domain-filter').on('change', function(){
 				table.search(this.value).draw();});
 		});
 		</script>
@@ -122,7 +124,7 @@ include("./includes/header.php");
 			<tr>
 			<?php
 			echo "<th class='table_header'>";
-			echo "<select id='table-filter'>";
+			echo "<select id='seq-filter'>";
 			echo "<option value=''>All</option>";
 			foreach($seq_id_list as $seq_id){
 				echo "<option value='".$seq_id."'>".$seq_id."</option>";
@@ -130,7 +132,7 @@ include("./includes/header.php");
 			echo "</select></th>";
 
 			echo "<th class='table_header'>";
-			echo "<select id='table-filter'>";
+			echo "<select id='domain-filter'>";
 			echo "<option value=''>All</option>";
 			foreach(array_unique($domain_list) as $domain){
 				echo "<option value='".$domain."'>".$domain."</option>";

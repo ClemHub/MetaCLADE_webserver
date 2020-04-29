@@ -69,6 +69,7 @@ include("./includes/header.php");
 	$data = array();
 	$best_evalues = array();
 	$domain_list = array();
+	$seq_id_list = array();
 	$file_content = fopen($name_file, "r");
 	while(!feof($file_content)){
 		$line = fgets($file_content);
@@ -81,6 +82,7 @@ include("./includes/header.php");
 			if($best_evalues[$seq_id]>$exploded_line[9]){
 				$best_evalues[$seq_id]=$exploded_line[9];}}
 		else if ($seq_id != ""){
+			array_push($seq_id_list, $seq_id);
 			$best_evalues[$seq_id]=$exploded_line[9];
 			$data[$seq_id]=array($domain_id);}};
 
@@ -118,8 +120,15 @@ include("./includes/header.php");
 		</thead>
 		<tfoot>
 			<tr>
-			<th class='table_header'></th>
 			<?php
+			echo "<th class='table_header'>";
+			echo "<select id='table-filter'>";
+			echo "<option value=''>All</option>";
+			foreach($seq_id_list as $seq_id){
+				echo "<option value='".$domain."'>".$domain."</option>";
+			}
+			echo "</select></th>";
+
 			echo "<th class='table_header'>";
 			echo "<select id='table-filter'>";
 			echo "<option value=''>All</option>";

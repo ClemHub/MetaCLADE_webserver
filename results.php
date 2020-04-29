@@ -93,7 +93,7 @@ include("./includes/header.php");
 
 	$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
-			var max = Number( $('#max_e-value').val(), 10 );
+			var max = Number( $('#max_e-value').val());
 			var e_value = Number( data[2] ) || 0;
 			if (( isNaN(max)) || (e_value <= max)){
 				return true;}

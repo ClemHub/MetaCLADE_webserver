@@ -30,7 +30,7 @@ include("./includes/header.php");
 						echo '<br><strong>Status of your job:</strong> search job (step 1)<br>';}
 					else if (preg_match("/filter/", $last_line)){
 						echo '<br><strong>Status of your job:</strong> filter job (step 2)<br>';}
-					else if (preg_match("/computing architecture/", $last_line)){
+					else if (preg_match("/architecture/", $last_line)){
 						echo '<br><strong>Status of your job:</strong> architecture job (step 3)<br>';}}
 				else if(preg_match("/[a-zA-Z0-9]+\.o[0-9]+/", $file)){
 					$last_line = file($file);

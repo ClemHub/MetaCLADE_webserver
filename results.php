@@ -92,8 +92,8 @@ include("./includes/header.php");
 			<script>
 	$(document).ready(function() {
 		$('#result').DataTable( {
-			"pageLength": 2,
-			"lengthMenu": [ [1, 2, 3, -1], [1, 2, 3, "All"] ]
+			"pageLength": 10,
+			"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ]
 		} );
 	} );
 			</script>

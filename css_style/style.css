@@ -193,12 +193,13 @@ footer {
 .table_container {
 	overflow-x:auto;
 	width: 100%;
-	margin-bottom: 5px;}
+	margin-bottom: 10px;}
+
 tfoot {
-	display: table-header-group;
-}
+	display: table-header-group;}
+
 table {
-	/* border: 2px solid black; */
+	border: 1px solid black;
 	border-collapse: collapse;
 	line-height: 200%;
 	width: 100%;
@@ -210,7 +211,7 @@ table {
 
 table.dataTable thead{
 	height: 60px;
-	/* border: 2px solid black; */
+	border: 1px solid black;
 	color: rgb(1, 59, 82);
 	text-shadow: 0.1em 0.1em 0.2em rgba(21, 7, 36, 0.459);
 	background-image: linear-gradient(rgb(39, 155, 201), rgb(116, 194, 224));

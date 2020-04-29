@@ -33,7 +33,6 @@
 			$color = sprintf('#%06X', mt_rand(0, 0xFFFFFF));
 			echo "<g><a xlink:href='http://pfam.xfam.org/family/".$pfam."' target='_blank'><rect x='".$scaled_start."%' y='5' width='". $width ."%' height='30' style=' fill:".$color."; fill-opacity:0.7; stroke-width:1; stroke:3'>";
 			echo "<title>PFAM Acc Number: ".$pfam."\nFamily: ".$row['Family']."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nClan Acc Number: ".$row['Clan_acc_nb']."\nClan: ".$row['Clan']."\n\nModel species: ".$exploded_line[12]."\nE-value: ".$exploded_line[9]."\nBitscore: ".$exploded_line[10]."\nAccuracy: ".$exploded_line[11]."</title></rect>";
-			//echo "<title>PFAM Acc Number: ".$pfam."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nModel species: ".$exploded_line[12]."\nE-value: ".$exploded_line[9]."\nBitscore: ".$exploded_line[10]."\nAccuracy: ".$exploded_line[11]."</title></rect>";
 			echo "<text x='". $scaled_start ."%' y='25' style='font-size:15px; font-size-adjust: 0.5; fill:white; font-weight:bold; mix-blend-mode: exclusion;' >".$pfam."</text></a></g>";
 			array_push($pfam_list, $exploded_line);}}}
 
@@ -169,8 +168,14 @@
 	</div>
 	</div>
 	<?php 
-	if($form == 'small_example' or $form == 'large_example'){
-		echo "<br><a class='table_link' href=results.php?form=".$form.">Main results page</a></br>";}
+	if($form == 'small_example' and $job_id=='small_example_withDAMA'){
+		echo "<br><a class='table_link' href=results.php?form=".$form."&dama=true>Main results page</a></br>";}
+	else if($form == 'small_example' and $job_id=='small_example_withoutDAMA'){
+		echo "<br><a class='table_link' href=results.php?form=".$form."&dama=false>Main results page</a></br>";}
+	else if($form == 'large_example' and $job_id=='large_example_withDAMA'){
+		echo "<br><a class='table_link' href=results.php?form=".$form."&dama=true>Main results page</a></br>";}
+	else if($form == 'large_example' and $job_id=='large_example_withoutDAMA'){
+		echo "<br><a class='table_link' href=results.php?form=".$form."&dama=false>Main results page</a></br>";}
 	else{
 		echo "<br><a class='table_link' href=results.php?form=".$form."&job_id=".$job_id.">Main results page</a></br>";
 	}

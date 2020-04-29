@@ -92,8 +92,7 @@ include("./includes/header.php");
 			<script>
 			$(document).ready(function() {
 				$('#result').DataTable({
-					"order": [[ 2, "desc" ]]
-				});
+					"order": [[ 2, "desc" ]]});
 			});
 
 			</script>

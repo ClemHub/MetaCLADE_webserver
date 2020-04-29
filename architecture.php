@@ -5,6 +5,7 @@
 	<div id='architecture'>
 	<h2> Architecture </h2>
 	<?php
+	$form = $_GET['form'];
 	$seq_id = $_GET['id'];
 	$job_id = $_GET['job_id'];
 
@@ -12,6 +13,7 @@
 
 	$name_file = $approot."/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
 	echo "<h4> Sequence ID: " . $seq_id . " <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Move your mouse over the colored domain to show more detailed information about it.</span></span></h4>";
+	echo "<a class='table_link' href=results.php?form=".$form."&job_id=".$job_id.">Results page</a>";
 	$pfam_list = array();
 	echo "<svg height='40' width='100%' style='border:1px dashed #ccc' overflow='scroll'>";
 	$file_content = fopen($name_file, "r");
@@ -55,7 +57,7 @@
 	?>
 
 	<div class='info'>
-	<input type='button' class='bouton_info' value='Results informations:' onclick='close_open_info(this);' />
+	<input type='button' class='bouton_info' value='Results informations' onclick='close_open_info(this);' />
 	<div class='contenu_info'>
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
 	<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
@@ -104,7 +106,7 @@
 	</div>
 	</div>
 	<div class='info'>
-	<input type='button' class='bouton_info' value='GO-terms:' onclick='close_open_info(this);' />
+	<input type='button' class='bouton_info' value='GO-terms' onclick='close_open_info(this);' />
 	<div class='contenu_info'>
 			<script>
 			$(document).ready(function() {
@@ -134,8 +136,8 @@
 		$pfam_row = $db->query("SELECT DISTINCT PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$data[4]."'");
 		$pfam_row = $pfam_row->fetchArray();
 		if($pfam_row['Clan_acc_nb']==""){
-			$Clan_acc_nb="Not available";
-			$Clan="Not available";}
+			$Clan_acc_nb="NA";
+			$Clan="NA";}
 		else{
 			$Clan_acc_nb="<a class = 'table_link' href=" . $link_clan.$pfam_row['Clan_acc_nb'] . " target='_blank'>".$pfam_row['Clan_acc_nb']."</a>";
 			$Clan="<a class = 'table_link' href=" . $link_clan.$pfam_row['Clan'] . " target='_blank'>".$pfam_row['Clan']."</a>";
@@ -150,7 +152,7 @@
 			echo "<td>" . $pfam_row['Family']."</td>";
 			echo "<td>" . $Clan_acc_nb."</td>";
 			echo "<td>" . $Clan."</td>";
-			echo "<td>Not available</td></tr>";}
+			echo "<td>NA</td></tr>";}
 		else{
 			$i = 0;
 			foreach($rows as $row){
@@ -167,6 +169,7 @@
 	</div>
 	</div>
 	</div>
+
 	</section>
 
 <?php include("./includes/footer.php"); ?>

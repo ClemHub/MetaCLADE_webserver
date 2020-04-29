@@ -64,12 +64,27 @@
 		<script>
 
 		$(document).ready(function() {
-			var table = $('#result').DataTable( {
+			var table = $('#data_table').DataTable( {
 				dom: 'lrtip',
 				"pageLength": 10,
 				"order": [[ 2, "desc" ]],
 				"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
 			} );
+
+			//$('#min_e-value').keyup( function() {
+			//table.draw();} );
+			//$('#table-filter').on('change', function(){
+			//	table.search(this.value).draw();});
+		});
+
+		$(document).ready(function() {
+			var table = $('#go_terms_table').DataTable( {
+				dom: 'lrtip',
+				"pageLength": 10,
+				"order": [[ 2, "desc" ]],
+				"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
+			} );
+			
 			//$('#min_e-value').keyup( function() {
 			//table.draw();} );
 			//$('#table-filter').on('change', function(){
@@ -114,14 +129,6 @@
 	<div class='info'>
 	<input type='button' class='bouton_info' value='GO-terms' onclick='close_open_info(this);' />
 	<div class='contenu_info'>
-			<script>
-			$(document).ready(function() {
-			$('#go_terms_table').DataTable( 
-				{"order": [[ 2, "desc" ]]},
-				{"pageLength": 2}
-			)});
-
-			</script>
 	<div class='table_container' id='goterms'>
 	<table id='go_terms_table'>
 	<thead>

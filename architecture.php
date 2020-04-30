@@ -17,6 +17,8 @@
 	$pfam_list = array();
 	$pfam_name = array();
 	$pfam_fam = array();
+	$pfam_clan_nb = array();
+	$pfam_clan = array();
 	$model_species = array();
 	echo "<svg height='40' width='100%' style='border:1px dashed #ccc' overflow='scroll'>";
 	$file_content = fopen($name_file, "r");
@@ -40,6 +42,8 @@
 			echo "<text x='". $scaled_start ."%' y='25' style='font-size:15px; font-size-adjust: 0.5; fill:white; font-weight:bold; mix-blend-mode: exclusion;' >".$pfam."</text></a></g>";
 			array_push($pfam_name, $pfam);
 			array_push($pfam_fam, $row['Family']);
+			array_push($pfam_clan_nb, $row['Clan_acc_nb']);
+			array_push($pfam_clan, $row['Clan']);
 			array_push($model_species, substr($exploded_line[12], 0, -1));
 			array_push($pfam_list, $exploded_line);}}}
 
@@ -119,7 +123,7 @@
 				"order": [[ 2, "desc" ]],
 				"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
 			initComplete: function () {
-				this.api().columns().every( function () {
+				this.api().columns([4]).every( function () {
 					var column = this;
 					var select = $('<select><option value=""></option></select>')
 						.appendTo( $(column.footer()).empty() )
@@ -136,11 +140,6 @@
 					column.data().unique().sort().each( function ( d, j ) {
 						select.append( '<option value="'+d+'">'+d+'</option>' )} );} );}
 			} );
-			
-			//$('#min_e-value').keyup( function() {
-			//table.draw();} );
-			//$('#table-filter').on('change', function(){
-			//	table.search(this.value).draw();});
 		});
 		</script>
 	<div class='table_container' id='architecture_data'>
@@ -224,10 +223,35 @@
 	</thead>
 	<tfoot>
 		<tr>
-		<th class='table_header'></th>
-		<th class='table_header'></th>
-		<th class='table_header'></th>
-		<th class='table_header'></th>
+		<?php
+		echo "<th class='table_header'>";
+		echo "<select id='domain-filter'>";
+		echo "<option value=''>All</option>";
+		foreach(array_unique($pfam_name) as $pfam){
+			echo "<option value='".$pfam."'>".$pfam."</option>";}
+		echo "</select></th>";
+
+		echo "<th class='table_header'>";
+		echo "<select id='family-filter'>";
+		echo "<option value=''>All</option>";
+		foreach(array_unique($pfam_fam)  as $fam){
+			echo "<option value='".$fam."'>".$fam."</option>";}
+		echo "</select></th>";
+
+		echo "<th class='table_header'>";
+		echo "<select id='clan-nb-filter'>";
+		echo "<option value=''>All</option>";
+		foreach(array_unique($pfam_clan_nb) as $clan_nb){
+			echo "<option value='".$clan_nb."'>".$clan_nb."</option>";}
+		echo "</select></th>";
+
+		echo "<th class='table_header'>";
+		echo "<select id='clan-filter'>";
+		echo "<option value=''>All</option>";
+		foreach(array_unique($pfam_clan)  as $clan){
+			echo "<option value='".$clan."'>".$clan."</option>";}
+		echo "</select></th>";
+		?>
 		<th class='table_header'></th>
 		</tr>
 	</tfoot>
@@ -252,7 +276,7 @@
 			$nb ++;
 			array_push($rows, $row);}
 		if(empty($rows)){
-			echo "<tr><a class = 'table_link' href=" . $link_id . " target='_blank'><td>".$data[4]."</td></a>";
+			echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data[4]."</a></td>";
 			echo "<td>" . $pfam_row['Family']."</td>";
 			echo "<td>" . $Clan_acc_nb."</td>";
 			echo "<td>" . $Clan."</td>";
@@ -261,7 +285,7 @@
 			$i = 0;
 			foreach($rows as $row){
 				if($i==0){
-					echo "<tr><a class = 'table_link' href=" . $link_id . " target='_blank'><td rowspan=".$nb.">".$data[4]."</td></a>";
+					echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data[4]."</a></td>";
 					echo "<td rowspan=".$nb.">" . $pfam_row['Family']."</td>";
 					echo "<td rowspan=".$nb.">" . $Clan_acc_nb."</td>";
 					echo "<td rowspan=".$nb.">" . $Clan."</td>";}

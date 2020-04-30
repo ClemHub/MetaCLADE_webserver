@@ -176,7 +176,7 @@
 		echo "<th class='table_header'>";
 		echo "<select id='clan-nb-filter'>";
 		echo "<option value=''>All</option>";
-		echo "<option value='NA'>NA</option>";
+		echo "<option value='NA_1'>NA</option>";
 		$pfam_clan_nb = array_filter($pfam_clan_nb);
 		foreach(array_unique($pfam_clan_nb) as $clan_nb){
 			echo "<option value='".$clan_nb."'>".$clan_nb."</option>";}
@@ -185,7 +185,7 @@
 		echo "<th class='table_header'>";
 		echo "<select id='clan-filter'>";
 		echo "<option value=''>All</option>";
-		echo "<option value='NA'>NA</option>";
+		echo "<option value='NA_2'>NA</option>";
 		$pfam_clan = array_filter($pfam_clan);
 		foreach(array_unique($pfam_clan)  as $clan){
 			echo "<option value='".$clan."'>".$clan."</option>";}
@@ -211,8 +211,8 @@
 		$pfam_row = $db->query("SELECT DISTINCT PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$data."'");
 		$pfam_row = $pfam_row->fetchArray();
 		if($pfam_row['Clan_acc_nb']==""){
-			$Clan_acc_nb="NA";
-			$Clan="NA";}
+			$Clan_acc_nb="NA_1";
+			$Clan="NA_2";}
 		else{
 			$Clan_acc_nb="<a class = 'table_link' href=" . $link_clan.$pfam_row['Clan_acc_nb'] . " target='_blank'>".$pfam_row['Clan_acc_nb']."</a>";
 			$Clan="<a class = 'table_link' href=" . $link_clan.$pfam_row['Clan'] . " target='_blank'>".$pfam_row['Clan']."</a>";}

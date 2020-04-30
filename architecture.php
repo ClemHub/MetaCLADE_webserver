@@ -148,6 +148,7 @@
 		foreach(array_unique($pfam_name) as $pfam){
 			echo "<option value='".$pfam."'>".$pfam."</option>";}
 		echo "</select></th>";
+		echo "<th class='table_header'></th>";
 
 		echo "<th class='table_header'>";
 		echo "<select id='family-filter'>";
@@ -156,14 +157,12 @@
 			echo "<option value='".$fam."'>".$fam."</option>";}
 		echo "</select></th>";
 
-		echo "<th class='table_header'></th>";
 
 		echo "<th class='table_header'>";
 		echo "<select id='species-filter'>";
 		echo "<option value=''>All</option>";
 		foreach(array_unique($model_species) as $species){
-			echo "<option value='".$species."'>".$species."</option>";
-		}
+			echo "<option value='".$species."'>".$species."</option>";}
 		echo "</select></th>";	
 		?>
 		<th class='table_header'><input id='e-value_max' type='text' placeholder='E-value max'/></th>
@@ -188,7 +187,7 @@
 		echo '</tbody>';
 	echo '</table>';
 	?>
-	<!--<input class='btn' type='reset' value='Reset' onclick='reset_table("data_table")'/>-->
+
 	</div>
 	</div>
 	</div>

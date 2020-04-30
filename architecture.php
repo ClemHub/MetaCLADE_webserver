@@ -125,21 +125,25 @@
 			initComplete: function () {
 				this.api().columns([4]).every( function () {
 					var column = this;
-					var select = $('<select><option value=""></option></select>')
+					var select = $('<select><option value="">All</option></select>')
 						.appendTo( $(column.footer()).empty() )
 						.on( 'change', function () {
 							var val = $.fn.dataTable.util.escapeRegex(
-								$(this).val()
-							);
-	
+								$(this).val());
 							column
 								.search( val ? '^'+val+'$' : '', true, false )
-								.draw();
-						} );
-	
+								.draw();});
 					column.data().unique().sort().each( function ( d, j ) {
 						select.append( '<option value="'+d+'">'+d+'</option>' )} );} );}
 			} );
+			$('#domain-filter').on('change', function(){
+				table.search(this.value).draw();});
+			$('#family-filter').on('change', function(){
+				table.search(this.value).draw();});
+			$('#clan-nb-filter').on('change', function(){
+				table.search(this.value).draw();});
+			$('#clan-filter').on('change', function(){
+				table.search(this.value).draw();});
 		});
 		</script>
 	<div class='table_container' id='architecture_data'>

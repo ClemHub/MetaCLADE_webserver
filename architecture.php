@@ -285,7 +285,7 @@
 		while($row = $request->fetchArray()){
 			$nb ++;
 			array_push($rows, $row);}
-		if(empty($rows)){
+		if($nb == 0){
 			echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data."</a></td>";
 			echo "<td>" . $pfam_row['Family']."</td>";
 			echo "<td>" . $Clan_acc_nb."</td>";

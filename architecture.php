@@ -64,11 +64,32 @@
 		<script>
 
 		$(document).ready(function() {
+
 			var table = $('#data_table').DataTable( {
 				dom: 'lrtip',
 				"pageLength": 10,
 				"order": [[ 2, "desc" ]],
 				"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
+				initComplete: function () {
+				this.api().columns([0, 1, 3]).every( function () {
+					var column = this;
+					var select = $('<select><option value=""></option></select>')
+						.appendTo( $(column.footer()).empty() )
+						.on( 'change', function () {
+							var val = $.fn.dataTable.util.escapeRegex(
+								$(this).val()
+							);
+	
+							column
+								.search( val ? '^'+val+'$' : '', true, false )
+								.draw();
+						} );
+	
+					column.data().unique().sort().each( function ( d, j ) {
+						select.append( '<option value="'+d+'">'+d+'</option>' )
+					} );
+				} );
+			}
 			} );
 
 			//$('#min_e-value').keyup( function() {
@@ -104,7 +125,17 @@
 		<th class='table_header'>Accuracy</th>
 		</tr>
 	</thead>
-	
+	<tfoot>
+		<tr>
+		<th class='table_header'></th>
+		<th class='table_header'></th>
+		<th class='table_header'></th>
+		<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>If the model species is 'unavailable', it is because the most reliable model was HMMer-3.</span></span></h4></th>	
+		<th class='table_header'><input id='e-value_max' type='text' placeholder='E-value max'/></th>
+		<th class='table_header'><input id='bitscore min' type='text' placeholder='Bitscore min'/></th>
+		<th class='table_header'><input id='acc min' type='text' placeholder='Accuracy min'/></th>
+		</tr>
+	</tfoot>	
 	<?php
 	echo '<tbody>';
 	foreach($pfam_list as $data){

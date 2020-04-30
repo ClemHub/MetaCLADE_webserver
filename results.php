@@ -148,7 +148,7 @@ include("./includes/header.php");
 			}
 			echo "</select></th>";
 			?>
-			<th class='table_header'><input id='max' value = '1' type='number'/></th>
+			<th class='table_header'><input id='max' value = '1' type='text' placeholder='E-value max'/></th>
 			</tr>
 		</tfoot>		
 		<tbody>

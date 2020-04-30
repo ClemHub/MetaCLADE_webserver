@@ -20,6 +20,7 @@
 	$pfam_clan_nb = array();
 	$pfam_clan = array();
 	$model_species = array();
+	$go_terms = array();
 	echo "<svg height='40' width='100%' style='border:1px dashed #ccc' overflow='scroll'>";
 	$file_content = fopen($name_file, "r");
 	while(!feof($file_content)){
@@ -32,11 +33,14 @@
 			$pfam = $exploded_line[4];
 			$row = $db->query("SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
 			$row = $row->fetchArray();
-
 			$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
-			$go_terms = array();
 			while($data = $request->fetchArray()){
-				array_push($go_terms[$pfam], $data['GO_term']);}
+				if(array_key_exists($pfam, $go_terms)){
+					array_push($go_terms[$pfam], $data['GO_term']);}
+				else{
+					$go_terms[$pfam] = $data['GO_term'];
+				}
+			}
 			$nb_aa = ($stop-$start);
 			$width = ($nb_aa*100)/$length;
 			$scaled_start = ($start*100)/$length;
@@ -201,7 +205,6 @@
 	</tfoot>
 	<?php
 	echo '<tbody>';
-	array_push($pfam_name, 'PF00001');
 
 	foreach($pfam_name as $data){
 		$link_id = 'http://pfam.xfam.org/family/' . $data;

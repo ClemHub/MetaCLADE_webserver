@@ -40,7 +40,7 @@
 			echo "<text x='". $scaled_start ."%' y='25' style='font-size:15px; font-size-adjust: 0.5; fill:white; font-weight:bold; mix-blend-mode: exclusion;' >".$pfam."</text></a></g>";
 			array_push($pfam_name, $pfam);
 			array_push($pfam_fam, $row['Family']);
-			array_push($model_species, $exploded_line[12]);
+			array_push($model_species, substr($exploded_line[12], -1));
 			array_push($pfam_list, $exploded_line);}}}
 
 	echo "</svg>";
@@ -148,7 +148,6 @@
 		foreach(array_unique($pfam_name) as $pfam){
 			echo "<option value='".$pfam."'>".$pfam."</option>";}
 		echo "</select></th>";
-		echo "<th class='table_header'></th>";
 
 		echo "<th class='table_header'>";
 		echo "<select id='family-filter'>";
@@ -157,6 +156,7 @@
 			echo "<option value='".$fam."'>".$fam."</option>";}
 		echo "</select></th>";
 
+		echo "<th class='table_header'></th>";
 
 		echo "<th class='table_header'>";
 		echo "<select id='species-filter'>";

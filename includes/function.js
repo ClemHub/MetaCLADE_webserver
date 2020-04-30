@@ -216,3 +216,15 @@ function filter_all_domains(){
 					tr[i].style.display = "none";
 					break}}}}}
 
+function ShowTooltip(evt, mouseovertext) {
+	var tooltip = document.getElementById('tooltip');
+	tooltip.setAttribute("x", evt.clientX + 11);
+	tooltip.setAttribute("y", evt.clientY + 27);
+	tooltip.firstChild.data = mouseovertext;
+	tooltip.setAttribute("visibility", "visible");
+}
+
+function HideTooltip(evt) {
+	var tooltip = document.getElementById('tooltip');
+	tooltip.setAttribute("visibility", "hidden");
+}

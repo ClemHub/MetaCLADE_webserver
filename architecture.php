@@ -265,10 +265,12 @@
 	</tfoot>
 	<?php
 	echo '<tbody>';
-	foreach($pfam_list as $data){
-		$link_id = 'http://pfam.xfam.org/family/' . $data[4];
+	array_push($pfam_name, 'PF00001');
+	
+	foreach($pfam_name as $data){
+		$link_id = 'http://pfam.xfam.org/family/' . $data;
 		$link_clan = 'https://pfam.xfam.org/clan/';
-		$pfam_row = $db->query("SELECT DISTINCT PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$data[4]."'");
+		$pfam_row = $db->query("SELECT DISTINCT PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$data."'");
 		$pfam_row = $pfam_row->fetchArray();
 		if($pfam_row['Clan_acc_nb']==""){
 			$Clan_acc_nb="NA";
@@ -284,7 +286,7 @@
 			$nb ++;
 			array_push($rows, $row);}
 		if(empty($rows)){
-			echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data[4]."</a></td>";
+			echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data."</a></td>";
 			echo "<td>" . $pfam_row['Family']."</td>";
 			echo "<td>" . $Clan_acc_nb."</td>";
 			echo "<td>" . $Clan."</td>";
@@ -293,7 +295,7 @@
 			$i = 0;
 			foreach($rows as $row){
 				if($i==0){
-					echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data[4]."</a></td>";
+					echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data."</a></td>";
 					echo "<td rowspan=".$nb.">" . $pfam_row['Family']."</td>";
 					echo "<td rowspan=".$nb.">" . $Clan_acc_nb."</td>";
 					echo "<td rowspan=".$nb.">" . $Clan."</td>";}

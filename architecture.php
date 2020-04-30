@@ -117,7 +117,7 @@
 		});
 
 		$(document).ready(function() {
-			var table = $('#go_terms_table').DataTable( {
+			var go_termstable = $('#go_terms_table').DataTable( {
 				dom: 'lrtip',
 				"pageLength": 10,
 				"order": [[ 2, "desc" ]],
@@ -137,13 +137,13 @@
 						select.append( '<option value="'+d+'">'+d+'</option>' )} );} );}
 			} );
 			$('#domain-filter').on('change', function(){
-				table.search(this.value).draw();});
+				go_termstable.search(this.value).draw();});
 			$('#family-filter').on('change', function(){
-				table.search(this.value).draw();});
+				go_termstable.search(this.value).draw();});
 			$('#clan-nb-filter').on('change', function(){
-				table.search(this.value).draw();});
+				go_termstable.search(this.value).draw();});
 			$('#clan-filter').on('change', function(){
-				table.search(this.value).draw();});
+				go_termstable.search(this.value).draw();});
 		});
 		</script>
 	<div class='table_container' id='architecture_data'>

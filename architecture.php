@@ -228,8 +228,13 @@
 			echo "<td>" . $Clan_acc_nb."</td>";
 			echo "<td>" . $Clan."</td>";
 			echo "<td>";
+			$i == 0;
+			$length = count($go_terms[$data])-1;
 			foreach($go_terms[$data] as $go){
-				echo '<br>'.$go.'<br>';}
+				if($i != $length){
+					echo $go.'<br>';}
+				else{
+					echo $go;}}
 			echo "</td></tr>";
 			}}
 	echo '</tbody>';

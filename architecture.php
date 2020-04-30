@@ -32,11 +32,11 @@
 			$pfam = $exploded_line[4];
 			$row = $db->query("SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
 			$row = $row->fetchArray();
+
 			$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
 			$go_terms = array();
-	
 			while($data = $request->fetchArray()){
-				array_push($go_terms, $data['GO_term']);}
+				array_push($go_terms[$pfam], $data['GO_term']);}
 			$nb_aa = ($stop-$start);
 			$width = ($nb_aa*100)/$length;
 			$scaled_start = ($start*100)/$length;
@@ -70,6 +70,7 @@
 
 	?>
 
+	echo $go_terms;
 	<div class='info'>
 	<input type='button' class='bouton_info' value='Results informations' onclick='close_open_info(this);' />
 	<div class='contenu_info'>

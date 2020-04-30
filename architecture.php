@@ -15,6 +15,9 @@
 	$name_file = $approot."/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
 	echo "<h4> Sequence ID: " . $seq_id . " <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Move your mouse over the colored domain to show more detailed information about it.</span></span></h4>";
 	$pfam_list = array();
+	$pfam_name = array();
+	$pfam_fam = array();
+	$model_species = array();
 	echo "<svg height='40' width='100%' style='border:1px dashed #ccc' overflow='scroll'>";
 	$file_content = fopen($name_file, "r");
 	while(!feof($file_content)){
@@ -35,6 +38,9 @@
 			echo "<g><a xlink:href='http://pfam.xfam.org/family/".$pfam."' target='_blank'><rect x='".$scaled_start."%' y='5' width='". $width ."%' height='30' style=' fill:".$color."; fill-opacity:0.7; stroke-width:1; stroke:3'>";
 			echo "<title>PFAM Acc Number: ".$pfam."\nFamily: ".$row['Family']."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nClan Acc Number: ".$row['Clan_acc_nb']."\nClan: ".$row['Clan']."\n\nModel species: ".$exploded_line[12]."\nE-value: ".$exploded_line[9]."\nBitscore: ".$exploded_line[10]."\nAccuracy: ".$exploded_line[11]."</title></rect>";
 			echo "<text x='". $scaled_start ."%' y='25' style='font-size:15px; font-size-adjust: 0.5; fill:white; font-weight:bold; mix-blend-mode: exclusion;' >".$pfam."</text></a></g>";
+			array_push($pfam_name, $pfam);
+			array_push($pfam_fam, $row['Family']);
+			array_push($model_species, $exploded_line[12]);
 			array_push($pfam_list, $exploded_line);}}}
 
 	echo "</svg>";
@@ -70,32 +76,12 @@
 				"pageLength": 10,
 				"order": [[ 2, "desc" ]],
 				"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
-				initComplete: function () {
-				this.api().columns([0, 1, 3]).every( function () {
-					var column = this;
-					var select = $('<select><option value=""></option></select>')
-						.appendTo( $(column.footer()).empty() )
-						.on( 'change', function () {
-							var val = $.fn.dataTable.util.escapeRegex(
-								$(this).val()
-							);
-	
-							column
-								.search( val ? '^'+val+'$' : '', true, false )
-								.draw();
-						} );
-	
-					column.data().unique().sort().each( function ( d, j ) {
-						select.append( '<option value="'+d+'">'+d+'</option>' )
-					} );
-				} );
-			}
 			} );
 
 			//$('#min_e-value').keyup( function() {
 			//table.draw();} );
-			//$('#table-filter').on('change', function(){
-			//	table.search(this.value).draw();});
+			$('#table-filter').on('change', function(){
+				table.search(this.value).draw();});
 		});
 
 		$(document).ready(function() {
@@ -127,10 +113,31 @@
 	</thead>
 	<tfoot>
 		<tr>
-		<th class='table_header'></th>
-		<th class='table_header'></th>
-		<th class='table_header'></th>
-		<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>If the model species is 'unavailable', it is because the most reliable model was HMMer-3.</span></span></h4></th>	
+		<?php
+		echo "<th class='table_header'>";
+		echo "<select id='domain-filter'>";
+		echo "<option value=''>All</option>";
+		foreach($pfam_name as $pfam){
+			echo "<option value='".$pfam."'>".$pfam."</option>";}
+		echo "</select></th>";
+
+		echo "<th class='table_header'>";
+		echo "<select id='family-filter'>";
+		echo "<option value=''>All</option>";
+		foreach($pfam_fam as $fam){
+			echo "<option value='".$fam."'>".$fam."</option>";}
+		echo "</select></th>";
+
+		echo "<th class='table_header'></th>";
+
+		echo "<th class='table_header'>";
+		echo "<select id='family-filter'>";
+		echo "<option value=''>All</option>";
+		foreach($model_species as $species){
+			echo "<option value='".$species."'>".$species."</option>";
+		}
+		echo "</select></th>";	
+		?>
 		<th class='table_header'><input id='e-value_max' type='text' placeholder='E-value max'/></th>
 		<th class='table_header'><input id='bitscore min' type='text' placeholder='Bitscore min'/></th>
 		<th class='table_header'><input id='acc min' type='text' placeholder='Accuracy min'/></th>

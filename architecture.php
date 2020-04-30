@@ -78,9 +78,9 @@
 				return false;});
 		$.fn.dataTable.ext.search.push(		
 			function( settings, data, dataIndex ) {
-				var max = Number($('#bitscore_min').val()) || 0;
-				var e_value = Number(data[5]) || 0;
-				if ((isNaN(max)) || (e_value <= max)){
+				var min = Number($('#bitscore_min').val()) || 0;
+				var bitscore = Number(data[5]) || 0;
+				if ((isNaN(min)) || (bitscore >= min)){
 					return true;}
 				return false;}		
 		);

@@ -90,6 +90,7 @@ include("./includes/header.php");
 		?>
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
 		<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+		<script type="text/javascript" charset="utf8" src="cdn.datatables.net/plug-ins/1.10.20/filtering/row-based/range_numbers.js"></script>
 		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 		<script>
 
@@ -101,8 +102,9 @@ include("./includes/header.php");
 				"order": [[ 2, "desc" ]],
 				"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
 			} );
-			//$('#min_e-value').keyup( function() {
-			//table.draw();} );
+
+			$('#min').keyup( function() { table.draw(); } );
+			$('#max').keyup( function() { table.draw(); } );
 			$('#seq-filter').on('change', function(){
 				table.search(this.value).draw();});
 			$('#domain-filter').on('change', function(){
@@ -139,7 +141,7 @@ include("./includes/header.php");
 			}
 			echo "</select></th>";
 			?>
-			<th class='table_header'><input id='max_e-value' type='number'/></th>
+			<th class='table_header'><input id='max' type='number'/></th>
 			</tr>
 		</tfoot>		
 		<tbody>

@@ -133,15 +133,6 @@ function ShowHideDiv(){
 	var evalue_dama = document.getElementById("show_dama");
 	evalue_dama.style.display = yes_btn.checked ? "block" : "none";}
 
-function ran_col(){
-	var color = '#';
-	var letters = ['000000','FF0000','00FF00','0000FF','FFFF00','00FFFF','FF00FF','C0C0C0'];
-	color += letters[Math.floor(Math.random() * letters.length)];
-	document.getElementById('posts').style.background = color;}
-
-function randomHSL(){
-	return "hsla(" + ~~(360 * Math.random()) + "," + "70%,"+"80%,1)"}
-
 function showTooltip(evt, text){
 	let tooltip = document.getElementById("tooltip");
 	tooltip.innerHTML = text;
@@ -244,3 +235,29 @@ function filter_all_domains(){
 					tr[i].style.display = "none";
 					break}}}}}
 
+jQuery.fn.dataTableExt.afnFiltering.push(
+	function( oSettings, aData, iDataIndex ) {
+		var iColumn = 2;
+		var iMin = document.getElementById('min').value * 1;
+		var iMax = document.getElementById('max').value * 1;
+	
+		var iVersion = aData[iColumn] == "-" ? 0 : aData[iColumn]*1;
+		if ( iMin === "" && iMax === "" )
+		{
+			return true;
+		}
+		else if ( iMin === "" && iVersion < iMax )
+		{
+			return true;
+		}
+		else if ( iMin < iVersion && "" === iMax )
+		{
+			return true;
+		}
+		else if ( iMin < iVersion && iVersion < iMax )
+		{
+			return true;
+		}
+		return false;
+	}
+);

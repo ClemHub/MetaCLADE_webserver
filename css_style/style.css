@@ -231,8 +231,6 @@ td {
 	font-size: 17px;
 	font-size-adjust: 0.5;}
 
-tbody [rowspan], tbody [rowspan] ~ th, tbody [rowspan] ~ td, tfoot {
-	border-top: 1px solid black;} 
 
 tbody:hover td[rowspan], tr:hover td {
 		background: rgba(155, 187, 196, 0.555); }

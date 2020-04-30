@@ -40,7 +40,7 @@
 			echo "<text x='". $scaled_start ."%' y='25' style='font-size:15px; font-size-adjust: 0.5; fill:white; font-weight:bold; mix-blend-mode: exclusion;' >".$pfam."</text></a></g>";
 			array_push($pfam_name, $pfam);
 			array_push($pfam_fam, $row['Family']);
-			array_push($model_species, substr($exploded_line[12], -1));
+			array_push($model_species, substr($exploded_line[12], 0, -1));
 			array_push($pfam_list, $exploded_line);}}}
 
 	echo "</svg>";

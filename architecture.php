@@ -269,7 +269,7 @@
 	foreach($pfam_name as $data){
 		$link_id = 'http://pfam.xfam.org/family/' . $data;
 		$link_clan = 'https://pfam.xfam.org/clan/';
-		$pfam_row = $db->query("SELECT DISTINCT PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$data[4]."'");
+		$pfam_row = $db->query("SELECT DISTINCT PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$data."'");
 		$pfam_row = $pfam_row->fetchArray();
 		if($pfam_row['Clan_acc_nb']==""){
 			$Clan_acc_nb="NA";

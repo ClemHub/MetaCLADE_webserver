@@ -217,7 +217,7 @@
 		else{
 			$Clan_acc_nb="<a class = 'table_link' href=" . $link_clan.$pfam_row['Clan_acc_nb'] . " target='_blank'>".$pfam_row['Clan_acc_nb']."</a>";
 			$Clan="<a class = 'table_link' href=" . $link_clan.$pfam_row['Clan'] . " target='_blank'>".$pfam_row['Clan']."</a>";}
-		if(empty($go_terms)){
+		if(empty($go_terms[$data])){
 			echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data."</a></td>";
 			echo "<td>" . $pfam_row['Family']."</td>";
 			echo "<td>" . $Clan_acc_nb."</td>";
@@ -230,7 +230,7 @@
 			echo "<td>" . $Clan_acc_nb."</td>";
 			echo "<td>" . $Clan."</td>";
 			echo "<td>";
-			foreach($go_terms as $go){
+			foreach($go_terms[$data] as $go){
 				echo '<br>'.$go.'<br>';}
 			echo "</td></tr>";}}
 	echo '</tbody>';

@@ -38,7 +38,7 @@
 			while($data = $request->fetchArray()){
 				array_push($go_terms_names, $data['GO_term']);
 				if(array_key_exists($pfam, $go_terms)){
-					array_push($go_terms[$pfam], $data['GO_term']);}
+					array_push($go_terms[$pfam], array($data['GO_term']));}
 				else{
 					$go_terms[$pfam] = array($data['GO_term']);}}
 			$nb_aa = ($stop-$start);

@@ -287,11 +287,11 @@ $(document).ready(function() {
 	$('#acc_min').keyup( function() {
 		table.draw();} );
 	$('#domain-filter').on('change', function(){
-		table.columns([1]).search(this.value).draw();});
+		table.columns([0]).search(this.value).draw();});
 	$('#family-filter').on('change', function(){
-		table.search(this.value).draw();});
+		table.columns([1]).search(this.value).draw();});
 	$('#species-filter').on('change', function(){
-		table.search(this.value).draw();});
+		table.columns([3]).search(this.value).draw();});
 });
 
 $(document).ready(function() {
@@ -303,9 +303,9 @@ $(document).ready(function() {
 	} );
 
 	$('#go_domain-filter').on('change', function(){
-		go_termstable.search(this.value).draw();});
+		go_termstable.columns([0]).search(this.value).draw();});
 	$('#go_family-filter').on('change', function(){
-		go_termstable.search(this.value).draw();});
+		go_termstable.columns([1]).search(this.value).draw();});
 	$('#clan-nb-filter').on('change', function(){
 		go_termstable.columns([2]).search(this.value).draw();});
 	$('#clan-filter').on('change', function(){

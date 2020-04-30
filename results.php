@@ -96,7 +96,7 @@ include("./includes/header.php");
 		$.fn.dataTable.ext.search.push(
 			function( settings, data, dataIndex ) {
 				var max = parseInt( $('#max').val(), 10);
-				var e_value = Number( data[2] ) || 0; // use data for the age column
+				var e_value = parseFloat( data[2] ) || 0; // use data for the age column
 				if ((isNaN(max)) || (e_value <= max)){
 					return true;}
 				return false;

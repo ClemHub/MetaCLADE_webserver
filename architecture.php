@@ -35,7 +35,6 @@
 			$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
 			$go_terms = array();
 			while($data = $request->fetchArray()){
-				$nb ++;
 				array_push($go_terms, $data);}
 			$nb_aa = ($stop-$start);
 			$width = ($nb_aa*100)/$length;

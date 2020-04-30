@@ -303,6 +303,7 @@
 				$i++;}}	}
 	echo '</tbody>';
 	echo '</table>';
+	echo $rows;
 	$db->close();
 	?>
 	</div>

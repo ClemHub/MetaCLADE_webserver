@@ -286,11 +286,11 @@
 			$nb ++;
 			array_push($rows, $row);}
 		if($nb == 0){
-			echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data."</a></td>";
-			echo "<td>" . $pfam_row['Family']."</td>";
-			echo "<td>" . $Clan_acc_nb."</td>";
-			echo "<td>" . $Clan."</td>";
-			echo "<td>NA</td></tr>";}
+			echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data."</a></td>";
+			echo "<td rowspan=".$nb.">" . $pfam_row['Family']."</td>";
+			echo "<td rowspan=".$nb.">" . $Clan_acc_nb."</td>";
+			echo "<td rowspan=".$nb.">" . $Clan."</td>";
+			echo "<td rowspan=".$nb.">NA</td></tr>";}
 		else{
 			$i = 0;
 			foreach($rows as $row){
@@ -303,7 +303,6 @@
 				$i++;}}	}
 	echo '</tbody>';
 	echo '</table>';
-	print_r($rows);
 	$db->close();
 	?>
 	</div>

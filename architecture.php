@@ -21,6 +21,7 @@
 	$pfam_clan = array();
 	$model_species = array();
 	$go_terms = array();
+	$go_terms_names = array();
 	echo "<svg height='40' width='100%' style='border:1px dashed #ccc' overflow='scroll'>";
 	$file_content = fopen($name_file, "r");
 	while(!feof($file_content)){
@@ -35,6 +36,7 @@
 			$row = $row->fetchArray();
 			$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
 			while($data = $request->fetchArray()){
+				array_push($go_terms_names, $data['GO_term']);
 				if(array_key_exists($pfam, $go_terms)){
 					array_push($go_terms[$pfam], $data['GO_term']);}
 				else{
@@ -194,8 +196,8 @@
 		echo "<select id='clan-filter'>";
 		echo "<option value=''>All</option>";
 		echo "<option value='NA'>NA</option>";
-		$go_terms = array_filter($go_terms);
-		foreach(array_unique($go_terms)  as $go){
+		$go_terms_names = array_filter($go_terms_names);
+		foreach(array_unique($go_terms_names)  as $go_terms){
 			echo "<option value='".$go."'>".$go."</option>";}
 		echo "</select></th>";
 		?>

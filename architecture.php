@@ -69,6 +69,29 @@
 		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 		<script>
 
+		$.fn.dataTable.ext.search.push(
+			function( settings, data, dataIndex ) {
+				var evalue_max = Number($('#e-value_max').val()) || 1;
+				var bitscore_min = Number($('#bitscore_min').val()) || 0;
+				var acc_min = Number($('#acc_min').val()) || 0;
+				var e_value = Number(data[4]) || 0;
+				var bitscore = Number(data[5]) || 0;
+				var accuracy = Number(data[6]) || 0;
+				var valid;
+				if ((isNaN(evalue_max)) || (e_value <= evalue_max)){
+					valid = true;}
+				else{
+					valid = false};
+				if ((isNaN(bitscore_min)) || (bitscore >= bitscore_min)){
+					valid = true;}
+				else{
+					valid = false};
+				if ((isNaN(acc_min)) || (accuracy >= acc_min)){
+					valid = true;}
+				else{
+					valid = false};
+				return valid;});
+
 		$(document).ready(function() {
 
 			var table = $('#data_table').DataTable( {
@@ -117,14 +140,14 @@
 		echo "<th class='table_header'>";
 		echo "<select id='domain-filter'>";
 		echo "<option value=''>All</option>";
-		foreach($pfam_name as $pfam){
+		foreach(array_unique($pfam_name) as $pfam){
 			echo "<option value='".$pfam."'>".$pfam."</option>";}
 		echo "</select></th>";
 
 		echo "<th class='table_header'>";
 		echo "<select id='family-filter'>";
 		echo "<option value=''>All</option>";
-		foreach($pfam_fam as $fam){
+		foreach(array_unique($pfam_fam)  as $fam){
 			echo "<option value='".$fam."'>".$fam."</option>";}
 		echo "</select></th>";
 
@@ -133,14 +156,14 @@
 		echo "<th class='table_header'>";
 		echo "<select id='family-filter'>";
 		echo "<option value=''>All</option>";
-		foreach($model_species as $species){
+		foreach(array_unique($model_species) as $species){
 			echo "<option value='".$species."'>".$species."</option>";
 		}
 		echo "</select></th>";	
 		?>
 		<th class='table_header'><input id='e-value_max' type='text' placeholder='E-value max'/></th>
-		<th class='table_header'><input id='bitscore min' type='text' placeholder='Bitscore min'/></th>
-		<th class='table_header'><input id='acc min' type='text' placeholder='Accuracy min'/></th>
+		<th class='table_header'><input id='bitscore_min' type='text' placeholder='Bitscore min'/></th>
+		<th class='table_header'><input id='acc_min' type='text' placeholder='Accuracy min'/></th>
 		</tr>
 	</tfoot>	
 	<?php

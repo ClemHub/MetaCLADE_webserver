@@ -71,35 +71,19 @@
 
 		$.fn.dataTable.ext.search.push(
 			function( settings, data, dataIndex ) {
-				var evalue_max = Number($('#e-value_max').val()) || 1;
-				var bitscore_min = Number($('#bitscore_min').val()) || 0;
-				var acc_min = Number($('#acc_min').val()) || 0;
+				var max = Number($('#e-value_max').val()) || 1;
 				var e_value = Number(data[4]) || 0;
-				var bitscore = Number(data[5]) || 0;
-				var accuracy = Number(data[6]) || 0;
-				var valid;
-				if ((isNaN(evalue_max)) || (e_value <= evalue_max)){
-					valid = true;}
-				else{
-					valid = false};
-				if ((isNaN(bitscore_min)) || (bitscore >= bitscore_min)){
-					valid = true;}
-				else{
-					valid = false};
-				if ((isNaN(acc_min)) || (accuracy >= acc_min)){
-					valid = true;}
-				else{
-					valid = false};
-				return valid;});
+				if ((isNaN(max)) || (e_value <= max)){
+					return true;}
+				return false;
+		});
 
 		$(document).ready(function() {
-
 			var table = $('#data_table').DataTable( {
 				dom: 'lrtip',
 				"pageLength": 10,
 				"order": [[ 2, "desc" ]],
-				"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
-			} );
+				"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],} );
 
 			$('#e-value_max').keyup( function() {
 				table.draw();} );

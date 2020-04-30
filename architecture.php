@@ -228,7 +228,7 @@
 			echo "<td>" . $Clan."</td>";
 			echo "<td>";
 			foreach($go_terms as $go){
-				echo '<br>'.$go['GO_term'].'<br>';}
+				echo '<br>'.$go.'<br>';}
 			echo "</td></tr>";}}
 	echo '</tbody>';
 	echo '</table>';

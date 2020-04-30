@@ -298,7 +298,7 @@
 			echo "<td>" . $Clan."</td>";
 			echo "<td>";
 			foreach($rows as $row){
-				echo $row['GO_term'];}
+				echo '<br>'.$row['GO_term'].'<br>';}
 			echo "</td></tr>";}}
 	echo '</tbody>';
 	echo '</table>';

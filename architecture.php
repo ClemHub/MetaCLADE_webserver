@@ -82,9 +82,15 @@
 				var bitscore = Number(data[5]) || 0;
 				if ((isNaN(min)) || (bitscore >= min)){
 					return true;}
-				return false;}		
-		);
-
+				return false;});
+		$.fn.dataTable.ext.search.push(		
+			function( settings, data, dataIndex ) {
+				var min = Number($('#accuracy_min').val()) || 0;
+				var accuracy = Number(data[6]) || 0;
+				if ((isNaN(min)) || (accuracy >= min)){
+					return true;}
+				return false;});
+	
 		$(document).ready(function() {
 			var table = $('#data_table').DataTable( {
 				dom: 'lrtip',

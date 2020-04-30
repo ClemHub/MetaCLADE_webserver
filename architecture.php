@@ -72,6 +72,7 @@
 
 	echo "<text x='98%' y='25' fill='black'>".$length."</text><line x1='99.9%' y1='0' x2='99.9%' y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/></svg></div>";
 	print_r($go_terms['PF00001']);
+	print_r($go_terms_names);
 	?>
 
 	
@@ -198,7 +199,7 @@
 		echo "<option value='NA'>NA</option>";
 		$go_terms_names = array_filter($go_terms_names);
 		foreach(array_unique($go_terms_names)  as $go_terms){
-			echo "<option value='".$go."'>".$go."</option>";}
+			echo "<option value='".$go_terms."'>".$go_terms."</option>";}
 		echo "</select></th>";
 		?>
 		</tr>

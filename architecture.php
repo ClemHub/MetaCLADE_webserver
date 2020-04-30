@@ -32,8 +32,10 @@
 			$pfam = $exploded_line[4];
 			$row = $db->query("SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
 			$row = $row->fetchArray();
+			$pfam = 'PF00001';
 			$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
 			$go_terms = array();
+			
 			while($data = $request->fetchArray()){
 				array_push($go_terms, $data);}
 			$nb_aa = ($stop-$start);

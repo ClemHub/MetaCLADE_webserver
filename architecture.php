@@ -75,7 +75,8 @@
 				var e_value = Number(data[4]) || 0;
 				if ((isNaN(max)) || (e_value <= max)){
 					return true;}
-				return false;};
+				return false;});
+		$.fn.dataTable.ext.search.push(		
 			function( settings, data, dataIndex ) {
 				var max = Number($('#bitscore_min').val()) || 0;
 				var e_value = Number(data[5]) || 0;

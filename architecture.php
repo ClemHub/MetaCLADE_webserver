@@ -246,7 +246,7 @@
 		echo "<select id='clan-nb-filter'>";
 		echo "<option value=''>All</option>";
 		echo "<option value='NA'>NA</option>";
-		$pfam_clan_nb = array_filter($pfam_clan);
+		$pfam_clan_nb = array_filter($pfam_clan_nb);
 		foreach(array_unique($pfam_clan_nb) as $clan_nb){
 			echo "<option value='".$clan_nb."'>".$clan_nb."</option>";}
 		echo "</select></th>";

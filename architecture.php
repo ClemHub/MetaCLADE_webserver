@@ -46,7 +46,7 @@
 			$scaled_start = ($start*100)/$length;
 			$scaled_stop = ($stop*100)/$length;
 			$color = "rgb(".rand(150,255).",".rand(150,255).",".rand(150,255).")";
-			echo "<g><a xlink:href='http://pfam.xfam.org/family/".$pfam."' target='_blank'><rect class='tooltip-trigger' x='".$scaled_start."%' y='5' width='". $width ."%' height='30' style=' fill:".$color."; fill-opacity:0.7; stroke-width:1; stroke:3' onmouseout='HideTooltip(evt)' onmousemove='ShowTooltip(evt, &apos;BlueServiceESB#BlueListener&apos;)' />";
+			echo "<g><a xlink:href='http://pfam.xfam.org/family/".$pfam."' target='_blank'><rect class='tooltip-trigger' x='".$scaled_start."%' y='5' width='". $width ."%' height='30' style=' fill:".$color."; fill-opacity:0.7; stroke-width:1; stroke:3' onmouseout='HideTooltip(evt)' onmousemove='ShowTooltip(evt, bonjour;)' />";
 			echo "<text id='tooltip' visibility='hidden'>PFAM Acc Number: ".$pfam."\nFamily: ".$row['Family']."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nClan Acc Number: ".$row['Clan_acc_nb']."\nClan: ".$row['Clan']."\n\nModel species: ".$exploded_line[12]."\nE-value: ".$exploded_line[9]."\nBitscore: ".$exploded_line[10]."\nAccuracy: ".$exploded_line[11]."</text>";
 			echo "<text x='". $scaled_start ."%' y='25' style='font-size:15px; font-size-adjust: 0.5; fill:white; font-weight:bold; mix-blend-mode: exclusion;' >".$pfam."</text></a></g>";
 			array_push($pfam_name, $pfam);

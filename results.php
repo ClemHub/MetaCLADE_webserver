@@ -110,7 +110,7 @@ include("./includes/header.php");
 				"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
 			} );
 
-			$('#min').on( 'keyup change', function () {
+			$('#max').on( 'keyup change', function () {
             	table.draw();});
 			$('#seq-filter').on('change', function(){
 				table.search(this.value).draw();});

@@ -192,7 +192,7 @@
 		echo "</select></th>";
 
 		echo "<th class='table_header'>";
-		echo "<select id='clan-filter'>";
+		echo "<select id='goterm-filter'>";
 		echo "<option value=''>All</option>";
 		echo "<option value='NA'>NA</option>";
 		$go_terms_names = array_filter($go_terms_names);

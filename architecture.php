@@ -223,14 +223,19 @@
 			echo "<td>" . $Clan."</td>";
 			echo "<td>NA</td></tr>";}
 		else{
+			echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data."</a></td>";
+			echo "<td>" . $pfam_row['Family']."</td>";
+			echo "<td>" . $Clan_acc_nb."</td>";
+			echo "<td>" . $Clan."</td>";
+			echo "<td>";
 			foreach($go_terms[$data] as $go){
 				echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data."</a></td>";
 				echo "<td>" . $pfam_row['Family']."</td>";
 				echo "<td>" . $Clan_acc_nb."</td>";
 				echo "<td>" . $Clan."</td>";
 				echo "<td>";
-				echo '<br>'.$go.'<br>';
-				echo "</td></tr>";}
+				echo '<br>'.$go.'<br>';}
+			echo "</td></tr>";
 			}}
 	echo '</tbody>';
 	echo '</table>';

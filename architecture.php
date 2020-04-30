@@ -198,8 +198,8 @@
 		echo "<option value=''>All</option>";
 		echo "<option value='NA'>NA</option>";
 		$go_terms_names = array_filter($go_terms_names);
-		foreach(array_unique($go_terms_names)  as $go_terms){
-			echo "<option value='".$go_terms."'>".$go_terms."</option>";}
+		foreach(array_unique($go_terms_names)  as $go){
+			echo "<option value='".$go."'>".$go."</option>";}
 		echo "</select></th>";
 		?>
 		</tr>
@@ -225,7 +225,6 @@
 			echo "<td>" . $Clan."</td>";
 			echo "<td>NA</td></tr>";}
 		else{
-			$i = 0;
 			echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data."</a></td>";
 			echo "<td>" . $pfam_row['Family']."</td>";
 			echo "<td>" . $Clan_acc_nb."</td>";

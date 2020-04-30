@@ -38,9 +38,7 @@
 				if(array_key_exists($pfam, $go_terms)){
 					array_push($go_terms[$pfam], $data['GO_term']);}
 				else{
-					$go_terms[$pfam] = $data['GO_term'];
-				}
-			}
+					$go_terms[$pfam] = $data['GO_term'];}}
 			$nb_aa = ($stop-$start);
 			$width = ($nb_aa*100)/$length;
 			$scaled_start = ($start*100)/$length;
@@ -71,7 +69,7 @@
 	echo "<text x=80.1% y='25' fill='black'>". round(4*($length/5)) ."</text><line x1=80% y1='0' x2=80% y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
 
 	echo "<text x='98%' y='25' fill='black'>".$length."</text><line x1='99.9%' y1='0' x2='99.9%' y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/></svg></div>";
-	echo(empty($go_terms['PF00001']));
+	echo(!empty($go_terms['PF00001']));
 	?>
 
 	

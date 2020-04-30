@@ -69,83 +69,6 @@
 	<input type='button' class='bouton_info' value='Results informations' onclick='close_open_info(this);' />
 	<div class='contenu_info'>
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-		<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-		<script>
-
-		$.fn.dataTable.ext.search.push(
-			function( settings, data, dataIndex ) {
-				var max = Number($('#e-value_max').val()) || 1;
-				var e_value = Number(data[4]) || 0;
-				if ((isNaN(max)) || (e_value <= max)){
-					return true;}
-				return false;});
-		$.fn.dataTable.ext.search.push(		
-			function( settings, data, dataIndex ) {
-				var min = Number($('#bitscore_min').val()) || 0;
-				var bitscore = Number(data[5]) || 0;
-				if ((isNaN(min)) || (bitscore >= min)){
-					return true;}
-				return false;});
-		$.fn.dataTable.ext.search.push(		
-			function( settings, data, dataIndex ) {
-				var min = Number($('#acc_min').val()) || 0;
-				var accuracy = Number(data[6]) || 0;
-				if ((isNaN(min)) || (accuracy >= min)){
-					return true;}
-				return false;});
-	
-		$(document).ready(function() {
-			var table = $('#data_table').DataTable( {
-				dom: 'lrtip',
-				"pageLength": 10,
-				"order": [[ 2, "desc" ]],
-				"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],} );
-
-			$('#e-value_max').keyup( function() {
-				table.draw();} );
-			$('#bitscore_min').keyup( function() {
-				table.draw();} );
-			$('#acc_min').keyup( function() {
-				table.draw();} );
-			$('#domain-filter').on('change', function(){
-				table.search(this.value).draw();});
-			$('#family-filter').on('change', function(){
-				table.search(this.value).draw();});
-			$('#species-filter').on('change', function(){
-				table.search(this.value).draw();});
-		});
-
-		$(document).ready(function() {
-			var go_termstable = $('#go_terms_table').DataTable( {
-				dom: 'lrtip',
-				"pageLength": 10,
-				"order": [[ 2, "desc" ]],
-				"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
-			initComplete: function () {
-				this.api().columns([4]).every( function () {
-					var column = this;
-					var select = $('<select><option value="">All</option></select>')
-						.appendTo( $(column.footer()).empty() )
-						.on( 'change', function () {
-							var val = $.fn.dataTable.util.escapeRegex(
-								$(this).val());
-							column
-								.search( val ? '^'+val+'$' : '', true, false )
-								.draw();});
-					column.data().unique().sort().each( function ( d, j ) {
-						select.append( '<option value="'+d+'">'+d+'</option>' )} );} );}
-			} );
-			$('#go_domain-filter').on('change', function(){
-				go_termstable.search(this.value).draw();});
-			$('#go_family-filter').on('change', function(){
-				go_termstable.search(this.value).draw();});
-			$('#clan-nb-filter').on('change', function(){
-				go_termstable.search(this.value).draw();});
-			$('#clan-filter').on('change', function(){
-				go_termstable.search(this.value).draw();});
-		});
-		</script>
 	<div class='table_container' id='architecture_data'>
 	<table id='data_table'>
 	<thead>
@@ -259,8 +182,9 @@
 		foreach(array_unique($pfam_clan)  as $clan){
 			echo "<option value='".$clan."'>".$clan."</option>";}
 		echo "</select></th>";
+
+		echo "<th class='table_header'></th>";
 		?>
-		<th class='table_header'></th>
 		</tr>
 	</tfoot>
 	<?php
@@ -309,4 +233,71 @@
 	</div>
 	</div>
 	</section>
+	<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+		<script>
+
+		$.fn.dataTable.ext.search.push(
+			function( settings, data, dataIndex ) {
+				var max = Number($('#e-value_max').val()) || 1;
+				var e_value = Number(data[4]) || 0;
+				if ((isNaN(max)) || (e_value <= max)){
+					return true;}
+				return false;});
+		$.fn.dataTable.ext.search.push(		
+			function( settings, data, dataIndex ) {
+				var min = Number($('#bitscore_min').val()) || 0;
+				var bitscore = Number(data[5]) || 0;
+				if ((isNaN(min)) || (bitscore >= min)){
+					return true;}
+				return false;});
+		$.fn.dataTable.ext.search.push(		
+			function( settings, data, dataIndex ) {
+				var min = Number($('#acc_min').val()) || 0;
+				var accuracy = Number(data[6]) || 0;
+				if ((isNaN(min)) || (accuracy >= min)){
+					return true;}
+				return false;});
+	
+		$(document).ready(function() {
+			var table = $('#data_table').DataTable( {
+				dom: 'lrtip',
+				"pageLength": 10,
+				"order": [[ 2, "desc" ]],
+				"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],} );
+
+			$('#e-value_max').keyup( function() {
+				table.draw();} );
+			$('#bitscore_min').keyup( function() {
+				table.draw();} );
+			$('#acc_min').keyup( function() {
+				table.draw();} );
+			$('#domain-filter').on('change', function(){
+				table.search(this.value).draw();});
+			$('#family-filter').on('change', function(){
+				table.search(this.value).draw();});
+			$('#species-filter').on('change', function(){
+				table.search(this.value).draw();});
+		});
+
+		$(document).ready(function() {
+			var go_termstable = $('#go_terms_table').DataTable( {
+				dom: 'lrtip',
+				"pageLength": 10,
+				"order": [[ 2, "desc" ]],
+				"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
+
+			} );
+			$('#go_domain-filter').on('change', function(){
+				go_termstable.search(this.value).draw();});
+			$('#go_family-filter').on('change', function(){
+				go_termstable.search(this.value).draw();});
+			$('#clan-nb-filter').on('change', function(){
+				go_termstable.search(this.value).draw();});
+			$('#clan-filter').on('change', function(){
+				go_termstable.search(this.value).draw();});
+			$('#goterms-filter').on('change', function(){
+				go_termstable.search(this.value).draw();});
+		});
+		</script>
 <?php include("./includes/footer.php"); ?>

@@ -101,9 +101,17 @@
 				"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
 			} );
 
-			//$('#min_e-value').keyup( function() {
-			//table.draw();} );
-			$('#table-filter').on('change', function(){
+			$('#e-value_max').keyup( function() {
+				table.draw();} );
+			$('#bitscore_min').keyup( function() {
+				table.draw();} );
+			$('#acc_min').keyup( function() {
+				table.draw();} );
+			$('#domain-filter').on('change', function(){
+				table.search(this.value).draw();});
+			$('#family-filter').on('change', function(){
+				table.search(this.value).draw();});
+			$('#species-filter').on('change', function(){
 				table.search(this.value).draw();});
 		});
 
@@ -154,7 +162,7 @@
 		echo "<th class='table_header'></th>";
 
 		echo "<th class='table_header'>";
-		echo "<select id='family-filter'>";
+		echo "<select id='species-filter'>";
 		echo "<option value=''>All</option>";
 		foreach(array_unique($model_species) as $species){
 			echo "<option value='".$species."'>".$species."</option>";

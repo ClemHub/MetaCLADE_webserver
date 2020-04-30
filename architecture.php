@@ -38,7 +38,7 @@
 				if(array_key_exists($pfam, $go_terms)){
 					array_push($go_terms[$pfam], $data['GO_term']);}
 				else{
-					$go_terms[$pfam] = $data['GO_term'];}}
+					$go_terms[$pfam] = array($data['GO_term']);}}
 			$nb_aa = ($stop-$start);
 			$width = ($nb_aa*100)/$length;
 			$scaled_start = ($start*100)/$length;

@@ -95,8 +95,8 @@ include("./includes/header.php");
 
 		$.fn.dataTable.ext.search.push(
 			function( settings, data, dataIndex ) {
-				var max = Number( $('#max').val(), 10);
-				var e_value = Number( data[2] ) || 1; // use data for the age column
+				var max = Number($('#max').val());
+				var e_value = Number(data[2]) || 1;
 				if ((isNaN(max)) || (e_value <= max)){
 					return true;}
 				return false;
@@ -148,7 +148,7 @@ include("./includes/header.php");
 			}
 			echo "</select></th>";
 			?>
-			<th class='table_header'><input id='max' value = '1' type='text' placeholder='E-value max'/></th>
+			<th class='table_header'><input id='max' type='text' placeholder='E-value max'/></th>
 			</tr>
 		</tfoot>		
 		<tbody>

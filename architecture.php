@@ -136,9 +136,9 @@
 					column.data().unique().sort().each( function ( d, j ) {
 						select.append( '<option value="'+d+'">'+d+'</option>' )} );} );}
 			} );
-			$('#domain-filter').on('change', function(){
+			$('#go_domain-filter').on('change', function(){
 				go_termstable.search(this.value).draw();});
-			$('#family-filter').on('change', function(){
+			$('#go_family-filter').on('change', function(){
 				go_termstable.search(this.value).draw();});
 			$('#clan-nb-filter').on('change', function(){
 				go_termstable.search(this.value).draw();});
@@ -229,14 +229,14 @@
 		<tr>
 		<?php
 		echo "<th class='table_header'>";
-		echo "<select id='domain-filter'>";
+		echo "<select id='go_domain-filter'>";
 		echo "<option value=''>All</option>";
 		foreach(array_unique($pfam_name) as $pfam){
 			echo "<option value='".$pfam."'>".$pfam."</option>";}
 		echo "</select></th>";
 
 		echo "<th class='table_header'>";
-		echo "<select id='family-filter'>";
+		echo "<select id='go_family-filter'>";
 		echo "<option value=''>All</option>";
 		foreach(array_unique($pfam_fam)  as $fam){
 			echo "<option value='".$fam."'>".$fam."</option>";}
@@ -244,6 +244,7 @@
 
 		echo "<th class='table_header'>";
 		echo "<select id='clan-nb-filter'>";
+		echo "<option value='NA'>NA</option>";
 		echo "<option value=''>All</option>";
 		foreach(array_unique($pfam_clan_nb) as $clan_nb){
 			echo "<option value='".$clan_nb."'>".$clan_nb."</option>";}
@@ -252,6 +253,7 @@
 		echo "<th class='table_header'>";
 		echo "<select id='clan-filter'>";
 		echo "<option value=''>All</option>";
+		echo "<option value='NA'>NA</option>";
 		foreach(array_unique($pfam_clan)  as $clan){
 			echo "<option value='".$clan."'>".$clan."</option>";}
 		echo "</select></th>";

@@ -122,7 +122,19 @@
 				"pageLength": 10,
 				"order": [[ 2, "desc" ]],
 				"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
-
+			initComplete: function () {
+				this.api().columns([4]).every( function () {
+					var column = this;
+					var select = $('<select><option value="">All</option></select>')
+						.appendTo( $(column.footer()).empty() )
+						.on( 'change', function () {
+							var val = $.fn.dataTable.util.escapeRegex(
+								$(this).val());
+							column
+								.search( val ? '^'+val+'$' : '', true, false )
+								.draw();});
+					column.data().unique().sort().each( function ( d, j ) {
+						select.append( '<option value="'+d+'">'+d+'</option>' )} );} );}
 			} );
 			$('#go_domain-filter').on('change', function(){
 				go_termstable.search(this.value).draw();});
@@ -253,12 +265,10 @@
 	</tfoot>
 	<?php
 	echo '<tbody>';
-	array_push($pfam_name, 'PF00001');
-	
-	foreach($pfam_name as $data){
-		$link_id = 'http://pfam.xfam.org/family/' . $data;
+	foreach($pfam_list as $data){
+		$link_id = 'http://pfam.xfam.org/family/' . $data[4];
 		$link_clan = 'https://pfam.xfam.org/clan/';
-		$pfam_row = $db->query("SELECT DISTINCT PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$data."'");
+		$pfam_row = $db->query("SELECT DISTINCT PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$data[4]."'");
 		$pfam_row = $pfam_row->fetchArray();
 		if($pfam_row['Clan_acc_nb']==""){
 			$Clan_acc_nb="NA";
@@ -267,14 +277,14 @@
 			$Clan_acc_nb="<a class = 'table_link' href=" . $link_clan.$pfam_row['Clan_acc_nb'] . " target='_blank'>".$pfam_row['Clan_acc_nb']."</a>";
 			$Clan="<a class = 'table_link' href=" . $link_clan.$pfam_row['Clan'] . " target='_blank'>".$pfam_row['Clan']."</a>";
 		}
-		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$data."'");
+		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$data[4]."'");
 		$rows = array();
 		$nb = 0;
 		while($row = $request->fetchArray()){
 			$nb ++;
 			array_push($rows, $row);}
-		if($nb == 0){
-			echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data."</a></td>";
+		if(empty($rows)){
+			echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data[4]."</a></td>";
 			echo "<td>" . $pfam_row['Family']."</td>";
 			echo "<td>" . $Clan_acc_nb."</td>";
 			echo "<td>" . $Clan."</td>";
@@ -283,7 +293,7 @@
 			$i = 0;
 			foreach($rows as $row){
 				if($i==0){
-					echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data."</a></td>";
+					echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data[4]."</a></td>";
 					echo "<td rowspan=".$nb.">" . $pfam_row['Family']."</td>";
 					echo "<td rowspan=".$nb.">" . $Clan_acc_nb."</td>";
 					echo "<td rowspan=".$nb.">" . $Clan."</td>";}

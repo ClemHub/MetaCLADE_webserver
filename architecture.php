@@ -67,10 +67,10 @@
 	echo "<text x=80.1% y='25' fill='black'>". round(4*($length/5)) ."</text><line x1=80% y1='0' x2=80% y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/>";
 
 	echo "<text x='98%' y='25' fill='black'>".$length."</text><line x1='99.9%' y1='0' x2='99.9%' y2='20' style='stroke:rgb(0,0,0);stroke-width:2'/></svg></div>";
-
+	echo $go_terms;
 	?>
 
-	echo $go_terms;
+	
 	<div class='info'>
 	<input type='button' class='bouton_info' value='Results informations' onclick='close_open_info(this);' />
 	<div class='contenu_info'>

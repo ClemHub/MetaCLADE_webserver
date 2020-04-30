@@ -32,6 +32,11 @@
 			$pfam = $exploded_line[4];
 			$row = $db->query("SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
 			$row = $row->fetchArray();
+			$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
+			$go_terms = array();
+			while($data = $request->fetchArray()){
+				$nb ++;
+				array_push($go_terms, $data);}
 			$nb_aa = ($stop-$start);
 			$width = ($nb_aa*100)/$length;
 			$scaled_start = ($start*100)/$length;
@@ -117,7 +122,6 @@
 	echo '<tbody>';
 	foreach($pfam_list as $data){
 		$link_id = 'http://pfam.xfam.org/family/' . $data[4];
-		$nb=0;
         echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data[4]."</a></td>";
         $row = $db->query("SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$data[4]."'");
         $row = $row->fetchArray();
@@ -182,13 +186,22 @@
 		foreach(array_unique($pfam_clan)  as $clan){
 			echo "<option value='".$clan."'>".$clan."</option>";}
 		echo "</select></th>";
+
+		echo "<th class='table_header'>";
+		echo "<select id='clan-filter'>";
+		echo "<option value=''>All</option>";
+		echo "<option value='NA'>NA</option>";
+		$go_terms = array_filter($go_terms);
+		foreach(array_unique($go_terms)  as $go){
+			echo "<option value='".$go."'>".$go."</option>";}
+		echo "</select></th>";
 		?>
-		<th class='table_header'></th>
 		</tr>
 	</tfoot>
 	<?php
 	echo '<tbody>';
 	array_push($pfam_name, 'PF00001');
+
 	foreach($pfam_name as $data){
 		$link_id = 'http://pfam.xfam.org/family/' . $data;
 		$link_clan = 'https://pfam.xfam.org/clan/';
@@ -199,15 +212,8 @@
 			$Clan="NA";}
 		else{
 			$Clan_acc_nb="<a class = 'table_link' href=" . $link_clan.$pfam_row['Clan_acc_nb'] . " target='_blank'>".$pfam_row['Clan_acc_nb']."</a>";
-			$Clan="<a class = 'table_link' href=" . $link_clan.$pfam_row['Clan'] . " target='_blank'>".$pfam_row['Clan']."</a>";
-		}
-		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$data."'");
-		$rows = array();
-		$nb = 0;
-		while($row = $request->fetchArray()){
-			$nb ++;
-			array_push($rows, $row);}
-		if(empty($rows)){
+			$Clan="<a class = 'table_link' href=" . $link_clan.$pfam_row['Clan'] . " target='_blank'>".$pfam_row['Clan']."</a>";}
+		if(empty($go_terms)){
 			echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data."</a></td>";
 			echo "<td>" . $pfam_row['Family']."</td>";
 			echo "<td>" . $Clan_acc_nb."</td>";
@@ -220,8 +226,8 @@
 			echo "<td>" . $Clan_acc_nb."</td>";
 			echo "<td>" . $Clan."</td>";
 			echo "<td>";
-			foreach($rows as $row){
-				echo '<br>'.$row['GO_term'].'<br>';}
+			foreach($go_terms as $go){
+				echo '<br>'.$go['GO_term'].'<br>';}
 			echo "</td></tr>";}}
 	echo '</tbody>';
 	echo '</table>';
@@ -286,20 +292,8 @@ $(document).ready(function() {
 		"pageLength": 10,
 		"order": [[ 2, "desc" ]],
 		"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
-	initComplete: function () {
-		this.api().columns([4]).every( function () {
-			var column = this;
-			var select = $('<select><option value="">All</option></select>')
-				.appendTo( $(column.footer()).empty() )
-				.on( 'change', function () {
-					var val = $.fn.dataTable.util.escapeRegex(
-						$(this).val());
-					column
-						.search( val ? '^'+val+'$' : '', true, false )
-						.draw();});
-			column.data().unique().sort().each( function ( d, j ) {
-				select.append( '<option value="'+d+'">'+d+'</option>' )} );} );}
 	} );
+
 	$('#go_domain-filter').on('change', function(){
 		go_termstable.search(this.value).draw();});
 	$('#go_family-filter').on('change', function(){
@@ -307,6 +301,8 @@ $(document).ready(function() {
 	$('#clan-nb-filter').on('change', function(){
 		go_termstable.search(this.value).draw();});
 	$('#clan-filter').on('change', function(){
+		go_termstable.search(this.value).draw();});
+	$('#goterm-filter').on('change', function(){
 		go_termstable.search(this.value).draw();});
 });
 </script>

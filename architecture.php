@@ -265,8 +265,9 @@
 	</tfoot>
 	<?php
 	echo '<tbody>';
-	foreach($pfam_list as $data){
-		$link_id = 'http://pfam.xfam.org/family/' . $data[4];
+	array_push($pfam_name, 'PF00001');
+	foreach($pfam_name as $data){
+		$link_id = 'http://pfam.xfam.org/family/' . $data;
 		$link_clan = 'https://pfam.xfam.org/clan/';
 		$pfam_row = $db->query("SELECT DISTINCT PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$data[4]."'");
 		$pfam_row = $pfam_row->fetchArray();
@@ -277,28 +278,28 @@
 			$Clan_acc_nb="<a class = 'table_link' href=" . $link_clan.$pfam_row['Clan_acc_nb'] . " target='_blank'>".$pfam_row['Clan_acc_nb']."</a>";
 			$Clan="<a class = 'table_link' href=" . $link_clan.$pfam_row['Clan'] . " target='_blank'>".$pfam_row['Clan']."</a>";
 		}
-		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$data[4]."'");
+		$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$data."'");
 		$rows = array();
 		$nb = 0;
 		while($row = $request->fetchArray()){
 			$nb ++;
 			array_push($rows, $row);}
 		if(empty($rows)){
-			echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data[4]."</a></td>";
+			echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data."</a></td>";
 			echo "<td>" . $pfam_row['Family']."</td>";
 			echo "<td>" . $Clan_acc_nb."</td>";
 			echo "<td>" . $Clan."</td>";
 			echo "<td>NA</td></tr>";}
 		else{
 			$i = 0;
+			echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data."</a></td>";
+			echo "<td>" . $pfam_row['Family']."</td>";
+			echo "<td>" . $Clan_acc_nb."</td>";
+			echo "<td>" . $Clan."</td>";
+			echo "<td>";
 			foreach($rows as $row){
-				if($i==0){
-					echo "<tr><td rowspan=".$nb."><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data[4]."</a></td>";
-					echo "<td rowspan=".$nb.">" . $pfam_row['Family']."</td>";
-					echo "<td rowspan=".$nb.">" . $Clan_acc_nb."</td>";
-					echo "<td rowspan=".$nb.">" . $Clan."</td>";}
-				echo "<td>" . $row['GO_term'] . '</td></tr>';
-				$i++;}}	}
+				echo $row['GO_term'];}
+			echo "</td></tr>";}}
 	echo '</tbody>';
 	echo '</table>';
 	$db->close();

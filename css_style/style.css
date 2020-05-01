@@ -218,7 +218,7 @@ table.dataTable thead{
 	text-shadow: 0.1em 0.1em 0.2em rgba(21, 7, 36, 0.459);
 	background-image: linear-gradient(rgb(39, 155, 201), rgb(116, 194, 224));
 	text-transform: uppercase;
-	font-size: 15px;
+	font-size: 14px;
 	font-size-adjust: 0.5;}
 
 table.dataTable tr {
@@ -230,7 +230,7 @@ td {
 	/* border-right: 0.5px solid black; */
 	height: 40px;
 	max-width: 100%;
-	font-size: 14px;
+	font-size: 13px;
 	font-size-adjust: 0.5;}
 
 

@@ -205,12 +205,23 @@ table {
 	border: 1px solid black;
 	border-collapse: collapse;
 	line-height: 200%;
-	width: 100%;
 	text-align: center;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top: 10px;
 	margin-bottom: 10px;}
+
+#result{
+	width: 100%;
+}
+
+#data_table{
+	width: 90%;
+}
+
+#goterms_table{
+	width: 90%;
+}
 
 table.dataTable thead{
 	height: 60px;
@@ -233,10 +244,6 @@ td {
 	max-width: 100%;
 	font-size: 13px;
 	font-size-adjust: 0.5;}
-
-tr td:last-child{
-	white-space:nowrap;
-}
 
 tbody:hover td[rowspan], tr:hover td {
 		background: rgba(155, 187, 196, 0.555); }

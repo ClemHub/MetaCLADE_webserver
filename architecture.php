@@ -54,7 +54,10 @@
 			array_push($pfam_fam, $row['Family']);
 			array_push($pfam_clan_nb, $row['Clan_acc_nb']);
 			array_push($pfam_clan, $row['Clan']);
-			array_push($model_species, substr($exploded_line[12], 0, -1));
+			if(substr($exploded_line[12], 0, -1) == 'unavailable'){
+				array_push($model_species, 'HMMer-3 model');}
+			else{
+				array_push($model_species, substr($exploded_line[12], 0, -1));}
 			array_push($pfam_list, $exploded_line);}}}
 
 	echo "</svg>";

@@ -441,3 +441,8 @@ div.dataTables_filter, div.dataTables_length {
 .domain_rect:hover{
 	transform: scale(1, 1.3);
 }
+
+.domain_rect {
+	transition: all 1s;
+	transform-origin: 50% 50%;
+  }

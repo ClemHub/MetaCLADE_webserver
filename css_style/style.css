@@ -234,6 +234,9 @@ td {
 	font-size: 13px;
 	font-size-adjust: 0.5;}
 
+tr td:last-child{
+	white-space:nowrap;
+}
 
 tbody:hover td[rowspan], tr:hover td {
 		background: rgba(155, 187, 196, 0.555); }

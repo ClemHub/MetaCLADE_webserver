@@ -89,7 +89,7 @@
 		<th class='table_header'>Domain ID</th>
 		<th class='table_header'>Family</th>
 		<th class='table_header'>Domain position</th>
-		<th class='table_header'>Model species <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>If the model species is 'unavailable', it is because the most reliable model was HMMer-3.</span></span></h4></th>	
+		<th class='table_header'>Model species</th>	
 		<th class='table_header'>E-Value</th>
 		<th class='table_header'>Bitscore</th>
 		<th class='table_header'>Accuracy</th>

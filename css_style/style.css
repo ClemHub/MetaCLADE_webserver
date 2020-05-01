@@ -61,8 +61,8 @@ header {
 	margin-bottom: 0;}
 
 section {
-	margin: 50px;
-	padding: 20px;
+	margin: auto;
+	padding: 50px;
 	padding-bottom: 180px;
 	text-align: justify;
 	min-height: 100%;}
@@ -216,7 +216,7 @@ table.dataTable thead{
 	text-shadow: 0.1em 0.1em 0.2em rgba(21, 7, 36, 0.459);
 	background-image: linear-gradient(rgb(39, 155, 201), rgb(116, 194, 224));
 	text-transform: uppercase;
-	font-size: 18px;
+	font-size: 15px;
 	font-size-adjust: 0.5;}
 
 table.dataTable tr {

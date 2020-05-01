@@ -132,7 +132,10 @@
         $row = $row->fetchArray();
         echo "<td>" . $row['Family']."</td>";
 		echo "<td>" . $data[1] . " - " . $data[2]. "</td>";
-		echo "<td class='species_name'>" . $data[12]. "</td>";
+		if(substr($data[12], 0, -1) == 'unavailable'){
+			echo "<td class='species_name'>HMMer-3 model</td>";}
+		else{
+			echo "<td class='species_name'>" . $data[12]. "</td>";}
 		echo "<td>".$data[9]."</td>";
 		echo "<td>" . $data[10]. "</td>";
 		echo "<td>" . $data[11]. "</td></tr>";}

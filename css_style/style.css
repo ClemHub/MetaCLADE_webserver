@@ -62,7 +62,8 @@ header {
 
 section {
 	margin: auto;
-	padding: 50px;
+	padding-top: 20px;
+	padding-right: 75px;
 	padding-bottom: 180px;
 	text-align: justify;
 	min-height: 100%;}
@@ -228,7 +229,7 @@ td {
 	/* border-right: 0.5px solid black; */
 	height: 40px;
 	max-width: 100%;
-	font-size: 17px;
+	font-size: 14px;
 	font-size-adjust: 0.5;}
 
 

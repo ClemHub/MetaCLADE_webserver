@@ -437,3 +437,7 @@ div.info div.contenu_info {
 
 div.dataTables_filter, div.dataTables_length {
 	padding: 5px;}
+
+.domain_rect:hover{
+	transform: scale(1, 1.3);
+}

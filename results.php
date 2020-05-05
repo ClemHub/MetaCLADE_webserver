@@ -42,16 +42,30 @@ include("./includes/header.php");
 			$job_id = 'small_example_withoutDAMA';
 			$name_file = $approot."/jobs/small_example_withoutDAMA/small_example_withoutDAMA/results/3_arch/small_example_withoutDAMA.arch.txt";
 			$dl_file = $appurl."/jobs/small_example_withoutDAMA/small_example_withoutDAMA/results/3_arch/small_example_withoutDAMA.arch.txt";}}
-
+	if($form=="small" || $form=="small_example"){
+		$domain_list = explode(",", $pfam);
 		echo "<form action =''>";
 		echo "<fieldset class='form_fs'><legend><h4>Domain visualization:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domain table you want to visualize.</span></span></h4></legend>";
-		echo "<div id = 'main_pfam' data-column='1'>";
-		echo "<label for='domain_filter'>Domain filter:</label><input type='text class='column_filter' id='domain_filter'>"
+		echo "<div id = 'main_pfam'>";
+		echo "<h5>Domain table:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domain table you want to visualize.</span></span></h5>";
+		echo "<select name='domain_table' id='domain_select' onchange='filter_table()'>";
+		echo "<option value=''>--Please select a domain--</option>";
+		foreach($domain_list as $domain_id){
+			echo "<option name='other_domains' value='$domain_id'>$domain_id</option>";}
+		echo "</select>";
+		echo "</div>";
+		echo "<div id = 'other_pfam'>";
+		echo "<h5>Other domain:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domains you want to visualize with the first one you selected.</span></span></h5>";
+		foreach($domain_list as $domain_id){
+			echo "<input type='checkbox' id=".$domain_id." name='domain_cb' value=".$domain_id.">";
+			echo "<label for=".$domain_id.">".$domain_id."</label>";}
 		?>
 		</div>
+		<br><input class='btn' type='button' value='Search' name = 'search' onclick='filter_all_domains()'/><input class='btn' type='reset' value='Reset' onclick='reset_table("result")'/>
 		</fieldset>
 		</form>
 	<?php
+	}
 	$data = array();
 	$best_evalues = array();
 	$domain_list = array();
@@ -87,13 +101,10 @@ include("./includes/header.php");
 					return true;}
 				return false;
 		});
-		function filterColumn () {
-			$('#result').DataTable().column(1).search($('#domain_filter').val(),).draw();}
-
+		
 		$(document).ready(function() {
 			var table = $('#result').DataTable( {
 				dom: 'lrtip',
-				searching: true,
 				"pageLength": 10,
 				"order": [[ 2, "desc" ]],
 				"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
@@ -105,8 +116,6 @@ include("./includes/header.php");
 				table.search(this.value).draw();});
 			$('#domain-filter').on('change', function(){
 				table.search(this.value).draw();});
-			$('input.column_filter').on( 'keyup click', function () {
-				filterColumn($(this).parents('tr').attr('data-column'));});
 		});
 		</script>
 		

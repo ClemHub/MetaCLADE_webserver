@@ -141,8 +141,7 @@ include("./includes/header.php");
 		echo "</select></th>";
 
 		echo "<th class='table_header'>";
-		echo "<select id='domain-filter'>";
-		echo "<input type='text' placeholder='PFAM list' /></th>";
+		echo "<input id='domain-filter'type='text' placeholder='PFAM list' /></th>";
 		?>
 		<th class='table_header'><input id='max' type='text' placeholder='E-value max'/></th>
 		</tr>

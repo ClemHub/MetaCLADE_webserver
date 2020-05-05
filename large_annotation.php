@@ -59,5 +59,19 @@
 			var txt = reader.result
 			document.getElementById('sequences').value = txt;});
 		reader.readAsText(fileInput.files[0]);});
+		var placeholder = 'This is a line \nthis should be a new line';
+		$('textarea').attr('value', placeholder);
+
+		$('textarea').focus(function(){
+			if($(this).val() === placeholder){
+				$(this).attr('value', '');
+			}
+		});
+
+		$('textarea').blur(function(){
+			if($(this).val() ===''){
+				$(this).attr('value', placeholder);
+			}    
+		});
 		</script>
 <?php include("./includes/footer.php"); ?>

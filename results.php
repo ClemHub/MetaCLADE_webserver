@@ -128,19 +128,7 @@ include("./includes/header.php");
 			<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>After comparing every annotated Pfam domains E-value for each sequences.</span></span> Best e-value </th>
 			</tr>
 		</thead>
-		<tbody>
-		<?php
-
-	foreach($data as $seq_id => $domain_list){
-		echo "<tr><td><a class='table_link' href='architecture.php?form=" . $form ."&id=" . $seq_id . "&job_id=" . $job_id . "'>" . $seq_id . "</a></td>";
-		echo "<td>";
-		foreach($domain_list as $domain_id){
-			$link_id = "http://pfam.xfam.org/family/" . $domain_id;
-			echo "<a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a>";}
-		echo "</td><td>".$best_evalues[$seq_id]."</td></tr>";}
-	echo "</tbody>";
-	?>
-	<tfoot>
+		<tbody id='filters'>
 		<tr>
 		<?php
 		echo "<th class='table_header'>";
@@ -161,7 +149,19 @@ include("./includes/header.php");
 		?>
 		<th class='table_header'><input id='max' type='text' placeholder='E-value max'/></th>
 		</tr>
-	</tfoot></table>		
+		</tbody>
+		<tbody>
+		<?php
+
+	foreach($data as $seq_id => $domain_list){
+		echo "<tr><td><a class='table_link' href='architecture.php?form=" . $form ."&id=" . $seq_id . "&job_id=" . $job_id . "'>" . $seq_id . "</a></td>";
+		echo "<td>";
+		foreach($domain_list as $domain_id){
+			$link_id = "http://pfam.xfam.org/family/" . $domain_id;
+			echo "<a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a>";}
+		echo "</td><td>".$best_evalues[$seq_id]."</td></tr>";}
+	echo "</tbody></table>";
+	?>		
 	</div>
 	
 	<!--Information button--> 

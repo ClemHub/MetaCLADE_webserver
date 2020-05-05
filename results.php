@@ -116,6 +116,7 @@ include("./includes/header.php");
 			$('#seq-filter').on('change', function(){
 				table.search(this.value).draw();});
 			$('#domain-filter').on('keyup change clear', function(){
+				alert(this.value.join(','));
 				table.column(1).search(this.value.join(',')).draw()});
 		});
 		</script>

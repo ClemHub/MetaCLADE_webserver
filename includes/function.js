@@ -11,7 +11,7 @@ function validate_one_seq(seq){
 	seq = lines.join('').trim();
 	var chain = /^[ACDEFGHIKLMNPQRSTUVWY\s]+$/i.test(seq);
 	if(chain==true){
-		return valid;}
+		return true;}
 	else{
 		return "Your sequence "+ name +" contains elements that are not amino acids";}}
 
@@ -20,8 +20,7 @@ function validateFasta(fasta){
 	for(s in seq){
 		if(seq[s]){
 			valid = validate_one_seq(seq[s])
-			if(!valid){
-				alert(valid);
+			if(valid != true){
 				break}}}
 	return valid}
 
@@ -45,8 +44,8 @@ function large_form_submission(){
 	if(seq==""){
 		alert("Please enter a set of sequences or browse a fasta file.");
 		valid = false}
-	else if(seq != "" && !validateFasta(seq)){
-		alert("Please respect the Fasta format.")
+	else if(seq != "" && validateFasta(seq) != true){
+		alert(validateFasta(seq));
 		valid = false}
 	return valid;}
 

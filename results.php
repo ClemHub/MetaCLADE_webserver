@@ -121,7 +121,7 @@ include("./includes/header.php");
 		
 		<div class='table_container'>
 		<table id = result>
-		<thead>
+		<thead id='header'>
 			<tr>
 			<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span> Sequence ID</th>
 			<th class='table_header'>Domain Id</th>

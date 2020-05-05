@@ -223,7 +223,7 @@ table {
 	width: 90%;
 }
 
-table.dataTable thead{
+table.dataTable #header{
 	height: 60px;
 	border: 1px solid black;
 	color: rgb(1, 59, 82);

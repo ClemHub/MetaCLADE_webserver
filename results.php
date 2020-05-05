@@ -46,7 +46,7 @@ include("./includes/header.php");
 		echo "<form action =''>";
 		echo "<fieldset class='form_fs'><legend><h4>Domain visualization:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domain table you want to visualize.</span></span></h4></legend>";
 		echo "<div id = 'main_pfam'>";
-		echo "<label for='domain_filter'>Domain filter:</label><input type='text class='domain_filter' id='domain_filter'>"
+		echo "<label for='domain_filter'>Domain filter:</label><input type='text class='column_filter' id='domain_filter'>"
 		?>
 		</div>
 		</fieldset>
@@ -87,7 +87,9 @@ include("./includes/header.php");
 					return true;}
 				return false;
 		});
-		
+		function filterColumn () {
+			$('#result').DataTable().column(1).search($('#domain_filter').val(),).draw();}
+
 		$(document).ready(function() {
 			var table = $('#result').DataTable( {
 				dom: 'lrtip',
@@ -103,8 +105,8 @@ include("./includes/header.php");
 				table.search(this.value).draw();});
 			$('#domain-filter').on('change', function(){
 				table.search(this.value).draw();});
-			$('#domain_filter').on('change', function(){
-				table.column(1).search(this.value.join(' ')).draw();}
+			$('input.column_filter').on( 'keyup click', function () {
+				filterColumn($(this).parents('tr').attr('data-column'));});
 		});
 		</script>
 		

@@ -115,8 +115,8 @@ include("./includes/header.php");
             	table.draw();});
 			$('#seq-filter').on('change', function(){
 				table.search(this.value).draw();});
-			$('#domain-filter').on('change', function(){
-				table.search(this.value).draw();});
+			$('#domain-filter').on('keyup change clear', function(){
+				table.column(1).search(this.value.join(',')).draw()});
 		});
 		</script>
 		
@@ -142,11 +142,7 @@ include("./includes/header.php");
 
 		echo "<th class='table_header'>";
 		echo "<select id='domain-filter'>";
-		echo "<option value=''>All</option>";
-		foreach(array_unique($domain_list) as $domain){
-			if($domain != ''){
-			echo "<option value='".$domain."'>".$domain."</option>";}}
-		echo "</select></th>";
+		echo "<input type='text' placeholder='PFAM list' /></th>";
 		?>
 		<th class='table_header'><input id='max' type='text' placeholder='E-value max'/></th>
 		</tr>

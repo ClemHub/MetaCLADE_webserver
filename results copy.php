@@ -42,7 +42,7 @@ include("./includes/header.php");
 			$job_id = 'small_example_withoutDAMA';
 			$name_file = $approot."/jobs/small_example_withoutDAMA/small_example_withoutDAMA/results/3_arch/small_example_withoutDAMA.arch.txt";
 			$dl_file = $appurl."/jobs/small_example_withoutDAMA/small_example_withoutDAMA/results/3_arch/small_example_withoutDAMA.arch.txt";}}
-
+	if($form=="small" || $form=="small_example"){
 		$domain_list = explode(",", $pfam);
 		echo "<form action =''>";
 		echo "<fieldset class='form_fs'><legend><h4>Domain visualization:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domain table you want to visualize.</span></span></h4></legend>";
@@ -58,7 +58,7 @@ include("./includes/header.php");
 		echo "<h5>Other domain:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domains you want to visualize with the first one you selected.</span></span></h5>";
 		foreach($domain_list as $domain_id){
 			echo "<input type='checkbox' id=".$domain_id." name='domain_cb' value=".$domain_id.">";
-			echo "<label for=".$domain_id.">".$domain_id."</label>";
+			echo "<label for=".$domain_id.">".$domain_id."</label>";}
 		?>
 		</div>
 		<br><input class='btn' type='button' value='Search' name = 'search' onclick='filter_all_domains()'/><input class='btn' type='reset' value='Reset' onclick='reset_table("result")'/>
@@ -105,7 +105,6 @@ include("./includes/header.php");
 		$(document).ready(function() {
 			var table = $('#result').DataTable( {
 				dom: 'lrtip',
-				"search": true,
 				"pageLength": 10,
 				"order": [[ 2, "desc" ]],
 				"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],

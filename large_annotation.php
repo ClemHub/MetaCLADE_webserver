@@ -7,10 +7,11 @@
 			<fieldset class='form_fs'><legend><h4>Input data:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>See examples in the Help section for the expected format.</span></span></h4></legend>
 			<div class='seq_container'>
 			<label for="sequences">Sequences in Fasta format:</label><br/>
-			<textarea name="sequences" id = "sequences" rows='10' autofocus></textarea><br/>
+			<textarea name="sequences" id = "sequences" rows='10' placeholder="Example:&#10;>SeqID_1&#10;sequence_1&#10;>SeqID_2&#10;sequence_2&#10;" autofocus></textarea><br/>
 			<label for="fasta_file">Upload a Fasta file:</label>
 			<input type="file" id="fasta_file" name="fasta_file""/>
 			</div>
+			<div id='error_message'></div>
 			</fieldset>
 			
 			<fieldset class='form_fs'><legend><h4>Parameters:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>The parameters are defined with default values but you can modify them.</span></span></h4></legend>
@@ -59,19 +60,5 @@
 			var txt = reader.result
 			document.getElementById('sequences').value = txt;});
 		reader.readAsText(fileInput.files[0]);});
-		var placeholder = 'This is a line \nthis should be a new line';
-		$('textarea').attr('value', placeholder);
-
-		$('textarea').focus(function(){
-			if($(this).val() === placeholder){
-				$(this).attr('value', '');
-			}
-		});
-
-		$('textarea').blur(function(){
-			if($(this).val() ===''){
-				$(this).attr('value', placeholder);
-			}    
-		});
 		</script>
 <?php include("./includes/footer.php"); ?>

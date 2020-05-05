@@ -1,16 +1,19 @@
 function validate_one_seq(seq){
 	if(!seq){
-		return false;}
+		return 'There is no sequence.';}
 	seq = seq.trim();
 	var lines = seq.split('\n');
-	if(seq[0] == '>'){
+	name = lines[0];
+	if(name[0] == '>'){
 		lines.splice(0, 1);}
 	else{
-		return false;}
+		return name+" should start with a '>'.";}
 	seq = lines.join('').trim();
-	if (!seq){
-		return false;}
-	return /^[ACDEFGHIKLMNPQRSTUVWY\s]+$/i.test(seq);}
+	var chain = /^[ACDEFGHIKLMNPQRSTUVWY\s]+$/i.test(seq);
+	if(chain==true){
+		return valid;}
+	else{
+		return "Your sequence "+ name +" contains elements that are not amino acids";}}
 
 function validateFasta(fasta){
 	var seq = fasta.split(/(?=\>)/);
@@ -18,6 +21,7 @@ function validateFasta(fasta){
 		if(seq[s]){
 			valid = validate_one_seq(seq[s])
 			if(!valid){
+				alert(valid);
 				break}}}
 	return valid}
 

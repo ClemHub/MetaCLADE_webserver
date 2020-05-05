@@ -117,7 +117,7 @@ include("./includes/header.php");
 			$('#domain-filter').on('keyup change', function(){
 				table.search(this.value, regex=true).draw()});
 			var val = [];
-			table.column(1).search(val.join(',')).draw();
+			table.column(1).search(val.join(' ')).draw();
 		});
 		</script>
 		

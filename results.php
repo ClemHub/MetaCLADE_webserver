@@ -44,14 +44,14 @@ include("./includes/header.php");
 			$dl_file = $appurl."/jobs/small_example_withoutDAMA/small_example_withoutDAMA/results/3_arch/small_example_withoutDAMA.arch.txt";}}
 	if($form=="small" || $form=="small_example"){
 		$domain_list = explode(",", $pfam);
-		echo "<form action =''>";
+		echo "<form>";
 		echo "<fieldset class='form_fs'><legend><h4>Domain visualization:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domain table you want to visualize.</span></span></h4></legend>";
 		echo "<div id = 'main_pfam'>";
 		echo "<h5>Domain table:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domain table you want to visualize.</span></span></h5>";
 		echo "<select name='domain_table' id='domain_select' onchange='filter_table()'>";
 		echo "<option value=''>--Please select a domain--</option>";
 		foreach($domain_list as $domain_id){
-			echo "<option name='other_domains' value='$domain_id'>$domain_id</option>";}
+			echo "<option class='other_domains' value='$domain_id'>$domain_id</option>";}
 		echo "</select>";
 		echo "</div>";
 		echo "<div id = 'other_pfam'>";
@@ -89,8 +89,8 @@ include("./includes/header.php");
 	echo "<br><a id = 'dl_link' href=".$dl_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
 		?>
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-		<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+		<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 		<script>
 
 		$.fn.dataTable.ext.search.push(
@@ -121,7 +121,6 @@ include("./includes/header.php");
 		
 		<div class='table_container'>
 		<table id = result>
-		<div id='select_filter'></div>
 		<thead>
 			<tr>
 			<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span> Sequence ID</th>

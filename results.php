@@ -109,8 +109,8 @@ include("./includes/header.php");
 				"order": [[ 2, "desc" ]],
 				"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
 				"language": {
-						"search": "<span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span> PFAM list:",
-						"searchPlaceholder": "PF00001 PF00003"},
+						"search": "<span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>List the Pfam domain you want to see. Separate them with a white-space.</span></span> PFAM list:",
+						"searchPlaceholder": "PF00001 PF00003 PF00156"},
 					});
 
 			$('#max').on( 'keyup change', function () {

@@ -104,11 +104,10 @@ include("./includes/header.php");
 		
 		$(document).ready(function() {
 			var table = $('#result').DataTable( {
-				dom: 'lrtip',
+				dom: 'flrtip',
 				"pageLength": 10,
 				"order": [[ 2, "desc" ]],
 				"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
-				"searching": true
 			} );
 
 			$('#max').on( 'keyup change', function () {

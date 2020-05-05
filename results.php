@@ -45,7 +45,7 @@ include("./includes/header.php");
 
 		echo "<form action =''>";
 		echo "<fieldset class='form_fs'><legend><h4>Domain visualization:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domain table you want to visualize.</span></span></h4></legend>";
-		echo "<div id = 'main_pfam'>";
+		echo "<div id = 'main_pfam' data-column='1'>";
 		echo "<label for='domain_filter'>Domain filter:</label><input type='text class='column_filter' id='domain_filter'>"
 		?>
 		</div>

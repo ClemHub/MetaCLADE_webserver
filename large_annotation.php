@@ -7,7 +7,7 @@
 			<fieldset class='form_fs'><legend><h4>Input data:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>See examples in the Help section for the expected format.</span></span></h4></legend>
 			<div class='seq_container'>
 			<label for="sequences">Sequences in Fasta format:</label><br/>
-			<textarea name="sequences" id = "sequences" rows='10' placeholder="Example&#x0A;>SeqID_1&#10;sequence_1\nSeqID_2&#10;sequence_2&#10;" autofocus></textarea><br/>
+			<textarea name="sequences" id = "sequences" rows='10' placeholder="Example\n>SeqID_1\nsequence_1\nSeqID_2\nsequence_2\n" autofocus></textarea><br/>
 			<label for="fasta_file">Upload a Fasta file:</label>
 			<input type="file" id="fasta_file" name="fasta_file""/>
 			</div>
@@ -59,5 +59,7 @@
 			var txt = reader.result
 			document.getElementById('sequences').value = txt;});
 		reader.readAsText(fileInput.files[0]);});
+
+		var textAreas = document.getElementsByTagName('textarea'); Array.prototype.forEach.call(textAreas, function(elem) { elem.placeholder = elem.placeholder.replace(/\\n/g, '\n'); }); 
 		</script>
 <?php include("./includes/footer.php"); ?>

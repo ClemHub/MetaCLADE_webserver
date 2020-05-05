@@ -93,7 +93,7 @@ include("./includes/header.php");
 		$(document).ready(function() {
 			var table = $('#result').DataTable( {
 				dom: 'lrtip',
-				filter: true,
+				searching: true,
 				"pageLength": 10,
 				"order": [[ 2, "desc" ]],
 				"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],

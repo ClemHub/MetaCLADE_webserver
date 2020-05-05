@@ -116,6 +116,8 @@ include("./includes/header.php");
 				table.search(this.value).draw();});
 			$('#domain-filter').on('keyup change', function(){
 				table.search(this.value, regex=true).draw()});
+			var val = [];
+			table.column(1).search(val.join(',')).draw();
 		});
 		</script>
 		
@@ -128,20 +130,27 @@ include("./includes/header.php");
 			<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>After comparing every annotated Pfam domains E-value for each sequences.</span></span> Best e-value </th>
 			</tr>
 		</thead>
-		<tfoot id='filters'>
-		<tr>
-		<?php
-		echo "<th class='table_header'>";
-		echo "<select id='seq-filter'>";
-		echo "<option value=''>All</option>";
-		foreach($seq_id_list as $seq_id){
-			echo "<option value='".$seq_id."'>".$seq_id."</option>";
-		}
-		echo "</select></th>";
-		?>
-		<th class='table_header'><input id='domain-filter' type='text' placeholder='PFAM list''/></th>
-		<th class='table_header'><input id='max' type='text' placeholder='E-value max'/></th>
-		</tr>
+		<tfoot>
+			<tr>
+			<?php
+			echo "<th class='table_header'>";
+			echo "<select id='seq-filter'>";
+			echo "<option value=''>All</option>";
+			foreach($seq_id_list as $seq_id){
+				echo "<option value='".$seq_id."'>".$seq_id."</option>";
+			}
+			echo "</select></th>";
+
+			echo "<th class='table_header'>";
+			echo "<select id='domain-filter'>";
+			echo "<option value=''>All</option>";
+			foreach(array_unique($domain_list) as $domain){
+				echo "<option value='".$domain."'>".$domain."</option>";
+			}
+			echo "</select></th>";
+			?>
+			<th class='table_header'><input id='max' type='text' placeholder='E-value max'/></th>
+			</tr>
 		</tfoot>
 		<tbody>
 		<?php

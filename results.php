@@ -108,7 +108,9 @@ include("./includes/header.php");
 				"pageLength": 10,
 				"order": [[ 2, "desc" ]],
 				"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
-			} );
+				"language": {
+						"search": "PFAM list:"},
+					});
 
 			$('#max').on( 'keyup change', function () {
             	table.draw();});
@@ -117,7 +119,7 @@ include("./includes/header.php");
 			$('#domain-filter').on('keyup change', function(){
 				table.search(this.value, regex=true).draw()});
 			var val = [];
-			table.column(1).search(val.join(' ')).draw();
+			table.column(1).search(val.join(',')).draw();
 		});
 		</script>
 		
@@ -145,7 +147,8 @@ include("./includes/header.php");
 			echo "<select id='domain-filter'>";
 			echo "<option value=''>All</option>";
 			foreach(array_unique($domain_list) as $domain){
-				echo "<option value='".$domain."'>".$domain."</option>";
+				if($domain != ""){
+				echo "<option value='".$domain."'>".$domain."</option>";}
 			}
 			echo "</select></th>";
 			?>

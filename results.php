@@ -138,7 +138,7 @@ include("./includes/header.php");
 			$link_id = "http://pfam.xfam.org/family/" . $domain_id;
 			echo "<a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a>";}
 		echo "</td><td>".$best_evalues[$seq_id]."</td></tr>";}
-	echo "</tbody></table>";
+	echo "</tbody>";
 	?>
 	<tfoot>
 		<tr>
@@ -161,7 +161,7 @@ include("./includes/header.php");
 		?>
 		<th class='table_header'><input id='max' type='text' placeholder='E-value max'/></th>
 		</tr>
-	</tfoot>		
+	</tfoot></table>		
 	</div>
 	
 	<!--Information button--> 

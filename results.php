@@ -128,7 +128,7 @@ include("./includes/header.php");
 			<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>After comparing every annotated Pfam domains E-value for each sequences.</span></span> Best e-value </th>
 			</tr>
 		</thead>
-		<tbody id='filters'>
+		<thead id='filters'>
 		<tr>
 		<?php
 		echo "<th class='table_header'>";
@@ -149,7 +149,7 @@ include("./includes/header.php");
 		?>
 		<th class='table_header'><input id='max' type='text' placeholder='E-value max'/></th>
 		</tr>
-		</tbody>
+		</thead>
 		<tbody>
 		<?php
 

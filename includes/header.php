@@ -18,7 +18,7 @@ echo "<head>";
 	echo "<body>";
 		echo "<div id='container'>";
 			echo "<div id='header-menu'>";
-				echo "<header><h1>MyCLADE</h1></header>";
+				echo "<header><img id='UPMC-logo' class='img-responsive' src='".$appurl."/server_images/header.png' alt='' style='height: 50%; '></header>";
 				echo "<div class='topnav' id='myTopnav'>";
 					echo "<a href='".$appurl."/index.php' class = 'active'>Home</a>";
 				echo "<div class='dropdown'>";

@@ -47,7 +47,7 @@ p {
 	display: block;
 	background-image: linear-gradient(rgb(12, 133, 180), rgb(116, 194, 224));}
 
-header {
+#head {
 	background-image: linear-gradient(rgb(12, 133, 180), rgb(116, 194, 224));
 	background-image: url('http://www.lcqb.upmc.fr/MetaCLADE_webserver/server_images/header.png');
 	background-position: center center;

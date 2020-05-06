@@ -56,10 +56,10 @@ function small_form_submission(){
 	var msg_seq = validateFasta(seq);
 	var valid = true;
 	if(msg_seq != true && pfam_domains==""){
-		alert("\tPlease,:\n-Enter a list of PFAM domains and do not enter more than 10 domains\n-"+msg_seq);
+		alert("\tPlease:\n-Enter a list of PFAM domains and do not enter more than 10 domains\n-"+msg_seq);
 		valid = false;}
 	else if(msg_seq == true && pfam_domains==""){
-		alert("\tPlease,:\n-Enter a list of PFAM domains and do not enter more than 10 domains");
+		alert("\tPlease:\n-Enter a list of PFAM domains and do not enter more than 10 domains");
 		valid = false}
 	else if(seq=="" && pfam_domains!=""){
 		if(!validatePFAM(pfam_domains)){

@@ -40,18 +40,20 @@ function validatePFAM(pfam_list){
 
 function large_form_submission(){
 	var seq =  document.large_annotation_form.sequences.value;
+	var msg_seq = validateFasta(seq);
 	var valid = true;
 	if(seq==""){
 		alert("Please enter a set of sequences or browse a fasta file.");
 		valid = false}
-	else if(seq != "" && validateFasta(seq) != true){
-		alert(validateFasta(seq));
+	else if(seq != "" && msg_seq){
+		alert(msg_seq);
 		valid = false}
 	return valid;}
 
 function small_form_submission(){
 	var seq =  document.small_annotation_form.sequences.value.trim();
 	var pfam_domains = document.small_annotation_form.pfam_domains.value.trim();
+	var msg_seq = validatePFAM(pfam_domains);
 	var valid = true;
 	if(seq!="" && pfam_domains==""){
 		alert("Please, enter a list of PFAM domains and do not enter more than 10 domains.");
@@ -67,13 +69,13 @@ function small_form_submission(){
 		alert("\tPlease, enter:\n-A set of sequences manually or through a fasta file\n-A list of 10 PFAM domains maximum.");
 		valid = false;}
 	else if(seq !="" && pfam_domains!=""){
-		if(seq != "" && !validateFasta(seq) && !validatePFAM(pfam_domains)){
-			alert("\tPlease, respect:\n-The PFAM domain format and do not enter more than 10 domains.\n-The fasta format");
+		if(seq != "" && msg_seq != true && !validatePFAM(pfam_domains)){
+			alert("\tPlease, respect:\n-The PFAM domain format and do not enter more than 10 domains.\n-"+msg_seq);
 			valid = false;}
-		else if(seq != "" && !validateFasta(seq) && validatePFAM(pfam_domains)){
-			alert("\tPlease, respect:\n-The Fasta format");
+		else if(seq != "" && msg_seq != true && validatePFAM(pfam_domains)){
+			alert("\tPlease, respect:\n-"+msg_seq);
 			valid = false;}
-		else if(seq!="" && validateFasta(seq) && !validatePFAM(pfam_domains)){
+		else if(seq!="" && msg_seq && !validatePFAM(pfam_domains)){
 			alert("\tPlease, respect:\n-The PFAM domain format and do not enter more than 10 domains.");
 			valid = false;}}
 	return valid;}

@@ -45,7 +45,7 @@ function large_form_submission(){
 	if(seq==""){
 		alert("Please enter a set of sequences or browse a fasta file.");
 		valid = false}
-	else if(seq != "" && msg_seq){
+	else if(seq != "" && msg_seq != true){
 		alert(msg_seq);
 		valid = false}
 	return valid;}

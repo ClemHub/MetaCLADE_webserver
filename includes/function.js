@@ -53,7 +53,7 @@ function large_form_submission(){
 function small_form_submission(){
 	var seq =  document.small_annotation_form.sequences.value.trim();
 	var pfam_domains = document.small_annotation_form.pfam_domains.value.trim();
-	var msg_seq = validatePFAM(pfam_domains);
+	var msg_seq = validateFasta(seq);
 	var valid = true;
 	if(seq!="" && pfam_domains==""){
 		alert("Please, enter a list of PFAM domains and do not enter more than 10 domains.");

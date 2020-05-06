@@ -55,9 +55,12 @@ function small_form_submission(){
 	var pfam_domains = document.small_annotation_form.pfam_domains.value.trim();
 	var msg_seq = validateFasta(seq);
 	var valid = true;
-	if(seq!="" && pfam_domains==""){
-		alert("Please, enter a list of PFAM domains and do not enter more than 10 domains.");
+	if(msg_seq != true && pfam_domains==""){
+		alert("\tPlease,:\n-Enter a list of PFAM domains and do not enter more than 10 domains"+msg_seq);
 		valid = false;}
+	else if(msg_seq == true && pfam_domains==""){
+		alert("\tPlease,:\n-Enter a list of PFAM domains and do not enter more than 10 domains");
+		valid = false}
 	else if(seq=="" && pfam_domains!=""){
 		if(!validatePFAM(pfam_domains)){
 			alert("\tPlease:\n-Enter a set of sequences or browse a fasta file\n-Respect the PFAM domain format and do not enter more than 10 domains.");

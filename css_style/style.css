@@ -20,24 +20,24 @@ h2 {
 	text-align: center;
 	font-size: 35px;
 	font-size-adjust: 0.5;
-	color: rgb(0, 0, 0);}
+	color: rgb(64, 64, 64);}
 
 #subtitle {
 	text-align: center;
 	font-size: 30px;
 	font-size-adjust: 0.5;
 	font-weight: bold;
-	color: rgb(0, 0, 0);}
+	color: rgb(64, 64, 64);}
 
 h3 {
 	font-size: 25px;
 	font-size-adjust: 0.5;
-	color: rgb(0, 0, 0);}
+	color: rgb(64, 64, 64);}
 
 h4 {
 	font-size: 20px;
 	font-size-adjust: 0.5;
-	color: rgb(0, 0, 0);}
+	color: rgb(64, 64, 64);}
 
 p {
 	font-size: 18px;
@@ -82,9 +82,9 @@ footer {
 	height: 150px;
 	overflow: hidden;
 	width:100%;
-	border-top: 3px rgb(0, 0, 0) solid;
+	border-top: 3px rgb(64, 64, 64) solid;
 	background-image: linear-gradient(rgb(172, 117, 170),rgb(189, 163, 188));
-	color: rgb(0, 0, 0);}
+	color: rgb(64, 64, 64);}
 
 .img-responsive {
 	height: 100%;
@@ -100,7 +100,7 @@ footer {
 /* Navigation bar */
 .topnav {
 	overflow: hidden;
-	border-bottom: solid rgb(0, 0, 0) 3px;}
+	border-bottom: solid rgb(64, 64, 64) 3px;}
 
 .topnav a {
 	float: left;
@@ -109,7 +109,7 @@ footer {
 	font-size: 25px;
 	font-size-adjust: 0.5;
 	text-transform: uppercase;
-	color: rgb(0, 0, 0);
+	color: rgb(64, 64, 64);
 	text-shadow: 0.1em 0.1em 0.2em rgba(21, 7, 36, 0.459);
 	text-align: center;
 	padding: 14px 16px;
@@ -128,7 +128,7 @@ footer {
 	font-size-adjust: 0.5;
 	font-weight: bold;
 	text-transform: uppercase;
-	color: rgb(0, 0, 0);
+	color: rgb(64, 64, 64);
 	text-shadow: 0.1em 0.1em 0.2em rgba(21, 7, 36, 0.459);
 	padding: 14px 16px;
 	background-color: inherit;
@@ -146,7 +146,7 @@ footer {
 
 .dropdown-content a {
 	float: none;
-	color: rgb(0, 0, 0);
+	color: rgb(64, 64, 64);
 	font-weight: bold;
 	font-size: 20px;
 	font-size-adjust: 0.5;
@@ -204,7 +204,7 @@ tfoot {
 	display: table-header-group;}
 
 table {
-	border: 1px solid rgb(0, 0, 0);
+	border: 1px solid rgb(64, 64, 64);
 	border-collapse: collapse;
 	line-height: 1;
 	text-align: center;
@@ -225,8 +225,8 @@ table {
 
 table.dataTable thead{
 	height: 60px;
-	border: 1px solid rgb(0, 0, 0);
-	color: rgb(0, 0, 0);
+	border: 1px solid rgb(64, 64, 64);
+	color: rgb(64, 64, 64);
 	text-shadow: 0.1em 0.1em 0.2em rgba(21, 7, 36, 0.459);
 	background-image: linear-gradient(rgb(172, 117, 170),rgb(189, 163, 188));
 	text-transform: uppercase;
@@ -234,7 +234,7 @@ table.dataTable thead{
 	font-size-adjust: 0.5;}
 
 table.dataTable tr {
-	border: 1px solid rgb(0, 0, 0);} 
+	border: 1px solid rgb(64, 64, 64);} 
 
 table.dataTable td {
 	/* border: 0.5px solid black; */
@@ -274,7 +274,7 @@ tbody:hover td[rowspan], tr:hover td {
 	color: rgb(172, 117, 170);}
 
 .table_link:hover{
-	color: rgb(0, 0, 0);}
+	color: rgb(64, 64, 64);}
 
 /* Form styling */
 textarea {
@@ -322,7 +322,7 @@ div.info div.contenu_info {
 	appearance: button;
 	margin-bottom: 10px;
 	text-decoration: none;
-	color: rgb(0, 0, 0);}
+	color: rgb(64, 64, 64);}
 
 .form_fs {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.287);
@@ -341,7 +341,7 @@ div.info div.contenu_info {
 .tooltip {
 	position: relative;
 	display: inline-block;
-	color: rgb(0, 0, 0);}
+	color: rgb(64, 64, 64);}
 
 .tooltip .tooltiptext {
 	visibility: hidden;
@@ -386,7 +386,7 @@ div.info div.contenu_info {
 	font-size: 25px;
 	font-size-adjust: 0.5;
 	font-weight: bold;
-	color: rgb(0, 0, 0);}
+	color: rgb(64, 64, 64);}
 
 .social_media_div{
 	margin: auto 0;}

@@ -79,7 +79,7 @@
 
 	
 	<div class='info'>
-	<div class = 'dama_choice'>
+	<div class = 'results_choice'>
 			<br/>Show results details<br/>
 			<label for="yes_results">Yes</label><input type="radio" name="results" id="yes_results" value = "true" onclick='ShowHideResults()'/>
 			<label for="no_results">No</label><input type="radio" name="results" id="no_results" value = "false" onclick='ShowHideResults()' checked/>
@@ -157,6 +157,7 @@
 			<label for="yes_goterms">Yes</label><input type="radio" name="goterms" id="yes_goterms" value = "true" onclick='ShowHideGoterms()'/>
 			<label for="no_goterms">No</label><input type="radio" name="goterms" id="no_goterms" value = "false" onclick='ShowHideGoterms()' checked/>
 	</div>
+	<div class='table_container' id='goterms_container'>
 	<table id='go_terms_table'>
 	<thead>
 		<tr>

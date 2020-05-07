@@ -239,10 +239,6 @@ table.dataTable thead{
 table.dataTable tr {
 	border: 1px solid rgb(39, 155, 201);} 
 
-#results th {
-	max-width: 300px;} 
-	#results td {
-		max-width: 300px;} 
 table.dataTable td {
 	/* border: 0.5px solid black; */
 	/* border-left: 0.5px solid black; */
@@ -250,7 +246,7 @@ table.dataTable td {
 	height: 40px;
 	white-space: pre-line;
     word-break: keep-all;
-	max-width: 300px;
+	max-width: 33%;
 	font-size: 13px;
 	font-size-adjust: 0.5;}
 

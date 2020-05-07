@@ -45,11 +45,11 @@ p {
 
 #header-menu {
 	display: block;
-	background-image: linear-gradient(rgb(81, 160, 50), rgb(136, 186, 36));}
+	background-image: linear-gradient(rgb(223, 128, 63), rgb(245, 169, 118));}
 
 #head {
-	background-image: linear-gradient(rgb(81, 160, 50), rgb(136, 186, 36));
-	background-image: url('http://www.lcqb.upmc.fr/MetaCLADE_webserver/server_images/vert.png');
+	background-image: linear-gradient(rgb(223, 128, 63), rgb(245, 169, 118));
+	background-image: url('http://www.lcqb.upmc.fr/MetaCLADE_webserver/server_images/test.png');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: 100% 200px;
@@ -83,7 +83,7 @@ footer {
 	overflow: hidden;
 	width:100%;
 	border-top: 3px rgb(64, 64, 64) solid;
-	background-image: linear-gradient(rgb(81, 160, 50), rgb(136, 186, 36));
+	background-image: linear-gradient(rgb(223, 128, 63), rgb(245, 169, 118));
 	color: rgb(64, 64, 64);}
 
 .img-responsive {
@@ -228,7 +228,7 @@ table.dataTable thead{
 	border: 1px solid rgb(64, 64, 64);
 	color: rgb(64, 64, 64);
 	text-shadow: 0.1em 0.1em 0.2em rgba(21, 7, 36, 0.459);
-	background-image: linear-gradient(rgb(81, 160, 50), rgb(136, 186, 36));
+	background-image: linear-gradient(rgb(223, 128, 63), rgb(245, 169, 118));
 	text-transform: uppercase;
 	font-size: 14px;
 	font-size-adjust: 0.5;}

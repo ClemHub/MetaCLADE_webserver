@@ -243,9 +243,9 @@ table.dataTable td {
 	/* border-left: 0.5px solid black; */
 	/* border-right: 0.5px solid black; */
 	height: 40px;
-	white-space: pre-wrap;
+	white-space: normal;
     word-break: keep-all;
-	max-width: 15px;
+	max-width: 25px;
 	font-size: 13px;
 	font-size-adjust: 0.5;}
 

@@ -20,24 +20,24 @@ h2 {
 	text-align: center;
 	font-size: 35px;
 	font-size-adjust: 0.5;
-	color: rgb(64, 64, 64);}
+	color: rgb(148, 32, 144);}
 
 #subtitle {
 	text-align: center;
 	font-size: 30px;
 	font-size-adjust: 0.5;
 	font-weight: bold;
-	color: rgb(64, 64, 64);}
+	color: rgb(148, 32, 144);}
 
 h3 {
 	font-size: 25px;
 	font-size-adjust: 0.5;
-	color: rgb(64, 64, 64);}
+	color: rgb(148, 32, 144);}
 
 h4 {
 	font-size: 20px;
 	font-size-adjust: 0.5;
-	color: rgb(64, 64, 64);}
+	color: rgb(148, 32, 144);}
 
 p {
 	font-size: 18px;
@@ -45,11 +45,11 @@ p {
 
 #header-menu {
 	display: block;
-	background-image: linear-gradient(rgb(81, 160, 50), rgb(136, 186, 36));}
+	background-image: linear-gradient(rgb(148, 32, 144), rgb(192, 6, 186));}
 
 #head {
-	background-image: linear-gradient(rgb(81, 160, 50), rgb(136, 186, 36));
-	background-image: url('http://www.lcqb.upmc.fr/MetaCLADE_webserver/server_images/vert.png');
+	background-image: linear-gradient(rgb(148, 32, 144), rgb(192, 6, 186));
+	background-image: url('http://www.lcqb.upmc.fr/MetaCLADE_webserver/server_images/violet.png');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: 100% 200px;
@@ -82,9 +82,9 @@ footer {
 	height: 150px;
 	overflow: hidden;
 	width:100%;
-	border-top: 3px rgb(64, 64, 64) solid;
-	background-image: linear-gradient(rgb(81, 160, 50), rgb(136, 186, 36));
-	color: rgb(64, 64, 64);}
+	border-top: 3px rgb(148, 32, 144) solid;
+	background-image: linear-gradient(rgb(148, 32, 144), rgb(192, 6, 186));
+	color: rgb(148, 32, 144);}
 
 .img-responsive {
 	height: 100%;
@@ -100,7 +100,7 @@ footer {
 /* Navigation bar */
 .topnav {
 	overflow: hidden;
-	border-bottom: solid rgb(64, 64, 64) 3px;}
+	border-bottom: solid rgb(148, 32, 144) 3px;}
 
 .topnav a {
 	float: left;
@@ -109,7 +109,7 @@ footer {
 	font-size: 25px;
 	font-size-adjust: 0.5;
 	text-transform: uppercase;
-	color: rgb(64, 64, 64);
+	color: rgb(148, 32, 144);
 	text-shadow: 0.1em 0.1em 0.2em rgba(21, 7, 36, 0.459);
 	text-align: center;
 	padding: 14px 16px;
@@ -128,7 +128,7 @@ footer {
 	font-size-adjust: 0.5;
 	font-weight: bold;
 	text-transform: uppercase;
-	color: rgb(64, 64, 64);
+	color: rgb(148, 32, 144);
 	text-shadow: 0.1em 0.1em 0.2em rgba(21, 7, 36, 0.459);
 	padding: 14px 16px;
 	background-color: inherit;
@@ -146,7 +146,7 @@ footer {
 
 .dropdown-content a {
 	float: none;
-	color: rgb(64, 64, 64);
+	color: rgb(148, 32, 144);
 	font-weight: bold;
 	font-size: 20px;
 	font-size-adjust: 0.5;
@@ -204,7 +204,7 @@ tfoot {
 	display: table-header-group;}
 
 table {
-	border: 1px solid rgb(64, 64, 64);
+	border: 1px solid rgb(148, 32, 144);
 	border-collapse: collapse;
 	line-height: 1;
 	text-align: center;
@@ -225,16 +225,16 @@ table {
 
 table.dataTable thead{
 	height: 60px;
-	border: 1px solid rgb(64, 64, 64);
-	color: rgb(64, 64, 64);
+	border: 1px solid rgb(148, 32, 144);
+	color: rgb(148, 32, 144);
 	text-shadow: 0.1em 0.1em 0.2em rgba(21, 7, 36, 0.459);
-	background-image: linear-gradient(rgb(81, 160, 50), rgb(136, 186, 36));
+	background-image: linear-gradient(rgb(148, 32, 144), rgb(192, 6, 186));
 	text-transform: uppercase;
 	font-size: 14px;
 	font-size-adjust: 0.5;}
 
 table.dataTable tr {
-	border: 1px solid rgb(64, 64, 64);} 
+	border: 1px solid rgb(148, 32, 144);} 
 
 table.dataTable td {
 	/* border: 0.5px solid black; */
@@ -271,10 +271,10 @@ tbody:hover td[rowspan], tr:hover td {
 .table_link{
 	text-decoration: none;
 	font-weight: bold;
-	color: rgb(81, 160, 50);}
+	color: rgb(148, 32, 144);}
 
 .table_link:hover{
-	color: rgb(64, 64, 64);}
+	color: rgb(148, 32, 144);}
 
 /* Form styling */
 textarea {
@@ -286,7 +286,7 @@ textarea {
 	-webkit-appearance: none;
 	padding: 0;
 	outline: none;
-	color: rgb(81, 160, 50);
+	color: rgb(148, 32, 144);
 	opacity: .8;
 	background: rgba(0, 0, 0, 0.397);
 	box-sizing: border-box;
@@ -322,7 +322,7 @@ div.info div.contenu_info {
 	appearance: button;
 	margin-bottom: 10px;
 	text-decoration: none;
-	color: rgb(64, 64, 64);}
+	color: rgb(148, 32, 144);}
 
 .form_fs {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.287);
@@ -341,7 +341,7 @@ div.info div.contenu_info {
 .tooltip {
 	position: relative;
 	display: inline-block;
-	color: rgb(64, 64, 64);}
+	color: rgb(148, 32, 144);}
 
 .tooltip .tooltiptext {
 	visibility: hidden;
@@ -386,7 +386,7 @@ div.info div.contenu_info {
 	font-size: 25px;
 	font-size-adjust: 0.5;
 	font-weight: bold;
-	color: rgb(64, 64, 64);}
+	color: rgb(148, 32, 144);}
 
 .social_media_div{
 	margin: auto 0;}

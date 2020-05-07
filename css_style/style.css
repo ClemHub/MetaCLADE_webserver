@@ -221,7 +221,7 @@ table {
 	width: 90%;}
 
 #goterms_table{
-	width: 90%;}
+	max-width:1120%;}
 
 table.dataTable thead{
 	height: 60px;

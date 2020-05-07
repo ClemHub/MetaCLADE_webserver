@@ -243,8 +243,8 @@ td {
 	/* border-left: 0.5px solid black; */
 	/* border-right: 0.5px solid black; */
 	height: 40px;
-	white-space: normal;
-	word-break:break-all;
+	white-space: pre-wrap;
+    word-break: keep-all;
 	max-width: 40px;
 	font-size: 13px;
 	font-size-adjust: 0.5;}

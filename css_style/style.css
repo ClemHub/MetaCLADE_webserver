@@ -235,7 +235,7 @@ table.dataTable thead{
 	font-size-adjust: 0.5;}
 
 table.dataTable th{
-	width: min-content;
+	width: auto;
 }
 
 table.dataTable tr {

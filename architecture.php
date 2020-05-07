@@ -79,10 +79,12 @@
 
 	
 	<div class='info'>
-	<input type='button' class='bouton_info' value='Results informations' onclick='close_open_info(this);' />
-	<div class='contenu_info'>
-
-	<div class='table_container' id='architecture_data'>
+	<div class = 'dama_choice'>
+			<br/>Show results details<br/>
+			<label for="yes_results">Yes</label><input type="radio" name="results" id="yes_results" value = "true" onclick='ShowHideResults()'/>
+			<label for="no_results">No</label><input type="radio" name="results" id="no_results" value = "false" onclick='ShowHideResults()' checked/>
+	</div>
+	<div class='table_container' id='results_container'>
 	<table id='data_table'>
 	<thead>
 		<tr>
@@ -148,11 +150,13 @@
 
 	</div>
 	</div>
-	</div>
+
 	<div class='info'>
-	<input type='button' class='bouton_info' value='GO-terms' onclick='close_open_info(this);' />
-	<div class='contenu_info'>
-	<div class='table_container' id='goterms'>
+	<div class = 'goterms_choice'>
+			<br/>Show GO-terms<br/>
+			<label for="yes_goterms">Yes</label><input type="radio" name="goterms" id="yes_goterms" value = "true" onclick='ShowHideGoterms()'/>
+			<label for="no_goterms">No</label><input type="radio" name="goterms" id="no_goterms" value = "false" onclick='ShowHideGoterms()' checked/>
+	</div>
 	<table id='go_terms_table'>
 	<thead>
 		<tr>
@@ -248,7 +252,6 @@
 	echo '</table>';
 	$db->close();
 	?>
-	</div>
 	</div>
 	</div>
 	</section>

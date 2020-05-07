@@ -136,11 +136,21 @@ function close_open_info(bouton) {
 	else {
 		divContenu.style.display = 'block';}}
 
-function ShowHideDiv(){
+function ShowHideDama(){
 	var yes_btn = document.getElementById("yes_btn");
 	var evalue_dama = document.getElementById("show_dama");
 	evalue_dama.style.display = yes_btn.checked ? "block" : "none";}
 
+function ShowHideResults(){
+	var yes_results = document.getElementById("yes_results");
+	var results_container = document.getElementById("results_container");
+	results_container.style.display = yes_results.checked ? "block" : "none";}
+
+function ShowHideGoterms(){
+	var yes_goterms = document.getElementById("yes_goterms");
+	var goterms_container = document.getElementById("goterms_container");
+	goterms_container.style.display = yes_goterms.checked ? "block" : "none";}
+	
 function showTooltip(evt, text){
 	let tooltip = document.getElementById("tooltip");
 	tooltip.innerHTML = text;

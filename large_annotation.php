@@ -25,9 +25,9 @@
 			<div class = 'dama_choice'>
 			<br/>Do you want to use DAMA?<br/>
 
-			<label for="yes_btn">Yes</label><input type="radio" name="dama" id="yes_btn" value = "true" onclick='ShowHideDiv()'/>
+			<label for="yes_btn">Yes</label><input type="radio" name="dama" id="yes_btn" value = "true" onclick='ShowHideDama()'/>
 
-			<label for="no_btn">No</label><input type="radio" name="dama" id="no_btn" value = "false" onclick='ShowHideDiv()' checked/>
+			<label for="no_btn">No</label><input type="radio" name="dama" id="no_btn" value = "false" onclick='ShowHideDama()' checked/>
 			</div>
 
 			<div id = 'show_dama'>

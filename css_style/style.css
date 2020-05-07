@@ -327,6 +327,13 @@ div.info div.contenu_info {
 #show_dama {
 	display: none;}
 
+#results_container{
+	display: none;
+}
+#goterms_container{
+	display: none;
+}
+
 #dl_link {
 	-webkit-appearance: button;
 	-moz-appearance: button;

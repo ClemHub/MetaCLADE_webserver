@@ -45,10 +45,10 @@ p {
 
 #header-menu {
 	display: block;
-	background-image: linear-gradient(rgb(127, 127, 127), rgb(156, 156, 156));}
+	background-image: linear-gradient(rgb(148, 32, 144), rgb(158, 26, 154));}
 
 #head {
-	background-image: linear-gradient(rgb(127, 127, 127), rgb(156, 156, 156));
+	background-image: linear-gradient(rgb(148, 32, 144), rgb(192, 6, 186));
 	background-image: url('http://www.lcqb.upmc.fr/MetaCLADE_webserver/server_images/violet.png');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -83,7 +83,7 @@ footer {
 	overflow: hidden;
 	width:100%;
 	border-top: 3px rgb(0, 0, 0) solid;
-	background-image: linear-gradient(rgb(127, 127, 127), rgb(156, 156, 156));
+	background-image: linear-gradient(rgb(148, 32, 144), rgb(192, 6, 186));
 	color: rgb(0, 0, 0);}
 
 .img-responsive {
@@ -228,7 +228,7 @@ table.dataTable thead{
 	border: 1px solid rgb(0, 0, 0);
 	color: rgb(0, 0, 0);
 	text-shadow: 0.1em 0.1em 0.2em rgba(21, 7, 36, 0.459);
-	background-image: linear-gradient(rgb(127, 127, 127), rgb(156, 156, 156));
+	background-image: linear-gradient(rgb(148, 32, 144), rgb(192, 6, 186));
 	text-transform: uppercase;
 	font-size: 14px;
 	font-size-adjust: 0.5;}
@@ -271,7 +271,7 @@ tbody:hover td[rowspan], tr:hover td {
 .table_link{
 	text-decoration: none;
 	font-weight: bold;
-	color: rgb(127, 127, 127);}
+	color: rgb(148, 32, 144);}
 
 .table_link:hover{
 	color: rgb(0, 0, 0);}

@@ -238,14 +238,14 @@ table.dataTable thead{
 table.dataTable tr {
 	border: 1px solid rgb(39, 155, 201);} 
 
-td {
+table.dataTable td {
 	/* border: 0.5px solid black; */
 	/* border-left: 0.5px solid black; */
 	/* border-right: 0.5px solid black; */
 	height: 40px;
 	white-space: pre-wrap;
     word-break: keep-all;
-	max-width: 40px;
+	max-width: 30px;
 	font-size: 13px;
 	font-size-adjust: 0.5;}
 

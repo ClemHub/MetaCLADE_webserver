@@ -230,7 +230,7 @@ table.dataTable thead{
 	text-shadow: 0.1em 0.1em 0.2em rgba(21, 7, 36, 0.459);
 	background-image: linear-gradient(rgb(39, 155, 201), rgb(116, 194, 224));
 	text-transform: uppercase;
-	font-size: 12px;
+	font-size: 14px;
 	font-size-adjust: 0.5;}
 
 table.dataTable tr {
@@ -243,7 +243,7 @@ table.dataTable td {
 	height: 40px;
 	white-space: pre-line;
     word-break: keep-all;
-	font-size: 10px;
+	font-size: 13px;
 	font-size-adjust: 0.5;}
 
 tbody:hover td[rowspan], tr:hover td {

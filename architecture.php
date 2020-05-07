@@ -290,14 +290,14 @@ $(document).ready(function() {
 		"pageLength": 10,
 		"order": [[ 2, "desc" ]],
 		"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
-		"columns": [{
-			"width": "10%" },
-			"width": "25%" },
-			"width": "10%" },
-			"width": "25%" },
-			"width": "10%" },
-			"width": "10%" },
-			"width": "10%" },
+		"columns": [
+			{"width": "10%" },
+			{"width": "25%" },
+			{"width": "10%" },
+			{"width": "25%" },
+			{"width": "10%" },
+			{"width": "10%" },
+			{"width": "10%" },
 			]
 	});
 

@@ -234,10 +234,6 @@ table.dataTable thead{
 	font-size: 14px;
 	font-size-adjust: 0.5;}
 
-table.dataTable th{
-	width: auto;
-}
-
 table.dataTable tr {
 	border: 1px solid rgb(39, 155, 201);} 
 

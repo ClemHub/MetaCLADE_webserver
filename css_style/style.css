@@ -276,12 +276,6 @@ tbody:hover td[rowspan], tr:hover td {
 .table_link:hover{
 	color: rgb(1, 59, 82);}
 
-.sort_button{
-	background: none;
-	border: none;
-	width: fit-content;
-}
-
 /* Form styling */
 textarea {
 	margin: 10px;
@@ -304,14 +298,6 @@ div.info {
 	padding: 20px 10px 10px 0px;
 	position: relative;}
 
-div.info input.bouton_info {
-	position: absolute;
-	top: -10px;
-	color: rgb(1, 59, 82);
-	text-transform: uppercase;
-	font-weight: bold;
-	}
-
 div.info div.contenu_info {
 	display: none;}
 
@@ -325,11 +311,10 @@ div.info div.contenu_info {
 	display: none;}
 
 #results_container{
-	display: none;
-}
+	display: none;}
+
 #goterms_container{
-	display: none;
-}
+	display: none;}
 
 #dl_link {
 	-webkit-appearance: button;
@@ -462,5 +447,4 @@ div.dataTables_filter, div.dataTables_length {
 
 .domain_rect {
 	transition: all 1s;
-	transform-origin: 50% 50%;
-  }
+	transform-origin: 50% 50%;}

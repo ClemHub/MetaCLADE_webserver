@@ -238,9 +238,11 @@ table.dataTable thead{
 
 table.dataTable tr {
 	border: 1px solid rgb(39, 155, 201);} 
-table.dataTable th {
-	max-width: 300px;} 
 
+#results th {
+	max-width: 300px;} 
+	#results td {
+		max-width: 300px;} 
 table.dataTable td {
 	/* border: 0.5px solid black; */
 	/* border-left: 0.5px solid black; */

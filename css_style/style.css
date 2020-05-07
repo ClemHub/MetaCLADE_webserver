@@ -182,13 +182,11 @@ footer {
 	.topnav.responsive a.icon {
 		position: absolute;
 		right: 0;
-		top: 0;
-	}
+		top: 0;}
 	.topnav.responsive a {
 		float: none;
 		display: block;
-		text-align: left;
-	}
+		text-align: left;}
 	.topnav.responsive .dropdown {float: none;}
 	.topnav.responsive .dropdown-content {position: relative;}
 	.topnav.responsive .dropdown .dropbtn {
@@ -198,7 +196,7 @@ footer {
 
 /* Results table appearence */
 .table_container {
-	overflow-x:auto;
+	/*overflow-x: auto;*/
 	width: 100%;
 	margin-bottom: 10px;}
 

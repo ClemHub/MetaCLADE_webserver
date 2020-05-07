@@ -137,7 +137,7 @@ include("./includes/header.php");
 		<tfoot>
 			<tr>
 			<?php
-			echo "<th class='table_header' style='width:33%'>";
+			echo "<th class='table_header'>";
 			echo "<select id='seq-filter'>";
 			echo "<option value=''>All</option>";
 			foreach($seq_id_list as $seq_id){
@@ -145,7 +145,7 @@ include("./includes/header.php");
 			}
 			echo "</select></th>";
 
-			echo "<th class='table_header' style='width:50%'>";
+			echo "<th class='table_header'>";
 			echo "<select id='domain-filter'>";
 			echo "<option value=''>All</option>";
 			foreach(array_unique($domain_list) as $domain){
@@ -154,7 +154,7 @@ include("./includes/header.php");
 			}
 			echo "</select></th>";
 			?>
-			<th class='table_header' style='width:27%'><input id='max' type='text' placeholder='E-value max'/></th>
+			<th class='table_header'><input id='max' type='text' placeholder='E-value max'/></th>
 			</tr>
 		</tfoot>
 		<tbody>

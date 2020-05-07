@@ -228,7 +228,7 @@ table.dataTable thead{
 	border: 1px solid black;
 	color: rgb(1, 59, 82);
 	text-shadow: 0.1em 0.1em 0.2em rgba(21, 7, 36, 0.459);
-	background-image: linear-gradient(rgb(39, 155, 201), rgb(116, 194, 224));
+	background-image: linear-gradient(rgb(223, 128, 63), rgb(245, 169, 118));
 	text-transform: uppercase;
 	font-size: 14px;
 	font-size-adjust: 0.5;}

@@ -129,9 +129,9 @@ include("./includes/header.php");
 		<table id = result>
 		<thead id='header'>
 			<tr>
-			<th class='table_header' style='width:29%'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span> Sequence ID</th>
+			<th class='table_header' style='width:30%'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span> Sequence ID</th>
 			<th class='table_header' style='width:50%'>Domain Id</th>
-			<th class='table_header' style='width:19%'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>After comparing every annotated Pfam domains E-value for each sequences.</span></span> Best e-value </th>
+			<th class='table_header' style='width:20%'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>After comparing every annotated Pfam domains E-value for each sequences.</span></span> Best e-value </th>
 			</tr>
 		</thead>
 		<tfoot>

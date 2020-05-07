@@ -91,10 +91,10 @@
 		<th class='table_header' style='width:120px'>Domain ID</th>
 		<th class='table_header' style='width:150px'>Family</th>
 		<th class='table_header' style='width:120px'>Domain position</th>
-		<th class='table_header' style='width:280px'>Model species</th>	
-		<th class='table_header' style='width:150px'>E-Value</th>
-		<th class='table_header' style='width:150px'>Bitscore</th>
-		<th class='table_header' style='width:150px'>Accuracy</th>
+		<th class='table_header' style='width:250px'>Model species</th>	
+		<th class='table_header' style='width:120px'>E-Value</th>
+		<th class='table_header' style='width:120px'>Bitscore</th>
+		<th class='table_header' style='width:120px'>Accuracy</th>
 		</tr>
 	</thead>
 	<tfoot>

@@ -199,7 +199,7 @@ footer {
 /* Results table appearence */
 .table_container {
 	overflow-x:auto;
-	width: 100%;
+	width: 110%;
 	margin-bottom: 10px;}
 
 tfoot {

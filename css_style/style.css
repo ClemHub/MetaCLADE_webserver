@@ -204,7 +204,6 @@ tfoot {
 	display: table-header-group;}
 
 table {
-	display: block;
 	border: 1px solid black;
 	border-collapse: collapse;
 	line-height: 1;

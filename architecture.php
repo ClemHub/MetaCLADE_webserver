@@ -88,13 +88,13 @@
 	<table id='data_table'>
 	<thead>
 		<tr>
-		<th class='table_header' style='width:120px'>Domain ID</th>
-		<th class='table_header' style='width:150px'>Family</th>
+		<th class='table_header' style='max-width:120px'>Domain ID</th>
+		<th class='table_header' style='max-width:150px'>Family</th>
 		<th class='table_header' style='width:120px'>Domain position</th>
 		<th class='table_header' style='width:250px'>Model species</th>	
-		<th class='table_header' style='width:120px'>E-Value</th>
-		<th class='table_header' style='width:120px'>Bitscore</th>
-		<th class='table_header' style='width:120px'>Accuracy</th>
+		<th class='table_header' style='max-width:120px'>E-Value</th>
+		<th class='table_header' style='max-width:120px'>Bitscore</th>
+		<th class='table_header' style='max-width:120px'>Accuracy</th>
 		</tr>
 	</thead>
 	<tfoot>
@@ -123,9 +123,9 @@
 			echo "<option value='".$species."'>".$species."</option>";}
 		echo "</select></th>";	
 		?>
-		<th class='table_header'><input id='e-value_max' type='text' placeholder='E-value max' style='width:100px'/></th>
-		<th class='table_header'><input id='bitscore_min' type='text' placeholder='Bitscore min' style='width:100px'/></th>
-		<th class='table_header'><input id='acc_min' type='text' placeholder='Accuracy min' style='width:100px'/></th>
+		<th class='table_header'><input id='e-value_max' type='text' placeholder='E-value max' style='max-width:100px'/></th>
+		<th class='table_header'><input id='bitscore_min' type='text' placeholder='Bitscore min' style='max-width:100px'/></th>
+		<th class='table_header'><input id='acc_min' type='text' placeholder='Accuracy min' style='max-width:100px'/></th>
 		</tr>
 	</tfoot>	
 	<?php

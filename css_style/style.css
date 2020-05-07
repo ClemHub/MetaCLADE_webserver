@@ -222,6 +222,11 @@ table {
 #data_table{
 	width: 100%;}
 
+#data_table td{
+	max-width: 10px;
+	word-wrap: break-word;
+	white-space: nowrap;
+	width: 100%;}
 #goterms_table{
 	width: 100%;}
 
@@ -243,9 +248,9 @@ table.dataTable td {
 	/* border-left: 0.5px solid black; */
 	/* border-right: 0.5px solid black; */
 	height: 40px;
-	white-space: normal;
-    word-wrap: break-all;
-	max-width: 10px;
+	white-space: pre-line;
+    word-break: keep-all;
+	max-width: 25px;
 	font-size: 13px;
 	font-size-adjust: 0.5;}
 

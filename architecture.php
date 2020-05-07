@@ -88,13 +88,13 @@
 	<table id='data_table'>
 	<thead>
 		<tr>
-		<th class='table_header' style='width:14%'>Domain ID</th>
-		<th class='table_header' style='width:14%'>Family</th>
-		<th class='table_header' style='width:14%'>Domain position</th>
-		<th class='table_header' style='width:14%'>Model species</th>	
-		<th class='table_header' style='width:14%'>E-Value</th>
-		<th class='table_header' style='width:14%'>Bitscore</th>
-		<th class='table_header' style='width:14%'>Accuracy</th>
+		<th class='table_header' style='width:120px'>Domain ID</th>
+		<th class='table_header' style='width:150px'>Family</th>
+		<th class='table_header' style='width:120px'>Domain position</th>
+		<th class='table_header' style='width:280px'>Model species</th>	
+		<th class='table_header' style='width:150px'>E-Value</th>
+		<th class='table_header' style='width:150px'>Bitscore</th>
+		<th class='table_header' style='width:150px'>Accuracy</th>
 		</tr>
 	</thead>
 	<tfoot>

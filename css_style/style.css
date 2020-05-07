@@ -222,11 +222,6 @@ table {
 #data_table{
 	width: 100%;}
 
-#data_table td{
-	max-width: 10px;
-	word-wrap: break-word;
-	white-space: nowrap;
-	width: 100%;}
 #goterms_table{
 	width: 100%;}
 
@@ -240,8 +235,11 @@ table.dataTable thead{
 	font-size: 14px;
 	font-size-adjust: 0.5;}
 
+
 table.dataTable tr {
 	border: 1px solid rgb(39, 155, 201);} 
+table.dataTable th {
+	max-width: 300px;} 
 
 table.dataTable td {
 	/* border: 0.5px solid black; */
@@ -250,7 +248,7 @@ table.dataTable td {
 	height: 40px;
 	white-space: pre-line;
     word-break: keep-all;
-	max-width: 25px;
+	max-width: 300px;
 	font-size: 13px;
 	font-size-adjust: 0.5;}
 

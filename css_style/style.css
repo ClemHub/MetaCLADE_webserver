@@ -196,7 +196,7 @@ footer {
 
 /* Results table appearence */
 .table_container {
-	/*overflow-x: auto;*/
+	overflow-x: auto;
 	width: 100%;
 	margin-bottom: 10px;}
 
@@ -204,6 +204,7 @@ tfoot {
 	display: table-header-group;}
 
 table {
+	display: block;
 	border: 1px solid black;
 	border-collapse: collapse;
 	line-height: 1;

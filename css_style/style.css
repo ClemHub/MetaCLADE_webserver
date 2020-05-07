@@ -45,11 +45,11 @@ p {
 
 #header-menu {
 	display: block;
-	background-image: linear-gradient(rgb(12, 133, 180), rgb(116, 194, 224));}
+	background-image: linear-gradient(rgb(223, 128, 63), rgb(245, 169, 118));}
 
 #head {
-	background-image: linear-gradient(rgb(12, 133, 180), rgb(116, 194, 224));
-	background-image: url('http://www.lcqb.upmc.fr/MetaCLADE_webserver/server_images/header.png');
+	background-image: linear-gradient(rgb(223, 128, 63), rgb(245, 169, 118));
+	background-image: url('http://www.lcqb.upmc.fr/MetaCLADE_webserver/server_images/test.png');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: 100% 200px;
@@ -83,7 +83,7 @@ footer {
 	overflow: hidden;
 	width:100%;
 	border-top: 3px rgb(1, 59, 82) solid;
-	background-image: linear-gradient(rgb(12, 133, 180), rgb(116, 194, 224));
+	background-image: linear-gradient(rgb(223, 128, 63), rgb(245, 169, 118));
 	color: rgb(1, 59, 82);}
 
 .img-responsive {

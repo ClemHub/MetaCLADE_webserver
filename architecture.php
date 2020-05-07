@@ -80,7 +80,7 @@
 	
 	<div class='info'>
 	<div class = 'results_choice'>
-			<br/>Show results details<br/>
+			Show results details:
 			<label for="yes_results">Yes</label><input type="radio" name="results" id="yes_results" value = "true" onclick='ShowHideResults()'/>
 			<label for="no_results">No</label><input type="radio" name="results" id="no_results" value = "false" onclick='ShowHideResults()' checked/>
 	</div>
@@ -153,7 +153,7 @@
 
 	<div class='info'>
 	<div class = 'goterms_choice'>
-			<br/>Show GO-terms<br/>
+			Show GO-terms:
 			<label for="yes_goterms">Yes</label><input type="radio" name="goterms" id="yes_goterms" value = "true" onclick='ShowHideGoterms()'/>
 			<label for="no_goterms">No</label><input type="radio" name="goterms" id="no_goterms" value = "false" onclick='ShowHideGoterms()' checked/>
 	</div>

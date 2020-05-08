@@ -72,13 +72,13 @@ function small_form_submission(){
 			alert("\tPlease, enter:\n-A set of sequences or browse a fasta file.");
 			valid = false;}}
 	else if(seq !="" && pfam_domains!=""){
-		if(msg_seq != true && !validatePFAM(pfam_domains)){
+		if(msg_seq != true && msg_pfam != true){
 			alert("\tPlease, respect:\n-"+msg_pfam+"\n-"+msg_seq);
 			valid = false;}
-		else if(msg_seq != true && validatePFAM(pfam_domains)){
+		else if(msg_seq != true && msg_pfam == true){
 			alert("\tPlease, respect:\n-"+msg_seq);
 			valid = false;}
-		else if(msg_seq && !validatePFAM(pfam_domains)){
+		else if(msg_seq == true && msg_pfam != true){
 			alert("\tPlease, respect:\n-"+msg_pfam);
 			valid = false;}}
 	return valid;}

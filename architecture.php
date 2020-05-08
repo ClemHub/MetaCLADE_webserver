@@ -88,13 +88,13 @@
 	<table id='data_table'>
 	<thead>
 		<tr>
-		<th class='table_header' >Domain ID</th>
-		<th class='table_header' >Family</th>
-		<th class='table_header' >Domain position</th>
-		<th class='table_header' >Model species</th>	
-		<th class='table_header' >E-Value</th>
-		<th class='table_header' >Bitscore</th>
-		<th class='table_header' >Accuracy</th>
+		<th class='table_header' style='max-width:120px'>Domain ID</th>
+		<th class='table_header' style='max-width:160px'>Family</th>
+		<th class='table_header' style='max-width:130px'>Domain position</th>
+		<th class='table_header' style='max-width:190px'>Model species</th>	
+		<th class='table_header' style='max-width:170px'>E-Value</th>
+		<th class='table_header' style='max-width:170px'>Bitscore</th>
+		<th class='table_header' style='max-width:170px'>Accuracy</th>
 		</tr>
 	</thead>
 	<tfoot>
@@ -290,15 +290,6 @@ $(document).ready(function() {
 		"pageLength": 10,
 		"order": [[ 2, "desc" ]],
 		"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
-		"columns": [
-			{"width": "10%" },
-			{"width": "25%" },
-			{"width": "10%" },
-			{"width": "25%" },
-			{"width": "10%" },
-			{"width": "10%" },
-			{"width": "10%" },
-			]
 	});
 
 	$('#e-value_max').keyup( function() {

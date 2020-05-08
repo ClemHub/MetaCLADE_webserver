@@ -1,22 +1,24 @@
 function validate_one_seq(seq){
 	if(seq == ""){
 		return 'There is no sequence.';}
-	seq = seq.trim();
-	var lines = seq.split('\n');
-	name = lines[0];
-	if(name[0] == '>'){
-		lines.splice(0, 1);}
 	else{
-		return name+" should start with a '>'.";}
-	seq = lines.join('').trim();
-	var chain = /^[ACDEFGHIKLMNPQRSTUVWY\s]+$/i.test(seq);
-	if(chain==true){
-		return true;}
-	else{
-		return "Your sequence "+ name +" contains elements that are not amino acids";}}
+		seq = seq.trim();
+		var lines = seq.split('\n');
+		name = lines[0];
+		if(name[0] == '>'){
+			lines.splice(0, 1);}
+		else{
+			return name+" should start with a '>'.";}
+		seq = lines.join('').trim();
+		var chain = /^[ACDEFGHIKLMNPQRSTUVWY\s]+$/i.test(seq);
+		if(chain==true){
+			return true;}
+		else{
+			return "Your sequence "+ name +" contains elements that are not amino acids";}}}
 
 function validateFasta(fasta){
 	var seq = fasta.split(/(?=\>)/);
+	var valid = true
 	for(s in seq){
 		if(seq[s]){
 			valid = validate_one_seq(seq[s])
@@ -41,14 +43,14 @@ function validatePFAM(pfam_list){
 function large_form_submission(){
 	var seq =  document.large_annotation_form.sequences.value;
 	var msg_seq = validateFasta(seq);
-	var valid = true;
 	if(seq==""){
 		alert("Please enter a set of sequences or browse a fasta file.");
-		valid = false}
+		return false}
 	else if(seq != "" && msg_seq != true){
 		alert(msg_seq);
-		valid = false}
-	return valid;}
+		return false}
+	else{
+		return true}}
 
 function small_form_submission(){
 	var seq =  document.small_annotation_form.sequences.value.trim();

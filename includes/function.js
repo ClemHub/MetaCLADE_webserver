@@ -1,20 +1,16 @@
 function validate_one_seq(seq){
-	if(seq == ""){
-		return 'There is no sequence.';}
+	var lines = seq.trim().split('\n');
+	name = lines[0];
+	if(name[0] == '>'){
+		lines.splice(0, 1);}
 	else{
-		seq = seq.trim();
-		var lines = seq.split('\n');
-		name = lines[0];
-		if(name[0] == '>'){
-			lines.splice(0, 1);}
-		else{
-			return name+" should start with a '>'.";}
-		seq = lines.join('').trim();
-		var chain = /^[ACDEFGHIKLMNPQRSTUVWY\s]+$/i.test(seq);
-		if(chain==true){
-			return true;}
-		else{
-			return "Your sequence "+ name +" contains elements that are not amino acids";}}}
+		return name+" should start with a '>'.";}
+	seq = lines.join('').trim();
+	var chain = /^[ACDEFGHIKLMNPQRSTUVWY\s]+$/i.test(seq);
+	if(chain==true){
+		return true;}
+	else{
+		return "Your sequence "+ name +" contains elements that are not amino acids";}}
 
 function validateFasta(fasta){
 	var seq = fasta.split(/(?=\>)/);
@@ -28,17 +24,17 @@ function validateFasta(fasta){
 
 function validatePFAM(pfam_list){
 	var pfam_exp = /^PF\d{5}$/;
+	var i = 0;
 	pfam_list = pfam_list.split(',');
 	list_len = pfam_list.length;
 	if(list_len > 10){
-		valid = false;}
+		return "There are more than 10 domains";}
 	else{
-		valid = true;
 		for(var pfam in pfam_list){
+			i++
 			if(!pfam_exp.test(pfam_list[pfam])){
-				valid = false;
-				break;}}}
-	return valid;}
+				return "The "+i+"th domain format is not correct"}}}
+	return true;}
 
 function large_form_submission(){
 	var seq =  document.large_annotation_form.sequences.value;
@@ -55,33 +51,34 @@ function large_form_submission(){
 function small_form_submission(){
 	var seq =  document.small_annotation_form.sequences.value.trim();
 	var pfam_domains = document.small_annotation_form.pfam_domains.value.trim();
+	var msg_pfam = validatePFAM(pfam_domains);
 	var msg_seq = validateFasta(seq);
 	var valid = true;
 	if(msg_seq != true && pfam_domains==""){
-		alert("\tPlease:\n-Enter a list of PFAM domains and do not enter more than 10 domains\n-"+msg_seq);
+		alert("\tPlease:\n-Enter a list of Pfam domains and do not enter more than 10 domains\n-"+msg_seq);
 		valid = false;}
 	else if(msg_seq == true && pfam_domains==""){
-		alert("\tPlease:\n-Enter a list of PFAM domains and do not enter more than 10 domains");
+		alert("\tPlease:\n-Enter a list of Pfam domains and do not enter more than 10 domains");
 		valid = false}
 	else if(seq=="" && pfam_domains!=""){
-		if(!validatePFAM(pfam_domains)){
-			alert("\tPlease:\n-Enter a set of sequences or browse a fasta file\n-Respect the PFAM domain format and do not enter more than 10 domains.");
+		if(msg_pfam != true){
+			alert("\tPlease:\n-Enter a set of sequences or browse a fasta file\n-"+msg_pfam);
 			valid = false;}
 		else{
 			alert("\tPlease, enter:\n-A set of sequences or browse a fasta file.");
 			valid = false;}}
 	else if(seq=="" && pfam_domains==""){
-		alert("\tPlease, enter:\n-A set of sequences manually or through a fasta file\n-A list of 10 PFAM domains maximum.");
+		alert("\tPlease, enter:\n-A set of sequences or browse a fasta file\n-A list of 10 Pfam domains maximum.");
 		valid = false;}
 	else if(seq !="" && pfam_domains!=""){
 		if(seq != "" && msg_seq != true && !validatePFAM(pfam_domains)){
-			alert("\tPlease, respect:\n-The PFAM domain format and do not enter more than 10 domains.\n-"+msg_seq);
+			alert("\tPlease, respect:\n-"+msg_pfam+"\n-"+msg_seq);
 			valid = false;}
 		else if(seq != "" && msg_seq != true && validatePFAM(pfam_domains)){
 			alert("\tPlease, respect:\n-"+msg_seq);
 			valid = false;}
 		else if(seq!="" && msg_seq && !validatePFAM(pfam_domains)){
-			alert("\tPlease, respect:\n-The PFAM domain format and do not enter more than 10 domains.");
+			alert("\tPlease, respect:\n-"+msg_pfam);
 			valid = false;}}
 	return valid;}
 

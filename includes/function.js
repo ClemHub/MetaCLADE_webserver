@@ -54,12 +54,16 @@ function small_form_submission(){
 	var msg_pfam = validatePFAM(pfam_domains);
 	var msg_seq = validateFasta(seq);
 	var valid = true;
-	if(msg_seq != true && pfam_domains==""){
-		alert("\tPlease:\n-Enter a list of Pfam domains and do not enter more than 10 domains\n-"+msg_seq);
+	if(seq=="" && pfam_domains==""){
+		alert("\tPlease, enter:\n-A set of sequences or browse a fasta file\n-A list of 10 Pfam domains maximum.");
 		valid = false;}
-	else if(msg_seq == true && pfam_domains==""){
-		alert("\tPlease:\n-Enter a list of Pfam domains and do not enter more than 10 domains");
-		valid = false}
+	else if (seq!="" && pfam_domains==""){
+		if(msg_seq != true){
+			alert("\tPlease:\n-Enter a list of Pfam domains and do not enter more than 10 domains\n-"+msg_seq);
+			valid = false;}
+		else{
+			alert("\tPlease:\n-Enter a list of Pfam domains and do not enter more than 10 domains");
+			valid = false;}}
 	else if(seq=="" && pfam_domains!=""){
 		if(msg_pfam != true){
 			alert("\tPlease:\n-Enter a set of sequences or browse a fasta file\n-"+msg_pfam);
@@ -67,17 +71,14 @@ function small_form_submission(){
 		else{
 			alert("\tPlease, enter:\n-A set of sequences or browse a fasta file.");
 			valid = false;}}
-	else if(seq=="" && pfam_domains==""){
-		alert("\tPlease, enter:\n-A set of sequences or browse a fasta file\n-A list of 10 Pfam domains maximum.");
-		valid = false;}
 	else if(seq !="" && pfam_domains!=""){
-		if(seq != "" && msg_seq != true && !validatePFAM(pfam_domains)){
+		if(msg_seq != true && !validatePFAM(pfam_domains)){
 			alert("\tPlease, respect:\n-"+msg_pfam+"\n-"+msg_seq);
 			valid = false;}
-		else if(seq != "" && msg_seq != true && validatePFAM(pfam_domains)){
+		else if(msg_seq != true && validatePFAM(pfam_domains)){
 			alert("\tPlease, respect:\n-"+msg_seq);
 			valid = false;}
-		else if(seq!="" && msg_seq && !validatePFAM(pfam_domains)){
+		else if(msg_seq && !validatePFAM(pfam_domains)){
 			alert("\tPlease, respect:\n-"+msg_pfam);
 			valid = false;}}
 	return valid;}

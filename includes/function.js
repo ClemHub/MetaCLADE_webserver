@@ -1,5 +1,5 @@
 function validate_one_seq(seq){
-	if(!seq){
+	if(seq == ""){
 		return 'There is no sequence.';}
 	seq = seq.trim();
 	var lines = seq.split('\n');
@@ -42,7 +42,10 @@ function large_form_submission(){
 	var seq =  document.large_annotation_form.sequences.value;
 	var msg_seq = validateFasta(seq);
 	var valid = true;
-	if(msg_seq != true){
+	if(seq==""){
+		alert("Please enter a set of sequences or browse a fasta file.");
+		valid = false}
+	else if(seq != "" && msg_seq != true){
 		alert(msg_seq);
 		valid = false}
 	return valid;}

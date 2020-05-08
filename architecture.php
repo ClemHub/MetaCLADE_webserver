@@ -123,9 +123,9 @@
 			echo "<option value='".$species."'>".$species."</option>";}
 		echo "</select></th>";	
 		?>
-		<th class='table_header'><input id='e-value_max' type='text' placeholder='E-value max'/></th>
-		<th class='table_header'><input id='bitscore_min' type='text' placeholder='Bitscore min'/></th>
-		<th class='table_header'><input id='acc_min' type='text' placeholder='Accuracy min'/></th>
+		<th class='table_header'><input id='e-value_max' type='text' placeholder='E-value max' style='max-width:140px'/></th>
+		<th class='table_header'><input id='bitscore_min' type='text' placeholder='Bitscore min' style='max-width:140px'/></th>
+		<th class='table_header'><input id='acc_min' type='text' placeholder='Accuracy min' style='max-width:140px'/></th>
 		</tr>
 	</tfoot>	
 	<?php

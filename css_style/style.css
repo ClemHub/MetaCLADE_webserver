@@ -45,10 +45,10 @@ p {
 
 #header-menu {
 	display: block;
-	background-image: linear-gradient(rgb(156, 25, 0), rgb(214, 75, 21));}
+	background-image: linear-gradient(rgb(242, 163, 21), rgb(244, 206, 86));}
 
 #head {
-	background-image: linear-gradient(rgb(156, 25, 0), rgb(214, 75, 21));
+	background-image: linear-gradient(rgb(242, 163, 21), rgb(244, 206, 86));
 	background-image: url('http://www.lcqb.upmc.fr/MetaCLADE_webserver/server_images/red.png');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -228,7 +228,7 @@ table.dataTable thead{
 	border: 1px solid rgb(1, 30, 98);
 	color: rgb(1, 30, 98);
 	text-shadow: 0.1em 0.1em 0.2em rgba(21, 7, 36, 0.459);
-	background-image: linear-gradient(rgb(156, 25, 0), rgb(214, 75, 21));
+	background-image: linear-gradient(rgb(242, 163, 21), rgb(244, 206, 86));
 	text-transform: uppercase;
 	font-size: 14px;
 	font-size-adjust: 0.5;}
@@ -271,7 +271,7 @@ tbody:hover td[rowspan], tr:hover td {
 .table_link{
 	text-decoration: none;
 	font-weight: bold;
-	color: rgb(156, 25, 0);}
+	color: rgb(242, 163, 21);}
 
 .table_link:hover{
 	color: rgb(1, 30, 98);}
@@ -286,7 +286,7 @@ textarea {
 	-webkit-appearance: none;
 	padding: 0;
 	outline: none;
-	color: rgb(156, 25, 0);
+	color: rgb(242, 163, 21);
 	opacity: .8;
 	background: rgba(0, 0, 0, 0.397);
 	box-sizing: border-box;

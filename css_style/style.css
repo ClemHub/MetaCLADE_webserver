@@ -87,10 +87,9 @@ footer {
 	color: rgb(64, 64, 64);}
 
 .img-responsive {
-	height: 100%;
 	margin-left: 4%;
 	margin-right: 4%;
-	margin-top: 8px;
+	margin-top: auto;
 	margin-bottom:auto;}
 
 .btn{

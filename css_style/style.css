@@ -89,8 +89,8 @@ footer {
 .img-responsive {
 	margin-left: 4%;
 	margin-right: 4%;
-	margin-top: auto;
-	margin-bottom: auto;}
+	margin-top: 8px;
+	margin-bottom:auto;}
 
 .btn{
 	font-size: 20px;

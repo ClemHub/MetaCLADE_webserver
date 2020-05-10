@@ -448,3 +448,9 @@ div.dataTables_filter, div.dataTables_length {
 .domain_rect {
 	transition: all 1s;
 	transform-origin: 50% 50%;}
+
+input:focus{
+    outline:none;
+    border-color:rgb(158, 177, 96);
+    box-shadow:0 0 10px rgb(158, 177, 96);
+}

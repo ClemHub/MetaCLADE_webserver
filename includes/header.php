@@ -28,6 +28,7 @@ echo "<head>";
 				echo "<div class='dropdown-content'>";
 				echo "<a href='".$appurl."/small_annotation.php'>Few domains annotation</a>";
 				echo "<a href='".$appurl."/large_annotation.php'>All domains annotation</a>";
+				echo "<a href='".$appurl."/clan_annotation.php'>Clan annotation</a>";
 				echo "</div>";
 				echo "</div>";
 				echo "<div class='dropdown'>";

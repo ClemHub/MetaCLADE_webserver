@@ -468,7 +468,7 @@ textarea:focus{
 	font-size: 15px;
 	border-top: none;
 	z-index: 99;
-	height: 1000%;
+	max-height: 1000%;
 	overflow-y: scroll;
 	/*position the autocomplete items to be the same width as the container:*/
 	top: 100%;

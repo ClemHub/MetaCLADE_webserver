@@ -248,5 +248,5 @@ function HideTooltip(evt) {
 
 function clan_selection(){
 	var clan = document.getElementById("clan");
-	alert(clan)
+	alert(clan.innerHTML)
 }

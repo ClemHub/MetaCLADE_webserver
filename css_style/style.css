@@ -451,8 +451,7 @@ div.dataTables_filter, div.dataTables_length {
 input:focus{
     outline:none;
     border-color:rgb(158, 177, 96);
-    box-shadow:0 0 10px rgb(158, 177, 96);
-}
+    box-shadow:0 0 10px rgb(158, 177, 96);}
 
 textarea:focus{
     outline:none;
@@ -466,10 +465,10 @@ textarea:focus{
 .autocomplete-items {
 	position: absolute;
 	border: 1px solid #d4d4d4;
-	border-bottom: none;
+	font-size: 15px;
 	border-top: none;
 	z-index: 99;
-	height: 600%;
+	height: 1000%;
 	overflow-y: scroll;
 	/*position the autocomplete items to be the same width as the container:*/
 	top: 100%;

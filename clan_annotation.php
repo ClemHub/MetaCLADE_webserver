@@ -5,11 +5,10 @@
 		
 		<form autocomplete="off" name="small_annotation_form" method = POST action="submit.php?form=small" enctype="multipart/form-data" onsubmit="return small_form_submission()">
 			<fieldset class='form_fs'><legend><h4>Input data:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>See examples in the Help section for the expected format.<br>And do not enter more than 10 domains.</span></span></h4></legend>
-			<div class="autocomplete" id='pfam_container'>
+			<div class="autocomplete" id='clan_container'>
 			<label for="clan">Clan: <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Enter the name of the clan.</span></span></label><br/>
 			<input id="clan" type="text" name="clan" placeholder="CL00001">
 			</div>
-			<br>
 			<div id='seq_container'>
 			<label for="sequences">Sequences in Fasta format:</label><br/>
 			<textarea name="sequences" id = "sequences" rows='10' placeholder="Example:&#10;>SeqID_1&#10;sequence_1&#10;>SeqID_2&#10;sequence_2&#10;"></textarea><br/>

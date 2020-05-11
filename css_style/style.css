@@ -488,5 +488,8 @@ textarea:focus{
 .autocomplete-active {
 	/*when navigating through the items using the arrow keys:*/
 	background-color: DodgerBlue !important; 
-	color: #ffffff; 
+	color: #ffffff; }
+
+input[type=text]{
+	margin-bottom: 10px;
 }

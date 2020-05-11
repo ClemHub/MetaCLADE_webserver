@@ -246,11 +246,14 @@ function HideTooltip(evt) {
 	tooltip.setAttribute("visibility", "hidden");}
 
 function clan_selection(clan_list){
+	
 	var clan = document.clan_annotation_form.clan.value;
 	alert(clan)
 	var n = clan_list.includes(clan);
-	fetch('/MetaCLADE_webserver/data/clans/'+clan+'.txt')
-	.then(response => response.text())
-	.then((data) => {document.clan_annotation_form.pfam_domains.value = data })
-	document.getElementById("pfam_domains").disabled = true;
-}
+	if(n)
+		{fetch('/MetaCLADE_webserver/data/clans/'+clan+'.txt')
+		.then(response => response.text())
+		.then((data) => {document.clan_annotation_form.pfam_domains.value = data })
+		document.getElementById("pfam_domains").disabled = true;}
+	else{
+		alert('This clan is not available.')}}

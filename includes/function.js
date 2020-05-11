@@ -247,6 +247,7 @@ function HideTooltip(evt) {
 
 function clan_selection(clan_list){
 	var clan = document.clan_annotation_form.clan.value;
+	alert(clan)
 	var n = clan_list.includes(clan);
 	fetch('/MetaCLADE_webserver/data/clans/'+clan+'.txt')
 	.then(response => response.text())

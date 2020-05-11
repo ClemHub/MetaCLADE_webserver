@@ -9,7 +9,7 @@
 			<label for="clan">Clan: <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Enter the name of the clan.</span></span></label><br/>
 			<input id="clan" type="text" name="clan" placeholder="CL00001">
 			</div>
-
+			<br>
 			<div id='seq_container'>
 			<label for="sequences">Sequences in Fasta format:</label><br/>
 			<textarea name="sequences" id = "sequences" rows='10' placeholder="Example:&#10;>SeqID_1&#10;sequence_1&#10;>SeqID_2&#10;sequence_2&#10;"></textarea><br/>
@@ -62,5 +62,8 @@
 			var txt = reader.result
 			document.getElementById('sequences').value = txt;});
 		reader.readAsText(fileInput.files[0]);});
+
+
+	autocomplete(document.getElementById("myInput"), clan_list);
 	</script>
 <?php include("./includes/footer.php"); ?>

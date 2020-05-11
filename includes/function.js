@@ -245,3 +245,8 @@ function ShowTooltip(evt, mouseovertext) {
 function HideTooltip(evt) {
 	var tooltip = document.getElementById('tooltip');
 	tooltip.setAttribute("visibility", "hidden");}
+
+function clan_selection(){
+	var clan = document.getElementById("clan");
+	alert(clan)
+}

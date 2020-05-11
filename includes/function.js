@@ -248,5 +248,5 @@ function HideTooltip(evt) {
 
 function clan_selection(){
 	var clan = document.getElementById("clan");
-	alert(document.small_annotation_form.pfam_domains.value)
+	alert(document.clan_annotation_form.clan.value)
 }

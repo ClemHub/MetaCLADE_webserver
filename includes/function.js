@@ -239,14 +239,17 @@ function ShowTooltip(evt, mouseovertext) {
 	tooltip.setAttribute("x", evt.clientX + 11);
 	tooltip.setAttribute("y", evt.clientY + 27);
 	tooltip.firstChild.data = mouseovertext;
-	tooltip.setAttribute("visibility", "visible");
-}
+	tooltip.setAttribute("visibility", "visible");}
 
 function HideTooltip(evt) {
 	var tooltip = document.getElementById('tooltip');
 	tooltip.setAttribute("visibility", "hidden");}
 
-function clan_selection(){
-	var clan = document.getElementById("clan");
-	alert(document.clan_annotation_form.clan.value)
+function clan_selection(clan_list){
+	var clan = document.clan_annotation_form.clan.value;
+	var n = clan_list.includes(clan);
+	fetch('/MetaCLADE_webserver/data/clans/'+clan+'.txt')
+	.then(response => response.text())
+	.then((data) => {document.clan_annotation_form.pfam_domains.value = data })
+	document.getElementById("pfam_domains").disabled = true;
 }

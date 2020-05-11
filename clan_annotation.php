@@ -3,7 +3,7 @@
 	<section class = 'tools'>
 		<h2> Annotation of a clan in large and small datasets of sequences <br><span id = 'subtitle'>Searching for domains</span></h2>
 		
-		<form autocomplete="off" name="small_annotation_form" method = POST action="submit.php?form=small" enctype="multipart/form-data" onsubmit="return small_form_submission()">
+		<form autocomplete="off" name="clan_annotation_form" method = POST action="submit.php?form=clan" enctype="multipart/form-data" onsubmit="return clan_form_submission()">
 			<fieldset class='form_fs'><legend><h4>Input data:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>See examples in the Help section for the expected format.<br>And do not enter more than 10 domains.</span></span></h4></legend>
 			<div class="autocomplete" id='clan_container'>
 			<label for="clan">Clan: <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Enter the name of the clan.</span></span></label><br/>

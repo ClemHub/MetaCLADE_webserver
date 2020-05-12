@@ -91,11 +91,18 @@ function fill_exemple_form(form){
 		.then((data) => {document.small_annotation_form.sequences.value = data })
 		document.small_annotation_form.action = 'results.php?form=small_example';
 		document.getElementById("pfam_domains").disabled = true;}
-	else{
+	else if(form == 'large'){
 		fetch('/MetaCLADE_webserver/data/example.fasta')
 		.then(response => response.text())
 		.then((data) => {document.large_annotation_form.sequences.value = data })
 		document.large_annotation_form.action = 'results.php?form=large_example'}
+	else if(form == 'clan'){
+		fetch('/MetaCLADE_webserver/data/example.fasta')
+		.then(response => response.text())
+		.then((data) => {document.clan_annotation_form.sequences.value = data })
+		document.clan_annotation_form.clan.value = 'CL0001';
+		document.clan_annotation_form.action = 'results.php?form=clan_example'
+		document.getElementById("clan").disabled = true;}
 	document.getElementById("dama_evalue_nb").value = 1e-10;
 	document.getElementById("dama_evalue_range").value = 1e-10;
 	document.getElementById("dama_evalue_nb").disabled = true;
@@ -109,10 +116,13 @@ function fill_exemple_form(form){
 
 function reset_btn(form){
 	if(form == 'small'){
-		document.small_annotation_form.action = 'cookies.php?form=small';
+		document.small_annotation_form.action = 'results.php?form=small';
 		document.getElementById("pfam_domains").disabled = false;}
-	else{
-		document.large_annotation_form.action = 'cookies.php?form=large';}
+	else if(form == 'large'){
+		document.large_annotation_form.action = 'results.php?form=large';}
+	else if(form == 'clan'){
+		document.getElementById("clan").disabled = false;
+		document.clan_annotation_form.action = 'results.php?form=clan';}
 	document.getElementById("sequences").disabled = false;
 	document.getElementById("evalue_nb").disabled = false;
 	document.getElementById("evalue_range").disabled = false;
@@ -246,9 +256,7 @@ function HideTooltip(evt) {
 	tooltip.setAttribute("visibility", "hidden");}
 
 function clan_selection(clan_list){
-	
 	var clan = document.clan_annotation_form.clan.value;
-	alert(clan)
 	var n = clan_list.includes(clan);
 	if(n)
 		{fetch('/MetaCLADE_webserver/data/clans/'+clan+'.txt')

@@ -8,8 +8,8 @@
 			<div class="autocomplete" id='clan_container'>
 			<label for="clan">Clan: <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Enter the name of the clan.</span></span></label><br/>
 			<input id="clan" type="text" name="clan" placeholder="CL00001">
-			<input type='button' onclick='clan_selection(clan_list)' value='Search'/>
 			</div>
+			<input type='button' onclick='clan_selection(clan_list)' value="Show clan's domains"/>
 			<div id='pfam_container'>
 			<label for="pfam_domains">PFAM accession number: <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Do not enter more than 10 domains.</span></span></label><br/>
 			<textarea name="pfam_domains" id = "pfam_domains" rows='10' placeholder="Example:&#10;PF04523,PF06584,PF06325" autofocus></textarea>

@@ -7,7 +7,7 @@ include("./includes/header.php");
 
 	//Taking form informations
 	$form = $_GET["form"];
-	if($form=="small" || $form=="large"){
+	if($form=="small" || $form=="large" || $form=='clan'){
 		$job_id = $_GET["job_id"];
 		$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
 		$dama = $parameters["DAMA"];
@@ -24,12 +24,24 @@ include("./includes/header.php");
 		if($dama == "true"){
 			$job_id = 'large_example_withDAMA';
 			$DAMA_evalue = 1e-10;
-			$name_file = $approot."/jobs/large_example_withDAMA/large_example_withDAMA/results/3_arch/large_example_withDAMA.arch.txt";
+			$name_file = $approot."/jobs/large_example_withDAMA/large_example_withDAMA.arch.txt";
 			$dl_file = $appurl."/jobs/large_example_withDAMA/large_example_withDAMA.arch.txt";}
 		else if($dama == "false"){
 			$job_id = 'large_example_withoutDAMA';
 			$name_file = $approot."/jobs/large_example_withoutDAMA/large_example_withoutDAMA.arch.txt";
 			$dl_file = $appurl."/jobs/large_example_withoutDAMA/large_example_withoutDAMA.arch.txt";}}
+	else if($form=="clan_example"){
+		$dama = $_POST["dama"];
+		$e_value = 0.001;
+		if($dama == "true"){
+			$job_id = 'clan_example_withDAMA';
+			$DAMA_evalue = 1e-10;
+			$name_file = $approot."/jobs/clan_example_withDAMA/clan_example_withDAMA.arch.txt";
+			$dl_file = $appurl."/jobs/clan_example_withDAMA/clan_example_withDAMA.arch.txt";}
+		else if($dama == "false"){
+			$job_id = 'clan_example_withoutDAMA';
+			$name_file = $approot."/jobs/clan_example_withoutDAMA/clan_example_withoutDAMA.arch.txt";
+			$dl_file = $appurl."/jobs/clan_example_withoutDAMA/clan_example_withoutDAMA.arch.txt";}}
 	else if($form=="small_example"){
 		$e_value = 0.001;
 		$dama = $_POST["dama"];

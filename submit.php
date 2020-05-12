@@ -20,6 +20,8 @@ include("./includes/header.php");
 			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "DAMA e-value\t".$_POST["dama_evalue_nb"]."\n", FILE_APPEND);}
 		if($form=='small'){
 			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "PFAM\t".$_POST["pfam_domains"]."\n", FILE_APPEND);}
+		else if($form=='clan'){
+			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "PFAM file\t".$_POST["clan"].".txt\n", FILE_APPEND);}
 		if($email){
 			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Email\t".$email."\n", FILE_APPEND);}
 		file_put_contents($approot.'/jobs/'.$job_id.'/data.fa', $_POST["sequences"]);

@@ -36,14 +36,17 @@ function submit($job_id, $email){
 	if($dama == true){
 		$DAMA_evalue = $parameters['DAMA e-value'];	
 		$args = $args." -a -E ".escapeshellarg($DAMA_evalue);}
-	if($_GET['form']=='small'){
-		$pfam = $parameters['PFAM'];	
-		$args = $args." -d ".escapeshellarg($pfam);}
 	//Submit your job
 	if ($form == 'small'){
+		$pfam = $parameters['PFAM'];	
+		$args = $args." -d ".escapeshellarg($pfam);
 		$command="qsub -wd ".$approot."/jobs/".$job_id."/ -N $job_id ".$approot."/run_small.sh ".$args;}
 	else if($form == 'large'){
 		$command="qsub -wd ".$approot."/jobs/".$job_id."/ -N $job_id ".$approot."/run_large.sh ".$args;}
+	else if ($form == clan){
+		$pfam = $parameters['PFAM file'];	
+		$args = $args." -D ".escapeshellarg($pfam);	
+		$command="qsub -wd ".$approot."/jobs/".$job_id."/ -N $job_id ".$approot."/run_small.sh ".$args;}
 	$output = shell_exec("$command");
 	$link = $appurl."/status.php?form=".$form."&job_id=".$job_id."&email=".$email; 
 	$msg="<strong>Your job has been correctly submitted</strong><br><br>";

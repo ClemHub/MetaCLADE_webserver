@@ -97,6 +97,9 @@ function fill_exemple_form(form){
 		.then((data) => {document.large_annotation_form.sequences.value = data })
 		document.large_annotation_form.action = 'results.php?form=large_example'}
 	else if(form == 'clan'){
+		fetch('/MetaCLADE_webserver/data/clan/CL0001.txt')
+		.then(response => response.text())
+		.then((data) => {document.clan_annotation_form.clan.value = data })
 		fetch('/MetaCLADE_webserver/data/example.fasta')
 		.then(response => response.text())
 		.then((data) => {document.clan_annotation_form.sequences.value = data })

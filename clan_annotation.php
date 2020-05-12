@@ -53,8 +53,8 @@
 			</fieldset>
 			<div id='submission'>
 			<br/>
-			<input class='btn' type="submit" value="Search" name = "submit"/><input class='btn' type="reset" value="Reset" onclick="reset_btn('small')"/>
-			<span class='tooltip'><input class='btn' type="button" value="Example " onclick="fill_exemple_form('small')"/><span class='tooltiptext'>It uploads a precalculated example. Results will be filtered with your parameter choice.</span></span>
+			<input class='btn' type="submit" value="Search" name = "submit"/><input class='btn' type="reset" value="Reset" onclick="reset_btn('clan')"/>
+			<span class='tooltip'><input class='btn' type="button" value="Example " onclick="fill_exemple_form('clan')"/><span class='tooltiptext'>It uploads a precalculated example. Results will be filtered with your parameter choice.</span></span>
 			</div>
 		</form>
 	</section>

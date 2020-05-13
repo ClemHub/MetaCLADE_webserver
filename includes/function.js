@@ -40,10 +40,33 @@ function large_form_submission(){
 	var seq =  document.large_annotation_form.sequences.value;
 	var msg_seq = validateFasta(seq);
 	if(seq==""){
-		alert("Please enter a set of sequences or browse a fasta file.");
+		alert("\tPlease, enter:\n-A set of sequences or browse a fasta file.");
 		return false}
 	else if(seq != "" && msg_seq != true){
-		alert(msg_seq);
+		alert("\tPlease:\n-"+msg_seq);
+		return false}
+	else{
+		return true}}
+
+function clan_form_submission(clan_list){
+	var seq =  document.clan_annotation_form.sequences.value;
+	var clan = document.clan_annotation_form.clan.value;
+	var n = clan_list.includes(clan);
+	var msg_seq = validateFasta(seq);
+	if(seq=="" && clan==""){
+		alert("\tPlease, enter:\n-A set of sequences or browse a fasta file\n-A Pfam clan.");
+		return false}
+	else if(seq=="" && n){
+		alert("\tPlease, enter:\n-A set of sequences or browse a fasta file.");
+		return false}
+	else if(seq != "" && msg_seq != true && !n){
+		alert("\tPlease, enter:\n-A valid Pfam clan\n-"+msg_seq);
+		return false}
+	else if(seq != "" && msg_seq != true && n){
+		alert("\tPlease:\n-"+msg_seq);
+		return false}
+	else if(seq != "" && msg_seq == true && !n){
+		alert("\tPlease:\n-A valid Pfam clan");
 		return false}
 	else{
 		return true}}

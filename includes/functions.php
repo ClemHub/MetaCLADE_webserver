@@ -43,7 +43,7 @@ function submit($job_id, $email){
 		$command="qsub -wd ".$approot."/jobs/".$job_id."/ -N $job_id ".$approot."/run_small.sh ".$args;}
 	else if($form == 'large'){
 		$command="qsub -wd ".$approot."/jobs/".$job_id."/ -N $job_id ".$approot."/run_large.sh ".$args;}
-	else if ($form == clan){
+	else if ($form == 'clan'){
 		$pfam = $parameters['PFAM file'];	
 		$args = $args." -D ".escapeshellarg($pfam);	
 		$command="qsub -wd ".$approot."/jobs/".$job_id."/ -N $job_id ".$approot."/run_small.sh ".$args;}

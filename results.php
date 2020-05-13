@@ -12,8 +12,8 @@ include("./includes/header.php");
 		$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
 		$dama = $parameters["DAMA"];
 		$e_value = $parameters['E-value'];
-		$name_file = $approot."/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
-		$dl_file = $appurl."/jobs/".$job_id."/".$job_id."/results/3_arch/".$job_id.".arch.txt";
+		$name_file = $approot."/jobs/".$job_id."/".$job_id."/".$job_id.".arch.txt";
+		$dl_file = $appurl."/jobs/".$job_id."/".$job_id."/".$job_id.".arch.txt";
 		if($dama == true){
 			$DAMA_evalue = $parameters["DAMA e-value"];}
 		if($form=="small"){

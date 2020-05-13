@@ -4,7 +4,7 @@
 	<h2> Help </h2>
 	<h3>How to use MetaCLADE</h3>
 
-	<h4 id='input'>Input</h4>
+	<h3 id='input'>Input</h3>
 	<p>
 	Required inputs according the method used:
 	<ul class = 'spaced_list'>
@@ -25,8 +25,8 @@
 		<li> Use of DAMA or not and its e-value: default value set to 1e<sup>-3</sup></li>
 	</ul>
 	</p>
-	<h4 id='output'>Output:</h4>
-	<h3>Results page:</h3>
+	<h3 id='output'>Output:</h3>
+	<h4>Results page:</h4>
 	<p>
 	MetaCLADE returns the most reliable domain architecture. In the first place the results are represented as described here:
 	<ul class='spaced_list'>
@@ -35,7 +35,7 @@
 		<li> Best E-value: best e-value after comparing every annotated domain's e-value</li>
 	</ul>
 	</p>
-	<h3>Architecture page:</h3>
+	<h4>Architecture page:</h4>
 	<p>
 	This page shows the schematic representation of the annotated sequence.<br>
 	You can move your mouse over a domain to see a tooltip detailing all the informations that goes with this annotation such as the E-value, the bitscore, the model species and so on.<br>
@@ -46,7 +46,7 @@
 		<li> GO-terms table for every annotated domain: Pfam family, Pfam clan ID and Pfam clan family, GO-terms.</li>
 	</ul>	
 	</p>
-	<h4 id='method'>Method</h4>
+	<h3 id='method'>Method</h3>
 	<p>
 	MetaCLADE is a method used for the annotation of protein domains in metagenomic or metatranscriptomic reads.<br/>
 	Every known domains are represented by a few hundred probabilistic models called clade-centered-models (CCMs) and by consensus models (SCM)<br/>

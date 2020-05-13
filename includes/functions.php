@@ -33,7 +33,7 @@ function submit($job_id, $email){
 	$dama = $parameters['DAMA'];
 	$nb_jobs = 2;
 	$args = "-i ".escapeshellarg("$approot/jobs/".$job_id."/data.fa")." -N ".escapeshellarg($job_id)."  -e ".escapeshellarg($e_value)."  -W ".escapeshellarg("$approot/jobs/")."  -j ".escapeshellarg($nb_jobs);
-	if($dama == true){
+	if($dama == 'true'){
 		$DAMA_evalue = $parameters['DAMA e-value'];	
 		$overlappingAA = $parameters['overlappingAA'];
 		$overlappingMaxDomain = $parameters['overlappingMaxDomain'];

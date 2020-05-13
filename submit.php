@@ -16,7 +16,7 @@ include("./includes/header.php");
 		umask($oldmask);
 		file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "E-value\t".$_POST["evalue_nb"]."\n", FILE_APPEND);
 		file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "DAMA\t".$_POST["dama"]."\n", FILE_APPEND);
-		if($_POST["dama"] == true){
+		if($_POST["dama"] == 'true'){
 			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "DAMA e-value\t".$_POST["dama_evalue_nb"]."\n", FILE_APPEND);
 			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "overlappingAA\t".$_POST["overlappingAA_nb"]."\n", FILE_APPEND);
 			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "overlappingMaxDomain\t".$_POST["overlappingMaxDomain_nb"]."\n", FILE_APPEND);}

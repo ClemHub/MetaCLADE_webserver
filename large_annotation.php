@@ -34,8 +34,16 @@
 
 				<label for='dama_evalue_range'>E-value threshold for DAMA:<br/></label>
 					<input type="range" id='dama_evalue_range' name="dama_evalue_range" min='0' max="1" value="1e-10" step='1e-10' oninput="this.form.dama_evalue_nb.value=this.value" />
-					<input type="number" name="dama_evalue_nb" id='dama_evalue_nb' min='0' max="1" value="1e-10" step='1e-10' oninput="this.form.dama_evalue_range.value=this.value" />
+					<input type="number" id ='dama_evalue_nb' name="dama_evalue_nb" min='0' max="1" value="1e-10" step='1e-10' oninput="this.form.dama_evalue_range.value=this.value" />
 				<span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>E-value set to 1e<sup>-10</sup> by default. We advice you to avoid an E-value higher than 1e<sup>-5</sup>.<br/> Results with E-value greater than or equal to 1 are automatically filtered out.</span></span>
+				<label for='overlappingAA_range'>Number of amino acids allowed in the domain overlapping:<br/></label>
+					<input type="range" id='overlappingAA_range' name="overlappingAA_range" min='0' max="30" value="30" step='1' oninput="this.form.overlappingAA_nb.value=this.value" />
+					<input type="number" id ='overlappingAA_nb' name="overlappingAA_nb" min='0' max="30" value="30" step='1' oninput="this.form.overlappingAA_range.value=this.value" />
+				<span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Range set to 30 by default. We advice you to avoid a range higher than 30.</span></span>
+				<label for='overlappingMaxDomain_range'>Proportion of domain overlapping allowed (%):<br/></label>
+					<input type="range" id='overlappingMaxDomain_range' name="overlappingMaxDomain_range" min='0' max="50" value="50" step='1' oninput="this.form.overlappingMaxDomain_nb.value=this.value" />
+					<input type="number" id ='overlappingMaxDomain_nb' name="overlappingMaxDomain_nb" min='0' max="50" value="50" step='1' oninput="this.form.overlappingMaxDomain_range.value=this.value" />
+				<span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Proportion set to 50% by default. We advice you to avoid a proportion higher than 50%.</span></span>
 			</div>
 			</fieldset>
 

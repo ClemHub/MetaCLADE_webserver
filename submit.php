@@ -23,7 +23,7 @@ include("./includes/header.php");
 		if($form=='small'){
 			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "PFAM\t".$_POST["pfam_domains"]."\n", FILE_APPEND);}
 		else if($form=='clan'){
-			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Clan\t".$_POST["clan"].".txt\n", FILE_APPEND);}
+			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Clan\t".$_POST["clan"]."\n", FILE_APPEND);}
 		if($email){
 			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Email\t".$email."\n", FILE_APPEND);}
 		file_put_contents($approot.'/jobs/'.$job_id.'/data.fa', $_POST["sequences"]);

@@ -2,7 +2,6 @@
 
 	<section id ='help'>
 	<h2> Help </h2>
-	<h3>How to use MetaCLADE</h3>
 
 	<h3 id='input'>Input</h3>
 	<p>
@@ -22,7 +21,10 @@
 	Choice of features value:
 	<ul class='spaced_list'>
 		<li> MetaCLADE e-value threshold: default value set to 1e<sup>-10</sup></li>
-		<li> Use of DAMA or not and its e-value: default value set to 1e<sup>-3</sup></li>
+		<li> Use of DAMA or not:</li><ul class = 'spaced_list'>
+			<li> DAMA E-value: default value set to 1e<sup>-3</sup></li>
+			<li> Number of amino acids allowed in the domain overlapping: default value set to 30 and it is used as the greatest possible value</li>
+			<li> Domain overlapping is allowed for a given proportion (%) of the match: default value set to 50% and it is used as the greatest possible value</li></ul>
 	</ul>
 	</p>
 	<h3 id='output'>Output:</h3>

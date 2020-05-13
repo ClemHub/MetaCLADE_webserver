@@ -120,13 +120,13 @@ function fill_exemple_form(form){
 		.then((data) => {document.large_annotation_form.sequences.value = data })
 		document.large_annotation_form.action = 'results.php?form=large_example'}
 	else if(form == 'clan'){
-		fetch('/MetaCLADE_webserver/data/clans/CL0001.txt')
+		fetch('/MetaCLADE_webserver/data/clans/CL0039.txt')
 		.then(response => response.text())
 		.then((data) => {document.clan_annotation_form.pfam_domains.value = data })
 		fetch('/MetaCLADE_webserver/data/example.fasta')
 		.then(response => response.text())
 		.then((data) => {document.clan_annotation_form.sequences.value = data })
-		document.clan_annotation_form.clan.value = 'CL0001';
+		document.clan_annotation_form.clan.value = 'CL0039';
 		document.clan_annotation_form.action = 'results.php?form=clan_example'
 		document.getElementById("clan").disabled = true;}
 	document.getElementById("dama_evalue_nb").value = 1e-10;

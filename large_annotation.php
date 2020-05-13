@@ -59,7 +59,7 @@
 			<div id='submission'>
 			<br/>
 			<input class='btn' type="submit" value="Search" name = "submit"/><input class='btn' type="reset" value="Reset" onclick="reset_btn('large')"/>
-			<span class='tooltip'><input class='btn' type="button" value="Example " onclick="fill_exemple_form('large')"/><span class='tooltiptext'>It uploads a precalculated example. Results will be filtered with your parameter choice. </span></span>
+			<span class='tooltip'><input class='btn' type="button" value="Example " onclick="fill_exemple_form('large')"/><span class='tooltiptext'>It uploads a precalculated example, you can choose wheter or not to use DAMA. All the other parameters are defined with default values.</span></span>
 			</div>			
 		</form>	
 		</section>

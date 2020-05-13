@@ -89,9 +89,9 @@ done
 #/bin/echo "$MCLADE_USEDAMA"
 if $MCLADE_USEDAMA
 then
-    metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -D "$MCLADE_DOMFILE" -e "$MCLADE_EVALUECUTOFF" -a -E "$MCLADE_EVALUECUTCONF" -W "$MCLADE_WORKDIR" --overlappingAA "$OVERLAPPING_AA"  --overlappingMaxDomain "$OVERLAPPING_MAXDOMAIN" -j 4 --sge --pe smp --remove-temp
+    /home/blachon/Documents/Tools/metaclade2/metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -D "$MCLADE_DOMFILE" -e "$MCLADE_EVALUECUTOFF" -a -E "$MCLADE_EVALUECUTCONF" -W "$MCLADE_WORKDIR" --overlappingAA "$OVERLAPPING_AA"  --overlappingMaxDomain "$OVERLAPPING_MAXDOMAIN" -j 4 --sge --pe smp --remove-temp
 else 
-    metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -D "$MCLADE_DOMFILE" -e "$MCLADE_EVALUECUTOFF" -W "$MCLADE_WORKDIR" -j 4 --sge --pe smp --remove-temp
+    /home/blachon/Documents/Tools/metaclade2/metaclade2 -i "$INPUT_FASTA" -N "$MCLADE_JOBNAME" -D "$MCLADE_DOMFILE" -e "$MCLADE_EVALUECUTOFF" -W "$MCLADE_WORKDIR" -j 4 --sge --pe smp --remove-temp
 fi
 
 

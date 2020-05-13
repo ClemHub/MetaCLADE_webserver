@@ -115,7 +115,17 @@ function fill_exemple_form(form){
 	document.getElementById("evalue_nb").disabled = true;
 	document.getElementById("email").disabled = true;
 	document.getElementById("evalue_range").disabled = true;
-	document.getElementById("sequences").disabled = true;}
+	document.getElementById("sequences").disabled = true;
+	document.getElementById("overlappingAA_range").disabled = true;
+	document.getElementById("overlappingAA_range").value = 30;
+	document.getElementById("overlappingAA_nb").value = 30;
+	document.getElementById("overlappingAA_nb").disabled = true;
+	document.getElementById("overlappingMaxDomain_range").disabled = true;
+	document.getElementById("overlappingMaxDomain_range").value = 50;
+	document.getElementById("overlappingMaxDomain_nb").disabled = true;
+	document.getElementById("overlappingMaxDomain_nb").value = 50;
+}
+
 
 function reset_btn(form){
 	if(form == 'small'){
@@ -132,6 +142,10 @@ function reset_btn(form){
 	document.getElementById("dama_evalue_nb").disabled = false;
 	document.getElementById("dama_evalue_range").disabled = false;
 	document.getElementById("email").disabled = false;
+	document.getElementById("overlappingAA_range").disabled = false;
+	document.getElementById("overlappingAA_nb").disabled = false;
+	document.getElementById("overlappingMaxDomain_range").disabled = false;
+	document.getElementById("overlappingMaxDomain_nb").disabled = false;
 	document.getElementById("show_dama").style.display = "none";}
 
 function nav_function(){

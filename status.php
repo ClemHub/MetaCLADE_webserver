@@ -12,7 +12,7 @@ include("./includes/header.php");
 		echo "<br>You can save the link to access the results later thanks to this link and your job will be available for two month:<br>"; 
 		echo "<a href=$hostname/$appname/status.php?form=".$form."&job_id=".$job_id."&email=".$email.">$hostname/$appname/status.php?form=".$form."&job_id=".$job_id."</a><br>";
 
-		$output =  glob($approot."/jobs/".$job_id."/".$job_id.".*");
+		$output =  glob($approot."/jobs/".$job_id.".*");
 		$error = false;
 		$end = false;
 		if($output){
@@ -24,8 +24,8 @@ include("./includes/header.php");
 						$end = true;}
 					else if (preg_match("/failed|exit|error/", $last_line)){
 						$error = true;}
-					else if (preg_match("/submission/", $last_line)){
-						echo '<br><strong>Status of your job:</strong> submission of your job<br>';}
+					else if (preg_match("/submission|creation/", $last_line)){
+						echo '<br><strong>Status of your job:</strong> submission and creation of your job<br>';}
 					else if (preg_match("/search/", $last_line)){
 						echo '<br><strong>Status of your job:</strong> search job (step 1)<br>';}
 					else if (preg_match("/filter/", $last_line)){

@@ -30,14 +30,14 @@ function submit($job_id, $email){
 	$form = $_GET["form"];
 	$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
 	$e_value = $parameters['E-value'];
-	$overlappingAA = $parameters['overlappingAA'];
-	$overlappingMaxDomain = $parameters['overlappingMaxDomain'];
 	$dama = $parameters['DAMA'];
 	$nb_jobs = 2;
-	$args = "-i ".escapeshellarg("$approot/jobs/".$job_id."/data.fa")." -N ".escapeshellarg($job_id)." --overlappingAA ".escapeshellarg($overlappingAA)." --overlappingMaxDomain ".escapeshellarg($overlappingMaxDomain)."  -e ".escapeshellarg($e_value)."  -W ".escapeshellarg("$approot/jobs/")."  -j ".escapeshellarg($nb_jobs);
+	$args = "-i ".escapeshellarg("$approot/jobs/".$job_id."/data.fa")." -N ".escapeshellarg($job_id)."  -e ".escapeshellarg($e_value)."  -W ".escapeshellarg("$approot/jobs/")."  -j ".escapeshellarg($nb_jobs);
 	if($dama == true){
 		$DAMA_evalue = $parameters['DAMA e-value'];	
-		$args = $args." -a -E ".escapeshellarg($DAMA_evalue);}
+		$overlappingAA = $parameters['overlappingAA'];
+		$overlappingMaxDomain = $parameters['overlappingMaxDomain'];
+		$args = $args." -a -E ".escapeshellarg($DAMA_evalue)." --overlappingAA ".escapeshellarg($overlappingAA)." --overlappingMaxDomain ".escapeshellarg($overlappingMaxDomain);}
 	//Submit your job
 	if ($form == 'small'){
 		$pfam = $parameters['PFAM'];	

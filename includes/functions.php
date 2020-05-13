@@ -47,8 +47,8 @@ function submit($job_id, $email){
 		$command="qsub -wd ".$approot."/jobs/".$job_id."/ -N $job_id ".$approot."/run_large.sh ".$args;}
 	else if ($form == 'clan'){
 		$pfam = $parameters['PFAM file'];	
-		$args = $args." -D ".escapeshellarg($pfam);	
-		$command="qsub -wd ".$approot."/jobs/".$job_id."/ -N $job_id ".$approot."/run_small.sh ".$args;}
+		$args = $args." -D ".$approot."/data/clans/".escapeshellarg($pfam);	
+		$command="qsub -wd ".$approot."/jobs/".$job_id."/ -N $job_id ".$approot."/run_clan.sh ".$args;}
 	$output = shell_exec("$command");
 	$link = $appurl."/status.php?form=".$form."&job_id=".$job_id."&email=".$email; 
 	$msg="<strong>Your job has been correctly submitted</strong><br><br>";

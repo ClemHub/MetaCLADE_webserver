@@ -105,14 +105,16 @@ include("./includes/header.php");
 		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 		<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 		<script>
-
+		var form = <?php echo $form ?>;
+		alert(form)
 		$.fn.dataTable.ext.search.push(
 			function( settings, data, dataIndex ) {
 				var max = Number($('#max').val()) || 1;
 				var e_value = Number(data[2]) || 0;
 				if ((isNaN(max)) || (e_value <= max)){
 					return true;}
-				return false;});
+				return false;
+		});
 		
 		$(document).ready(function() {
 			var table = $('#result').DataTable( {
@@ -122,7 +124,8 @@ include("./includes/header.php");
 				"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
 				"language": {
 						"search": "<span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>List the Pfam domain you want to see. Separate them with a white-space.</span></span> PFAM list:",
-						"searchPlaceholder": "PF00001 PF00003 PF00156"},});
+						"searchPlaceholder": "PF00001 PF00003 PF00156"},
+					});
 
 			$('#max').on( 'keyup change', function () {
             	table.draw();});
@@ -131,7 +134,8 @@ include("./includes/header.php");
 			$('#domain-filter').on('keyup change', function(){
 				table.search(this.value, regex=true).draw()});
 			var val = [];
-			table.column(1).search(val.join(' ')).draw();});
+			table.column(1).search(val.join(' ')).draw();
+		});
 		</script>
 		
 		<div class='table_container'>

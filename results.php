@@ -122,7 +122,7 @@ include("./includes/header.php");
 					"pageLength": 10,
 					"order": [[ 2, "desc" ]],
 					"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
-						});}
+						});};
 			else{
 				var table = $('#result').DataTable( {
 					dom: 'flrtip',

@@ -105,7 +105,6 @@ include("./includes/header.php");
 		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 		<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 		<script>
-
 		$.fn.dataTable.ext.search.push(
 			function( settings, data, dataIndex ) {
 				var max = Number($('#max').val()) || 1;
@@ -132,8 +131,12 @@ include("./includes/header.php");
 				table.search(this.value).draw();});
 			$('#domain-filter').on('keyup change', function(){
 				table.search(this.value, regex=true).draw()});
-			var val = [];
-			table.column(1).search(val.join(' ')).draw();
+			var form = <?php echo $form ?>
+			if(form == 'small'){
+				$('#result').dataTable({searching: false})}
+			else{
+				var val = [];
+				table.column(1).search(val.join(' ')).draw();}
 		});
 		</script>
 		

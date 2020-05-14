@@ -105,6 +105,7 @@ include("./includes/header.php");
 		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 		<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 		<script>
+		var form = <?php echo $form ?>
 		$.fn.dataTable.ext.search.push(
 			function( settings, data, dataIndex ) {
 				var max = Number($('#max').val()) || 1;
@@ -113,17 +114,24 @@ include("./includes/header.php");
 					return true;}
 				return false;
 		});
-		
-		$(document).ready(function() {
-			var form = <?php echo $form ?>;
-			if(form == 'small'){
+		if(form == 'small'){
+			$(document).ready(function() {
 				var table = $('#result').DataTable( {
 					dom: 'lrtip',
 					"pageLength": 10,
 					"order": [[ 2, "desc" ]],
 					"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
-						});};
+						});
+
+				$('#max').on( 'keyup change', function () {
+					table.draw();});
+				$('#seq-filter').on('change', function(){
+					table.search(this.value).draw();});
+				$('#domain-filter').on('keyup change', function(){
+					table.search(this.value, regex=true).draw()});
+			});};
 			else{
+			$(document).ready(function() {
 				var table = $('#result').DataTable( {
 					dom: 'flrtip',
 					"pageLength": 10,
@@ -133,15 +141,16 @@ include("./includes/header.php");
 							"search": "<span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>List the Pfam domain you want to see. Separate them with a white-space.</span></span> PFAM list:",
 							"searchPlaceholder": "PF00001 PF00003 PF00156"},
 						});
+
+				$('#max').on( 'keyup change', function () {
+					table.draw();});
+				$('#seq-filter').on('change', function(){
+					table.search(this.value).draw();});
+				$('#domain-filter').on('keyup change', function(){
+					table.search(this.value, regex=true).draw()});
 				var val = [];
-				table.column(1).search(val.join(' ')).draw();}
-			$('#max').on( 'keyup change', function () {
-            	table.draw();});
-			$('#seq-filter').on('change', function(){
-				table.search(this.value).draw();});
-			$('#domain-filter').on('keyup change', function(){
-				table.search(this.value, regex=true).draw()});
-		});
+				table.column(1).search(val.join(' ')).draw();
+			});};
 		</script>
 		
 		<div class='table_container'>

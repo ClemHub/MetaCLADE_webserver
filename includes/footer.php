@@ -1,7 +1,6 @@
 	
 <?php
 			echo "<footer>";
-			echo "<div id = 'img-footer-container'>";
 
 			echo "<a href='https://www.sorbonne-universite.fr/' target='_blank'><img id='UPMC-logo' class='img-responsive' src='".$appurl."/server_images/Sorbonne-logo.png' alt='' style='height: 80%; '></a>";
 
@@ -11,7 +10,6 @@
 
 			echo "<a href='http://iscd.sorbonne-universite.fr/' target='_blank'><img id='ISCD-logo' class='img-responsive' src='".$appurl."/server_images/ISCD-logo.png' alt='' style='height: 70%; width: 260px'></a>";
 
-			echo "</div>";
 			echo "</footer>";
 
 ?>

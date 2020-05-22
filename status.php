@@ -20,7 +20,7 @@ include("./includes/header.php");
 				if(preg_match("/[a-zA-Z0-9]+\.e[0-9]+/", $file)){
 					$last_line = file($file);
 					$last_line = $last_line[count($last_line)-1];
-					if (preg_match("/\[main\] architecture job finished successfully/", $last_line)){
+					if (preg_match("/architecture job finished successfully/", $last_line)){
 						$end = true;}
 					else if (preg_match("/failed|exit|error/", $last_line)){
 						$error = true;}

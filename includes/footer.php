@@ -8,7 +8,7 @@
 
 			echo "<a href='http://www.lcqb.upmc.fr/' target='_blank'><img id='LCQB-logo' class='img-responsive' src='".$appurl."/server_images/LCQB-logo.jpg' alt='' style='height: 80%; '></a>";
 
-			echo "<a href='http://iscd.sorbonne-universite.fr/' target='_blank'><img id='ISCD-logo' class='img-responsive' src='".$appurl."/server_images/ISCD-logo.png' alt='' style='height: 80%;'></a>";
+			echo "<a href='http://iscd.sorbonne-universite.fr/' target='_blank'><img id='ISCD-logo' class='img-responsive' src='".$appurl."/server_images/ISCD-logo.png' alt='' style='height: 70%; width: 260px'></a>";
 
 			echo "</footer>";
 

@@ -76,7 +76,7 @@ section {
 footer {
 	position: absolute;
 	text-align: center;
-	margin: auto;
+	margin-left: auto;
 	bottom: 0;
 	left: 0;
 	height: 150px;

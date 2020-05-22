@@ -42,13 +42,16 @@ function submit($job_id, $email){
 	if ($form == 'small'){
 		$pfam = $parameters['PFAM'];	
 		$args = $args." -d ".escapeshellarg($pfam);
-		$command="qsub -pe smp 2 -wd ".$approot."/jobs/".$job_id."/ -N $job_id ".$approot."/run_small.sh ".$args;}
+		$args = $args." -t ".escapeshellarg(2);
+		$command="qsub -pe smp 1 -wd ".$approot."/jobs/".$job_id."/ -N $job_id /home/blachon/Documents/Tools/metaclade2/metaclade2/metaclade2 ".$args;}
 	else if($form == 'large'){
-		$command="qsub -pe smp 2 -wd ".$approot."/jobs/".$job_id."/ -N $job_id ".$approot."/run_large.sh ".$args;}
+		$args = $args." -t ".escapeshellarg(6);
+		$command="qsub -pe smp 2 -wd ".$approot."/jobs/".$job_id."/ -N $job_id /home/blachon/Documents/Tools/metaclade2/metaclade2/metaclade2 ".$args;}
 	else if ($form == 'clan'){
 		$pfam = $parameters['Clan'].".txt";	
 		$args = $args." -D ".$approot."/data/clans/".escapeshellarg($pfam);	
-		$command="qsub -pe smp 2 -wd ".$approot."/jobs/".$job_id."/ -N $job_id ".$approot."/run_clan.sh ".$args;}
+		$args = $args." -t ".escapeshellarg(4);
+		$command="qsub -pe smp 3 -wd ".$approot."/jobs/".$job_id."/ -N $job_id /home/blachon/Documents/Tools/metaclade2/metaclade2/metaclade2 ".$args;}
 	$output = shell_exec("$command");
 	$link = $appurl."/status.php?form=".$form."&job_id=".$job_id."&email=".$email; 
 	$msg="<strong>Your job has been correctly submitted</strong><br><br>";

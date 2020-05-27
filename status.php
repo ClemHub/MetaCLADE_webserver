@@ -56,11 +56,11 @@ include("./includes/header.php");
 
 		$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
 		echo $parameters['DAMA'];
-		if($parameters['DAMA'] == true || $parameters['DAMA'] == false){
-			echo 'bool';
+		if($parameters['DAMA'] == true){
+			echo 'true';
 		}
 		else{
-			echo 'string';
+			echo 'false';
 		}
 		echo "<ul><br><strong>Your job parameters:</strong><br>";
 		foreach($parameters as $name => $value){

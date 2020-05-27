@@ -12,7 +12,7 @@ include("./includes/header.php");
 		echo "<br>You can save the link to access the results later thanks to this link and your job will be available for two month:<br>"; 
 		echo "<a href=$hostname/$appname/status.php?form=".$form."&job_id=".$job_id."&email=".$email.">$hostname/$appname/status.php?form=".$form."&job_id=".$job_id."</a><br>";
 		$status = shell_exec("qstat -u 'metaclade' -j ".$job_id);
-		echo "Output:".$status."<br>";
+
 		$output =  glob($approot."/jobs/".$job_id."/".$job_id.".*");
 		$error = false;
 		$end = false;
@@ -55,19 +55,6 @@ include("./includes/header.php");
 			header("refresh: 10");}
 
 		$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
-		echo $parameters['DAMA'];
-		echo '<br>';
-		if($parameters['DAMA'] == 'true'){
-			echo "DAMA is a string";
-		} 
-		else if($parameters['DAMA'] == true){
-			echo "DAMA is a boolean";
-		}
-		else{
-			echo "DAMA is none of that";
-		}
-		echo '<br>';
-
 		echo "<ul><br><strong>Your job parameters:</strong><br>";
 		foreach($parameters as $name => $value){
 			if($name != "" and $value != "" and $name != "Email"){

@@ -32,7 +32,7 @@ function submit($job_id, $email){
 	$e_value = $parameters['E-value'];
 	$dama = $parameters['DAMA'];
 	$args = "-i ".escapeshellarg("$approot/jobs/".$job_id."/data.fa")." -N ".escapeshellarg($job_id)."  -e ".escapeshellarg($e_value)."  -W ".escapeshellarg("$approot/jobs/");
-	if($dama == 'true'){
+	if($dama == true){
 		$DAMA_evalue = $parameters['DAMA e-value'];	
 		$overlappingAA = $parameters['overlappingAA'];
 		$overlappingMaxDomain = $parameters['overlappingMaxDomain'];
@@ -47,7 +47,7 @@ function submit($job_id, $email){
 		$args = $args." -t ".escapeshellarg(6);
 		$command="qsub -pe smp 2 -wd ".$approot."/jobs/".$job_id."/ -N $job_id -b y /home/blachon/Documents/Tools/metaclade2/metaclade2 --remove-temp ".$args;}
 	else if ($form == 'clan'){
-		$pfam = $parameters['Clan'].".txt";	
+		$pfam = $parameters['Clan'];	
 		$args = $args." -D ".$approot."/data/clans/".escapeshellarg($pfam.".txt");	
 		$args = $args." -t ".escapeshellarg(4);
 		$command="qsub -pe smp 3 -wd ".$approot."/jobs/".$job_id."/ -N $job_id -b y /home/blachon/Documents/Tools/metaclade2/metaclade2 --remove-temp ".$args;}

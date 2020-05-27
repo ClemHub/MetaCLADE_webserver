@@ -31,7 +31,6 @@ function submit($job_id, $email){
 	$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
 	$e_value = $parameters['E-value'];
 	$dama = $parameters['DAMA'];
-
 	$args = "-i ".escapeshellarg("$approot/jobs/".$job_id."/data.fa")." -N ".escapeshellarg($job_id)."  -e ".escapeshellarg($e_value)."  -W ".escapeshellarg("$approot/jobs/");
 	if($dama == 'true'){
 		$DAMA_evalue = $parameters['DAMA e-value'];	

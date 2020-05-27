@@ -54,10 +54,10 @@ include("./includes/header.php");
 		$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
 		echo $parameters['DAMA'];
 		echo '<br>';
-		if($parameters['DAMA'] == 'false'){
+		if($parameters['DAMA'] == 'true'){
 			echo "DAMA is a string";
 		} 
-		else if($parameters['DAMA'] == false){
+		else if($parameters['DAMA'] == true){
 			echo "DAMA is a boolean";
 		}
 		else{

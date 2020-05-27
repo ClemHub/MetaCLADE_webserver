@@ -40,11 +40,11 @@ include("./includes/header.php");
 						$error = true;}}}
 			echo "<br>This page will be refreshed every 10 seconds<br>";
 			if($end){
-				//echo "<br><br>The end<br>";}
-				header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_id."&email=".$email);}
+				echo "<br><br>The end<br>";}
+				//header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_id."&email=".$email);}
 			else if($error){
-				//echo "<br><br>Error<br>";}
-				header("location: $hostname/$appname/error.php?form=".$form."&job_id=".$job_id."&email=".$email);}
+				echo "<br><br>Error<br>";}
+				//header("location: $hostname/$appname/error.php?form=".$form."&job_id=".$job_id."&email=".$email);}
 			else{
 				//echo "<br><br>Nothing done yet<br>";}}
 				header("refresh: 10");}}

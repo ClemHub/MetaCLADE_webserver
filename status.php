@@ -58,7 +58,7 @@ include("./includes/header.php");
 		echo "<ul><br><strong>Your job parameters:</strong><br>";
 		foreach($parameters as $name => $value){
 			if($name != "" and $value != "" and $name != "Email"){
-				echo "<li>".$name.": ".gettype($value)."</li>";}}
+				echo "<li>".$name.": ".$value."</li>";}}
 		echo "</ul>";
 
 		?>

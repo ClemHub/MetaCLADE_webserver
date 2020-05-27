@@ -11,8 +11,8 @@ include("./includes/header.php");
 		echo "Your job <strong>".$job_id."</strong> is running.<br>";
 		echo "<br>You can save the link to access the results later thanks to this link and your job will be available for two month:<br>"; 
 		echo "<a href=$hostname/$appname/status.php?form=".$form."&job_id=".$job_id."&email=".$email.">$hostname/$appname/status.php?form=".$form."&job_id=".$job_id."</a><br>";
-		$output = shell_exec("qstat -u 'metaclade' -j ".$job_id);
-		echo "Output:".$output."<br>";
+		$status = shell_exec("qstat -u 'metaclade' -j ".$job_id);
+		echo "Output:".$status."<br>";
 		$output =  glob($approot."/jobs/".$job_id."/".$job_id.".*");
 		$error = false;
 		$end = false;
@@ -38,13 +38,15 @@ include("./includes/header.php");
 					$last_line = $last_line[count($last_line)-1];
 					if (preg_match("/failed|exit|error/", $last_line)){
 						$error = true;}}}
+			if($end == false && $status == ""){
+				$error = true;}
 			echo "<br>This page will be refreshed every 10 seconds<br>";
 			if($end){
-				echo "<br><br>The end<br>";}
-				//header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_id."&email=".$email);}
+				//echo "<br><br>The end<br>";}
+				header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_id."&email=".$email);}
 			else if($error){
-				echo "<br><br>Error<br>";}
-				//header("location: $hostname/$appname/error.php?form=".$form."&job_id=".$job_id."&email=".$email);}
+				//echo "<br><br>Error<br>";}
+				header("location: $hostname/$appname/error.php?form=".$form."&job_id=".$job_id."&email=".$email);}
 			else{
 				//echo "<br><br>Nothing done yet<br>";}}
 				header("refresh: 10");}}

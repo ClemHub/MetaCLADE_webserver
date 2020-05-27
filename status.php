@@ -56,7 +56,7 @@ include("./includes/header.php");
 
 		$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
 		echo $parameters['DAMA'];
-		if($parameters['DAMA'] == 'true'){
+		if(strval($parameters['DAMA']) == 'true'){
 			echo 'true';}
 		else{
 			echo 'false';}

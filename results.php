@@ -9,21 +9,12 @@ include("./includes/header.php");
 	$form = $_GET["form"];
 	if($form=="small" || $form=="large" || $form=='clan'){
 		$job_id = $_GET["job_id"];
-		$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
-		$dama = $parameters["DAMA"];
-		$e_value = $parameters['E-value'];
 		$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.txt";
-		$dl_file = $appurl."/jobs/".$job_id."/".$job_id.".arch.txt";
-		if($dama == true){
-			$DAMA_evalue = $parameters["DAMA e-value"];}
-		if($form=="small"){
-			$pfam = $parameters["PFAM"];}}
+		$dl_file = $appurl."/jobs/".$job_id."/".$job_id.".arch.txt";}
 	else if($form=="large_example"){
 		$dama = $_POST["dama"];
-		$e_value = 0.001;
 		if($dama == "true"){
 			$job_id = 'large_example_withDAMA';
-			$DAMA_evalue = 1e-10;
 			$name_file = $approot."/jobs/large_example_withDAMA/large_example_withDAMA.arch.txt";
 			$dl_file = $appurl."/jobs/large_example_withDAMA/large_example_withDAMA.arch.txt";}
 		else if($dama == "false"){
@@ -32,10 +23,8 @@ include("./includes/header.php");
 			$dl_file = $appurl."/jobs/large_example_withoutDAMA/large_example_withoutDAMA.arch.txt";}}
 	else if($form=="clan_example"){
 		$dama = $_POST["dama"];
-		$e_value = 0.001;
 		if($dama == "true"){
 			$job_id = 'clan_example_withDAMA';
-			$DAMA_evalue = 1e-10;
 			$name_file = $approot."/jobs/clan_example_withDAMA/clan_example_withDAMA.arch.txt";
 			$dl_file = $appurl."/jobs/clan_example_withDAMA/clan_example_withDAMA.arch.txt";}
 		else if($dama == "false"){
@@ -43,11 +32,8 @@ include("./includes/header.php");
 			$name_file = $approot."/jobs/clan_example_withoutDAMA/clan_example_withoutDAMA.arch.txt";
 			$dl_file = $appurl."/jobs/clan_example_withoutDAMA/clan_example_withoutDAMA.arch.txt";}}
 	else if($form=="small_example"){
-		$e_value = 0.001;
 		$dama = $_POST["dama"];
-		$pfam = "PF00875,PF03441,PF03167,PF12546";
 		if($dama == "true"){
-			$DAMA_evalue = 1e-10;
 			$job_id = 'small_example_withDAMA';
 			$name_file = $approot."/jobs/small_example_withDAMA/small_example_withDAMA.arch.txt";
 			$dl_file = $appurl."/jobs/small_example_withDAMA/small_example_withDAMA.arch.txt";}
@@ -217,6 +203,7 @@ include("./includes/header.php");
 		echo 'Only the domains belonging to the clan you choose in input was used to analyse the sequences entered.<br>';
 	}
 	echo "<ul><br><strong>Your job parameters:</strong><br>";
+	$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
 	foreach($parameters as $name => $value){
 		if($name != "" and $value != "" and $name != "Email"){
 			echo "<li>".$name.": ".$value."</li>";}}

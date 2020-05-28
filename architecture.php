@@ -116,6 +116,7 @@
 		echo "</select></th>";
 
 		echo "<th class='table_header'></th>";
+		echo "<th class='table_header'></th>";
 
 		echo "<th class='table_header'>";
 		echo "<select id='species-filter'>";

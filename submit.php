@@ -30,12 +30,12 @@ include("./includes/header.php");
 		$msg = submit($job_id, $email);
 		echo $msg;
 		if($email){
-			echo "An email has bees send";
+			echo "An email has bens send";
 			$mail_header= "Subject: $appname queued (".$jobid.")\n";
 			$mail_header= $mail_header . "Content-Type: text/html\n";
 			$mail_header= $mail_header . "MIME-Version:\n";
 			$mail= $mail_header . "\n".$msg;
-			mail($mail, "no-reply@lcqb.upmc.fr", $email);};
+			mail($email, "no-reply@lcqb.upmc.fr", $mail);};
 
 		header("location: $hostname/$appname/status.php?form=".$form."&job_id=".$job_id);
 		?>

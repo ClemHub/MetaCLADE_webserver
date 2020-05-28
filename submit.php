@@ -18,8 +18,8 @@ include("./includes/header.php");
 		file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "DAMA\t".$_POST["dama"]."\n", FILE_APPEND);
 		if($_POST["dama"] == 'true'){
 			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "DAMA e-value\t".$_POST["dama_evalue_nb"]."\n", FILE_APPEND);
-			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "overlappingAA\t".$_POST["overlappingAA_nb"]."\n", FILE_APPEND);
-			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "overlappingMaxDomain\t".$_POST["overlappingMaxDomain_nb"]."\n", FILE_APPEND);}
+			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Amino acids overlappping\t".$_POST["overlappingAA_nb"]."\n", FILE_APPEND);
+			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Max domain overlapping (%)\t".$_POST["overlappingMaxDomain_nb"]."\n", FILE_APPEND);}
 		if($form=='small'){
 			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "PFAM\t".$_POST["pfam_domains"]."\n", FILE_APPEND);}
 		else if($form=='clan'){

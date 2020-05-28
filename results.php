@@ -9,12 +9,21 @@ include("./includes/header.php");
 	$form = $_GET["form"];
 	if($form=="small" || $form=="large" || $form=='clan'){
 		$job_id = $_GET["job_id"];
+		$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
+		$dama = $parameters["DAMA"];
+		$e_value = $parameters['E-value'];
 		$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.txt";
-		$dl_file = $appurl."/jobs/".$job_id."/".$job_id.".arch.txt";}
+		$dl_file = $appurl."/jobs/".$job_id."/".$job_id.".arch.txt";
+		if($dama == true){
+			$DAMA_evalue = $parameters["DAMA e-value"];}
+		if($form=="small"){
+			$pfam = $parameters["PFAM"];}}
 	else if($form=="large_example"){
 		$dama = $_POST["dama"];
+		$e_value = 0.001;
 		if($dama == "true"){
 			$job_id = 'large_example_withDAMA';
+			$DAMA_evalue = 1e-10;
 			$name_file = $approot."/jobs/large_example_withDAMA/large_example_withDAMA.arch.txt";
 			$dl_file = $appurl."/jobs/large_example_withDAMA/large_example_withDAMA.arch.txt";}
 		else if($dama == "false"){
@@ -23,8 +32,11 @@ include("./includes/header.php");
 			$dl_file = $appurl."/jobs/large_example_withoutDAMA/large_example_withoutDAMA.arch.txt";}}
 	else if($form=="clan_example"){
 		$dama = $_POST["dama"];
+		$clan = 'CL0039';
+		$e_value = 0.001;
 		if($dama == "true"){
 			$job_id = 'clan_example_withDAMA';
+			$DAMA_evalue = 1e-10;
 			$name_file = $approot."/jobs/clan_example_withDAMA/clan_example_withDAMA.arch.txt";
 			$dl_file = $appurl."/jobs/clan_example_withDAMA/clan_example_withDAMA.arch.txt";}
 		else if($dama == "false"){
@@ -32,8 +44,11 @@ include("./includes/header.php");
 			$name_file = $approot."/jobs/clan_example_withoutDAMA/clan_example_withoutDAMA.arch.txt";
 			$dl_file = $appurl."/jobs/clan_example_withoutDAMA/clan_example_withoutDAMA.arch.txt";}}
 	else if($form=="small_example"){
+		$e_value = 0.001;
 		$dama = $_POST["dama"];
+		$pfam = "PF00875,PF03441,PF03167,PF12546";
 		if($dama == "true"){
+			$DAMA_evalue = 1e-10;
 			$job_id = 'small_example_withDAMA';
 			$name_file = $approot."/jobs/small_example_withDAMA/small_example_withDAMA.arch.txt";
 			$dl_file = $appurl."/jobs/small_example_withDAMA/small_example_withDAMA.arch.txt";}
@@ -186,28 +201,63 @@ include("./includes/header.php");
 	<?php
 	if($form == 'small'){
 		echo 'Only the domains ID you gave in input was searched into the sequences.<br>';
+		echo "<ul><br><strong>Your job parameters:</strong><br>";
+		foreach($parameters as $name => $value){
+			if($name != "" and $value != ""){
+				echo "<li>".$name.": ".$value."</li>";}}
+		echo "</ul>";
 	}
 	else if($form == 'large'){
 		echo 'All the domain library was used to analyse the sequences entered.<br>';
+		echo "<ul><br><strong>Your job parameters:</strong><br>";
+		foreach($parameters as $name => $value){
+			if($name != "" and $value != ""){
+				echo "<li>".$name.": ".$value."</li>";}}
+		echo "</ul>";
 	}
 	else if($form == 'clan'){
-		echo 'Only the domains belonging to the clan you choose in input was used to analyse the sequences entered.<br>';
+		echo 'Only the domains belonging to the Pfam clan you selected was used to analyse the sequences entered.<br>';
+		echo "<ul><br><strong>Your job parameters:</strong><br>";
+		foreach($parameters as $name => $value){
+			if($name != "" and $value != ""){
+				echo "<li>".$name.": ".$value."</li>";}}
+		echo "</ul>";
 	}
 	else if($form == 'small_example'){
 		echo 'Only the domains ID gave as an example was used to treat our test data set.<br>';
+		echo "<ul><br><strong>Your job parameters:</strong><br>";
+		echo 'E-value: ' . $e_value . '<br>';
+		echo 'Pfam: ' . $pfam . '<br>';
+		echo 'DAMA: ' . $dama . '<br>';
+		if($dama == true){
+			echo 'DAMA E-value: ' . $DAMA_evalue;
+			echo 'Amino acids overlappping: 30<br>' ;
+			echo 'Max domain overlapping (%): 50<br>' ;
+		}
 	}
 	else if($form == 'large_example'){
 		echo 'All the domain of the library was used to treat our test data set.<br>';
+		echo "<ul><br><strong>Your job parameters:</strong><br>";
+		echo 'E-value: ' . $e_value . '<br>';
+		echo 'DAMA: ' . $dama . '<br>';
+		if($dama == true){
+			echo 'DAMA E-value: ' . $DAMA_evalue;
+			echo 'Amino acids overlappping: 30<br>' ;
+			echo 'Max domain overlapping (%): 50<br>' ;
+		}
 	}
 	else if($form == 'clan_example'){
-		echo 'Only the domains belonging to the clan you choose in input was used to analyse the sequences entered.<br>';
+		echo 'Only the domains belonging to the Pfam clan you selected was used to treat our test data set.<br>';
+		echo "<ul><br><strong>Your job parameters:</strong><br>";
+		echo 'E-value: ' . $e_value . '<br>';
+		echo 'Clan: ' . $clan . '<br>';
+		echo 'DAMA: ' . $dama . '<br>';
+		if($dama == true){
+			echo 'DAMA E-value: ' . $DAMA_evalue;
+			echo 'Amino acids overlappping: 30<br>' ;
+			echo 'Max domain overlapping (%): 50<br>' ;
+		}
 	}
-	echo "<ul><br><strong>Your job parameters:</strong><br>";
-	$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
-	foreach($parameters as $name => $value){
-		if($name != "" and $value != "" and $name != "Email"){
-			echo "<li>".$name.": ".$value."</li>";}}
-	echo "</ul>";
 	echo '<br><br>';
 	?>
 

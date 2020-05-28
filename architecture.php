@@ -90,7 +90,8 @@
 		<tr>
 		<th class='table_header' style='max-width:120px'>Domain ID</th>
 		<th class='table_header' style='max-width:160px'>Family</th>
-		<th class='table_header' style='max-width:130px'>Domain position</th>
+		<th class='table_header' style='max-width:65px'>Start</th>
+		<th class='table_header' style='max-width:65px'>Stop</th>
 		<th class='table_header' style='max-width:190px'>Model species</th>	
 		<th class='table_header' style='max-width:170px'>E-Value</th>
 		<th class='table_header' style='max-width:170px'>Bitscore</th>
@@ -136,7 +137,8 @@
         $row = $db->query("SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$data[4]."'");
         $row = $row->fetchArray();
         echo "<td>" . $row['Family']."</td>";
-		echo "<td>" . $data[1] . " - " . $data[2]. "</td>";
+		echo "<td>" . $data[1] . "</td>";
+		echo "<td>" . $data[2] . "</td>";
 		if(substr($data[12], 0, -1) == 'unavailable'){
 			echo "<td class='species_name'>HMMer-3 model</td>";}
 		else{
@@ -265,21 +267,21 @@
 $.fn.dataTable.ext.search.push(
 	function( settings, data, dataIndex ) {
 		var max = Number($('#e-value_max').val()) || 1;
-		var e_value = Number(data[4]) || 0;
+		var e_value = Number(data[5]) || 0;
 		if ((isNaN(max)) || (e_value <= max)){
 			return true;}
 		return false;});
 $.fn.dataTable.ext.search.push(		
 	function( settings, data, dataIndex ) {
 		var min = Number($('#bitscore_min').val()) || 0;
-		var bitscore = Number(data[5]) || 0;
+		var bitscore = Number(data[6]) || 0;
 		if ((isNaN(min)) || (bitscore >= min)){
 			return true;}
 		return false;});
 $.fn.dataTable.ext.search.push(		
 	function( settings, data, dataIndex ) {
 		var min = Number($('#acc_min').val()) || 0;
-		var accuracy = Number(data[6]) || 0;
+		var accuracy = Number(data[7]) || 0;
 		if ((isNaN(min)) || (accuracy >= min)){
 			return true;}
 		return false;});

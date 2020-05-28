@@ -204,17 +204,23 @@ include("./includes/header.php");
 	else if($form == 'large'){
 		echo 'All the domain library was used to analyse the sequences entered.<br>';
 	}
+	else if($form == 'clan'){
+		echo 'Only the domains belonging to the clan you choose in input was used to analyse the sequences entered.<br>';
+	}
 	else if($form == 'small_example'){
 		echo 'Only the domains ID gave as an example was used to treat our test data set.<br>';
 	}
 	else if($form == 'large_example'){
 		echo 'All the domain of the library was used to treat our test data set.<br>';
 	}
-	echo 'The MetaCLADE e-value applied: ' . $e_value . '<br>';
-	if($dama == true){
-		echo 'You choose to use DAMA to your dataset with a cut-off e-value equal to: ' . $DAMA_evalue;}
-	else if($dama == false){
-		echo 'DAMA was not used to determine the architecture.';}
+	else if($form == 'clan_example'){
+		echo 'Only the domains belonging to the clan you choose in input was used to analyse the sequences entered.<br>';
+	}
+	echo "<ul><br><strong>Your job parameters:</strong><br>";
+	foreach($parameters as $name => $value){
+		if($name != "" and $value != "" and $name != "Email"){
+			echo "<li>".$name.": ".$value."</li>";}}
+	echo "</ul>";
 	echo '<br><br>';
 	?>
 

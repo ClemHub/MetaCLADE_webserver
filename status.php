@@ -55,11 +55,7 @@ include("./includes/header.php");
 			header("refresh: 10");}
 
 		$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
-		echo $parameters['DAMA'];
-		if(strval($parameters['DAMA']) == 'true'){
-			echo 'true';}
-		else{
-			echo 'false';}
+
 		echo "<ul><br><strong>Your job parameters:</strong><br>";
 		foreach($parameters as $name => $value){
 			if($name != "" and $value != "" and $name != "Email"){

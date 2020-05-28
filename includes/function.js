@@ -224,11 +224,11 @@ function sortTable(col_nb){
 			shouldSwitch = false;
 			x = rows[i].getElementsByTagName("TD")[col_nb];
 			y = rows[i + 1].getElementsByTagName("TD")[col_nb];
-			if(col_nb == 4){
+			if(col_nb == 5){
 				if (Number(x.innerHTML) > Number(y.innerHTML)) {
 					shouldSwitch = true;
 					break;}}
-			else if(col_nb == 5 || col_nb == 6){
+			else if(col_nb == 6 || col_nb == 7){
 				if (parseFloat(x.innerHTML) < parseFloat(y.innerHTML)) {
 					shouldSwitch = true;
 					break;}}}

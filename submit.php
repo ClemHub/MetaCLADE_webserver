@@ -15,15 +15,15 @@ include("./includes/header.php");
 		mkdir($approot.'/jobs/'.$job_id, 0777, true);
 		umask($oldmask);
 		file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "E-value\t".$_POST["evalue_nb"]."\n", FILE_APPEND);
-		file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "DAMA\t".$_POST["dama"]."\n", FILE_APPEND);
-		if($_POST["dama"] == 'true'){
-			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "DAMA e-value\t".$_POST["dama_evalue_nb"]."\n", FILE_APPEND);
-			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Amino acids overlappping\t".$_POST["overlappingAA_nb"]."\n", FILE_APPEND);
-			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Max domain overlapping (%)\t".$_POST["overlappingMaxDomain_nb"]."\n", FILE_APPEND);}
 		if($form=='small'){
 			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "PFAM\t".$_POST["pfam_domains"]."\n", FILE_APPEND);}
 		else if($form=='clan'){
 			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Clan\t".$_POST["clan"].".txt\n", FILE_APPEND);}
+		file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "DAMA\t".$_POST["dama"]."\n", FILE_APPEND);		
+		if($_POST["dama"] == 'true'){
+			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "DAMA e-value\t".$_POST["dama_evalue_nb"]."\n", FILE_APPEND);
+			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Amino acids overlappping\t".$_POST["overlappingAA_nb"]."\n", FILE_APPEND);
+			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Max domain overlapping (%)\t".$_POST["overlappingMaxDomain_nb"]."\n", FILE_APPEND);}
 		if($email){
 			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Email\t".$email."\n", FILE_APPEND);}
 		file_put_contents($approot.'/jobs/'.$job_id.'/data.fa', $_POST["sequences"]);

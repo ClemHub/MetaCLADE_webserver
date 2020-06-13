@@ -108,7 +108,7 @@ function small_form_submission(){
 
 function fill_exemple_form(form){
 	if(form == 'small'){
-		document.small_annotation_form.pfam_domains.value = "PF00875,PF12546,PF03167,PF03441,PF02153";
+		document.small_annotation_form.pfam_domains.value = "PF00875,PF12546,PF03167,PF03441,PF02153,PF12679";
 		fetch('/MetaCLADE_webserver/data/example.fasta')
 		.then(response => response.text())
 		.then((data) => {document.small_annotation_form.sequences.value = data })

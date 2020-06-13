@@ -30,12 +30,28 @@
 	<h3 id='output'>Output:</h3>
 	<h4>Results page:</h4>
 	<p>
-	MetaCLADE returns the most reliable domain architecture. In the first place the results are represented as described here:
+	MyCLADE returns the most reliable domain architecture. In the first place the results are represented as described here:
 	<ul class='spaced_list'>
 		<li> Sequence ID: related to a link returning the schematic representation of the architecture for the given sequence, some statistic measures, and the GO-terms.</li>
 		<li> Architecture: every annotated domain </li>
 		<li> Best E-value: best e-value after comparing every annotated domain's e-value</li>
 	</ul>
+	Moreover, the complete resulting file is downloadable. This file is gave for every annotated domaine the following informations:
+	<ul class='spaced_list'>
+		<li> Sequence ID</li>
+		<li> Domain start position</li>
+		<li> Domain stop position</li>
+		<li> Domain length</li>
+		<li> Domain identifier (Pfam accession number)</li>
+		<li> Model identifier</li>
+		<li> Model start</li>
+		<li> Model stop</li>
+		<li> Model size</li>
+		<li> E-value</li>
+		<li> Bitscore</li>
+		<li> Accuracy value in the interval [0,1]</li>
+		<li> Species of the template used to build the model</li>
+	</ul>	
 	</p>
 	<h4>Architecture page:</h4>
 	<p>

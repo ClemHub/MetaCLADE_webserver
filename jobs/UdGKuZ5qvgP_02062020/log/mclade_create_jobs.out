@@ -1,0 +1,5 @@
+[mclade_create_jobs] fasta_path: /var/www/html/MetaCLADE_webserver/jobs/UdGKuZ5qvgP_02062020/data.fa
+[mclade_create_jobs] MetaCLADE root path: /home/blachon/Documents/Tools/metaclade2
+[mclade_create_jobs] creating search jobs
+[mclade_create_jobs] creating filter jobs
+[mclade_create_jobs] creating architecture jobs

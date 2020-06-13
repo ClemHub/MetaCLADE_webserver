@@ -1,14 +1,13 @@
 <?php include("./includes/header.php"); ?>
 <?php include("./includes/menu.php"); ?>
-
-	<section id = 'architecture_section'>
-	<div id='previous_page'><i class="fa fa-arrow-left"></i><a class="table_link" href="javascript:history.back()"> Main results page</a></div>
-	<div id='architecture'>
-	<h2> Architecture </h2>
 	<?php
 	$form = $_GET['form'];
-	$seq_id = $_GET['id'];
-	$job_id = $_GET['job_id'];
+        $seq_id = $_GET['id'];
+        $job_id = $_GET['job_id'];
+	echo "<section id = 'architecture_section'>";
+	echo "<div id='previous_page'><i class='fa fa-arrow-left'></i><a class='table_link' href='$hostname/$appname/results.php?form=".$form."&job_id=".$job_id."&email=".$email."'>Main results page</a></div>";
+	echo "<div id='architecture'>";
+	echo "<h2> Architecture </h2>";
 
 	$db = new SQLite3($approot.'/data/MetaCLADE.db');
 

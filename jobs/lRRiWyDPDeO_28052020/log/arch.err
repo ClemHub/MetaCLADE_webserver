@@ -1,0 +1,35 @@
+-domainsHitFile	/var/www/html/MetaCLADE_webserver/jobs/lRRiWyDPDeO_28052020/temp/domainsHitFile.best.res
+-domainsInfoFile	/home/blachon/Documents/Tools/metaclade2/data/pfamLists/pfam32/pfam32.domains
+-overlappingDomainFile	/home/blachon/Documents/Tools/metaclade2/data/pfamLists/pfam32/pfam32.overlapping
+-knownArchFile	/home/blachon/Documents/Tools/metaclade2/data/pfamLists/pfam32/pfam32.knownArch
+-outputFile	/var/www/html/MetaCLADE_webserver/jobs/lRRiWyDPDeO_28052020/temp/dama.arch.txt
+-domainCov	0.400000
+-overlappingAA	30
+-overlappingMaxDomain	0.500000
+-evalueCutOffConf	0.000000
+-df1	10.000000
+-df2	0
+-df3	0
+-df4	0
+-df5	0.000000
+--review	false
+-normProb	0
+-archSize	0
+-showAll	0
+
+Loaded Domain Info file.
+Loaded Domain Hits file.
+Filtered.
+Time Difference: 3
+Loaded Known Arch file.
+Loaded Domain Overlapping file.
+Finding Archs.
+
+!!!THE END!!!
+Time Difference: 5837560
+[dama_arch] loading best hits
+[dama_arch] loading best hits
+[dama_arch] running DAMA
+[dama_arch] loading taxonomy information
+[dama_arch] creating architecture file
+[dama_arch] runtime: 8.94

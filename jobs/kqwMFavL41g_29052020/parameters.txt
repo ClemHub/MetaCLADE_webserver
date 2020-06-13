@@ -1,0 +1,4 @@
+PFAM	PF00875,PF03441,PF03167,PF12546
+DAMA	false
+E-value	1e-3
+Email	clemenceblachon@gmail.com

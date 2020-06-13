@@ -1,0 +1,8 @@
+[search_hmm] runtime: PF03167 HMM 0.02
+[search_hmm] runtime: PF00875 HMM 0.01
+[search_hmm] runtime: PF03441 HMM 0.02
+[search_hmm] runtime: PF12546 HMM 0.01
+[search_ccms_all] runtime: PF12546 CCMs 0.09
+[search_ccms_all] runtime: PF03167 CCMs 1.00
+[search_ccms_all] runtime: PF00875 CCMs 2.81
+[search_ccms_all] runtime: PF03441 CCMs 2.90

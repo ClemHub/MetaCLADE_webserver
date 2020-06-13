@@ -1,0 +1,5 @@
+E-value 1e-3
+DAMA    true
+DAMA e-value    1e-10
+overlappingAA   30
+overlappingMaxDomain    50

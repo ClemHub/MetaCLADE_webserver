@@ -5,7 +5,7 @@
         $seq_id = $_GET['id'];
         $job_id = $_GET['job_id'];
 	echo "<section id = 'architecture_section'>";
-	echo "<div id='previous_page'><i class='fa fa-arrow-left'></i><a class='table_link' href='javascript:history.back()'>Main results page</a></div>";
+	echo "<div id='previous_page'><i class='fa fa-arrow-left'></i><a class='table_link' href='javascript:history.back()'> Main results page</a></div>";
 	echo "<div id='architecture'>";
 	echo "<h2> Architecture </h2>";
 
@@ -83,7 +83,7 @@
 	
 	<div class='info'>
 	<div class = 'results_choice'>
-			Show results details:
+			Show annotations details:
 			<label for="yes_results">Yes</label><input type="radio" name="results" id="yes_results" value = "true" onclick='ShowHideResults()'/>
 			<label for="no_results">No</label><input type="radio" name="results" id="no_results" value = "false" onclick='ShowHideResults()' checked/>
 	</div>
@@ -250,7 +250,7 @@
 			$length = count($go_terms[$data])-1;
 			foreach($go_terms[$data] as $go){
 				if($i != $length){
-					echo $go.'<br>';}
+					echo "<a class = 'table_link' href=https://www.ebi.ac.uk/QuickGO/term/". substr(explode(' ', $go)[0], 0, -1) ." target='_blank'>".$go."</a><br>";}
 				else{
 					echo "<a class = 'table_link' href=https://www.ebi.ac.uk/QuickGO/term/". substr(explode(' ', $go)[0], 0, -1) ." target='_blank'>".$go."</a>";}}
 			echo "</td></tr>";

@@ -152,13 +152,13 @@ function fill_exemple_form(form){
 
 function reset_btn(form){
 	if(form == 'small'){
-		document.small_annotation_form.action = 'results.php?form=small';
+		document.small_annotation_form.action = 'submit.php?form=small';
 		document.getElementById("pfam_domains").disabled = false;}
 	else if(form == 'large'){
-		document.large_annotation_form.action = 'results.php?form=large';}
+		document.large_annotation_form.action = 'submit.php?form=large';}
 	else if(form == 'clan'){
 		document.getElementById("clan").disabled = false;
-		document.clan_annotation_form.action = 'results.php?form=clan';}
+		document.clan_annotation_form.action = 'submit.php?form=clan';}
 	document.getElementById("sequences").disabled = false;
 	document.getElementById("evalue_nb").disabled = false;
 	document.getElementById("evalue_range").disabled = false;

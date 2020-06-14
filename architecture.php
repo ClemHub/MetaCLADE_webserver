@@ -252,7 +252,7 @@
 				if($i != $length){
 					echo $go.'<br>';}
 				else{
-					echo "<a class = 'table_link' href=https://www.ebi.ac.uk/QuickGO/term/". substr(explode(':', $go), 0, -1) ."target='_blank'>".$go."</a>";}}
+					echo "<a class = 'table_link' href=https://www.ebi.ac.uk/QuickGO/term/". substr(explode(':', $go), 0, -1) ." target='_blank'>".$go."</a>";}}
 			echo "</td></tr>";
 			}}
 	echo '</tbody>';

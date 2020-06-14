@@ -4,7 +4,7 @@
 	<h2> Annotation of small datasets of sequences<br> with all Pfam domains</h2>
 	
 		<form name="large_annotation_form" method = "post" action="submit.php?form=large"  enctype="multipart/form-data" onsubmit="return large_form_submission()">
-			<fieldset class='form_fs'><legend><h4>Input data:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>See examples in the Help section for the expected format.</span></span></h4></legend>
+			<fieldset class='form_fs'><legend><h4>Input data:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>See Help for expected format.</span></span></h4></legend>
 			<div class='seq_container'>
 			<label for="sequences">Sequences in Fasta format:</label><br/>
 			<textarea name="sequences" id = "sequences" rows='10' placeholder="Example:&#10;>SeqID_1&#10;sequence_1&#10;>SeqID_2&#10;sequence_2&#10;" autofocus></textarea><br/>
@@ -14,7 +14,7 @@
 			<div id='error_message'></div>
 			</fieldset>
 			
-			<fieldset class='form_fs'><legend><h4>Parameters:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>The parameters are defined with default values but you can modify them.</span></span></h4></legend>
+			<fieldset class='form_fs'><legend><h4>Parameters:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Parameters settings: hits are filtered by the E-value. DAMA reconstructs the most likely architecture.</span></span></h4></legend>
 			<div class = 'metaclade_e-value'>
 			<label for='evalue_range'>E-value threshold for MetaCLADE:<br/></label>
 			<input type="range" id='evalue_range' name="evalue_range" min='0' max="1" value="1e-3" step='1e-10' oninput="this.form.evalue_nb.value=this.value" />

@@ -4,7 +4,7 @@
 		<h2> Annotation of a clan</h2>
 		
 		<form autocomplete="off" name="clan_annotation_form" method = POST action="submit.php?form=clan" enctype="multipart/form-data" onsubmit="return clan_form_submission()">
-			<fieldset class='form_fs'><legend><h4>Input data:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>See examples in the Help section for the expected format.<br>And do not enter more than 10 domains.</span></span></h4></legend>
+			<fieldset class='form_fs'><legend><h4>Input data:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>See Help for expected format.</span></span></h4></legend>
 			<div class="autocomplete" id='clan_container'>
 			<label for="clan">Clan: <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Enter the name of the clan.</span></span></label><br/>
 			<input id="clan" type="text" name="clan" placeholder="CL00001" autofocus>
@@ -16,7 +16,7 @@
 			<input type="file" id="fasta_file" name="fasta_file"/>
 			</div>
 			</fieldset>
-			<fieldset class='form_fs'><legend><h4>Parameters:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>The parameters are defined with default values but you can modify them.</span></span></h4></legend>
+			<fieldset class='form_fs'><legend><h4>Parameters:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Parameters settings: hits are filtered by the E-value. DAMA reconstructs the most likely architecture.</span></span></h4></legend>
 			<div class = 'metaclade_e-value'>
 			<label for='evalue_range'>E-value threshold for MetaCLADE:<br/></label>
 			<input type="range" id='evalue_range' name="evalue_range" min='0' max="1" value="1e-3" step='1e-10' oninput="this.form.evalue_nb.value=this.value" />

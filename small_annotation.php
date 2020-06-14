@@ -1,7 +1,7 @@
 <?php include("./includes/header.php"); ?>
 
 	<section class = 'tools'>
-		<h2> Annotation of a few domains in large and small datasets of sequences <br><span id = 'subtitle'>Searching for domains</span></h2>
+		<h2> Annotation of a few domains </h2>
 		
 		<form name="small_annotation_form" method = POST action="submit.php?form=small" enctype="multipart/form-data" onsubmit="return small_form_submission()">
 			<fieldset class='form_fs'><legend><h4>Input data:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>See examples in the Help section for the expected format.<br>And do not enter more than 10 domains.</span></span></h4></legend>
@@ -55,7 +55,7 @@
 			<fieldset class='form_fs'><legend><h4>E-mail adress:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Optional and used to send you job details.</span></span></h4></legend>
 
 			<div id = 'email_address'>
-			<input type="email" name="email" id="email" pattern=".+@.+\..+" placeholder = 'Optionnal'>
+			<input type="email" name="email" id="email" pattern=".+@.+\..+" placeholder = 'Optional'>
 			</div>
 			</fieldset>
 			<div id='submission'>

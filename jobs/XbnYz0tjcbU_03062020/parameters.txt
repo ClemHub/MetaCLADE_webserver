@@ -1,2 +1,0 @@
-DAMA	false
-E-value	1e-3

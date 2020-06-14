@@ -1,0 +1,10 @@
+[2020-06-14 02:06:50] MetaCLADE working directory: /var/www/html/MetaCLADE_webserver/jobs//GyOf0nc4lFa_14062020
+[2020-06-14 02:06:50] output will be saved to: /var/www/html/MetaCLADE_webserver/jobs//GyOf0nc4lFa_14062020/GyOf0nc4lFa_14062020.arch.txt
+[2020-06-14 02:06:50] creating MetaCLADE script/job files
+[2020-06-14 02:06:52] running search jobs
+[2020-06-14 02:07:00] search jobs finished successfully
+[2020-06-14 02:07:00] running filter jobs
+[2020-06-14 02:07:00] search jobs finished successfully
+[2020-06-14 02:07:00] running architecture job
+[2020-06-14 02:07:07] architecture job finished successfully
+[2020-06-14 02:07:07] removing temporary files

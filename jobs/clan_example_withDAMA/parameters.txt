@@ -1,3 +1,4 @@
+Clan	CL0039.txt
 DAMA	true
 E-value	1e-3
 DAMA e-value	1e-10

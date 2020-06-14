@@ -1,3 +1,0 @@
-Clan	CL0123.txt
-DAMA	false
-E-value	1e-3

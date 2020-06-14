@@ -1,7 +1,7 @@
 <?php include("./includes/header.php"); ?>
 
 	<section class = 'tools'>
-	<h2> Annotation of small datasets of sequences with all Pfam domains<br><span id = 'subtitle'>Searching for domains</span></h2>
+	<h2> Annotation of small datasets of sequences<br> with all Pfam domains</h2>
 	
 		<form name="large_annotation_form" method = "post" action="submit.php?form=large"  enctype="multipart/form-data" onsubmit="return large_form_submission()">
 			<fieldset class='form_fs'><legend><h4>Input data:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>See examples in the Help section for the expected format.</span></span></h4></legend>
@@ -52,7 +52,7 @@
 
 			<fieldset class='form_fs'><legend><h4>E-mail adress:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Optional and used to send you job details.</span></span></h4></legend>
 			<div id = 'email_address'>
-			<input type="email" name="email" id="email" pattern=".+@.+\..+" placeholder = 'Optionnal'>
+			<input type="email" name="email" id="email" pattern=".+@.+\..+" placeholder = 'Optional'>
 			</div>
 			</fieldset>
 			

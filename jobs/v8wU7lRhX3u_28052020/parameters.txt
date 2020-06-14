@@ -1,6 +1,0 @@
-E-value	1e-3
-DAMA	true
-DAMA e-value	1e-10
-overlappingAA	30
-overlappingMaxDomain	50
-PFAM	PF00875,PF03441,PF03167,PF12546

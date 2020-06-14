@@ -1,6 +1,0 @@
-PFAM	PF03441,PF00875,PF12546,PF03167
-DAMA	true
-E-value	1e-3
-DAMA e-value	1e-10
-Amino acids overlappping	30
-Max domain overlapping (%)	50

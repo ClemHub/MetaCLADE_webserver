@@ -9,8 +9,16 @@ include("./includes/header.php");
 		$form = $_GET["form"];
 		$job_id = $_GET["job_id"];
 		echo "Your job <strong>".$job_id."</strong> is running.<br>";
-		echo "<br>You can save the link to access the results later thanks to this link and your job will be available for two month:<br>"; 
+		echo "<br>You can save the link to access the results later (your job will be available for two months):<br>"; 
 		echo "<a href=$hostname/$appname/status.php?form=".$form."&job_id=".$job_id."&email=".$email.">$hostname/$appname/status.php?form=".$form."&job_id=".$job_id."</a><br>";
+		$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
+
+		echo "<ul><br><strong>Your job parameters:</strong><br>";
+		foreach($parameters as $name => $value){
+			if($name != "" and $value != "" and $name != "Email"){
+				echo "<li>".$name.": ".$value."</li>";}}
+		echo "</ul>";
+
 		$status = shell_exec("qstat -u 'metaclade' -j ".$job_id);
 
 		$output =  glob($approot."/jobs/".$job_id."/".$job_id.".*");
@@ -58,13 +66,7 @@ include("./includes/header.php");
 			echo '<br><strong>Status of your job:</strong> submission of your job';
 			header("refresh: 10");}
 
-		$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
 
-		echo "<ul><br><strong>Your job parameters:</strong><br>";
-		foreach($parameters as $name => $value){
-			if($name != "" and $value != "" and $name != "Email"){
-				echo "<li>".$name.": ".$value."</li>";}}
-		echo "</ul>";
 
 		?>
 	</section>

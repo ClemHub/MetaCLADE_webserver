@@ -2,7 +2,7 @@
 <?php include("./includes/menu.php"); ?>
 	<?php
 	$form = $_GET['form'];
-        $seq_id = $_GET['id'];
+        $seq_id = html_entity_decode($_GET['id']);
         $job_id = $_GET['job_id'];
 	echo "<section id = 'architecture_section'>";
 	echo "<div id='previous_page'><i class='fa fa-arrow-left'></i><a class='table_link' href='javascript:history.back()'> Main results page</a></div>";
@@ -46,13 +46,13 @@
 			$scaled_stop = ($stop*100)/$length;
 			$color = "rgb(".rand(150,255).",".rand(150,255).",".rand(150,255).")";
 			if(trim($exploded_line[12]) == 'unavailable'){
-				$model_species = 'HMMer-3 model';}
+				$model_species = 'HMMer-3 model\n';}
 			else{
 				$model_species = $exploded_line[12];}
 			echo "<g><a xlink:href='http://pfam.xfam.org/family/".$pfam."' target='_blank'>";
 			//echo "<text class='rect_text' x='". $scaled_start ."%' y='30' style='font-size:15px; font-size-adjust: 0.5; fill:white; font-weight:bold; mix-blend-mode: exclusion;' >".$pfam."</text>";
 			echo "<rect class='domain_rect' x='".$scaled_start."%' y='10' width='". $width ."%' height='30' style=' fill:".$color."; fill-opacity:0.7; stroke-width:1; stroke:3'>";
-			echo "<title>PFAM Acc Number: ".$pfam."\nFamily: ".$row['Family']."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nClan Acc Number: ".$row['Clan_acc_nb']."\nClan: ".$row['Clan']."\n\nModel species: ".$model_species."\nE-value: ".$exploded_line[9]."\nbitscore: ".$exploded_line[10]."\nAccuracy: ".$exploded_line[11]."</title></rect></a></g>";
+			echo "<title>PFAM Acc Number: ".$pfam."\nFamily: ".$row['Family']."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nClan Acc Number: ".$row['Clan_acc_nb']."\nClan: ".$row['Clan']."\n\nModel species: ".$model_species."\n\nE-value: ".$exploded_line[9]."\nbitscore: ".$exploded_line[10]."\nAccuracy: ".$exploded_line[11]."</title></rect></a></g>";
 			array_push($pfam_name, $pfam);
 			array_push($pfam_fam, $row['Family']);
 			array_push($pfam_clan_nb, $row['Clan_acc_nb']);

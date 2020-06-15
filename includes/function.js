@@ -12,14 +12,20 @@ function validate_one_seq(seq){
 	else{
 		return "Your sequence "+ name +" contains elements that are not amino acids";}}
 
-function validateFasta(fasta){
+function validateFasta(fasta, max_seq){
 	var seq = fasta.split(/(?=\>)/);
-	var valid = true
+	var valid = true;
+	var nb_seq = 0;
 	for(s in seq){
-		if(seq[s]){
-			valid = validate_one_seq(seq[s])
-			if(valid != true){
-				break}}}
+		nb_seq++
+		if(nb_seq<=max_seq){
+			if(seq[s]){
+				valid = validate_one_seq(seq[s])
+				if(valid != true){
+					break}}}
+		else{
+			valid = "There are more than "+max_seq+" sequences in your input data."
+		}}
 	return valid}
 
 function validatePFAM(pfam_list){
@@ -38,7 +44,7 @@ function validatePFAM(pfam_list){
 
 function large_form_submission(){
 	var seq =  document.large_annotation_form.sequences.value;
-	var msg_seq = validateFasta(seq);
+	var msg_seq = validateFasta(seq, 200);
 	if(seq==""){
 		alert("\tPlease, enter:\n-A set of sequences or browse a fasta file.");
 		return false}
@@ -52,7 +58,7 @@ function clan_form_submission(clan_list){
 	var seq =  document.clan_annotation_form.sequences.value;
 	var clan = document.clan_annotation_form.clan.value;
 	var n = clan_list.includes(clan);
-	var msg_seq = validateFasta(seq);
+	var msg_seq = validateFasta(seq, 3000);
 	if(seq=="" && clan==""){
 		alert("\tPlease, enter:\n-A set of sequences or browse a fasta file\n-A Pfam clan.");
 		return false}
@@ -75,7 +81,7 @@ function small_form_submission(){
 	var seq =  document.small_annotation_form.sequences.value.trim();
 	var pfam_domains = document.small_annotation_form.pfam_domains.value.trim();
 	var msg_pfam = validatePFAM(pfam_domains);
-	var msg_seq = validateFasta(seq);
+	var msg_seq = validateFasta(seq, 3000);
 	var valid = true;
 	if(seq=="" && pfam_domains==""){
 		alert("\tPlease, enter:\n-A set of sequences or browse a fasta file\n-A list of 10 Pfam domains maximum.");

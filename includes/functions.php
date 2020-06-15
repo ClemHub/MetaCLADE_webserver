@@ -47,7 +47,7 @@ function submit($job_id, $email){
 		$args = $args." -t ".escapeshellarg(6);
 		$command="qsub -pe smp 2 -wd ".$approot."/jobs/".$job_id."/ -N $job_id -l h_rt=48:00:00 -b y /home/blachon/Documents/Tools/metaclade2/metaclade2 --remove-temp ".$args;}
 	else if ($form == 'clan'){
-		$pfam = $parameters['Clan'];	
+		$pfam = explode($parameters['Clan'])[0];	
 		$args = $args." -D ".$approot."/data/clans/".escapeshellarg($pfam.".txt");	
 		$args = $args." -t ".escapeshellarg(4);
 		$command="qsub -pe smp 3 -wd ".$approot."/jobs/".$job_id."/ -N $job_id -l h_rt=48:00:00 -b y /home/blachon/Documents/Tools/metaclade2/metaclade2 --remove-temp ".$args;}

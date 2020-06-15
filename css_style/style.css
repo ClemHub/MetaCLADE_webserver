@@ -281,9 +281,6 @@ textarea {
 	padding: 10px;
 	width: 85%;}
 
-.clan{
-	width: 200px;
-}
 #e-value_dama {
 	-webkit-appearance: none;
 	padding: 0;
@@ -461,6 +458,7 @@ textarea:focus{
 	box-shadow:0 0 10px rgb(158, 177, 96);}
 
 .autocomplete {
+	width: 25%;
 	position: relative;
 	display: inline-block;}
 

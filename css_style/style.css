@@ -281,8 +281,8 @@ textarea {
 	padding: 10px;
 	width: 85%;}
 
-text{
-	width: 25%;
+.clan{
+	width: 200px;
 }
 #e-value_dama {
 	-webkit-appearance: none;

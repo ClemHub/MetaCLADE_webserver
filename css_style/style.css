@@ -458,11 +458,11 @@ textarea:focus{
 	box-shadow:0 0 10px rgb(158, 177, 96);}
 
 #clan{
-	width: 100%;
+	width: 50%;
 }
 
 .autocomplete {
-	width: 100%;
+	width: 85%;
 	position: relative;
 	display: inline-block;}
 

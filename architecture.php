@@ -12,6 +12,14 @@
 	$db = new SQLite3($approot.'/data/MetaCLADE.db');
 
 	$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.txt";
+	$file_content = fopen($name_file, "r");
+
+	while(!feof($file_content)){
+		$line = fgets($file_content);
+		$exploded_line = explode("\t", $line);
+		if(preg_replace("#[^a-zA-Z0-9]#", "", $exploded_line[0]) == $seq_id){
+			$seq_id = $exploded_line[0];
+			break;}}
 	echo "<h4> Sequence ID: " . $seq_id . " <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Move your mouse over the colored domain to show more detailed information about it.</span></span></h4>";
 	$pfam_list = array();
 	$pfam_name = array();
@@ -26,7 +34,7 @@
 	while(!feof($file_content)){
 		$line = fgets($file_content);
 		$exploded_line = explode("\t", $line);
-		if(preg_replace("#[^a-zA-Z0-9]#", "", $exploded_line[0]) == $seq_id){{
+		if($exploded_line[0] == $seq_id){{
 			$length = $exploded_line[3];
 			$start = $exploded_line[1];
 			$stop = $exploded_line[2];

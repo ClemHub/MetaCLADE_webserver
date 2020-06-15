@@ -462,7 +462,7 @@ textarea:focus{
 }
 
 .autocomplete {
-	width: 85%;
+	width: 50%;
 	position: relative;
 	display: inline-block;}
 

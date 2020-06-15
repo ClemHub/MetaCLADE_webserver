@@ -44,7 +44,7 @@ function validatePFAM(pfam_list){
 
 function large_form_submission(){
 	var seq =  document.large_annotation_form.sequences.value;
-	var msg_seq = validateFasta(seq, 200);
+	var msg_seq = validateFasta(seq, 3000);
 	if(seq==""){
 		alert("\tPlease, enter:\n-A set of sequences or browse a fasta file.");
 		return false}

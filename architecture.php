@@ -2,7 +2,7 @@
 <?php include("./includes/menu.php"); ?>
 	<?php
 	$form = $_GET['form'];
-        $seq_id = html_entity_decode($_GET['id']);
+        $seq_id = $_GET['id'];
         $job_id = $_GET['job_id'];
 	echo "<section id = 'architecture_section'>";
 	echo "<div id='previous_page'><i class='fa fa-arrow-left'></i><a class='table_link' href='javascript:history.back()'> Main results page</a></div>";
@@ -26,7 +26,7 @@
 	while(!feof($file_content)){
 		$line = fgets($file_content);
 		$exploded_line = explode("\t", $line);
-		if($exploded_line[0]==$seq_id){{
+		if(preg_replace("#[^a-zA-Z0-9]#", "", $exploded_line[0]) ==$seq_id){{
 			$length = $exploded_line[3];
 			$start = $exploded_line[1];
 			$stop = $exploded_line[2];

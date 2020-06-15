@@ -50,8 +50,8 @@
 					$go_terms[$pfam] = array($data['GO_term']);}}
 			$nb_aa = ($stop-$start);
 			$width = ($nb_aa*100)/$length;
-			$scaled_start = ($start*100)/$length;
-			$scaled_stop = ($stop*100)/$length;
+			$scaled_start = ($start*100)/$length - (100/$length);
+			$scaled_stop = ($stop*100)/$length - (100/$length);
 			$color = "rgb(".rand(150,255).",".rand(150,255).",".rand(150,255).")";
 			if(trim($exploded_line[12]) == 'unavailable'){
 				$model_species = 'HMMer-3 model\n';}

@@ -183,7 +183,7 @@ include("./includes/header.php");
 		<?php
 
 	foreach($data as $seq_id => $domain_list){
-		echo "<tr><td><a class='table_link' href='architecture.php?form=" . $form ."&id=" . $seq_id . "&job_id=" . preg_replace("#[^a-zA-Z0-9]#", "", $job_id) . "'>" . $seq_id . "</a></td>";
+		echo "<tr><td><a class='table_link' href='architecture.php?form=" . $form ."&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id) . "&job_id=" . $job_id . "'>" . $seq_id . "</a></td>";
 		echo "<td>";
 		foreach($domain_list as $domain_id){
 			$link_id = "http://pfam.xfam.org/family/" . $domain_id;

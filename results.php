@@ -197,74 +197,75 @@ include("./includes/header.php");
 	</div>
 	
 	<!--Information button--> 
-	<div class='info'>
-	<input type='button' class='bouton_info' value='Info' onclick='close_open_info(this);' />
-	<div class='contenu_info'>
-	<h4>Parameters of the test:</h4>
 	<?php
-	if($form == 'small'){
-		echo 'Only the domains ID you gave in input was searched into the sequences.<br>';
-		echo "<ul><br><strong>Your job parameters:</strong><br>";
-		foreach($parameters as $name => $value){
-			if($name != "" and $value != ""){
-				echo "<li>".$name.": ".$value."</li>";}}
-		echo "</ul>";
-	}
-	else if($form == 'large'){
-		echo 'All the domain library was used to analyse the sequences entered.<br>';
-		echo "<ul><br><strong>Your job parameters:</strong><br>";
-		foreach($parameters as $name => $value){
-			if($name != "" and $value != ""){
-				echo "<li>".$name.": ".$value."</li>";}}
-		echo "</ul>";
-	}
-	else if($form == 'clan'){
-		echo 'Only the domains belonging to the Pfam clan you selected was used to analyse the sequences entered.<br>';
-		echo "<ul><br><strong>Your job parameters:</strong><br>";
-		foreach($parameters as $name => $value){
-			if($name != "" and $value != ""){
-				echo "<li>".$name.": ".$value."</li>";}}
-		echo "</ul>";
-	}
-	else if($form == 'small_example'){
-		echo 'Only the domains ID gave as an example was used to treat our test data set.<br>';
-		echo "<ul><br><strong>Your job parameters:</strong><br>";
-		echo 'E-value: ' . $e_value . '<br>';
-		echo 'Pfam: ' . $pfam . '<br>';
-		echo 'DAMA: ' . $dama . '<br>';
-		if($dama == true){
-			echo 'DAMA E-value: ' . $DAMA_evalue;
-			echo 'Amino acids overlappping: 30<br>' ;
-			echo 'Max domain overlapping (%): 50<br>' ;
+	if($form != 'visualization'){
+		echo "<div class='info'>";
+		echo "<input type='button' class='bouton_info' value='Info' onclick='close_open_info(this);' />";
+		echo "<div class='contenu_info'>";
+		echo "<h4>Parameters of the test:</h4>";
+		
+		if($form == 'small'){
+			echo 'Only the domains ID you gave in input was searched into the sequences.<br>';
+			echo "<ul><br><strong>Your job parameters:</strong><br>";
+			foreach($parameters as $name => $value){
+				if($name != "" and $value != ""){
+					echo "<li>".$name.": ".$value."</li>";}}
+			echo "</ul>";
 		}
-	}
-	else if($form == 'large_example'){
-		echo 'All the domain of the library was used to treat our test data set.<br>';
-		echo "<ul><br><strong>Your job parameters:</strong><br>";
-		echo 'E-value: ' . $e_value . '<br>';
-		echo 'DAMA: ' . $dama . '<br>';
-		if($dama == true){
-			echo 'DAMA E-value: ' . $DAMA_evalue;
-			echo 'Amino acids overlappping: 30<br>' ;
-			echo 'Max domain overlapping (%): 50<br>' ;
+		else if($form == 'large'){
+			echo 'All the domain library was used to analyse the sequences entered.<br>';
+			echo "<ul><br><strong>Your job parameters:</strong><br>";
+			foreach($parameters as $name => $value){
+				if($name != "" and $value != ""){
+					echo "<li>".$name.": ".$value."</li>";}}
+			echo "</ul>";
 		}
-	}
-	else if($form == 'clan_example'){
-		echo 'Only the domains belonging to the Pfam clan you selected was used to treat our test data set.<br>';
-		echo "<ul><br><strong>Your job parameters:</strong><br>";
-		echo 'E-value: ' . $e_value . '<br>';
-		echo 'Clan: ' . $clan . '<br>';
-		echo 'DAMA: ' . $dama . '<br>';
-		if($dama == true){
-			echo 'DAMA E-value: ' . $DAMA_evalue;
-			echo 'Amino acids overlappping: 30<br>' ;
-			echo 'Max domain overlapping (%): 50<br>' ;
+		else if($form == 'clan'){
+			echo 'Only the domains belonging to the Pfam clan you selected was used to analyse the sequences entered.<br>';
+			echo "<ul><br><strong>Your job parameters:</strong><br>";
+			foreach($parameters as $name => $value){
+				if($name != "" and $value != ""){
+					echo "<li>".$name.": ".$value."</li>";}}
+			echo "</ul>";
 		}
-	}
-	echo '<br><br>';
-	?>
-
-	</div>
+		else if($form == 'small_example'){
+			echo 'Only the domains ID gave as an example was used to treat our test data set.<br>';
+			echo "<ul><br><strong>Your job parameters:</strong><br>";
+			echo 'E-value: ' . $e_value . '<br>';
+			echo 'Pfam: ' . $pfam . '<br>';
+			echo 'DAMA: ' . $dama . '<br>';
+			if($dama == true){
+				echo 'DAMA E-value: ' . $DAMA_evalue;
+				echo 'Amino acids overlappping: 30<br>' ;
+				echo 'Max domain overlapping (%): 50<br>' ;
+			}
+		}
+		else if($form == 'large_example'){
+			echo 'All the domain of the library was used to treat our test data set.<br>';
+			echo "<ul><br><strong>Your job parameters:</strong><br>";
+			echo 'E-value: ' . $e_value . '<br>';
+			echo 'DAMA: ' . $dama . '<br>';
+			if($dama == true){
+				echo 'DAMA E-value: ' . $DAMA_evalue;
+				echo 'Amino acids overlappping: 30<br>' ;
+				echo 'Max domain overlapping (%): 50<br>' ;
+			}
+		}
+		else if($form == 'clan_example'){
+			echo 'Only the domains belonging to the Pfam clan you selected was used to treat our test data set.<br>';
+			echo "<ul><br><strong>Your job parameters:</strong><br>";
+			echo 'E-value: ' . $e_value . '<br>';
+			echo 'Clan: ' . $clan . '<br>';
+			echo 'DAMA: ' . $dama . '<br>';
+			if($dama == true){
+				echo 'DAMA E-value: ' . $DAMA_evalue;
+				echo 'Amino acids overlappping: 30<br>' ;
+				echo 'Max domain overlapping (%): 50<br>' ;
+			}
+		}
+		echo '<br><br>';
+		echo "</div>";}
+		?>
 	</div>
 	</section>
 <?php include("./includes/footer.php"); ?>

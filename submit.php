@@ -16,6 +16,7 @@ include("./includes/header.php");
 		umask($oldmask);
 		if ($form == 'visualization'){
 			file_put_contents($approot.'/visualization.txt', $_POST["sequences"]);
+			echo "here";
 			//header("location: $hostname/$appname/results.php?form=".$form);
 		}
 		else{

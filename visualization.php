@@ -1,13 +1,19 @@
 <?php include("./includes/header.php"); ?>
 
 	<section class = 'tools'>
-		<h2> Annotation of a clan</h2>
+		<h2>Visualization of an annotation file</h2>
 		
 		<form autocomplete="off" name="visualization_form" method = POST action="submit.php?form=visualisation" enctype="multipart/form-data" onsubmit="return visualization_form_submission()">
+			<div>
+			This tool is used to visualize an annotation made by this webserver.
+			</br>
+			The format must be the unchanged.
+			</div>
 			<fieldset class='form_fs'><legend><h4>Input file:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>See Help for expected format.</span></span></h4></legend>
 			<div id='seq_container'>
-			<label for="fasta_file">Upload a Fasta file:</label>
+			<label for="fasta_file">Upload an annotation file:</label>
 			<input type="file" id="fasta_file" name="fasta_file"/>
+			<textarea name="sequences" id = "sequences" rows='10' placeholder="Example: SeqID Seq_start Seq_end Length DomainID ModelID Model_start Model_end Model_size E-value Bitscore Accuracy Species"></textarea><br/>
 			</div>
 			</fieldset>
 			<div id='submission'>

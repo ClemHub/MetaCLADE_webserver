@@ -3,7 +3,7 @@
 	<section class = 'tools'>
 		<h2>Visualization of an annotation file</h2>
 		
-		<form autocomplete="off" name="visualization_form" method = POST action="submit.php?form=visualisation" enctype="multipart/form-data" onsubmit="return visualization_form_submission()">
+		<form autocomplete="off" name="visualization_form" method = POST action="submit.php?form=visualization" enctype="multipart/form-data" onsubmit="return visualization_form_submission()">
 			<div>
 			This tool is used to visualize an annotation made by this webserver.
 			</br>

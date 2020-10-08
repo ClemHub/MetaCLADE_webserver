@@ -192,12 +192,10 @@ include("./includes/header.php");
 			$link_id = "http://pfam.xfam.org/family/" . $domain_id;
 			echo "<a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a>";}
 		echo "</td><td>".$best_evalues[$seq_id]."</td></tr>";}
-	echo "</tbody></table>";
-	?>		
-	</div>
+	echo "</tbody></table>";	
+	echo "</div>";
 	
-	<!--Information button--> 
-	<?php
+	//Information button
 	if($form != 'visualization'){
 		echo "<div class='info'>";
 		echo "<input type='button' class='bouton_info' value='Info' onclick='close_open_info(this);' />";
@@ -264,8 +262,8 @@ include("./includes/header.php");
 			}
 		}
 		echo '<br><br>';
-		echo "</div>";}
+		echo "</div></div>";}
 		?>
-	</div>
+	
 	</section>
 <?php include("./includes/footer.php"); ?>

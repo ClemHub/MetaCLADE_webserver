@@ -16,9 +16,7 @@ include("./includes/header.php");
 		umask($oldmask);
 		if ($form == 'visualization'){
 			file_put_contents($approot.'/visualization.txt', $_POST["sequences"]);
-			echo "here";
-			//header("location: $hostname/$appname/results.php?form=".$form);
-		}
+			header("location: $hostname/$appname/results.php?form=".$form);}
 		else{
 			if($form=='small'){
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "PFAM\t".$_POST["pfam_domains"]."\n", FILE_APPEND);}
@@ -43,8 +41,7 @@ include("./includes/header.php");
 				$mail= $mail_header . "\n".$msg;
 				mail($email, "no-reply@lcqb.upmc.fr", $mail);};
 
-			//header("location: $hostname/$appname/status.php?form=".$form."&job_id=".$job_id);
-		}
+			header("location: $hostname/$appname/status.php?form=".$form."&job_id=".$job_id);}
 		?>
 	</section>
 <?php include("./includes/footer.php"); ?>

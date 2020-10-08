@@ -2,8 +2,14 @@
 <?php include("./includes/menu.php"); ?>
 	<?php
 	$form = $_GET['form'];
-        $seq_id = $_GET['id'];
-        $job_id = $_GET['job_id'];
+	if($form != 'visualization'){
+		$job_id = $_GET['job_id'];
+		$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.txt";
+		$file_content = fopen($name_file, "r");}
+	else{
+		$name_file = $approot."/visualization.txt";
+	}
+    $seq_id = $_GET['id'];
 	echo "<section id = 'architecture_section'>";
 	echo "<div id='previous_page'><i class='fa fa-arrow-left'></i><a class='table_link' href='javascript:history.back()'> Main results page</a></div>";
 	echo "<div id='architecture'>";
@@ -11,8 +17,7 @@
 
 	$db = new SQLite3($approot.'/data/MetaCLADE.db');
 
-	$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.txt";
-	$file_content = fopen($name_file, "r");
+
 
 	while(!feof($file_content)){
 		$line = fgets($file_content);

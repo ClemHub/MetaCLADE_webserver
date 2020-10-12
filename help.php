@@ -7,18 +7,18 @@
 	<p>
 	Required inputs according to the analysis chosen:
 	<ul class = 'spaced_list'>
-		<li> Annotation of up to 10 domains in large datasets of &#8804 2000 sequences</li>
-		<li> Annotation of all Pfam domains in small datasets of &#8804 200 sequences</li>
-		<li> Annotation of domains in clan in large datasets of &#8804 2000 sequences</li>
+		<li> Annotation of up to 10 domains in large datasets of &#8804 2000 sequences.</li>
+		<li> Annotation of all Pfam domains in small datasets of &#8804 200 sequences.</li>
+		<li> Annotation of domains in clan in large datasets of &#8804 2000 sequences.</li>
 	</ul>
 	</p>
 	<p>
 	Choice of parameters value:
 	<ul class='spaced_list'>
-		<li> E-value threshold: 1e-10< (default value)</li>
+		<li> E-value threshold: 1e-10< (default value).</li>
 		<li> If DAMA is used:</li><ul class = 'spaced_list'>
-			<li> DAMA E-value: 1e-3 (default value)</li>
-			<li> Number of amino acids allowed in domain overlapping: &#8804 30aa (default value)</li>
+			<li> DAMA E-value: 1e-3 (default value).</li>
+			<li> Number of amino acids allowed in domain overlapping: &#8804 30aa (default value).</li>
 			<li> Domain matches must cover at least 50% (default value) of the domain average size.</li></ul>
 	</ul>
 	</p>

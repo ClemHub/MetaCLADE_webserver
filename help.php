@@ -5,9 +5,9 @@
 
 	<h3 id='input'>Input</h3>
 	<p>
-	Required inputs according the method used:
+	Required inputs according to the analysis chosen:
 	<ul class = 'spaced_list'>
-		<li> Annotation of a few domains in large and small datasets of sequences</li><ul class = 'subspaced_list'>
+		<li> Annotation of up to 10 domains in large datasets of &#8804 </li><ul class = 'subspaced_list'>
 			<li> Set of sequences (200 maximum)</li></ul>
 		<li> Annotation of small datasets of sequences with all Pfam domains</li><ul class = 'spaced_list'>
 			<li> Set of sequences (3000 maximum)</li>

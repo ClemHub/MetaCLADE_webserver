@@ -158,8 +158,9 @@ footer {
 .topnav a:hover, .dropdown:hover, .dropbtn:hover {
 	font-size: 30px;
 	font-size-adjust: 0.5;
-	text-transform: uppercase;
-	text-shadow: 0.1em 0.1em 0.2em rgb(90, 87, 87);}
+	/*text-transform: uppercase;*/
+	/*text-shadow: 0.1em 0.1em 0.2em rgb(90, 87, 87);*/
+	}
 
 .dropdown-content a:hover {
 	font-size: 25px;

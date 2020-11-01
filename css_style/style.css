@@ -337,6 +337,7 @@ div.info div.contenu_info {
 	color: rgb(64, 64, 64);}
 
 .form_fs {
+	border-radius: 5px;
 	max-width: 50%;
 	margin-top: 25px;
 	margin-bottom: 25;

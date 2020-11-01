@@ -450,13 +450,13 @@ div.dataTables_filter, div.dataTables_length {
 
 input:focus{
     outline:none;
-    border-color:rgb(158, 177, 96);
-    box-shadow:0 0 10px rgb(158, 177, 96);}
+    /*border-color:rgb(158, 177, 96);*/
+    /*box-shadow:0 0 10px rgb(158, 177, 96);*/}
 
 textarea:focus{
     outline:none;
-    border-color:rgb(158, 177, 96);
-	box-shadow:0 0 10px rgb(158, 177, 96);}
+   /* border-color:rgb(158, 177, 96);*/
+	/*box-shadow:0 0 10px rgb(158, 177, 96);*/}
 
 #clan{
 	width: 100%;}

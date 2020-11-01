@@ -1,7 +1,9 @@
 	
 <?php
 			echo "<footer>";
-
+			
+			echo "<p> LCQB Lab - This website is free and open to all users and there is no login requirement </p>";
+			
 			echo "<a href='https://www.sorbonne-universite.fr/' target='_blank'><img id='UPMC-logo' class='img-responsive' src='".$appurl."/server_images/Sorbonne-logo.png' alt='' style='height: 80%; '></a>";
 
 			echo "<a href='http://www.cnrs.fr' target='_blank'><img id='CNRS-logo' class='img-responsive' src='".$appurl."/server_images/CNRS-logo.png' alt='' style='height: 80%; '></a>";

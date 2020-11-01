@@ -62,7 +62,7 @@
 			
 			</div>
 			</fieldset>
-			<fieldset class='form_fs'><legend><h4>E-mail adress:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Optional and used to send you job details.</span></span></h4></legend>
+			<fieldset class='form_fs'><legend><h4>E-mail address:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Optional and used to send you job details.</span></span></h4></legend>
 
 			<div id = 'email_address'>
 			<input type="email" name="email" id="email" pattern=".+@.+\..+" placeholder = 'Optional'>

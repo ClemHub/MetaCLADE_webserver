@@ -5,7 +5,7 @@ include('./includes/header.php');
 	<h2> Contact </h2>
 
 	<div id='contact_container'>
-	<h3>For questions, comments, or suggestions feel free to contact Riccardo </h3>
+	<h3>For questions, comments, or suggestions feel free to contact:</h3>
 	<ul class = spaced_list>
 		<li>Riccardo VICEDOMINI: ric.vice@gmail.com</li>
 		<li>Clémence BLACHON: clemenceblachon@gmail.com</li>

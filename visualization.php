@@ -5,9 +5,7 @@
 		
 		<form autocomplete="off" name="visualization_form" method = POST action="submit.php?form=visualization" enctype="multipart/form-data" onsubmit="return visualization_form_submission()">
 			<div>
-			This tool is used to visualize an annotation made by this webserver.
-			</br>
-			The format must be the unchanged.
+			To visualize annotations made by this webserver, the format must be the unchanged.
 			</div>
 			<fieldset class='form_fs'><legend><h4>Input file:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>See Help for expected format.</span></span></h4></legend>
 			<div id='seq_container'>

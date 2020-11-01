@@ -2,7 +2,7 @@
 
 	<section id = 'references'>
 	<h2> References </h2>
-	<h3> When you use information coming from MyCLADE, please cite: </h3>
+	<h3> When you use annotations obtained with MyCLADE, please cite: </h3>
 	
 	<ul class = spaced_list>
 		<li>R. Vicedomini, C. Blachon and A. Carbone. (2020) MYCLADE: a multi-source domain annotation server for a fast exploration of metagenomic and metatranscriptomic datasets. In preparation.</li>

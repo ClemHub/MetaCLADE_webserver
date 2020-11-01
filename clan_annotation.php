@@ -17,6 +17,15 @@
 			</div>
 			</fieldset>
 			<fieldset class='form_fs'><legend><h4>Parameters:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Parameters settings: hits are filtered by the E-value. DAMA reconstructs the most likely architecture.</span></span></h4></legend>
+			
+			<div class = 'library_choice'>
+			<br/>Do you want to use a complete library (350 models max per domain) or a reduced library (50 models max per domain)?<br/>
+
+			<label for="complete_btn">Complete</label><input type="radio" name="library" id="complete_btn" value = "true" checked/>
+
+			<label for="reduced_btn">Reduced</label><input type="radio" name="library" id="reduced_btn" value = "false" />
+			</div>
+			
 			<div class = 'metaclade_e-value'>
 			<label for='evalue_range'>E-value threshold for MetaCLADE:<br/></label>
 			<input type="range" id='evalue_range' name="evalue_range" min='0' max="1" value="1e-3" step='1e-10' oninput="this.form.evalue_nb.value=this.value" />

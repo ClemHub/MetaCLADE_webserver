@@ -236,7 +236,6 @@ table.dataTable thead{
 	height: 60px;
 	border: 1px solid rgb(64, 64, 64);
 	color: rgb(64, 64, 64);
-	text-shadow: 0.1em 0.1em 0.2em rgba(21, 7, 36, 0.459);
 	background-image: linear-gradient(rgb(158, 177, 96), rgb(187, 194, 164));
 	text-transform: uppercase;
 	font-size: 14px;
@@ -287,6 +286,7 @@ tbody:hover td[rowspan], tr:hover td {
 
 /* Form styling */
 textarea {
+	border-radius: 5px;
 	margin: 15px;
 	padding: 10px;
 	width: 85%;}
@@ -334,7 +334,6 @@ div.info div.contenu_info {
 	color: rgb(64, 64, 64);}
 
 .form_fs {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.287);
 	max-width: 50%;
 	margin-top: 25px;
 	margin-bottom: 25;

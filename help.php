@@ -15,6 +15,7 @@
 	<p>
 	Choice of parameters value:
 	<ul class='spaced_list'>
+		<li> Model library: the complete library of up to 350 models per domain (default value) can be reduced to a library of at most 50 models.</li>
 		<li> E-value threshold: 1e-10< (default value).</li>
 		<li> If DAMA is used:</li><ul class = 'spaced_list'>
 			<li> DAMA E-value: 1e-3 (default value).</li>

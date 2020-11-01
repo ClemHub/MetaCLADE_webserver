@@ -29,9 +29,9 @@ include("./includes/header.php");
 				else if($_POST['library'] == 'false'){
 					file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Library\tReduced\n", FILE_APPEND);
 					if(!copy("mclade.reduced.cfg", "mclade.default.cfg")){
-						echo "la copie a échouée\n";}
-					else
-						{echo 'it worked';}}}
+						file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Copie a échoué\n", FILE_APPEND);}
+					else{
+						file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Copie a marché\n", FILE_APPEND);}}}
 			else if($form=='clan'){
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Clan\t".$_POST["clan"]."\n", FILE_APPEND);}
 			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "DAMA\t".$_POST["dama"]."\n", FILE_APPEND);		

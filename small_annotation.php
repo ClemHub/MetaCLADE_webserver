@@ -27,9 +27,9 @@
 
 			<label for="reduced_btn">Reduced</label><input type="radio" name="library" id="reduced_btn" value = "false" />
 			</div>
-			
+
 			<div class = 'metaclade_e-value'>
-			<label for='evalue_range'>E-value threshold for MetaCLADE:<br/></label>
+			<label for='evalue_range'><br/>E-value threshold for MetaCLADE:<br/></label>
 			<input type="range" id='evalue_range' name="evalue_range" min='0' max="1" value="1e-3" step='1e-10' oninput="this.form.evalue_nb.value=this.value" />
 			<input type="number" id='evalue_nb' name="evalue_nb" min='0' max="1" value="1e-3" step='1e-10' oninput="this.form.evalue_range.value=this.value" />
 			<span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>E-value set to 1e<sup>-3</sup> by default.<br/> Results with E-value greater than 1 are automatically filtered out.</span></span>

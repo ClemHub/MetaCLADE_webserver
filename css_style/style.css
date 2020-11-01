@@ -146,7 +146,7 @@ footer {
 .dropdown-content a {
 	float: none;
 	color: rgb(64, 64, 64);
-	font-weight: bold;
+	/*font-weight: bold;*/
 	font-size: 20px;
 	font-size-adjust: 0.5;
 	background: white;
@@ -165,7 +165,7 @@ footer {
 .dropdown-content a:hover {
 	font-size: 25px;
 	font-size-adjust: 0.5;
-	text-shadow: 0.1em 0.1em 0.2em rgb(90, 87, 87);}
+	/*text-shadow: 0.1em 0.1em 0.2em rgb(90, 87, 87);*/}
 
 .dropdown:hover .dropdown-content {
 	display: block;}

@@ -49,7 +49,7 @@ p {
 
 #head {
 	background-image: linear-gradient(rgb(158, 177, 96), rgb(187, 194, 164));
-	background-image: url('http://www.lcqb.upmc.fr/MetaCLADE_webserver/server_images/pastel.png');
+	background-image: url('http://www.lcqb.upmc.fr/MetaCLADE_webserver/server_images/header.png');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: 100% 175px;

@@ -31,6 +31,13 @@ function submit($job_id, $email){
 	$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
 	$e_value = $parameters['E-value'];
 	$dama = $parameters['DAMA'];
+	$library = $parameters['Library'];
+	if($library == 'Complete'){
+		copy("mclade.complete.cfg", "mclade.default.cfg");
+	}
+	else if ($library == 'Reduced'){
+		copy("mclade.reduced.cfg", "mclade.default.cfg");
+	}
 	$args = "-i ".escapeshellarg("$approot/jobs/".$job_id."/data.fa")." -N ".escapeshellarg($job_id)."  -e ".escapeshellarg($e_value)."  -W ".escapeshellarg("$approot/jobs/");
 	if($_POST["dama"] == 'true'){
 		$DAMA_evalue = $parameters['DAMA e-value'];	

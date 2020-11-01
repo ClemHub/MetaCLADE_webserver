@@ -86,6 +86,8 @@ footer {
 	color: rgb(64, 64, 64);}
 
 #footer_text{
+	margin:0;
+	padding: 0;
 	background-image: linear-gradient(rgb(158, 177, 96), rgb(187, 194, 164));
 }
 .img-responsive {

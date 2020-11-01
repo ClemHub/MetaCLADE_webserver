@@ -7,9 +7,9 @@ include('./includes/header.php');
 	<div id='contact_container'>
 	<h3>For questions, comments, or suggestions feel free to contact Riccardo </h3>
 	<ul class = spaced_list>
-		<li>Riccardo VICEDOMINI: </li>
-		<li>Clémence BLACHON</li>
-		<li>Alessandra CARBONE</li>
+		<li>Riccardo VICEDOMINI: ric.vice@gmail.com</li>
+		<li>Clémence BLACHON: clemenceblachon@gmail.com</li>
+		<li>Alessandra CARBONE: alessandra.carbone@lip6.fr</li>
 	</ul>
 
 	</div></section>

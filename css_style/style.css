@@ -89,7 +89,7 @@ footer {
 	margin:0;
 	padding: 0;
 	text-align: left;
-	tab-size: 4;
+	tab-size: 15px;
 	background-image: linear-gradient(rgb(158, 177, 96), rgb(187, 194, 164));
 }
 .img-responsive {

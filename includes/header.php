@@ -29,7 +29,7 @@ echo "<head>";
 				echo "<a href='".$appurl."/small_annotation.php'>Few domains</a>";
 				echo "<a href='".$appurl."/large_annotation.php'>All domains</a>";
 				echo "<a href='".$appurl."/clan_annotation.php'>Clan</a>";
-				echo "<a href='".$appurl."/visualization.php'>Annotations visualization</a>";
+				echo "<a href='".$appurl."/visualization.php'>Visualization</a>";
 				echo "</div>";
 				echo "</div>";
 				echo "<div class='dropdown'>";

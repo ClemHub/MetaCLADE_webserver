@@ -23,8 +23,10 @@ include("./includes/header.php");
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "PFAM\t".$_POST["pfam_domains"]."\n", FILE_APPEND);}
 			else if($form=='large'){
 				if($_POST['library'] == 'true'){
+					copy('~/Documents/Tools/metaclade2/config/mclade.complete.cfg', '~/Documents/Tools/metaclade2/config/mclade.default.cfg');
 					file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Library\tComplete\n", FILE_APPEND);}
 				else if($_POST['library'] == 'false'){
+					copy('~/Documents/Tools/metaclade2/config/mclade.reduced.cfg', '~/Documents/Tools/metaclade2/config/mclade.default.cfg');
 					file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Library\tReduced\n", FILE_APPEND);}}
 			else if($form=='clan'){
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Clan\t".$_POST["clan"]."\n", FILE_APPEND);}

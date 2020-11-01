@@ -52,6 +52,8 @@ function submit($job_id, $email){
 			if(!copy("mclade.reduced.cfg", "mclade.default.cfg")){
 				echo "la copie a échouée\n";
 			}
+			else
+				{echo 'it worked';}
 		}
 		$args = $args." -t ".escapeshellarg(6);
 		#$command="qsub -pe smp 2 -wd ".$approot."/jobs/".$job_id."/ -N $job_id -l h_rt=48:00:00 -b y /home/blachon/Documents/Tools/metaclade2/metaclade2 --remove-temp ".$args;

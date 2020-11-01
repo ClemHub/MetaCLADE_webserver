@@ -22,9 +22,9 @@
 			<br/>Model library:<br/>
 
 
-			<label for="reduced_btn">Reduced (&le;50 models)</label><input type="radio" name="library" id="reduced_btn" value = "false" />
+			<label for="reduced_btn">Reduced (&le;50 models/domain)</label><input type="radio" name="library" id="reduced_btn" value = "false" />
 			&emsp;
-			<label for="complete_btn">Complete (&le;350 models)</label><input type="radio" name="library" id="complete_btn" value = "true" checked/>
+			<label for="complete_btn">Complete (&le;350 models/domain)</label><input type="radio" name="library" id="complete_btn" value = "true" checked/>
 			
 			</div>
 

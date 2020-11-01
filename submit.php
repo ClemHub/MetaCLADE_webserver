@@ -2,7 +2,6 @@
 <?php
 include("./includes/header.php"); 
 ?>
-
 	<section id='Submission'>
 	<h2> Your job has been submitted... </h2>
 		<p class = 'text'>
@@ -22,9 +21,17 @@ include("./includes/header.php");
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "PFAM\t".$_POST["pfam_domains"]."\n", FILE_APPEND);}
 			else if($form=='large'){
 				if($_POST['library'] == 'true'){
-					file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Library\tComplete\n", FILE_APPEND);}
+					file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Library\tComplete\n", FILE_APPEND);
+					if(!copy("mclade.complete.cfg", "mclade.default.cfg")){
+						echo "la copie a échouée\n";}
+					else
+						{echo 'it worked';}}
 				else if($_POST['library'] == 'false'){
-					file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Library\tReduced\n", FILE_APPEND);}}
+					file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Library\tReduced\n", FILE_APPEND);
+					if(!copy("mclade.reduced.cfg", "mclade.default.cfg")){
+						echo "la copie a échouée\n";}
+					else
+						{echo 'it worked';}}}
 			else if($form=='clan'){
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Clan\t".$_POST["clan"]."\n", FILE_APPEND);}
 			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "DAMA\t".$_POST["dama"]."\n", FILE_APPEND);		

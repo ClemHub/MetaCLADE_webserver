@@ -234,6 +234,9 @@ table {
 	color: rgb(105, 81, 25) !important;
 }
 
+.dataTables_paginate{
+	color: rgb(105, 81, 25) !important;
+}
 
 #data_table{
 	width: 90%;}

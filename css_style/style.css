@@ -227,15 +227,15 @@ table {
 	width: 90%;}
 
 #data_table_length{
-	color: rgb(69, 54, 21) !important;
+	color: rgb(105, 81, 25) !important;
 }	
 
 #data_table_info{
-	color: rgb(69, 54, 21);
+	color: rgb(105, 81, 25) !important;
 }
 
 #data_table_paginate{
-	color: rgb(69, 54, 21);
+	color: rgb(105, 81, 25) !important;
 }
 
 #data_table{

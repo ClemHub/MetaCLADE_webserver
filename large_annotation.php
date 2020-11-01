@@ -19,9 +19,10 @@
 			<div class = 'library_choice'>
 			<br/>Model library:<br/>
 
-			<label for="complete_btn">Complete (&le;350 models)</label><input type="radio" name="library" id="complete_btn" value = "true" checked/>
 
 			<label for="reduced_btn">Reduced (&le;50 models)</label><input type="radio" name="library" id="reduced_btn" value = "false" />
+			<label for="complete_btn">Complete (&le;350 models)</label><input type="radio" name="library" id="complete_btn" value = "true" checked/>
+			
 			</div>
 			
 			<div class = 'metaclade_e-value'>

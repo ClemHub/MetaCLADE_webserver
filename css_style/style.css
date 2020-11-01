@@ -307,6 +307,10 @@ input {
 	border-radius: 5px;
 	color: rgb(69, 54, 21);
 }
+
+.radio_btn{
+	vertical-align: middle;
+}
 #e-value_dama {
 	-webkit-appearance: none;
 	padding: 0;

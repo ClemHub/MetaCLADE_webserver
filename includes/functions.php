@@ -31,13 +31,6 @@ function submit($job_id, $email){
 	$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
 	$e_value = $parameters['E-value'];
 	$dama = $parameters['DAMA'];
-	$library = $parameters['Library'];
-	if($library == 'Complete'){
-		copy("mclade.complete.cfg", "mclade.default.cfg");
-	}
-	else if ($library == 'Reduced'){
-		copy("mclade.reduced.cfg", "mclade.default.cfg");
-	}
 	$args = "-i ".escapeshellarg("$approot/jobs/".$job_id."/data.fa")." -N ".escapeshellarg($job_id)."  -e ".escapeshellarg($e_value)."  -W ".escapeshellarg("$approot/jobs/");
 	if($_POST["dama"] == 'true'){
 		$DAMA_evalue = $parameters['DAMA e-value'];	
@@ -51,6 +44,13 @@ function submit($job_id, $email){
 		$args = $args." -t ".escapeshellarg(2);
 		$command="qsub -pe smp 1 -wd ".$approot."/jobs/".$job_id."/ -N $job_id -l h_rt=48:00:00 -b y /home/blachon/Documents/Tools/metaclade2/metaclade2 --remove-temp ".$args;}
 	else if($form == 'large'){
+		$library = $parameters['Library'];
+		if($library == 'Complete'){
+			copy("mclade.complete.cfg", "mclade.default.cfg");
+		}
+		else if ($library == 'Reduced'){
+			copy("mclade.reduced.cfg", "mclade.default.cfg");
+		}
 		$args = $args." -t ".escapeshellarg(6);
 		$command="qsub -pe smp 2 -wd ".$approot."/jobs/".$job_id."/ -N $job_id -l h_rt=48:00:00 -b y /home/blachon/Documents/Tools/metaclade2/metaclade2 --remove-temp ".$args;}
 	else if ($form == 'clan'){

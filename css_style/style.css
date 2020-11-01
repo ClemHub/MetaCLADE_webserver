@@ -234,7 +234,7 @@ table {
 	color: rgb(105, 81, 25) !important;
 }
 
-.dataTables_paginate.paging_simple_numbers{
+.paginate_button{
 	color: rgb(105, 81, 25) !important;
 }
 

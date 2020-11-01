@@ -70,8 +70,8 @@
 	</p>
 	<h4>The "Architecture":</h4>
 	<p>
-	The page shows the a graphical representation of the annotated sequence.<br>
-	The user can move the mouse over a  domain to see a tooltip detailing all the information that  goes with the annotation such as E-value, bitscore, model  species and position of the domain in the sequence. </br>
+	The page shows the a graphical representation of annotated sequence.
+	The user can move the mouse over a  domain to see a tooltip detailing all the information that  goes with the annotation such as E-value, bitscore, model  species and position of the domain in the sequence.
 	Moreover, the size of the domain gets bigger in order to visualize correctly the domain length within the sequence  and display the full domain in case of an overlap. Below  
 	the scheme, the user can display two tables reporting,  for each annotated domain:
 	<ul class='spaced_list'>

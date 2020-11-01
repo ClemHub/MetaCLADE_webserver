@@ -12,6 +12,9 @@ body {
 	font-size-adjust: 0.5;
 	overflow-x: hidden;}
 
+title{
+	color: rgb(69, 54, 21);
+}
 * {
 	font-family: Verdana, Arial, sans-serif, Georgia, 'Times New Roman';
 	word-wrap: break-word;}

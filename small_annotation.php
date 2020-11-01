@@ -21,11 +21,11 @@
 			<fieldset class='form_fs'><legend><h4>Parameters:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Parameters settings: hits are filtered by the E-value. DAMA reconstructs the most likely architecture.</span></span></h4></legend>
 			
 			<div class = 'library_choice'>
-			<br/>Do you want to use a complete library (350 models max per domain) or a reduced library (50 models max per domain)?<br/>
+			<br/>Model library:<br/>
 
-			<label for="complete_btn">Complete</label><input type="radio" name="library" id="complete_btn" value = "true" checked/>
+			<label for="complete_btn">Complete (&le;350 models)</label><input type="radio" name="library" id="complete_btn" value = "true" checked/>
 
-			<label for="reduced_btn">Reduced</label><input type="radio" name="library" id="reduced_btn" value = "false" />
+			<label for="reduced_btn">Reduced (&le;50 models)</label><input type="radio" name="library" id="reduced_btn" value = "false" />
 			</div>
 
 			<div class = 'metaclade_e-value'>
@@ -36,7 +36,7 @@
 			</div>
 			
 			<div class = 'dama_choice'>
-			<br/>Do you want to use DAMA?<br/>
+			<br/>Reconstruction of domain architectures with DAMA:<br/>
 
 			<label for="yes_btn">Yes</label><input type="radio" name="dama" id="yes_btn" value = "true" onclick='ShowHideDama()'/>
 

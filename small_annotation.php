@@ -71,7 +71,7 @@
 			</fieldset>
 			<div id='submission'>
 			<br/>
-			<input class='btn' type="submit" value="Search" name = "submit"/><input class='btn' type="reset" value="Reset" onclick="reset_btn('small')"/>
+			<input class='btn' type="submit" value="Search" name = "submit"/>&emsp;<input class='btn' type="reset" value="Reset" onclick="reset_btn('small')"/>&emsp;
 			<span class='tooltip'><input class='btn' type="button" value="Example " onclick="fill_exemple_form('small')"/><span class='tooltiptext'>It uploads a precalculated example, you can choose wheter or not to use DAMA. All the other parameters are defined with default values.</span></span>
 			</div>
 		</form>

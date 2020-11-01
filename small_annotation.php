@@ -24,9 +24,9 @@
 			<br/>Model library:<br/>
 
 
-			<label for="reduced_btn">Reduced (&le;50 models/domain)</label><input type="radio" name="library" id="reduced_btn" value = "false" />
+			<label for="reduced_btn">Reduced (&le;50 models/domain)</label><input type="radio" class='radio_btn' name="library" id="reduced_btn" value = "false" />
 			&emsp;
-			<label for="complete_btn">Complete (&le;350 models/domain)</label><input type="radio" name="library" id="complete_btn" value = "true" checked/>
+			<label for="complete_btn">Complete (&le;350 models/domain)</label><input type="radio" class='radio_btn' name="library" id="complete_btn" value = "true" checked/>
 			
 			</div>
 
@@ -40,9 +40,9 @@
 			<div class = 'dama_choice'>
 			<br/>Reconstruction of domain architectures with DAMA:<br/>
 
-			<label for="yes_btn">Yes</label><input type="radio" name="dama" id="yes_btn" value = "true" onclick='ShowHideDama()'/>
+			<label for="yes_btn">Yes</label><input type="radio" class='radio_btn' name="dama" id="yes_btn" value = "true" onclick='ShowHideDama()'/>
 
-			<label for="no_btn">No</label><input type="radio" name="dama" id="no_btn" value = "false" onclick='ShowHideDama()' checked/>
+			<label for="no_btn">No</label><input type="radio" class='radio_btn' name="dama" id="no_btn" value = "false" onclick='ShowHideDama()' checked/>
 			</div>
 
 			<div id = 'show_dama'>

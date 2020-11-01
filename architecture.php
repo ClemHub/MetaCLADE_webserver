@@ -95,8 +95,8 @@
 	<div class='info'>
 	<div class = 'results_choice'>
 			Show annotations details:
-			<label for="yes_results">Yes</label><input type="radio" name="results" id="yes_results" value = "true" onclick='ShowHideResults()'/>
-			<label for="no_results">No</label><input type="radio" name="results" id="no_results" value = "false" onclick='ShowHideResults()' checked/>
+			<label for="yes_results">Yes</label><input type="radio" class='radio_btn' name="results" id="yes_results" value = "true" onclick='ShowHideResults()'/>
+			<label for="no_results">No</label><input type="radio" class='radio_btn' name="results" id="no_results" value = "false" onclick='ShowHideResults()' checked/>
 	</div>
 	<div class='table_container' id='results_container'>
 	<table id='data_table'>
@@ -171,8 +171,8 @@
 	<div class='info'>
 	<div class = 'goterms_choice'>
 			Show GO-terms:
-			<label for="yes_goterms">Yes</label><input type="radio" name="goterms" id="yes_goterms" value = "true" onclick='ShowHideGoterms()'/>
-			<label for="no_goterms">No</label><input type="radio" name="goterms" id="no_goterms" value = "false" onclick='ShowHideGoterms()' checked/>
+			<label for="yes_goterms">Yes</label><input type="radio" class='radio_btn' name="goterms" id="yes_goterms" value = "true" onclick='ShowHideGoterms()'/>
+			<label for="no_goterms">No</label><input type="radio" class='radio_btn' name="goterms" id="no_goterms" value = "false" onclick='ShowHideGoterms()' checked/>
 	</div>
 	<div class='table_container' id='goterms_container'>
 	<table id='go_terms_table'>

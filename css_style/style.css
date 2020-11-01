@@ -84,13 +84,16 @@ footer {
 	width:100%;
 	color: rgb(64, 64, 64);}
 
-#footer_text{
+#footer_paragraph{
 	margin:0;
 	padding: 0;
 	height: 30px;
-	text-align: center;
+	text-align: left;
 	text-indent: 3em;
 	background-image: linear-gradient(rgb(158, 177, 96), rgb(187, 194, 164));
+}
+#footer_text{
+	vertical-align: middle;
 }
 .img-responsive {
 	margin-left: 6%;

@@ -2,7 +2,7 @@
 <?php
 			echo "<footer>";
 			
-			echo "<p id='footer_text'> LCQB Lab - This website is free and open to all users and there is no login requirement </p>";
+			echo "<p id='footer_paragraph'> <span id='footer_text'> LCQB Lab - This website is free and open to all users and there is no login requirement </span></p>";
 
 			echo "<a href='https://www.sorbonne-universite.fr/' target='_blank'><img id='UPMC-logo' class='img-responsive' src='".$appurl."/server_images/Sorbonne-logo.png' alt='' style='height: 50%; '></a>";
 

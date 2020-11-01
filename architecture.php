@@ -57,7 +57,7 @@
 			$scaled_stop = ($stop*100)/$length;
 			$color = "rgb(".rand(150,255).",".rand(150,255).",".rand(150,255).")";
 			if(trim($exploded_line[12]) == 'unavailable'){
-				$model_species = 'HMMer-3 model\n';}
+				$model_species = 'HMMer-3 model';}
 			else{
 				$model_species = $exploded_line[12];}
 			echo "<g><a xlink:href='http://pfam.xfam.org/family/".$pfam."' target='_blank'>";

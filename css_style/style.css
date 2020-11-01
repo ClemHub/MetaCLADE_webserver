@@ -88,8 +88,7 @@ footer {
 	margin:0;
 	padding: 0;
 	height: 30px;
-	vertical-align: bottom;
-	text-align: left;
+	text-align: center;
 	text-indent: 3em;
 	background-image: linear-gradient(rgb(158, 177, 96), rgb(187, 194, 164));
 }

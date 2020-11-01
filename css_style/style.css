@@ -234,8 +234,8 @@ table {
 	color: rgb(105, 81, 25) !important;
 }
 
-.dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active{
-	color: rgb(105, 81, 25) !veryimportant;
+.paginate_button{
+	color: rgb(105, 81, 25) !important;
 }
 
 #data_table{

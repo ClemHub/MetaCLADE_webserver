@@ -12,9 +12,6 @@ body {
 	font-size-adjust: 0.5;
 	overflow-x: hidden;}
 
-title{
-	color: rgb(69, 54, 21);
-}
 * {
 	font-family: Verdana, Arial, sans-serif, Georgia, 'Times New Roman';
 	word-wrap: break-word;}
@@ -55,7 +52,7 @@ p {
 	background-image: url('http://www.lcqb.upmc.fr/MetaCLADE_webserver/server_images/pastel.png');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	background-size: 100% 200px;
+	background-size: 80% 200px;
 	font-size: 35px;
 	font-size-adjust: 0.5;
 	padding-top: 20px;

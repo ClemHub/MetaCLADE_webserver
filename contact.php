@@ -1,42 +1,18 @@
 <?php 
 include('./includes/header.php'); 
+?>
+	<section id = 'contact'>
+	<h2> Contact </h2>
 
-	echo "<section id = 'contact'>";
-	echo "<h2> Contact </h2>";
+	<div id='contact_container'>
+	<h3>For questions, comments, or suggestions feel free to contact Riccardo </h3>
+	<ul class = spaced_list>
+		<li>Riccardo VICEDOMINI: </li>
+		<li>Clémence BLACHON</li>
+		<li>Alessandra CARBONE</li>
+	</ul>
 
-	echo "<div id='contact_container'>";
-		echo "<fieldset class = 'contact_fs'><legend class = 'contact_title'>Alessandra Carbone</legend>";
-		echo "<img id='AC' class='contact_img' src='".$appurl."/server_images/AC-picture.png' alt='' >";
-		echo "<p class='contact_descr'>";
-		echo "PI - Analytical Genomics</p>";
-		echo "<p class='contact_descr'>Sorbonne Université</p>";	
-		echo "<div class='social_media_div'>";
-		echo "<a href='http://www.ihes.fr/~carbone/' target='_blank' class='fas fa-globe'></a>";
-		echo "<a href='https://twitter.com/acarbone16' target='_blank' class='fab fa-twitter'></a>";
-		echo "<a href='mailto:alessandra.carbone@lip6.fr' class='fas fa-at'></a></div></fieldset>";
-
-
-		echo "<fieldset class = 'contact_fs'><legend class = 'contact_title'>Riccardo Vicedomini</legend>";
-		echo "<img id='RV' class='contact_img' src='".$appurl."/server_images/AC-picture.png' alt='' >";
-		echo "<p class='contact_descr'>";
-		echo "PI - Analytical Genomics</p>";
-		echo "<p class='contact_descr'>Sorbonne Université</p>";	
-		echo "<div class='social_media_div'>";
-		echo "<a href='#' target='_blank' class='fas fa-globe'></a>";
-		echo "<a href='#' target='_blank' class='fab fa-twitter'></a>";
-		echo "<a href='#' class='fas fa-at'></a></div></fieldset>";
-
-		echo "<fieldset class = 'contact_fs'><legend class = 'contact_title'>Clémence Blachon</legend>";
-		echo "<img id='RV' class='contact_img' src='".$appurl."/server_images/AC-picture.png' alt='' >";
-		echo "<p class='contact_descr'>";
-		echo "PI - Analytical Genomics</p>";
-		echo "<p class='contact_descr'>Sorbonne Université</p>";	
-		echo "<div class='social_media_div'>";
-		echo "<a href='#' target='_blank' class='fas fa-globe'></a>";
-		echo "<a href='#' target='_blank' class='fab fa-twitter'></a>";
-		echo "<a href='#' class='fas fa-at'></a></div></fieldset>";
-	
-	echo "</div></section>";
-
+	</div></section>
+	<?php 
 include('./includes/footer.php'); 
 ?>

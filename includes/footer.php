@@ -3,6 +3,8 @@
 			echo "<footer>";
 			
 			echo "<p> LCQB Lab - This website is free and open to all users and there is no login requirement </p>";
+
+			echo "</footer>";
 			
 			echo "<a href='https://www.sorbonne-universite.fr/' target='_blank'><img id='UPMC-logo' class='img-responsive' src='".$appurl."/server_images/Sorbonne-logo.png' alt='' style='height: 80%; '></a>";
 
@@ -12,7 +14,7 @@
 
 			echo "<a href='http://iscd.sorbonne-universite.fr/' target='_blank'><img id='ISCD-logo' class='img-responsive' src='".$appurl."/server_images/ISCD-logo.png' alt='' style='height: 80%; width: 250px'></a>";
 
-			echo "</footer>";
+			
 
 ?>
 	<script src='./includes/function.js'></script>

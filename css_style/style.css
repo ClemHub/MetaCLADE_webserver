@@ -226,11 +226,11 @@ table {
 #result{
 	width: 90%;}
 
-#dataTables_length{
-	color: rgb(69, 54, 21);
+#data_table_length{
+	color: rgb(69, 54, 21) !important;
 }	
 
-#dataTables_info{
+#data_table_info{
 	color: rgb(69, 54, 21);
 }
 

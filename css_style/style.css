@@ -226,6 +226,18 @@ table {
 #result{
 	width: 90%;}
 
+#dataTables_length{
+	color: rgb(69, 54, 21);
+}	
+
+#dataTables_info{
+	color: rgb(69, 54, 21);
+}
+
+#data_table_paginate{
+	color: rgb(69, 54, 21);
+}
+
 #data_table{
 	width: 90%;}
 

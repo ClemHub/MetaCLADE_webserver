@@ -1,0 +1,16 @@
+SeqID   Seq start       Seq stop        Seq length      Domain ID       Model ID        Model start     Model stop      Model size      E-value Biscore Accuracy        Species of the template used for the model
+tr|A0A072NB93|A0A072NB93_9DEIO  12      141     766     PF00875 A6FVP5_9RHOB_1-137      1       129     130     1.4e-35 111.3   0.97    Roseobacter sp. AzwK-3b
+tr|A0A072NB93|A0A072NB93_9DEIO  274     352     766     PF03441 S8EJB4_9LAMI_330-404    2       73      74      3.7e-21 64.1    0.88    Genlisea aurea
+tr|A0A072NB93|A0A072NB93_9DEIO  337     424     766     PF03441 A0A0C1SKN5_9ACTN_1-90   1       89      89      5.9e-23 69.5    0.96    Streptomyces pluripotens
+tr|A0A072NB93|A0A072NB93_9DEIO  410     461     766     PF03441 W4ZHN2_STRPU_92-158     4       58      60      2e-19   58.3    0.89    Strongylocentrotus purpuratus
+tr|A0A072NB93|A0A072NB93_9DEIO  591     753     766     PF03167 A0A0G0AUB5_9BACT_52-217 1       162     163     9.3e-75 238.8   0.99    Candidatus Roizmanbacteria bacterium GW2011_GWC2_34_23
+tr|F0RPZ8|F0RPZ8_DEIPM  5       148     757     PF00875 Q3IEV1_PSEHT_4-152      2       142     143     3e-36   113.7   0.9     Pseudoalteromonas haloplanktis TAC125
+tr|F0RPZ8|F0RPZ8_DEIPM  267     330     757     PF03441 J3LAQ9_ORYBR_177-242    2       62      63      8.4e-21 62.9    0.9     Oryza brachyantha
+tr|F0RPZ8|F0RPZ8_DEIPM  309     380     757     PF03441 F0YG05_AURAN_1-73       1       71      72      6.9e-24 72.2    0.98    Aureococcus anophagefferens
+tr|F0RPZ8|F0RPZ8_DEIPM  359     461     757     PF03441 R1E582_EMIHU_173-284    7       102     105     4.5e-28 86.1    0.93    Emiliania huxleyi
+tr|F0RPZ8|F0RPZ8_DEIPM  586     748     757     PF03167 A0A0G0AUB5_9BACT_52-217 2       162     163     1.3e-71 228.5   0.98    Candidatus Roizmanbacteria bacterium GW2011_GWC2_34_23
+tr|V7B5W0|V7B5W0_PHAVU  7       173     682     PF00875 HMMer-3 1       157     164     4.2e-44 138.9   0.93    unavailable
+tr|V7B5W0|V7B5W0_PHAVU  285     449     682     PF03441 T0LXI7_9EURY_246-438    4       165     165     1.5e-63 201.7   0.98    Thermoplasmatales archaeon Gpl
+tr|V7B5W0|V7B5W0_PHAVU  424     483     682     PF03441 S9YVA0_9CETA_211-272    1       57      60      4.2e-21 63.7    0.93    Camelus ferus
+tr|V7B5W0|V7B5W0_PHAVU  505     645     682     PF12546 S8D414_9LAMI_84-208     1       138     139     4.9e-45 142.1   0.82    Genlisea aurea
+

@@ -9,7 +9,9 @@
 		<li>It explores large dataset of a few thousands amino-acid sequences and extracts those sequences containing few targeted domains.</li>
 		<li>It annotates small datasets of a few hundreds amino-acid sequences with the full set of Pfam domains.</li>
 	</ol>
-		If sequences are sufficiently long, <a href="http://www.lcqb.upmc.fr/dama/" target="_blank" class="table_link">DAMA</a> can be used to accurately resolve protein domain architectures.</p>
+		If sequences are sufficiently long, <a href="http://www.lcqb.upmc.fr/dama/" target="_blank" class="table_link">DAMA</a> can be used to accurately resolve protein domain architectures.<br/>
+		MyCLADE annotates protein sequences with a library of more than 2.5 million probabilistic models for the whole Pfam32 database (17,929 domains).</p>
+	
 	</section>
 
 <?php include("./includes/footer.php"); ?>

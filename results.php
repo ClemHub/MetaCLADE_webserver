@@ -90,18 +90,19 @@ include("./includes/header.php");
 	$file_content = fopen($name_file, "r");
 	while(!feof($file_content)){
 		$line = fgets($file_content);
-		$exploded_line = explode("\t", $line);
-		$seq_id = $exploded_line[0];
-		$domain_id = $exploded_line[4];
-		array_push($domain_list, $domain_id);
-		if(array_key_exists($seq_id, $data)){
-			array_push($data[$seq_id], $domain_id);
-			if($best_evalues[$seq_id]>$exploded_line[9]){
-				$best_evalues[$seq_id]=$exploded_line[9];}}
-		else if ($seq_id != ""){
-			array_push($seq_id_list, $seq_id);
-			$best_evalues[$seq_id]=$exploded_line[9];
-			$data[$seq_id]=array($domain_id);}};
+		if($line != ""){
+			$exploded_line = explode("\t", $line);
+			$seq_id = $exploded_line[0];
+			$domain_id = $exploded_line[4];
+			array_push($domain_list, $domain_id);
+			if(array_key_exists($seq_id, $data)){
+				array_push($data[$seq_id], $domain_id);
+				if($best_evalues[$seq_id]>$exploded_line[9]){
+					$best_evalues[$seq_id]=$exploded_line[9];}}
+			else if ($seq_id != ""){
+				array_push($seq_id_list, $seq_id);
+				$best_evalues[$seq_id]=$exploded_line[9];
+				$data[$seq_id]=array($domain_id);}}};
 
 	echo "<br><a id = 'dl_link' href=".$dl_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
 		?>

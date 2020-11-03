@@ -12,7 +12,7 @@ include("./includes/header.php");
 		mkdir($approot.'/jobs/'.$job_id, 0777, true);
 		umask($oldmask);
 		if ($form == 'visualization'){
-			file_put_contents($approot."/jobs/".$job_id."visualization.txt", $_POST["sequences"]);
+			file_put_contents($approot."/jobs/".$job_id."/visualization.txt", $_POST["sequences"]);
 			header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_id);}
 		else{
 			$email = $_POST['email'];

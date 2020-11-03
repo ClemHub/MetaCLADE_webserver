@@ -134,7 +134,7 @@
 		echo "<th class='table_header'>";
 		echo "<select id='species-filter'>";
 		echo "<option value=''>All</option>";
-		foreach(array_unique($model_species) as $species){
+		foreach(array_unique($model_species_list) as $species){
 			echo "<option value='".$species."'>".$species."</option>";}
 		echo "</select></th>";	
 		?>

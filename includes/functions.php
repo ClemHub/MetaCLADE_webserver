@@ -1,5 +1,4 @@
 <?php
-
 function generateRandomString($length = 10) {
 	$characters_wo_digit = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -15,7 +14,9 @@ function read_parameters_file($file_name, $separator="\t"){
 	while(!feof($file)){
 		$line = fgets($file);
 		$line = explode($separator, $line);
-		$data[$line[0]] = $line[1];}
+		if(sizeof($line)>1) #When there is the email field, the last line is '\n' and this causes the array $line to have only one element
+			$data[$line[0]] = $line[1];
+		}
 	return $data;}
 
 function sort_multiarray($a, $b){

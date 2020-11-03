@@ -10,7 +10,7 @@ include("./includes/header.php");
 		$job_id = $_GET["job_id"];
 		echo "Your job <strong>".$job_id."</strong> is running.<br>";
 		echo "<br>You can save the link to access the results later (your job will be available for two months):<br>"; 
-		echo "<a href=$hostname/$appname/status.php?form=".$form."&job_id=".$job_id."&email=".$email.">$hostname/$appname/status.php?form=".$form."&job_id=".$job_id."</a><br>";
+		echo "<a href=$hostname/$appname/status.php?form=".$form."&job_id=".$job_id.">$hostname/$appname/status.php?form=".$form."&job_id=".$job_id."</a><br>";
 		$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
 
 		echo "<ul><br><strong>Your job parameters:</strong><br>";
@@ -55,10 +55,10 @@ include("./includes/header.php");
 				$data = file_get_contents($approot."/jobs/".$job_id."/".$job_id.".arch.txt");
 				$data = str_replace("unavailable", "HMMer-3 model", $data);
 				file_put_contents($approot."/jobs/".$job_id."/results.txt", $data, FILE_APPEND);
-				header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_id."&email=".$email);}
+				header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_id);}
 			else if($error){
 				//echo "<br><br>Error<br>";}
-				header("location: $hostname/$appname/error.php?form=".$form."&job_id=".$job_id."&email=".$email);}
+				header("location: $hostname/$appname/error.php?form=".$form."&job_id=".$job_id);}
 			else{
 				//echo "<br><br>Nothing done yet<br>";}}
 				header("refresh: 10");}}

@@ -17,7 +17,7 @@ include("./includes/header.php");
 		$e_value = $parameters['E-value'];
 		$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.txt";
 		$dl_file = $appurl."/jobs/".$job_id."/results.txt";
-		if($dama == true){
+		if($dama == 'true'){
 			$DAMA_evalue = $parameters["DAMA e-value"];}
 		if($form=="small"){
 			$pfam = $parameters["PFAM"];}}

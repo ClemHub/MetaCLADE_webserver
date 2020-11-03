@@ -1,9 +1,6 @@
-
 <?php
 include("./includes/header.php"); 
 ?>
-
-
 	<section id='Submission'>
 	<h2> Your job has been submitted... </h2>
 		<p class = 'text'>
@@ -42,7 +39,7 @@ include("./includes/header.php");
 			echo $msg;
 			if($email){
 				echo "An email has bens send";
-				$mail_header= "Subject: $appname queued (".$jobid.")\n";
+				$mail_header= "Subject: $appname queued (".$job_id.")\n";
 				$mail_header= $mail_header . "Content-Type: text/html\n";
 				$mail_header= $mail_header . "MIME-Version:\n";
 				$mail= $mail_header . "\n".$msg;

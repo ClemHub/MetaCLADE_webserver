@@ -43,9 +43,10 @@ include("./includes/header.php");
 						echo '<br><strong>Status of your job:</strong> architecture job (step 3)<br>';}}
 				else if(preg_match("/[a-zA-Z0-9]+\.o[0-9]+/", $file)){
 					$last_line = file($file);
-					$last_line = $last_line[count($last_line)-1];
-					if (preg_match("/failed|exit|error/", $last_line)){
-						$error = true;}}}
+					if(count($last_line) > 0){
+						$last_line = $last_line[count($last_line)-1];
+						if (preg_match("/failed|exit|error/", $last_line)){
+							$error = true;}}}}
 			if($end == false && $status == ""){
 				$error = true;}
 			echo "<br>This page will be refreshed every 10 seconds<br>";

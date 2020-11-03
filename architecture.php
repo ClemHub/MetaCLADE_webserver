@@ -1,5 +1,4 @@
 <?php include("./includes/header.php"); ?>
-<?php include("./includes/menu.php"); ?>
 	<?php
 	$form = $_GET['form'];
 	if($form != 'visualization'){
@@ -29,7 +28,7 @@
 	$pfam_fam = array();
 	$pfam_clan_nb = array();
 	$pfam_clan = array();
-	$model_species = array();
+	$model_species_list = array();
 	$go_terms = array();
 	$go_terms_names = array();
 	echo "<svg height='50' width='100%' style='border:1px dashed #ccc' overflow='scroll'>";
@@ -69,9 +68,9 @@
 			array_push($pfam_clan_nb, $row['Clan_acc_nb']);
 			array_push($pfam_clan, $row['Clan']);
 			if(substr($exploded_line[12], 0, -1) == 'unavailable'){
-				array_push($model_species, 'HMMer-3 model');}
+				array_push($model_species_list, 'HMMer-3 model');}
 			else{
-				array_push($model_species, substr($exploded_line[12], 0, -1));}
+				array_push($model_species_list, substr($exploded_line[12], 0, -1));}
 			array_push($pfam_list, $exploded_line);}}}
 
 	echo "</svg>";
@@ -257,7 +256,7 @@
 			echo "<td>" . $Clan_acc_nb."</td>";
 			echo "<td>" . $Clan."</td>";
 			echo "<td>";
-			$i == 0;
+			$i = 0;
 			$length = count($go_terms[$data])-1;
 			foreach($go_terms[$data] as $go){
 				if($i != $length){

@@ -233,7 +233,7 @@ include("./includes/header.php");
 			echo 'E-value: ' . $e_value . '<br>';
 			echo 'Pfam: ' . $pfam . '<br>';
 			echo 'DAMA: ' . $dama . '<br>';
-			if($dama == true){
+			if($dama == 'true'){
 				echo 'DAMA E-value: ' . $DAMA_evalue;
 				echo 'Amino acids overlappping: 30<br>' ;
 				echo 'Max domain overlapping (%): 50<br>' ;
@@ -244,7 +244,7 @@ include("./includes/header.php");
 			echo "<ul><br><strong>Your job parameters:</strong><br>";
 			echo 'E-value: ' . $e_value . '<br>';
 			echo 'DAMA: ' . $dama . '<br>';
-			if($dama == true){
+			if($dama == 'true'){
 				echo 'DAMA E-value: ' . $DAMA_evalue;
 				echo 'Amino acids overlappping: 30<br>' ;
 				echo 'Max domain overlapping (%): 50<br>' ;
@@ -256,7 +256,7 @@ include("./includes/header.php");
 			echo 'E-value: ' . $e_value . '<br>';
 			echo 'Clan: ' . $clan . '<br>';
 			echo 'DAMA: ' . $dama . '<br>';
-			if($dama == true){
+			if($dama == 'true'){
 				echo 'DAMA E-value: ' . $DAMA_evalue;
 				echo 'Amino acids overlappping: 30<br>' ;
 				echo 'Max domain overlapping (%): 50<br>' ;

@@ -24,12 +24,11 @@ function sort_multiarray($a, $b){
 		return 0;}
 	return count($a)<count($b)?1:-1;}
 
-function submit($job_id, $email){
+function submit($job_id, $parameters){
 	global $appurl;
 	global $approot;
 	global $webdevel;
 	$form = $_GET["form"];
-	$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
 	$e_value = $parameters['E-value'];
 	$dama = $parameters['DAMA'];
 	$args = "-i ".escapeshellarg("$approot/jobs/".$job_id."/data.fa")." -N ".escapeshellarg($job_id)."  -e ".escapeshellarg($e_value)."  -W ".escapeshellarg("$approot/jobs/");
@@ -53,7 +52,7 @@ function submit($job_id, $email){
 		$args = $args." -t ".escapeshellarg(4);
 		$command="qsub -pe smp 3 -wd ".$approot."/jobs/".$job_id."/ -N $job_id -l h_rt=48:00:00 -b y /home/blachon/Documents/Tools/metaclade2/metaclade2 --remove-temp ".$args;}
 	$output = shell_exec("$command");
-	$link = $appurl."/status.php?form=".$form."&job_id=".$job_id."&email=".$email; 
+	$link = $appurl."/status.php?form=".$form."&job_id=".$job_id; 
 	$msg="<strong>Your job has been correctly submitted</strong><br><br>";
 	$msg= $msg . "You can follow job progress as well as downloading the results going to <a target=_blank href=$link> $link </a><br>";
 	$msg= $msg . "<br>Your data will be removed one month after the end of the job.<br>";

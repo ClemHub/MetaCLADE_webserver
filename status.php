@@ -28,19 +28,20 @@ include("./includes/header.php");
 			foreach($output as $file){
 				if(preg_match("/[a-zA-Z0-9]+\.e[0-9]+/", $file)){
 					$last_line = file($file);
-					$last_line = $last_line[count($last_line)-1];
-					if (preg_match("/architecture job finished successfully/", $last_line) || preg_match("/removing temporary files/", $last_line)){
-						$end = true;}
-					else if (preg_match("/failed|exit|error/", $last_line)){
-						$error = true;}
-					else if (preg_match("/submission|creating/", $last_line)){
-						echo '<br><strong>Status of your job:</strong> submission and creation of your job<br>';}
-					else if (preg_match("/search/", $last_line)){
-						echo '<br><strong>Status of your job:</strong> search job (step 1)<br>';}
-					else if (preg_match("/filter/", $last_line)){
-						echo '<br><strong>Status of your job:</strong> filter job (step 2)<br>';}
-					else if (preg_match("/architecture/", $last_line)){
-						echo '<br><strong>Status of your job:</strong> architecture job (step 3)<br>';}}
+					if(count($last_line) > 0){
+						$last_line = $last_line[count($last_line)-1];
+						if (preg_match("/architecture job finished successfully/", $last_line) || preg_match("/removing temporary files/", $last_line)){
+							$end = true;}
+						else if (preg_match("/failed|exit|error/", $last_line)){
+							$error = true;}
+						else if (preg_match("/submission|creating/", $last_line)){
+							echo '<br><strong>Status of your job:</strong> submission and creation of your job<br>';}
+						else if (preg_match("/search/", $last_line)){
+							echo '<br><strong>Status of your job:</strong> search job (step 1)<br>';}
+						else if (preg_match("/filter/", $last_line)){
+							echo '<br><strong>Status of your job:</strong> filter job (step 2)<br>';}
+						else if (preg_match("/architecture/", $last_line)){
+							echo '<br><strong>Status of your job:</strong> architecture job (step 3)<br>';}}}
 				else if(preg_match("/[a-zA-Z0-9]+\.o[0-9]+/", $file)){
 					$last_line = file($file);
 					if(count($last_line) > 0){

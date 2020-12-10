@@ -39,7 +39,7 @@ function validatePFAM(pfam_list){
 		for(var pfam in pfam_list){
 			i++
 			if(!pfam_exp.test(pfam_list[pfam])){
-				return "The domain format is not correct:"+pfam_list[pfam]}}}
+				return "The domain format is not correct: "+pfam_list[pfam]}}}
 	return true;}
 
 function large_form_submission(){

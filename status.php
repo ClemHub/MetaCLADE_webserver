@@ -48,7 +48,7 @@ include("./includes/header.php");
 						$last_line = $last_line[count($last_line)-1];
 						if (preg_match("/failed|exit|error/", $last_line)){
 							$error = true;}}}}
-			if($end == false && $status)[0] == "Following jobs do not exist:\n".$job_id){
+			if($end == false && $status[0] == "Following jobs do not exist:\n".$job_id){
 				$error = true;}
 			echo "<br>This page will be refreshed every 10 seconds<br>";
 			if($end){

@@ -31,7 +31,7 @@ function validateFasta(fasta, max_seq){
 function validatePFAM(pfam_list){
 	var pfam_exp = /^PF\d{5}$/;
 	var i = 0;
-	pfam_list = pfam_list.replace(/(\r\n|\n|\r)/gm,"");
+	pfam_list = pfam_list.replace(/[\n\r]+/g,"");
 	pfam_list = pfam_list.split(',');
 	list_len = pfam_list.length;
 	if(list_len > 10){

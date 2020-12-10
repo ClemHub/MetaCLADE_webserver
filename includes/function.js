@@ -56,9 +56,7 @@ function large_form_submission(){
 
 function clan_form_submission(clan_list){
 	var seq =  document.clan_annotation_form.sequences.value;
-	alert(seq);
 	var clan = document.clan_annotation_form.clan.value;
-	alert(clan);
 	var n = clan_list.includes(clan);
 	var msg_seq = validateFasta(seq, 3000);
 	if(seq=="" && clan==""){

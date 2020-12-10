@@ -50,6 +50,7 @@ include("./includes/header.php");
 							$error = true;}}}}
 			if($end == false && $status[0] == "Following jobs do not exist:\n".$job_id){
 				$error = true;}
+			echo $status;
 			echo "<br>This page will be refreshed every 10 seconds<br>";
 			if($end){
 				//echo "<br><br>The end<br>";}

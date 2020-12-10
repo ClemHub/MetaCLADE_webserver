@@ -55,7 +55,7 @@
 			$scaled_start = ($start*100)/$length - (100/$length);
 			$scaled_stop = ($stop*100)/$length;
 			$color = "rgb(".rand(150,255).",".rand(150,255).",".rand(150,255).")";
-			if($row['Clan_acc_nb']){
+			if($row['Clan_acc_nb'] == ""){
 				$row['Clan_acc_nb'] = 'NA';
 				$row['Clan'] = 'NA';}
 			if(trim($exploded_line[12]) == 'unavailable'){

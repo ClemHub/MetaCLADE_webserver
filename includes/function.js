@@ -67,6 +67,9 @@ function clan_form_submission(clan_list){
 	else if(seq=="" && n){
 		alert("\tPlease, enter:\n-A set of sequences or browse a fasta file.");
 		return false}
+	else if(seq=="" && !n){
+		alert("\tPlease, enter:\n-A valid Pfam clan\n-A set of sequences or browse a fasta file.");
+		return false}
 	else if(seq != "" && msg_seq != true && !n){
 		alert("\tPlease, enter:\n-A valid Pfam clan\n-"+msg_seq);
 		return false}

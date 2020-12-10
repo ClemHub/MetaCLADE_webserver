@@ -31,7 +31,8 @@ function validateFasta(fasta, max_seq){
 function validatePFAM(pfam_list){
 	var pfam_exp = /^PF\d{5}$/;
 	var i = 0;
-	pfam_list = pfam_list.replace(/^\s+|\s+$/g, '').split(',');
+	pfam_list = pfam_list.replace(/(\r\n|\n|\r)/gm,"");
+	pfam_list = pfam_list.split(',');
 	list_len = pfam_list.length;
 	if(list_len > 10){
 		return "There are more than 10 domains";}

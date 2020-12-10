@@ -207,7 +207,6 @@
 		echo "<th class='table_header'>";
 		echo "<select id='clan-nb-filter'>";
 		echo "<option value=''>All</option>";
-		echo "<option value='NA'>NA</option>";
 		$pfam_clan_nb = array_filter($pfam_clan_nb);
 		foreach(array_unique($pfam_clan_nb) as $clan_nb){
 			echo "<option value='".$clan_nb."'>".$clan_nb."</option>";}
@@ -216,7 +215,6 @@
 		echo "<th class='table_header'>";
 		echo "<select id='clan-filter'>";
 		echo "<option value=''>All</option>";
-		echo "<option value='NA'>NA</option>";
 		$pfam_clan = array_filter($pfam_clan);
 		foreach(array_unique($pfam_clan)  as $clan){
 			echo "<option value='".$clan."'>".$clan."</option>";}

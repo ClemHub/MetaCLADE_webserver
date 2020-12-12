@@ -55,7 +55,7 @@
 			$width = ($nb_aa*100)/$length;
 			$scaled_start = ($start*100)/$length - (100/$length);
 			$scaled_stop = ($stop*100)/$length;
-			$color = "rgb(".rand(150,255).",".rand(150,255).",".rand(150,255).")";
+			$color = "rgb(".rand(150,200).",".rand(150,200).",".rand(150,200).")";
 			if($row['Clan_acc_nb'] == ""){
 				$row['Clan_acc_nb'] = 'NA';
 				$row['Clan'] = 'NA';}

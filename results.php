@@ -14,7 +14,6 @@ include("./includes/header.php");
 	else if($form=="small" || $form=="large" || $form=='clan'){
 		$job_id = $_GET["job_id"];
 		$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
-		$job_name = 
 		if($parameters["Job name"]){
 			echo "<h4>Job: ".$parameters["Job name"]."</h4>";}
 		$dama = $parameters["DAMA"];

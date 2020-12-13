@@ -5,7 +5,7 @@
 		
 		<form autocomplete="off" name="visualization_form" method = POST action="submit.php?form=visualization" enctype="multipart/form-data" onsubmit="return visualization_form_submission()">
 			<div>
-			To visualize annotations made by this webserver, the format must be unchanged.
+			To visualize annotations made by this webserver, the format must be unchanged (don't put the header details of your result).
 			</div>
 			<fieldset class='form_fs'><legend><h4> Results ID:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>The randomly generated ID during submission.</span></span></h4></legend>
 			<div id = 'job_name_div'>

@@ -10,7 +10,7 @@ include("./includes/header.php");
 	if($form == 'visualization'){
 		$job_id = $_GET["job_id"];
 		$dl_file = $appurl."/jobs/".$job_id."/results.txt";
-		$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.tsv"}
+		$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.tsv";}
 	else if($form=="small" || $form=="large" || $form=='clan'){
 		$job_id = $_GET["job_id"];
 		$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");

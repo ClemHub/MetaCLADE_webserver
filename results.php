@@ -44,7 +44,7 @@ include("./includes/header.php");
 			$DAMA_evalue = 1e-10;
 			$name_file = $approot."/jobs/clan_example_withDAMA/clan_example_withDAMA.arch.tsv";
 			$dl_file = $appurl."/jobs/clan_example_withDAMA/results.txt";}
-		else if($dama == "false" | $_GET["job_id"] == "clan_example_withDAMA"){
+		else if($dama == "false" | $_GET["job_id"] == "clan_example_withoutDAMA"){
 			$job_id = 'clan_example_withoutDAMA';
 			$name_file = $approot."/jobs/clan_example_withoutDAMA/clan_example_withoutDAMA.arch.tsv";
 			$dl_file = $appurl."/jobs/clan_example_withoutDAMA/results.txt";}}
@@ -57,7 +57,7 @@ include("./includes/header.php");
 			$job_id = 'small_example_withDAMA';
 			$name_file = $approot."/jobs/small_example_withDAMA/small_example_withDAMA.arch.tsv";
 			$dl_file = $appurl."/jobs/small_example_withDAMA/results.txt";}
-		else if($dama == "false" | $_GET["job_id"] == "small_example_withDAMA"){
+		else if($dama == "false" | $_GET["job_id"] == "small_example_withoutDAMA"){
 			$job_id = 'small_example_withoutDAMA';
 			$name_file = $approot."/jobs/small_example_withoutDAMA/small_example_withoutDAMA.arch.tsv";
 			$dl_file = $appurl."/jobs/small_example_withoutDAMA/results.txt";}}

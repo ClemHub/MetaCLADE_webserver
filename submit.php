@@ -70,7 +70,8 @@ include("./includes/header.php");
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Email\t".$email."\n", FILE_APPEND);
 				echo "An email has bens send";
 				$mail_header= "Subject: $appname queued (".$job_id.")\n";
-				$mail_header= $mail_header . "Content-Type: text/html\n";
+				$mail_header= $mail_header . "Content-Type: text/html; charset=ISO-8559-1\n";
+				$mail_header= $mail_header . "MIME-Version:\n";
 				$mail= $mail_header . "\n".$msg;
 				mail($email, "no-reply@lcqb.upmc.fr", $mail);};
 

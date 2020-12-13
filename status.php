@@ -56,7 +56,7 @@ include("./includes/header.php");
 				file_put_contents($approot."/jobs/".$job_id."/results.txt", "SeqID\tSeq start\tSeq stop\tSeq length\tDomain ID\tModel ID\tModel start\tModel stop\tModel size\tE-value\tBitscore\tDomain-dependent probability\tSpecies of the template used for the model\n");
 				$data = file_get_contents($approot."/jobs/".$job_id."/".$job_id.".arch.txt");
 				$data = str_replace("unavailable", "HMMer-3 model", $data);
-				file_put_contents($approot."/jobs/".$job_id."/results.txt", $data, FILE_APPEND);
+				file_put_contents($approot."/jobs/".$job_id."/results.tsv", $data, FILE_APPEND);
 				header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_id);}
 			else if($error){
 				//echo "<br><br>Error<br>";}

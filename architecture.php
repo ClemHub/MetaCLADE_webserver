@@ -3,15 +3,19 @@
 	$form = $_GET['form'];
 	if($form != 'visualization'){
 		$job_id = $_GET['job_id'];
-		$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.tsv";}
+		$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.tsv";
+		$previous_page = "results.php?job_id=".$job_id;}
 	else{
 		$job_id = $_GET['job_id'];
-		$name_file = $approot."/jobs/".$job_id."/visualization.txt";}
-	
+		$form = $_GET['form'];
+		$name_file = $approot."/jobs/".$job_id."/visualization.txt";
+		$previous_page = "results.php?form=".$form."&job_id=".$job_id;}
+
+
 	$file_content = fopen($name_file, "r");
     $seq_id = $_GET['id'];
 	echo "<section id = 'architecture_section'>";
-	echo "<div id='previous_page'><i class='fa fa-arrow-left'></i><a class='table_link' href='javascript:history.back()'> Main results page</a></div>";
+	echo "<div id='previous_page'><i class='fa fa-arrow-left'></i><a class='table_link' href='".$previous_page."'> Main results page</a></div>";
 	echo "<div id='architecture'>";
 	echo "<h2> Architecture </h2>";
 

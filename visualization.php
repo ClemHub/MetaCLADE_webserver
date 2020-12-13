@@ -14,6 +14,11 @@
 			<input type="file" id="fasta_file" name="fasta_file"/>
 			</div>
 			</fieldset>
+			<fieldset class='form_fs'><legend><h4> Or results ID:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>The randomly generated ID during submission.</span></span></h4></legend>
+			<div id = 'job_name_div'>
+			<input type="text" id="job_ID" name="job_ID" placeholder = 'Optional'>
+			</div>
+			</fieldset>
 			<div id='submission'>
 			<br/>
 			<input class='btn' type="submit" value="Search" name = "submit"/><input class='btn' type="reset" value="Reset" onclick="reset_btn('visualisation')"/>

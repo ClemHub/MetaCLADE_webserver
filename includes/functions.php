@@ -59,7 +59,7 @@ function submit($job_id, $parameters){
 	$output = shell_exec("$command");
 	$link = $appurl."/status.php?form=".$form."&job_id=".$job_id; 
 	$msg="Your job has been correctly submitted\n";
-	$msg= $msg . "Your job ID is: ".$job_id."\n";
+	$msg= $msg . "Your job ID is: <b>".$job_id."</b>\n";
 	$msg= $msg . "You can follow job progress as well as downloading the results going to $link\n";
 	$msg= $msg . "Your data will be removed one month after the end of the job.\n";
 	$msg= $msg . "The job will be stopped if longer than 48 hours.\n";

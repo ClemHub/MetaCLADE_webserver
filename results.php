@@ -198,7 +198,7 @@ include("./includes/header.php");
 	//Information button
 	if($form != 'visualization'){
 		echo "<div class='info'>";
-		echo "<input type='button' class='bouton_info' value='Info' onclick='close_open_info(this);' />";
+		echo "<input type='button' class='bouton_info' value='Search parameters' onclick='close_open_info(this);' />";
 		echo "<div class='contenu_info'>";
 		echo "<h4>Parameters of the test:</h4>";
 		

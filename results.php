@@ -27,32 +27,36 @@ include("./includes/header.php");
 	else if($form=="large_example"){
 		$e_value = 0.001;
 		if($job_id == "large_example_withDAMA"){
+			$dama = 'true';
 			$DAMA_evalue = 1e-10;
 			$name_file = $approot."/jobs/large_example_withDAMA/large_example_withDAMA.arch.tsv";
 			$dl_file = $appurl."/jobs/large_example_withDAMA/results.txt";}
 		else if($job_id == "large_example_withoutDAMA"){
-			$job_id = 'large_example_withoutDAMA';
+			$dama = 'false';
 			$name_file = $approot."/jobs/large_example_withoutDAMA/large_example_withoutDAMA.arch.tsv";
 			$dl_file = $appurl."/jobs/large_example_withoutDAMA/results.txt";}}
 	else if($form=="clan_example"){
 		$clan = 'CL0039';
 		$e_value = 0.001;
 		if($job_id == "clan_example_withDAMA"){
+			$dama = 'true';
 			$DAMA_evalue = 1e-10;
 			$name_file = $approot."/jobs/clan_example_withDAMA/clan_example_withDAMA.arch.tsv";
 			$dl_file = $appurl."/jobs/clan_example_withDAMA/results.txt";}
 		else if($job_id == "clan_example_withoutDAMA"){
-			$job_id = 'clan_example_withoutDAMA';
+			$dama = 'false';
 			$name_file = $approot."/jobs/clan_example_withoutDAMA/clan_example_withoutDAMA.arch.tsv";
 			$dl_file = $appurl."/jobs/clan_example_withoutDAMA/results.txt";}}
 	else if($form=="small_example"){
 		$e_value = 0.001;
 		$pfam = "PF00875,PF03441,PF03167,PF12546";
 		if($job_id == "small_example_withoutDAMA"){
+			$dama = 'true';
 			$DAMA_evalue = 1e-10;
 			$name_file = $approot."/jobs/small_example_withDAMA/small_example_withDAMA.arch.tsv";
 			$dl_file = $appurl."/jobs/small_example_withDAMA/results.txt";}
 		else if($job_id == "small_example_withoutDAMA"){
+			$dama = 'false';
 			$name_file = $approot."/jobs/small_example_withoutDAMA/small_example_withoutDAMA.arch.tsv";
 			$dl_file = $appurl."/jobs/small_example_withoutDAMA/results.txt";}}
 	if($form=="small" || $form=="small_example"){

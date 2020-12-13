@@ -12,7 +12,7 @@ include("./includes/header.php");
 				$job_id = $form.'_withDAMA';}
 			else{
 				$job_id = $form.'_withoutDAMA';}
-			header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_name);
+			header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_id);
 		}
 		else if ($form == 'visualization'){
 			$job_name = $_POST["job_ID"];

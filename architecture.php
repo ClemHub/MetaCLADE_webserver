@@ -3,7 +3,7 @@
 	$form = $_GET['form'];
 	if($form != 'visualization'){
 		$job_id = $_GET['job_id'];
-		$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.txt";}
+		$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.tsv";}
 	else{
 		$job_id = $_GET['job_id'];
 		$name_file = $approot."/jobs/".$job_id."/visualization.txt";}

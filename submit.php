@@ -15,7 +15,9 @@ include("./includes/header.php");
 			file_put_contents($approot."/jobs/".$job_id."/visualization.txt", $_POST["sequences"]);
 			header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_id);}
 		else{
-			$email = $_POST['email'];
+			$job_name = $_POST["job_name"];
+			if($job_name!=""){
+				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Job name\t".$job_name."\n", FILE_APPEND);}
 			if($_POST['library'] == 'true'){
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Library\tComplete\n", FILE_APPEND);
 				$parameters['Library'] = "Complete";}
@@ -43,6 +45,7 @@ include("./includes/header.php");
 			file_put_contents($approot.'/jobs/'.$job_id.'/data.fa', $_POST["sequences"]);
 			$msg = submit($job_id, $parameters);
 			echo $msg;
+			$email = $_POST['email'];
 			if($_POST['email'] != ""){
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Email\t".$email."\n", FILE_APPEND);
 				echo "An email has bens send";

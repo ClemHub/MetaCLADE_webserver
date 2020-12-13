@@ -31,12 +31,17 @@ function submit($job_id, $parameters){
 	$form = $_GET["form"];
 	$e_value = $parameters['E-value'];
 	$dama = $parameters['DAMA'];
+	$library = $parameters['Library'];
 	$args = "-i ".escapeshellarg("$approot/jobs/".$job_id."/data.fa")." -N ".escapeshellarg($job_id)."  -e ".escapeshellarg($e_value)."  -W ".escapeshellarg("$approot/jobs/");
 	if($_POST["dama"] == 'true'){
 		$DAMA_evalue = $parameters['DAMA e-value'];	
 		$overlappingAA = $parameters['Amino acids overlappping'];
 		$overlappingMaxDomain = $parameters['Max domain overlapping (%)'];
 		$args = $args." -a -E ".escapeshellarg($DAMA_evalue)." --overlappingAA ".escapeshellarg($overlappingAA)." --overlappingMaxDomain ".escapeshellarg($overlappingMaxDomain);}
+	if($library == 'Reduced'){
+		$args = $args. " --user-cfg /home/blachon/Documents/Tools/metaclade2/config/mclade.reduced.cfg ";}
+	else if($library == 'Complete'){
+		$args = $args. " --user-cfg /home/blachon/Documents/Tools/metaclade2/config/mclade.complete.cfg ";}
 	//Submit your job
 	if ($form == 'small'){
 		$pfam = $parameters['PFAM'];	

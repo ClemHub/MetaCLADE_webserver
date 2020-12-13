@@ -17,13 +17,9 @@ include("./includes/header.php");
 		else{
 			$email = $_POST['email'];
 			if($_POST['library'] == 'true'){
-				if(copy('/home/blachon//Documents/Tools/metaclade2/config/mclade.complete.cfg', '/home/blachon//Documents/Tools/metaclade2/config/mclade.default.cfg')){
-					file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Library\tComplete\n", FILE_APPEND);
-					$parameters['Library'] = "Complete";}}
+				$parameters['Library'] = "Complete";}}
 			else if($_POST['library'] == 'false'){
-				if(copy('/home/blachon//Documents/Tools/metaclade2/config/mclade.reduced.cfg', '/home/blachon//Documents/Tools/metaclade2/config/mclade.default.cfg')){
-					file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Library\tReduced\n", FILE_APPEND);
-					$parameters['Library'] = "Reduced";}}
+				$parameters['Library'] = "Reduced";}}
 			if($form=='small'){
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "PFAM\t".$_POST["pfam_domains"]."\n", FILE_APPEND);
 				$parameters['PFAM'] = $_POST["pfam_domains"];

@@ -15,7 +15,7 @@
 			<fieldset class='form_fs'><legend><h4>Input file:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>See Help for expected format.</span></span></h4></legend>
 			<div id='seq_container'>
 			<label for="fasta_file">Upload an annotation file:</label>
-			<textarea name="sequences" id = "sequences" rows='10' placeholder="Example: SeqID Seq_start Seq_end Length DomainID ModelID Model_start Model_end Model_size E-value Bitscore Accuracy Species"></textarea><br/>
+			<textarea name="sequences" id = "sequences" rows='10' placeholder="Example: tr|A0A072NB93|A0A072NB93_9DEIO  12      141     766     PF00875 A6FVP5_9RHOB_1-137      1       129     130     1.4e-35 111.3   0.97    Roseobacter sp. AzwK-3b"></textarea><br/>
 			<input type="file" id="fasta_file" name="fasta_file"/>
 			</div>
 			</fieldset>

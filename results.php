@@ -242,38 +242,38 @@ include("./includes/header.php");
 			echo 'Only the domains ID gave as an example was used to treat our test data set.<br>';
 			echo "<ul><br><strong>Your job parameters:</strong><br>";
 			echo "<li>Annotation based on the full domain library</li>";
-			echo 'E-value: ' . $e_value . '<br>';
-			echo 'Pfam: ' . $pfam . '<br>';
-			echo 'DAMA: ' . $dama . '<br>';
+			echo '<li>E-value: ' . $e_value . '</li>';
+			echo '<li>Pfam: ' . $pfam . '</li>';
+			echo '<li>DAMA: ' . $dama . '</li>';
 			if($dama == 'true'){
-				echo 'DAMA E-value: ' . $DAMA_evalue;
-				echo 'Amino acids overlappping: 30<br>' ;
-				echo 'Max domain overlapping (%): 50<br>' ;
+				echo '<li>DAMA E-value: ' . $DAMA_evalue . '</li>';
+				echo '<li>Amino acids overlappping: 30</li>' ;
+				echo '<li>Max domain overlapping (%): 50</li>' ;
 			}
 		}
 		else if($form == 'large_example'){
 			echo 'All the domain of the library was used to treat our test data set.<br>';
 			echo "<ul><br><strong>Your job parameters:</strong><br>";
 			echo "<li>Annotation based on the full domain library</li>";
-			echo 'E-value: ' . $e_value . '<br>';
-			echo 'DAMA: ' . $dama . '<br>';
+			echo '<li>E-value: ' . $e_value . '</li>';
+			echo '<li>DAMA: ' . $dama . '</li>';
 			if($dama == 'true'){
-				echo 'DAMA E-value: ' . $DAMA_evalue;
-				echo 'Amino acids overlappping: 30<br>' ;
-				echo 'Max domain overlapping (%): 50<br>' ;
+				echo '<li>DAMA E-value: ' . $DAMA_evalue . '</li>';
+				echo '<li>Amino acids overlappping: 30</li>' ;
+				echo '<li>Max domain overlapping (%): 50</li>' ;
 			}
 		}
 		else if($form == 'clan_example'){
 			echo 'Only the domains belonging to the Pfam clan you selected was used to treat our test data set.<br>';
 			echo "<ul><br><strong>Your job parameters:</strong><br>";
 			echo "<li>Annotation based on the full domain library</li>";
-			echo 'E-value: ' . $e_value . '<br>';
-			echo 'Clan: ' . $clan . '<br>';
-			echo 'DAMA: ' . $dama . '<br>';
+			echo '<li>E-value: ' . $e_value . '</li>';
+			echo '<li>Clan: ' . $clan . '</li>';
+			echo '<li>DAMA: ' . $dama . '</li>';
 			if($dama == 'true'){
-				echo 'DAMA E-value: ' . $DAMA_evalue;
-				echo 'Amino acids overlappping: 30<br>' ;
-				echo 'Max domain overlapping (%): 50<br>' ;
+				echo '<li>DAMA E-value: ' . $DAMA_evalue . '</li>';
+				echo '<li>Amino acids overlappping: 30</li>' ;
+				echo '<li>Max domain overlapping (%): 50</li>' ;
 			}
 		}
 		echo '<br><br>';

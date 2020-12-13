@@ -62,7 +62,7 @@ include("./includes/header.php");
 			$name_file = $approot."/jobs/small_example_withoutDAMA/small_example_withoutDAMA.arch.txt";
 			$dl_file = $appurl."/jobs/small_example_withoutDAMA/results.txt";}}
 	if($job_name != ""){
-		echo "<h1>".$job_name."</h1>";}
+		echo "<h2>".$job_name."</h2>";}
 	if($form=="small" || $form=="small_example"){
 		$domain_list = explode(",", $pfam);
 		echo "<form>";

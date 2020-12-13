@@ -135,6 +135,8 @@ function fill_exemple_form(form){
 		document.clan_annotation_form.clan.value = 'CL0039 - HUP';
 		document.clan_annotation_form.action = 'results.php?form=clan_example'
 		document.getElementById("clan").disabled = true;}
+	document.getElementById("reduced_btn").value = true;
+	document.getElementById("reduced_btn").disabled = true;
 	document.getElementById("dama_evalue_nb").value = 1e-10;
 	document.getElementById("dama_evalue_range").value = 1e-10;
 	document.getElementById("dama_evalue_nb").disabled = true;

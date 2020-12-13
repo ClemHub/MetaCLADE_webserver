@@ -61,10 +61,10 @@ include("./includes/header.php");
 			$job_id = 'small_example_withoutDAMA';
 			$name_file = $approot."/jobs/small_example_withoutDAMA/small_example_withoutDAMA.arch.txt";
 			$dl_file = $appurl."/jobs/small_example_withoutDAMA/results.txt";}}
+	if($job_name != ""){
+		echo "<h1>".$job_name."</h1>";}
 	if($form=="small" || $form=="small_example"){
 		$domain_list = explode(",", $pfam);
-		if($job_name != ""){
-				echo "<h1>".$job_name."</h1>";}
 		echo "<form>";
 		echo "<fieldset class='form_fs'><legend><h4>Domain visualization:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domain table you want to visualize.</span></span></h4></legend>";
 		echo "<div id = 'main_pfam'>";

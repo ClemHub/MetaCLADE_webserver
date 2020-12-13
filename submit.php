@@ -72,9 +72,7 @@ include("./includes/header.php");
 				$mail_header= "Subject: $appname queued (".$job_id.")\n";
 				$mail_header= $mail_header . "Content-Type: text/html; charset=ISO-8559-1\n";
 				$mail_header= $mail_header . "MIME-Version:\n";
-				$mail= $mail_header . "\n".$msg;
-				$mail -> IsHTML(true);
-				mail($email, "no-reply@lcqb.upmc.fr", $mail);};
+				mail($email, "no-reply.myclade@lcqb.upmc.fr", $msg, $mail);};
 
 			header("location: $hostname/$appname/status.php?form=".$form."&job_id=".$job_id);}
 		?>

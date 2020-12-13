@@ -14,7 +14,7 @@ include("./includes/header.php");
 	else if($form=="small" || $form=="large" || $form=='clan'){
 		$job_id = $_GET["job_id"];
 		$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
-		$job_name = $parameters["Job name"]
+		$job_name = $parameters["Job name"];
 		$dama = $parameters["DAMA"];
 		$e_value = $parameters['E-value'];
 		$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.tsv";

@@ -14,7 +14,9 @@ include("./includes/header.php");
 	else if($form=="small" || $form=="large" || $form=='clan'){
 		$job_id = $_GET["job_id"];
 		$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
-		$job_name = $parameters["Job name"];
+		$job_name = 
+		if($parameters["Job name"]){
+			echo "<h4>Job: ".$parameters["Job name"]."</h4>";}
 		$dama = $parameters["DAMA"];
 		$e_value = $parameters['E-value'];
 		$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.tsv";
@@ -61,8 +63,6 @@ include("./includes/header.php");
 			$job_id = 'small_example_withoutDAMA';
 			$name_file = $approot."/jobs/small_example_withoutDAMA/small_example_withoutDAMA.arch.tsv";
 			$dl_file = $appurl."/jobs/small_example_withoutDAMA/results.txt";}}
-	if($job_name != ""){
-		echo "<h4>Job: ".$job_name."</h4>";}
 	if($form=="small" || $form=="small_example"){
 		$domain_list = explode(",", $pfam);
 		echo "<form>";

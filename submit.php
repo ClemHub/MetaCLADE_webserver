@@ -6,16 +6,28 @@ include("./includes/header.php");
 		<p class = 'text'>
 		<?php
 		$form = $_GET['form'];
-		$job_id = generateRandomString()."_".date("dmY");
-		echo 'Your job ID is: '.$job_id,'<br>';
-		$oldmask = umask(0);
-		mkdir($approot.'/jobs/'.$job_id, 0777, true);
-		umask($oldmask);
 		if ($form == 'visualization'){
-			file_put_contents($approot."/jobs/".$job_id."/visualization.txt", $_POST["sequences"]);
-			header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_id);}
+			$job_name = $_POST["job_ID"];
+			if($job_name != ''){
+				if(file_exists($approot."/jobs/".$job_name."/results.txt")){
+					header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_name);}	
+				else if(!file_exists($approot."/jobs/".$job_name."/results.txt")){
+					header("location: $hostname/$appname/error.php?form=".$form."&job_id=".$job_name);}}
+			else if ($_POST["sequences"] != ""){
+				$job_id = generateRandomString()."_".date("dmY");
+				echo 'Your job ID is: '.$job_id,'<br>';
+				$oldmask = umask(0);
+				mkdir($approot.'/jobs/'.$job_id, 0777, true);
+				umask($oldmask);
+				file_put_contents($approot."/jobs/".$job_id."/visualization.txt", $_POST["sequences"]);
+				header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_id);}}
 		else{
+			$job_id = generateRandomString()."_".date("dmY");
 			$job_name = $_POST["job_name"];
+			echo 'Your job ID is: '.$job_id,'<br>';
+			$oldmask = umask(0);
+			mkdir($approot.'/jobs/'.$job_id, 0777, true);
+			umask($oldmask);
 			if($job_name!=""){
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Job name\t".$job_name."\n", FILE_APPEND);}
 			if($_POST['library'] == 'true'){

@@ -58,11 +58,11 @@ function submit($job_id, $parameters){
 		$command="qsub -pe smp 3 -wd ".$approot."/jobs/".$job_id."/ -N $job_id -l h_rt=48:00:00 -b y /home/blachon/Documents/Tools/metaclade2/metaclade2 --remove-temp ".$args;}
 	$output = shell_exec("$command");
 	$link = $appurl."/status.php?form=".$form."&job_id=".$job_id; 
-	$msg="Your job has been correctly submitted\n";
-	$msg= $msg . "Your job ID is: <b>".$job_id."</b></br>";
-	$msg= $msg . "You can follow job progress as well as downloading the results going to $link</br>";
-	$msg= $msg . "Your data will be removed one month after the end of the job.</br>";
-	$msg= $msg . "The job will be stopped if longer than 48 hours.</br>";
-	$msg= $msg . "If you need some help, contact the web developer (".$webdevel.").</br>";
+	$msg="Your job has been correctly submitted.<br>";
+	$msg= $msg . "Your job ID is: <b>".$job_id."</b><br>";
+	$msg= $msg . "You can follow job progress as well as downloading the results going to $link<br>";
+	$msg= $msg . "Your data will be removed one month after the end of the job.<br>";
+	$msg= $msg . "The job will be stopped if longer than 48 hours.<br>";
+	$msg= $msg . "If you need some help, contact the web developer (".$webdevel.").<br>";
 	return $msg;};
 ?>

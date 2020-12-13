@@ -206,7 +206,11 @@ include("./includes/header.php");
 			echo 'Only the domains ID you gave in input was searched into the sequences.<br>';
 			echo "<ul><br><strong>Your job parameters:</strong><br>";
 			foreach($parameters as $name => $value){
-				if($name != "" and $value != ""){
+				if($name == 'Library' && $value == 'Complete'){
+					echo "<li>Annotation based on the full domain library</li>";}
+				else if($name == 'Library' && $value == 'Reduced'){
+					echo "<li>Annotation based on the reduced domain library</li>";}
+				else if($name != "" and $value != ""){
 					echo "<li>".$name.": ".$value."</li>";}}
 			echo "</ul>";
 		}
@@ -214,7 +218,11 @@ include("./includes/header.php");
 			echo 'All the domain library was used to analyse the sequences entered.<br>';
 			echo "<ul><br><strong>Your job parameters:</strong><br>";
 			foreach($parameters as $name => $value){
-				if($name != "" and $value != ""){
+				if($name == 'Library' && $value == 'Complete'){
+					echo "<li>Annotation based on the full domain library</li>";}
+				else if($name == 'Library' && $value == 'Reduced'){
+					echo "<li>Annotation based on the reduced domain library</li>";}
+				else if($name != "" and $value != ""){
 					echo "<li>".$name.": ".$value."</li>";}}
 			echo "</ul>";
 		}
@@ -222,13 +230,18 @@ include("./includes/header.php");
 			echo 'Only the domains belonging to the Pfam clan you selected was used to analyse the sequences entered.<br>';
 			echo "<ul><br><strong>Your job parameters:</strong><br>";
 			foreach($parameters as $name => $value){
-				if($name != "" and $value != ""){
+				if($name == 'Library' && $value == 'Complete'){
+					echo "<li>Annotation based on the full domain library</li>";}
+				else if($name == 'Library' && $value == 'Reduced'){
+					echo "<li>Annotation based on the reduced domain library</li>";}
+				else if($name != "" and $value != ""){
 					echo "<li>".$name.": ".$value."</li>";}}
 			echo "</ul>";
 		}
 		else if($form == 'small_example'){
 			echo 'Only the domains ID gave as an example was used to treat our test data set.<br>';
 			echo "<ul><br><strong>Your job parameters:</strong><br>";
+			echo "<li>Annotation based on the full domain library</li>";
 			echo 'E-value: ' . $e_value . '<br>';
 			echo 'Pfam: ' . $pfam . '<br>';
 			echo 'DAMA: ' . $dama . '<br>';
@@ -241,6 +254,7 @@ include("./includes/header.php");
 		else if($form == 'large_example'){
 			echo 'All the domain of the library was used to treat our test data set.<br>';
 			echo "<ul><br><strong>Your job parameters:</strong><br>";
+			echo "<li>Annotation based on the full domain library</li>";
 			echo 'E-value: ' . $e_value . '<br>';
 			echo 'DAMA: ' . $dama . '<br>';
 			if($dama == 'true'){
@@ -252,6 +266,7 @@ include("./includes/header.php");
 		else if($form == 'clan_example'){
 			echo 'Only the domains belonging to the Pfam clan you selected was used to treat our test data set.<br>';
 			echo "<ul><br><strong>Your job parameters:</strong><br>";
+			echo "<li>Annotation based on the full domain library</li>";
 			echo 'E-value: ' . $e_value . '<br>';
 			echo 'Clan: ' . $clan . '<br>';
 			echo 'DAMA: ' . $dama . '<br>';

@@ -14,6 +14,7 @@ include("./includes/header.php");
 	else if($form=="small" || $form=="large" || $form=='clan'){
 		$job_id = $_GET["job_id"];
 		$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
+		$job_name = $parameters["Job name"]
 		$dama = $parameters["DAMA"];
 		$e_value = $parameters['E-value'];
 		$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.tsv";
@@ -62,6 +63,8 @@ include("./includes/header.php");
 			$dl_file = $appurl."/jobs/small_example_withoutDAMA/results.txt";}}
 	if($form=="small" || $form=="small_example"){
 		$domain_list = explode(",", $pfam);
+		if($job_name != ""){
+				echo "<h1>".$job_name."</h1>";}
 		echo "<form>";
 		echo "<fieldset class='form_fs'><legend><h4>Domain visualization:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domain table you want to visualize.</span></span></h4></legend>";
 		echo "<div id = 'main_pfam'>";

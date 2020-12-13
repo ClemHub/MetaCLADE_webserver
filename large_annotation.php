@@ -15,10 +15,7 @@
 			</fieldset>
 			
 			<fieldset class='form_fs'><legend><h4>Parameters:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Parameters settings: hits are filtered by the E-value. DAMA reconstructs the most likely architecture.</span></span></h4></legend>
-			<div id = 'job_name_div'>
-			<br/>Job name:<br/>
-			<input type="text" id="job_name" placeholder = 'Optional'>
-			</div>
+			
 			<div class = 'library_choice'>
 			<br/>Model library:<br/>
 
@@ -63,7 +60,12 @@
 			
 			</div>
 			</fieldset>
+			<fieldset class='form_fs'><legend><h4>Job name:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Optional and used to store your job details.</span></span></h4></legend>
 
+			<div id = 'job_name_div'>
+			<input type="text" id="job_name" name="job_name" placeholder = 'Optional'>
+			</div>
+			</fieldset>
 			<fieldset class='form_fs'><legend><h4>E-mail address:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Optional and used to send you job details.</span></span></h4></legend>
 			<div id = 'email_address'>
 			<input type="email" name="email" id="email" pattern=".+@.+\..+" placeholder = 'Optional'>

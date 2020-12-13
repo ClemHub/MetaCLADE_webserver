@@ -61,6 +61,8 @@ include("./includes/header.php");
 			$job_id = 'small_example_withoutDAMA';
 			$name_file = $approot."/jobs/small_example_withoutDAMA/small_example_withoutDAMA.arch.txt";
 			$dl_file = $appurl."/jobs/small_example_withoutDAMA/results.txt";}}
+	if($job_name != ""){
+		echo "<h4>Job:".$job_name."</h4>";}
 	if($form=="small" || $form=="small_example"){
 		$domain_list = explode(",", $pfam);
 		echo "<form>";

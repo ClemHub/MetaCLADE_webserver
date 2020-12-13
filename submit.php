@@ -71,7 +71,6 @@ include("./includes/header.php");
 				echo "An email has bens send";
 				$mail_header= "Subject: $appname queued (".$job_id.")\n";
 				$mail_header= $mail_header . "Content-Type: text/html\n";
-				$mail_header= $mail_header . "MIME-Version:\n";
 				$mail= $mail_header . "\n".$msg;
 				mail($email, "no-reply@lcqb.upmc.fr", $mail);};
 

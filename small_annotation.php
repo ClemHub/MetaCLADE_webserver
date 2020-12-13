@@ -65,7 +65,7 @@
 			</fieldset>
 			<fieldset class='form_fs'><legend><h4>Job name:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Optional and used to store your job details.</span></span></h4></legend>
 
-			<div id = 'job_name'>
+			<div id = 'job_name_div'>
 			<input type="text" id="job_name" placeholder = 'Optional'>
 			</div>
 			</fieldset>

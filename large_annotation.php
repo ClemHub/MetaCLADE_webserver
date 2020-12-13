@@ -15,7 +15,7 @@
 			</fieldset>
 			
 			<fieldset class='form_fs'><legend><h4>Parameters:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Parameters settings: hits are filtered by the E-value. DAMA reconstructs the most likely architecture.</span></span></h4></legend>
-			<div id = 'job_name'>
+			<div id = 'job_name_div'>
 			<br/>Job name:<br/>
 			<input type="text" id="job_name" placeholder = 'Optional'>
 			</div>

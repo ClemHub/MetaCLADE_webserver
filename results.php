@@ -13,9 +13,8 @@ include("./includes/header.php");
 		$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.tsv";}
 	else if($form=="small" || $form=="large" || $form=='clan'){
 		$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
-		$job_name = $parameters["Job name"];
-		if($job_name != "None"){
-			echo "<h4>Job: ".$job_name."</h4>";}
+		if($parameters["Job name"]){
+			echo "<h4>Job: ".$parameters["Job name"]."</h4>";}
 		$dama = $parameters["DAMA"];
 		$e_value = $parameters['E-value'];
 		$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.tsv";

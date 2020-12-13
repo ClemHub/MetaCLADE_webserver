@@ -38,8 +38,6 @@ include("./includes/header.php");
 			umask($oldmask);
 			if($job_name!=""){
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Job name\t".$job_name."\n", FILE_APPEND);}
-			else{
-				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Job name\tNone\n", FILE_APPEND);}
 			if($_POST['library'] == 'true'){
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Library\tComplete\n", FILE_APPEND);
 				$parameters['Library'] = "Complete";}

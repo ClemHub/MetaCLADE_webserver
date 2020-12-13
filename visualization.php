@@ -7,16 +7,16 @@
 			<div>
 			To visualize annotations made by this webserver, the format must be unchanged.
 			</div>
+			<fieldset class='form_fs'><legend><h4> Or results ID:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>The randomly generated ID during submission.</span></span></h4></legend>
+			<div id = 'job_name_div'>
+			<input type="text" id="job_ID" name="job_ID" placeholder = 'Optional'>
+			</div>
+			</fieldset>
 			<fieldset class='form_fs'><legend><h4>Input file:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>See Help for expected format.</span></span></h4></legend>
 			<div id='seq_container'>
 			<label for="fasta_file">Upload an annotation file:</label>
 			<textarea name="sequences" id = "sequences" rows='10' placeholder="Example: SeqID Seq_start Seq_end Length DomainID ModelID Model_start Model_end Model_size E-value Bitscore Accuracy Species"></textarea><br/>
 			<input type="file" id="fasta_file" name="fasta_file"/>
-			</div>
-			</fieldset>
-			<fieldset class='form_fs'><legend><h4> Or results ID:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>The randomly generated ID during submission.</span></span></h4></legend>
-			<div id = 'job_name_div'>
-			<input type="text" id="job_ID" name="job_ID" placeholder = 'Optional'>
 			</div>
 			</fieldset>
 			<div id='submission'>

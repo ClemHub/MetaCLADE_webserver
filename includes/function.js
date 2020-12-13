@@ -169,6 +169,8 @@ function reset_btn(form){
 	else if(form == 'clan'){
 		document.getElementById("clan").disabled = false;
 		document.clan_annotation_form.action = 'submit.php?form=clan';}
+	document.getElementById("reduced_btn").disabled = false;
+	document.getElementById("complete_btn").disabled = false;
 	document.getElementById("sequences").disabled = false;
 	document.getElementById("evalue_nb").disabled = false;
 	document.getElementById("evalue_range").disabled = false;

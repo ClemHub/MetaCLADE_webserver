@@ -7,12 +7,11 @@ include("./includes/header.php");
 
 	//Taking form informations
 	$form = $_GET["form"];
+	$job_id = $_GET["job_id"];
 	if($form == 'visualization'){
-		$job_id = $_GET["job_id"];
 		$dl_file = $appurl."/jobs/".$job_id."/results.txt";
 		$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.tsv";}
 	else if($form=="small" || $form=="large" || $form=='clan'){
-		$job_id = $_GET["job_id"];
 		$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
 		$job_name = $parameters["Job name"];
 		if($job_name != "None"){
@@ -26,41 +25,34 @@ include("./includes/header.php");
 		if($form=="small"){
 			$pfam = $parameters["PFAM"];}}
 	else if($form=="large_example"){
-		$dama = $_POST["dama"];
 		$e_value = 0.001;
-		if($dama == "true" | $_GET["job_id"] == "large_example_withDAMA"){
-			$job_id = 'large_example_withDAMA';
+		if($job_id == "large_example_withDAMA"){
 			$DAMA_evalue = 1e-10;
 			$name_file = $approot."/jobs/large_example_withDAMA/large_example_withDAMA.arch.tsv";
 			$dl_file = $appurl."/jobs/large_example_withDAMA/results.txt";}
-		else if($dama == "false" | $_GET["job_id"] == "large_example_withoutDAMA"){
+		else if($job_id == "large_example_withoutDAMA"){
 			$job_id = 'large_example_withoutDAMA';
 			$name_file = $approot."/jobs/large_example_withoutDAMA/large_example_withoutDAMA.arch.tsv";
 			$dl_file = $appurl."/jobs/large_example_withoutDAMA/results.txt";}}
 	else if($form=="clan_example"){
-		$dama = $_POST["dama"];
 		$clan = 'CL0039';
 		$e_value = 0.001;
-		if($dama == "true" | $_GET["job_id"] == "clan_example_withDAMA"){
-			$job_id = 'clan_example_withDAMA';
+		if($job_id == "clan_example_withDAMA"){
 			$DAMA_evalue = 1e-10;
 			$name_file = $approot."/jobs/clan_example_withDAMA/clan_example_withDAMA.arch.tsv";
 			$dl_file = $appurl."/jobs/clan_example_withDAMA/results.txt";}
-		else if($dama == "false" | $_GET["job_id"] == "clan_example_withoutDAMA"){
+		else if($job_id == "clan_example_withoutDAMA"){
 			$job_id = 'clan_example_withoutDAMA';
 			$name_file = $approot."/jobs/clan_example_withoutDAMA/clan_example_withoutDAMA.arch.tsv";
 			$dl_file = $appurl."/jobs/clan_example_withoutDAMA/results.txt";}}
 	else if($form=="small_example"){
 		$e_value = 0.001;
-		$dama = $_POST["dama"];
 		$pfam = "PF00875,PF03441,PF03167,PF12546";
-		if($dama == "true" | $_GET["job_id"] == "small_example_withDAMA"){
+		if($job_id == "small_example_withoutDAMA"){
 			$DAMA_evalue = 1e-10;
-			$job_id = 'small_example_withDAMA';
 			$name_file = $approot."/jobs/small_example_withDAMA/small_example_withDAMA.arch.tsv";
 			$dl_file = $appurl."/jobs/small_example_withDAMA/results.txt";}
-		else if($dama == "false" | $_GET["job_id"] == "small_example_withoutDAMA"){
-			$job_id = 'small_example_withoutDAMA';
+		else if($job_id == "small_example_withoutDAMA"){
 			$name_file = $approot."/jobs/small_example_withoutDAMA/small_example_withoutDAMA.arch.tsv";
 			$dl_file = $appurl."/jobs/small_example_withoutDAMA/results.txt";}}
 	if($form=="small" || $form=="small_example"){

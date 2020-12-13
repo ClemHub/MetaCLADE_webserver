@@ -121,19 +121,19 @@ function fill_exemple_form(form){
 		fetch('/MetaCLADE_webserver/data/example.fasta')
 		.then(response => response.text())
 		.then((data) => {document.small_annotation_form.sequences.value = data })
-		document.small_annotation_form.action = 'results.php?form=small_example';
+		document.small_annotation_form.action = 'submit.php?form=small_example';
 		document.getElementById("pfam_domains").disabled = true;}
 	else if(form == 'large'){
 		fetch('/MetaCLADE_webserver/data/example.fasta')
 		.then(response => response.text())
 		.then((data) => {document.large_annotation_form.sequences.value = data })
-		document.large_annotation_form.action = 'results.php?form=large_example'}
+		document.large_annotation_form.action = 'submit.php?form=large_example'}
 	else if(form == 'clan'){
 		fetch('/MetaCLADE_webserver/data/example.fasta')
 		.then(response => response.text())
 		.then((data) => {document.clan_annotation_form.sequences.value = data })
 		document.clan_annotation_form.clan.value = 'CL0039 - HUP';
-		document.clan_annotation_form.action = 'results.php?form=clan_example'
+		document.clan_annotation_form.action = 'submit.php?form=clan_example'
 		document.getElementById("clan").disabled = true;}
 	document.getElementById("reduced_btn").checked = false;
 	document.getElementById("reduced_btn").disabled = true;

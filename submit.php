@@ -6,7 +6,14 @@ include("./includes/header.php");
 		<p class = 'text'>
 		<?php
 		$form = $_GET['form'];
-		if ($form == 'visualization'){
+		if ($form == 'clan_example' | $form == 'small_example' | $form == 'large_example'){
+			$dama = $_POST['dama'];
+			if($dama == 'true'){
+				$job_id = $form.'_withDAMA';}
+			else{
+				$job_id = $form.'_withoutDAMA';}
+		}
+		else if ($form == 'visualization'){
 			$job_name = $_POST["job_ID"];
 			if($job_name != ''){
 				if(file_exists($approot."/jobs/".$job_name."/results.txt")){

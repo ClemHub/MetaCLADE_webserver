@@ -30,7 +30,7 @@ include("./includes/header.php");
 				file_put_contents($approot."/jobs/".$job_id."/".$job_id.".arch.tsv", $_POST["sequences"]);
 				header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_id);}}
 		else{
-			$job_id = generateRandomString()."_".date("Ymd");
+			$job_id = generateRandomString()."_".date("Y-m-d");
 			$job_name = $_POST["job_name"];
 			echo 'Your job ID is: '.$job_id,'<br>';
 			$oldmask = umask(0);

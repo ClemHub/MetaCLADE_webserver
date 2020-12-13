@@ -19,7 +19,7 @@ include("./includes/header.php");
 				$oldmask = umask(0);
 				mkdir($approot.'/jobs/'.$job_id, 0777, true);
 				umask($oldmask);
-				file_put_contents($approot."/jobs/".$job_id."/results.txt", $_POST["sequences"]);
+				file_put_contents($approot."/jobs/".$job_id."/".$job_id.".arch.tsv", $_POST["sequences"]);
 				header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_id);}}
 		else{
 			$job_id = generateRandomString()."_".date("dmY");

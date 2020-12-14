@@ -52,13 +52,13 @@ function validate_one_line(file_line, line_index){
 		msg = msg+"Please, remove the header\n"}
 	var int_indexes = [1, 2, 3, 6, 7, 8];
 	for(i in int_indexes){
-		alert(i)
-		if(parseInt(line[i]) == NaN){
+		alert(int_indexes[i])
+		if(parseInt(line[int_indexes[i]]) == NaN){
 			msg = msg+"Be careful, on line "+line_index+", the column "+i+"should be an interger\n"}}
 	var float_indexes = [9, 10, 11];
 	for(i in [9, 10, 11]){
-		alert(i)
-		if(parseFloat(line[i]) == NaN){
+		alert(float_indexes[i])
+		if(parseFloat(line[int_indexes[float_indexes]]) == NaN){
 			msg = msg+"Be careful, on line "+line_index+", the column "+i+"should be a float\n"}}
 	return msg}
 

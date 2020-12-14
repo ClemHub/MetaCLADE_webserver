@@ -3,7 +3,7 @@
 	<section class = 'tools'>
 		<h2>Visualization of an annotation file</h2>
 		
-		<form autocomplete="off" name="visualization_form" method = POST action="submit.php?form=visualization" enctype="multipart/form-data" onsubmit="return visualization_form_submission()">
+		<form autocomplete="off" name="visualization_form" method = POST action="submit.php?form=visualization" enctype="multipart/form-data">
 			<div>
 			To visualize annotations made by this webserver, the format must be unchanged (don't put the header details of your result).
 			</div>
@@ -12,6 +12,12 @@
 			<input type="text" id="job_ID" name="job_ID" placeholder = 'Optional'>
 			</div>
 			</fieldset>
+			<div id='submission'>
+			<br/>
+			<input class='btn' type="submit" value="Search" name = "submit"/><input class='btn' type="reset" value="Reset" onclick="reset_btn('visualisation')"/>
+			</div>
+		</form>
+		<form autocomplete="off" name="visualization_form" method = POST action="submit.php?form=visualization" enctype="multipart/form-data" onsubmit="return visualization_form_submission()">
 			<fieldset class='form_fs'><legend><h4>Or input file:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>See Help for expected format.</span></span></h4></legend>
 			<div id='seq_container'>
 			<label for="fasta_file">Upload an annotation file:</label>

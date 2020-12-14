@@ -56,14 +56,19 @@ function validate_one_line(file_line){
 	if(parseFloat(line[9]) != NaN | parseFloat(line[10]) | parseFloat(line[11])){
 		return "Your file contains some error on columns 10, 11 or 12: must be integer";}}
 
-function validate_visualization(file){
-	var line = file.split('\n')
-	for(l in line){
-		if(line[l]){
-			valid = validate_one_line(line[l]);
-			if(valid != true){
-				break;
-	return valid;}}}}
+function visualization_form_submission(){
+	var file = document.large_annotation_form.sequences.value;
+	if(file==""){
+		alert("\tPlease, enter:\n-An annotation file.");
+		return false;}
+	else{
+		var line = file.split('\n')
+		for(l in line){
+			if(line[l]){
+				valid = validate_one_line(line[l]);
+				if(valid != true){
+					break;}}}
+		return valid;}}
 
 function large_form_submission(){
 	var seq =  document.large_annotation_form.sequences.value;

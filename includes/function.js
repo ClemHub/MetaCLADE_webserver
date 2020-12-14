@@ -55,15 +55,12 @@ function validate_one_line(file_line, line_index){
 	else{
 		var int_indexes = [1, 2, 3, 6, 7, 8];
 		for(i in int_indexes){
-			if(parseInt(line[int_indexes[i]]) == NaN){
-				alert('here1')
-				msg = msg+"Be careful, on line "+line_index+", the column "+line[int_indexes[i]]+"should be an interger\n"}}
+			if(!parseInt(line[int_indexes[i]])){
+				msg = msg+"Be careful, on line "+line_index+", the column "+line[int_indexes[i]]+" should be an interger\n"}}
 		var float_indexes = [9, 10, 11];
 		for(i in [9, 10, 11]){
-			alert(line[float_indexes[i]]+" "+parseFloat(line[float_indexes[i]]));
 			if(!parseFloat(line[float_indexes[i]])){
-				alert('here2')
-				msg = msg+"Be careful, on line "+line_index+", the column "+i+"should be a float\n"}}
+				msg = msg+"Be careful, on line "+line_index+", the column "+line[float_indexes[i]]+" should be a float\n"}}
 		if(msg == ""){
 			return true;}
 		else{

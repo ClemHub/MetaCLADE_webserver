@@ -162,7 +162,7 @@ include("./includes/header.php");
 	echo "</div>";
 	
 	//Information button
-	if($form != 'visualization'){
+	if($form != 'visualization_file'){
 		echo "<div class='info'>";
 		echo "<input type='button' class='bouton_info' value='Search parameters' onclick='close_open_info(this);' />";
 		echo "<div class='contenu_info'>";

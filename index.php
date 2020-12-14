@@ -11,7 +11,7 @@
 	</ol>
 		If sequences are sufficiently long, <a href="http://www.lcqb.upmc.fr/dama/" target="_blank" class="table_link">DAMA</a> can be used to accurately resolve protein domain architectures.<br/>
 		<br/>
-		MyCLADE annotates protein sequences with a library of more than 2.5 million probabilistic models for the whole Pfam32 database (17,929 domains). For this reason, keep in mind that a domain annotation of a single protein sequence could take the same time as for 50-100 sequences.</p>
+		MyCLADE annotates protein sequences with a library of more than 2.5 million probabilistic models for the whole Pfam32 database (17,929 domains). <p class="important">For this reason, keep in mind that a domain annotation of a single protein sequence could take the same time as for 50-100 sequences.</p></p>
 
 	
 	</section>

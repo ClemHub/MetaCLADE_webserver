@@ -294,6 +294,12 @@ tbody:hover td[rowspan], tr:hover td {
 	font-weight: bold;
 	color: rgb(158, 177, 96);}
 
+.important{
+	text-decoration: none;
+	font-weight: bold;
+	color: rgb(158, 177, 96);	
+}
+
 .table_link:hover{
 	color: rgb(69, 54, 21);}
 

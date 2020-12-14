@@ -43,20 +43,21 @@ function validatePFAM(pfam_list){
 	return true;}
 
 function validate_one_line(file_line, line_index){
-	var valid = true;
+	var msg = true;
 	file_line = file_line.replace(/\s\s+/g, '\t');
 	var line = file_line.trim().split('\t');
-	alert('here  '+line.length)
 	if(line.length != 13){
-		return "Your file  misses some information. Please check the separator which must be tabulations.";}
+		msg = msg+"Your file  misses some information. Please check the separator which must be tabulations\n";}
 	if(file_line == "SeqID	Seq start	Seq stop	Seq length	Domain ID	Model ID	Model start	Model stop	Model size	E-value	Biscore	Accuracy	Species of the template used for the model"){
-		return "Please, remove the header"}
+		msg = msg+"Please, remove the header\n"}
 	for(i in [1, 2, 3, 6, 7, 8]){
+		alert(i)
 		if(parseInt(line[i]) == NaN){
-			return "Be careful, on line "+line_index+", the column "+i+"should be an interger."}}
+			msg = msg+"Be careful, on line "+line_index+", the column "+i+"should be an interger\n"}}
 	for(i in [9, 10, 11]){
 		if(parseFloat(line[i]) == NaN){
-			return "Be careful, on line "+line_index+", the column "+i+"should be a float."}}}
+			msg = msg+"Be careful, on line "+line_index+", the column "+i+"should be a float\n"}}
+	return msg}
 
 function visualization_form_submission(){
 	var file = document.visualization_form_file.sequences.value;

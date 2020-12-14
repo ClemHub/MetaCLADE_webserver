@@ -14,14 +14,14 @@ include("./includes/header.php");
 				$job_id = $form.'_withoutDAMA';}
 			header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_id);
 		}
-		else if ($form == 'visualization'){
+		else if ($form == 'visualization_jobID'){
 			$job_name = $_POST["job_ID"];
 			if($job_name != ''){
 				if(file_exists($approot."/jobs/".$job_name."/results.txt")){
 					header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_name);}	
 				else if(!file_exists($approot."/jobs/".$job_name."/results.txt")){
 					header("location: $hostname/$appname/error.php?form=".$form."&job_id=".$job_name);}}
-			else if ($_POST["sequences"] != ""){
+		else if ($form == 'visualization_file'){
 				$job_id = generateRandomString()."_".date("dmY");
 				echo 'Your job ID is: '.$job_id,'<br>';
 				$oldmask = umask(0);

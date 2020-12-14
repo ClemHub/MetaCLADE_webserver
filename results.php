@@ -8,7 +8,7 @@ include("./includes/header.php");
 	//Taking form informations
 	$form = $_GET["form"];
 	$job_id = $_GET["job_id"];
-	if($form == 'visualization'){
+	if($form == 'visualization_file'){
 		$dl_file = $appurl."/jobs/".$job_id."/results.txt";
 		$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.tsv";}
 	else{

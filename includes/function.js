@@ -42,7 +42,7 @@ function validatePFAM(pfam_list){
 				return "The domain format is not correct: "+pfam_list[pfam]}}}
 	return true;}
 
-function validate_one_line(file_line){
+function validate_one_line(file_line, line_index){
 	var valid = true;
 	file_line = file_line.replace(/\s\s+/g, '\t');
 	var line = file_line.trim().split('\t');
@@ -51,21 +51,25 @@ function validate_one_line(file_line){
 		return "Your file  misses some information. Please check the separator which must be tabulations.";}
 	if(file_line == "SeqID	Seq start	Seq stop	Seq length	Domain ID	Model ID	Model start	Model stop	Model size	E-value	Biscore	Accuracy	Species of the template used for the model"){
 		return "Please, remove the header"}
-	if(parseInt(line[1]) != NaN | parseInt(line[2]) != NaN | parseInt(line[3]) != NaN | parseInt(line[6]) != NaN | parseInt(line[7]) != NaN | parseInt(line[8]) != NaN){
-		return "Your file contains some error on columns 2, 3, 4, 7, 8 or 9: must be integer";}
-	if(parseFloat(line[9]) != NaN | parseFloat(line[10]) | parseFloat(line[11])){
-		return "Your file contains some error on columns 10, 11 or 12: must be float";}}
+	for(i in [1, 2, 3, 6, 7, 8]){
+		if(parseInt(line[i]) == NaN){
+			return "Be careful, on line "+line_index+", the column "+i+"should be an interger."}}
+	for(i in [9, 10, 11]){
+		if(parseFloat(line[i]) == NaN){
+			return "Be careful, on line "+line_index+", the column "+i+"should be a float."}}}
 
 function visualization_form_submission(){
 	var file = document.visualization_form_file.sequences.value;
+	var line_index = 0
 	if(file==""){
 		alert("\tPlease, enter:\n-An annotation file.");
 		return false;}
 	else{
 		var line = file.split('\n')
+		line_index++
 		for(l in line){
 			if(line[l]){
-				valid = validate_one_line(line[l]);
+				valid = validate_one_line(line[l], line_index);
 				alert(valid)
 				if(valid != true){
 					valid = false;

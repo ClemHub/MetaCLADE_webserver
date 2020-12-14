@@ -20,7 +20,7 @@ include("./includes/header.php");
 				if(file_exists($approot."/jobs/".$job_name."/results.txt")){
 					header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_name);}	
 				else if(!file_exists($approot."/jobs/".$job_name."/results.txt")){
-					header("location: $hostname/$appname/error.php?form=".$form."&job_id=".$job_name);}}
+					header("location: $hostname/$appname/error.php?form=".$form."&job_id=".$job_name);}}}
 		else if ($form == 'visualization_file'){
 				$job_id = generateRandomString()."_".date("dmY");
 				echo 'Your job ID is: '.$job_id,'<br>';
@@ -28,7 +28,7 @@ include("./includes/header.php");
 				mkdir($approot.'/jobs/'.$job_id, 0777, true);
 				umask($oldmask);
 				file_put_contents($approot."/jobs/".$job_id."/".$job_id.".arch.tsv", $_POST["sequences"]);
-				header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_id);}}
+				header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_id);}
 		else{
 			$job_id = generateRandomString()."_".date("Ymd");
 			$job_name = $_POST["job_name"];

@@ -66,7 +66,9 @@ function visualization_form_submission(){
 		for(l in line){
 			if(line[l]){
 				valid = validate_one_line(line[l]);
+				alert(valid)
 				if(valid != true){
+					valid = false;
 					break;}}}
 		return valid;}}
 

@@ -50,11 +50,14 @@ function validate_one_line(file_line, line_index){
 		msg = msg+"Your file  misses some information. Please check the separator which must be tabulations\n";}
 	if(file_line == "SeqID	Seq start	Seq stop	Seq length	Domain ID	Model ID	Model start	Model stop	Model size	E-value	Biscore	Accuracy	Species of the template used for the model"){
 		msg = msg+"Please, remove the header\n"}
-	for(i in [1, 2, 3, 6, 7, 8]){
+	var int_indexes = [1, 2, 3, 6, 7, 8];
+	for(i in int_indexes){
 		alert(i)
 		if(parseInt(line[i]) == NaN){
 			msg = msg+"Be careful, on line "+line_index+", the column "+i+"should be an interger\n"}}
+	var float_indexes = [9, 10, 11];
 	for(i in [9, 10, 11]){
+		alert(i)
 		if(parseFloat(line[i]) == NaN){
 			msg = msg+"Be careful, on line "+line_index+", the column "+i+"should be a float\n"}}
 	return msg}

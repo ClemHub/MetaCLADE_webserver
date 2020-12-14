@@ -43,7 +43,7 @@ function validatePFAM(pfam_list){
 	return true;}
 
 function validate_one_line(file_line, line_index){
-	var msg = true;
+	var msg = "";
 	file_line = file_line.replace(/\s\s+/g, '\t');
 	var line = file_line.trim().split('\t');
 	if(line.length != 13){
@@ -60,7 +60,10 @@ function validate_one_line(file_line, line_index){
 		alert(float_indexes[i])
 		if(parseFloat(line[int_indexes[float_indexes]]) == NaN){
 			msg = msg+"Be careful, on line "+line_index+", the column "+i+"should be a float\n"}}
-	return msg}
+	if(msg == ""){
+		return true;}
+	else{
+		return false;}}
 
 function visualization_form_submission(){
 	var file = document.visualization_form_file.sequences.value;

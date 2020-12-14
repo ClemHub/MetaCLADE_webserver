@@ -2,7 +2,7 @@
 	<?php
 	$form = $_GET['form'];
 	$job_id = $_GET['job_id'];
-	$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.tsv";}
+	$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.tsv";
 
 
 	$file_content = fopen($name_file, "r");

@@ -58,7 +58,7 @@ function validate_one_line(file_line, line_index){
 	var float_indexes = [9, 10, 11];
 	for(i in [9, 10, 11]){
 		alert(line[float_indexes[i]]+" "+parseFloat(line[float_indexes[i]]));
-		if(parseFloat(line[float_indexes[i]]) == NaN){
+		if(!parseFloat(line[float_indexes[i]])){
 			alert('here2')
 			msg = msg+"Be careful, on line "+line_index+", the column "+i+"should be a float\n"}}
 	if(msg == ""){

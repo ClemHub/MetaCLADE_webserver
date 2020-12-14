@@ -49,7 +49,7 @@ include("./includes/header.php");
 	else if($form=="small_example"){
 		$e_value = 0.001;
 		$pfam = "PF00875,PF03441,PF03167,PF12546";
-		if($job_id == "small_example_withoutDAMA"){
+		if($job_id == "small_example_withDAMA"){
 			$dama = 'true';
 			$DAMA_evalue = 1e-10;
 			$name_file = $approot."/jobs/small_example_withDAMA/small_example_withDAMA.arch.tsv";

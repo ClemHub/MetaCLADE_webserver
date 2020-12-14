@@ -21,7 +21,7 @@ include("./includes/header.php");
 		$dl_file = $appurl."/jobs/".$job_id."/results.txt";
 		if($dama == 'true'){
 			$DAMA_evalue = $parameters["DAMA e-value"];}
-		if($form=="small"){
+		if($form=="small" | $form=='small_example'){
 			$pfam = $parameters["PFAM"];}}
 
 	if($form=="small" || $form=="small_example"){

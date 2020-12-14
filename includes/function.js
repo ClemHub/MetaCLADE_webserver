@@ -57,7 +57,8 @@ function validate_one_line(file_line){
 		return "Your file contains some error on columns 10, 11 or 12: must be integer";}}
 
 function visualization_form_submission(){
-	var file = document.visualization_form.sequences.value;
+	var file = document.visualization_form_file.sequences.value;
+	alert(file)
 	if(file==""){
 		alert("\tPlease, enter:\n-An annotation file.");
 		return false;}

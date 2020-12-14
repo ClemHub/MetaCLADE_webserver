@@ -56,11 +56,11 @@ function validate_one_line(file_line, line_index){
 		var int_indexes = [1, 2, 3, 6, 7, 8];
 		for(i in int_indexes){
 			if(!parseInt(line[int_indexes[i]])){
-				msg = msg+"Be careful, on line "+line_index+", the column "+line[int_indexes[i]]+" should be an interger\n"}}
+				msg = msg+"Be careful, on line "+line_index+", the column "+int_indexes[i]+" should be an integer\n"}}
 		var float_indexes = [9, 10, 11];
 		for(i in [9, 10, 11]){
 			if(!parseFloat(line[float_indexes[i]])){
-				msg = msg+"Be careful, on line "+line_index+", the column "+line[float_indexes[i]]+" should be a float\n"}}
+				msg = msg+"Be careful, on line "+line_index+", the column "+float_indexes[i]+" should be a float\n"}}
 		if(msg == ""){
 			return true;}
 		else{
@@ -68,21 +68,22 @@ function validate_one_line(file_line, line_index){
 
 function visualization_form_submission(){
 	var file = document.visualization_form_file.sequences.value;
+	var valid = true;
 	var line_index = 0
 	if(file==""){
 		alert("\tPlease, enter:\n-An annotation file.");
-		return false;}
+		valid = false;}
 	else{
 		var line = file.split('\n')
 		line_index++
 		for(l in line){
 			if(line[l]){
 				valid = validate_one_line(line[l], line_index);
-				alert(valid)
 				if(valid != true){
+					alert(valid)
 					valid = false;
-					break;}}}
-		return valid;}}
+					break;}}}}
+	return valid;}
 
 function large_form_submission(){
 	var seq =  document.large_annotation_form.sequences.value;

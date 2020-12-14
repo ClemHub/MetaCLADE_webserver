@@ -180,7 +180,7 @@ include("./includes/header.php");
 				echo "<li>Annotation based on the full domain library</li>";}
 			else if($name == 'Library' && $value == 'Reduced'){
 				echo "<li>Annotation based on the reduced domain library</li>";}
-			else if($name != "" and $value != ""){
+			else if($name != "" and $value != "" and $name != 'Email'){
 				echo "<li>".$name.": ".$value."</li>";}}
 			echo "</ul>";
 		echo '<br><br>';

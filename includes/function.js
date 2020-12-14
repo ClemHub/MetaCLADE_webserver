@@ -52,9 +52,9 @@ function validate_one_line(file_line){
 	if(file_line == "SeqID	Seq start	Seq stop	Seq length	Domain ID	Model ID	Model start	Model stop	Model size	E-value	Biscore	Accuracy	Species of the template used for the model"){
 		return "Please, remove the header"}
 	if(parseInt(line[1]) != NaN | parseInt(line[2]) != NaN | parseInt(line[3]) != NaN | parseInt(line[6]) != NaN | parseInt(line[7]) != NaN | parseInt(line[8]) != NaN){
-		return "Your file contains some error on columns 2, 3, 4, 6, 8 or 9: must be integer";}
+		return "Your file contains some error on columns 2, 3, 4, 7, 8 or 9: must be integer";}
 	if(parseFloat(line[9]) != NaN | parseFloat(line[10]) | parseFloat(line[11])){
-		return "Your file contains some error on columns 10, 11 or 12: must be integer";}}
+		return "Your file contains some error on columns 10, 11 or 12: must be float";}}
 
 function visualization_form_submission(){
 	var file = document.visualization_form_file.sequences.value;

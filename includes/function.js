@@ -57,8 +57,8 @@ function validate_one_line(file_line, line_index){
 			msg = msg+"Be careful, on line "+line_index+", the column "+i+"should be an interger\n"}}
 	var float_indexes = [9, 10, 11];
 	for(i in [9, 10, 11]){
-		alert(line[int_indexes[float_indexes]]+" "+parseFloat(line[int_indexes[float_indexes]]));
-		if(parseFloat(line[int_indexes[float_indexes]]) == NaN){
+		alert(line[float_indexes[i]]+" "+parseFloat(line[float_indexes[i]]));
+		if(parseFloat(line[float_indexes[i]]) == NaN){
 			alert('here2')
 			msg = msg+"Be careful, on line "+line_index+", the column "+i+"should be a float\n"}}
 	if(msg == ""){

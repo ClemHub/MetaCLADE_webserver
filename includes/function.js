@@ -47,24 +47,27 @@ function validate_one_line(file_line, line_index){
 	file_line = file_line.replace(/\s\s+/g, '\t');
 	var line = file_line.trim().split('\t');
 	if(line.length != 13){
-		msg = msg+"Your file  misses some information. Please check the separator which must be tabulations\n";}
-	if(file_line == "SeqID	Seq start	Seq stop	Seq length	Domain ID	Model ID	Model start	Model stop	Model size	E-value	Biscore	Accuracy	Species of the template used for the model"){
-		msg = msg+"Please, remove the header\n"}
-	var int_indexes = [1, 2, 3, 6, 7, 8];
-	for(i in int_indexes){
-		if(parseInt(line[int_indexes[i]]) == NaN){
-			alert('here1')
-			msg = msg+"Be careful, on line "+line_index+", the column "+i+"should be an interger\n"}}
-	var float_indexes = [9, 10, 11];
-	for(i in [9, 10, 11]){
-		alert(line[float_indexes[i]]+" "+parseFloat(line[float_indexes[i]]));
-		if(!parseFloat(line[float_indexes[i]])){
-			alert('here2')
-			msg = msg+"Be careful, on line "+line_index+", the column "+i+"should be a float\n"}}
-	if(msg == ""){
-		return true;}
+		msg = msg+"Your file  misses some information. Please check the separator which must be tabulations\n";
+		return msg;}
+	else if(file_line == "SeqID	Seq start	Seq stop	Seq length	Domain ID	Model ID	Model start	Model stop	Model size	E-value	Biscore	Accuracy	Species of the template used for the model"){
+		msg = msg+"Please, remove the header\n";
+		return msg;}
 	else{
-		return msg;}}
+		var int_indexes = [1, 2, 3, 6, 7, 8];
+		for(i in int_indexes){
+			if(parseInt(line[int_indexes[i]]) == NaN){
+				alert('here1')
+				msg = msg+"Be careful, on line "+line_index+", the column "+line[int_indexes[i]]+"should be an interger\n"}}
+		var float_indexes = [9, 10, 11];
+		for(i in [9, 10, 11]){
+			alert(line[float_indexes[i]]+" "+parseFloat(line[float_indexes[i]]));
+			if(!parseFloat(line[float_indexes[i]])){
+				alert('here2')
+				msg = msg+"Be careful, on line "+line_index+", the column "+i+"should be a float\n"}}
+		if(msg == ""){
+			return true;}
+		else{
+			return msg;}}}
 
 function visualization_form_submission(){
 	var file = document.visualization_form_file.sequences.value;

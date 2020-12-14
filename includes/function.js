@@ -46,7 +46,7 @@ function validate_one_line(file_line){
 	var valid = true;
 	file_line = file_line.replace(/\s\s+/g, '\t');
 	var line = file_line.trim().split('\t');
-	alert('here'+line)
+	alert('here  '+line.length)
 	if(line.length != 13){
 		return "Your file  misses some information. Please check the separator which must be tabulations.";}
 	if(file_line == "SeqID	Seq start	Seq stop	Seq length	Domain ID	Model ID	Model start	Model stop	Model size	E-value	Biscore	Accuracy	Species of the template used for the model"){

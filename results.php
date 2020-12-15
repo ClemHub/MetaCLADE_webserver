@@ -171,11 +171,7 @@ include("./includes/header.php");
 		else if($form == 'small_example' | $form == 'large_example' | $form == 'clan_example'){
 				echo "<ul><strong>Example parameters:</strong>";} 
 		foreach($parameters as $name => $value){
-			if($name == 'Library' && $value == 'Complete'){
-				echo "<li>Annotation based on the full domain library</li>";}
-			else if($name == 'Library' && $value == 'Reduced'){
-				echo "<li>Annotation based on the reduced domain library</li>";}
-			else if($name != "" and $value != "" and $name != 'Email'){
+			if($name != "" and $value != "" and $name != 'Email'){
 				echo "<li>".$name.": ".$value."</li>";}}
 			echo "</ul>";
 		echo "</div></div>";}

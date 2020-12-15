@@ -39,10 +39,10 @@ include("./includes/header.php");
 			if($job_name!=""){
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Job name\t".$job_name."\n", FILE_APPEND);}
 			if($_POST['library'] == 'true'){
-				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Library\tComplete\n", FILE_APPEND);
+				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Library\tAnnotation based on the full domain library\n", FILE_APPEND);
 				$parameters['Library'] = "Complete";}
 			else if($_POST['library'] == 'false'){
-				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Library\tReduced\n", FILE_APPEND);
+				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Library\tAnnotation based on the reduced domain library\n", FILE_APPEND);
 				$parameters['Library'] = "Reduced";}
 			if($form=='small'){
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "PFAM\t".$_POST["pfam_domains"]."\n", FILE_APPEND);

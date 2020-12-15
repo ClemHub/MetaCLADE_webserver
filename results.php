@@ -178,7 +178,6 @@ include("./includes/header.php");
 			else if($name != "" and $value != "" and $name != 'Email'){
 				echo "<li>".$name.": ".$value."</li>";}}
 			echo "</ul>";
-		echo '<br><br>';
 		echo "</div></div>";}
 		?>
 	

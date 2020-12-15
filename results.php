@@ -167,9 +167,9 @@ include("./includes/header.php");
 		echo "<input type='button' class='bouton_info' value='Search parameters' onclick='close_open_info(this);' />";
 		echo "<div class='contenu_info'>";
 		if($form == 'small' | $form == 'large' | $form == 'clan'){
-				echo "<ul><h4>Your job parameters:</h4><br>";}
+				echo "<ul><h4>Your job parameters:</h4>";}
 		else if($form == 'small_example' | $form == 'large_example' | $form == 'clan_example'){
-				echo "<ul><h4>Example parameters:</h4><br>";} 
+				echo "<ul><h4>Example parameters:</h4>";} 
 		foreach($parameters as $name => $value){
 			if($name == 'Library' && $value == 'Complete'){
 				echo "<li>Annotation based on the full domain library</li>";}

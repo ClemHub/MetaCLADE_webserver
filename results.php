@@ -166,7 +166,7 @@ include("./includes/header.php");
 		echo "<div class='info'>";
 		echo "<input type='button' class='bouton_info' value='Search parameters' onclick='close_open_info(this);' />";
 		echo "<div class='contenu_info'>";
-		if($form == 'small' | $form == 'large' | $form == 'clan'){
+		if($form == 'small' | $form == 'large' | $form == 'clan' | $form == 'visualization_jobID'){
 				echo "<ul><h4>Your job parameters:</h4>";}
 		else if($form == 'small_example' | $form == 'large_example' | $form == 'clan_example'){
 				echo "<ul><h4>Example parameters:</h4>";} 

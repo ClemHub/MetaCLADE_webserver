@@ -166,15 +166,10 @@ include("./includes/header.php");
 		echo "<div class='info'>";
 		echo "<input type='button' class='bouton_info' value='Search parameters' onclick='close_open_info(this);' />";
 		echo "<div class='contenu_info'>";
-		echo "<h4>Parameters of the test:</h4>";
-		
-		if($form == 'small' || $form == 'small_example'){
-			echo 'Only a fixed set of domains is used for annotation.<br>';}
-		else if($form == 'large' || $form == 'large_example'){
-			echo 'All the domain library is used for annotation.<br>';}
-		else if($form == 'clan' || $form == 'clan_example'){
-			echo 'Only the domains belonging to the Pfam clan are used for annotation.<br>';}
-		echo "<ul><br><strong>Your job parameters:</strong><br>";
+		if($form == 'small' | $form == 'large' | $form == 'clan'){
+				echo "<ul><h4>Your job parameters:</h4><br>";}
+		else if($form == 'small_example' | $form == 'large_example' | $form == 'clan_example'){
+				echo "<ul><h4>Example parameters:</h4><br>";} 
 		foreach($parameters as $name => $value){
 			if($name == 'Library' && $value == 'Complete'){
 				echo "<li>Annotation based on the full domain library</li>";}

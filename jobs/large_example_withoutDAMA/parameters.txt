@@ -1,2 +1,5 @@
+Job name	All domains annotation example without DAMA
+Library	Annotation based on the full domain library
 DAMA	false
 E-value	1e-3
+Email	clemenceblachon@gmail.com

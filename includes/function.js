@@ -160,7 +160,7 @@ function small_form_submission(){
 
 function fill_exemple_form(form){
 	if(form == 'small'){
-		document.small_annotation_form.pfam_domains.value = "PF00875,PF12546,PF03167,PF03441,PF02153,PF12679,PF01900,PF09494";
+		document.small_annotation_form.pfam_domains.value = "PF13424,PF14689,PF00128,PF02806,PF00875,PF03441";
 		fetch('/myclade/data/example.fasta')
 		.then(response => response.text())
 		.then((data) => {document.small_annotation_form.sequences.value = data })

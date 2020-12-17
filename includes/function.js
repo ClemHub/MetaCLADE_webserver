@@ -161,18 +161,18 @@ function small_form_submission(){
 function fill_exemple_form(form){
 	if(form == 'small'){
 		document.small_annotation_form.pfam_domains.value = "PF00875,PF12546,PF03167,PF03441,PF02153,PF12679,PF01900,PF09494";
-		fetch('/MetaCLADE_webserver/data/example.fasta')
+		fetch('/myclade/data/example.fasta')
 		.then(response => response.text())
 		.then((data) => {document.small_annotation_form.sequences.value = data })
 		document.small_annotation_form.action = 'submit.php?form=small_example';
 		document.getElementById("pfam_domains").disabled = true;}
 	else if(form == 'large'){
-		fetch('/MetaCLADE_webserver/data/example.fasta')
+		fetch('/myclade/data/example.fasta')
 		.then(response => response.text())
 		.then((data) => {document.large_annotation_form.sequences.value = data })
 		document.large_annotation_form.action = 'submit.php?form=large_example'}
 	else if(form == 'clan'){
-		fetch('/MetaCLADE_webserver/data/example.fasta')
+		fetch('/myclade/data/example.fasta')
 		.then(response => response.text())
 		.then((data) => {document.clan_annotation_form.sequences.value = data })
 		document.clan_annotation_form.clan.value = 'CL0039 - HUP';

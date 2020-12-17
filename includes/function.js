@@ -178,6 +178,7 @@ function fill_exemple_form(form){
 		document.clan_annotation_form.clan.value = 'CL0039 - HUP';
 		document.clan_annotation_form.action = 'submit.php?form=clan_example'
 		document.getElementById("clan").disabled = true;}
+	document.getElementById("job_name").disabled = true;
 	document.getElementById("reduced_btn").checked = false;
 	document.getElementById("reduced_btn").disabled = true;
 	document.getElementById("complete_btn").checked = true;
@@ -212,6 +213,7 @@ function reset_btn(form){
 	else if(form == 'clan'){
 		document.getElementById("clan").disabled = false;
 		document.clan_annotation_form.action = 'submit.php?form=clan';}
+	document.getElementById("job_name").disabled = false;
 	document.getElementById("reduced_btn").disabled = false;
 	document.getElementById("complete_btn").disabled = false;
 	document.getElementById("sequences").disabled = false;

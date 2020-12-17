@@ -1,3 +1,5 @@
-Clan	CL0039.txt
+Job name	Clan annotation example without DAMA
+Library	Annotation based on the full domain library
+Clan	CL0039 - HUP
 DAMA	false
 E-value	1e-3

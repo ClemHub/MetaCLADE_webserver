@@ -12,11 +12,11 @@ body {
 	color: rgb(105, 81, 25);
 	font-size: 18px;
 	font-size-adjust: 0.5;
-	text-rendering: optimizeLegibility;}
+	text-rendering: optimizeLegibility;
+	font-weight: 1;}
 * {
 	font-family: 'Avenir', Verdana, Arial, sans-serif, Georgia, 'Times New Roman';
-	word-wrap: break-word;
-	font-weight: 1;}
+	word-wrap: break-word;}
 
 h2 {
 	text-align: center;
@@ -40,10 +40,6 @@ h4 {
 	font-size: 20px;
 	font-size-adjust: 0.5;
 	color: rgb(69, 54, 21);}
-
-p {
-	font-size: 18px;
-	font-size-adjust: 0.5;}
 
 #header-menu {
 	display: block;

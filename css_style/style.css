@@ -374,6 +374,11 @@ div.info div.contenu_info {
 	text-align: center;
 	}
 
+.fieldset_title{
+	font-size: 20px; 
+	font-weight: bold;
+	color: rgb(69,54,21);
+}
 #email_address, #job_name_div, #parameters, #input_data{
 	margin: auto;
 }

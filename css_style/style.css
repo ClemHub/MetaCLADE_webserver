@@ -320,9 +320,11 @@ textarea {
 input {
 	border-radius: 5px;
 	color: rgb(69, 54, 21);
-	vertical-align: middle;
 }
 
+legend {
+	height: 70px;
+}
 .radio_btn{
 	vertical-align: middle;
 }

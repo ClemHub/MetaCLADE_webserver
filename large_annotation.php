@@ -4,7 +4,7 @@
 	<h2> Annotation of small datasets of sequences<br> with all Pfam domains</h2>
 	
 		<form name="large_annotation_form" method = "post" action="submit.php?form=large"  enctype="multipart/form-data" onsubmit="return large_form_submission()">
-			<fieldset class='form_fs'><legend><h4>Input data:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>See Help for expected format.</span></span></h4></legend>
+			<fieldset class='form_fs'><legend><span class = 'fieldset_title'>Input data:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>See Help for expected format.</span></span></span></legend>
 			<div id ='input_data'>
 			<div class='seq_container'>
 			<label for="sequences">Sequences in Fasta format:</label><br/>
@@ -15,7 +15,7 @@
 			</div>
 			</fieldset>
 			
-			<fieldset class='form_fs'><legend><h4>Parameters:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Parameters settings: hits are filtered by the E-value. DAMA reconstructs the most likely architecture.</span></span></h4></legend>
+			<fieldset class='form_fs'><legend><span class = 'fieldset_title'>Parameters:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Parameters settings: hits are filtered by the E-value. DAMA reconstructs the most likely architecture.</span></span></span></legend>
 			<div id ='parameters'>
 			<div class = 'library_choice'>
 			Model library:<br/>
@@ -62,13 +62,13 @@
 			</div>
 			</div>
 			</fieldset>
-			<fieldset class='form_fs'><legend><h4>Job name:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Optional and used to store your job details.</span></span></h4></legend>
+			<fieldset class='form_fs'><legend><span class = 'fieldset_title'>Job name:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Optional and used to store your job details.</span></span></span></legend>
 
 			<div id = 'job_name_div'>
 			<input type="text" id="job_name" name="job_name" placeholder = 'Optional'>
 			</div>
 			</fieldset>
-			<fieldset class='form_fs'><legend><h4>E-mail address:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Optional and used to send you job details.</span></span></h4></legend>
+			<fieldset class='form_fs'><legend><span class = 'fieldset_title'>E-mail address:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Optional and used to send you job details.</span></span></span></legend>
 			<div id = 'email_address'>
 			<input type="email" name="email" id="email" pattern=".+@.+\..+" placeholder = 'Optional'>
 			</div>

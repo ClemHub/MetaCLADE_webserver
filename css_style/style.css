@@ -245,10 +245,10 @@ table {
 }
 
 #data_table{
-	width: 90%;}
+	max-width: 100%;}
 
 #goterms_table{
-	max-width:1120%;}
+	max-width:100%;}
 
 table.dataTable thead{
 	height: 60px;

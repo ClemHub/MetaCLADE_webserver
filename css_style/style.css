@@ -367,18 +367,13 @@ div.info div.contenu_info {
 .form_fs {
 	border-radius: 5px;
 	max-width: 50%;
-	margin-top: 25px;
-	margin-bottom: 25;
+	margin-top: auto;
+	margin-bottom: auto;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
 	}
 
-#job_name_div, #email_address{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
 #submission {
 	margin: auto;
 	text-align: center;}

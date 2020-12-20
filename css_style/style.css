@@ -268,7 +268,7 @@ table.dataTable td {
 	/* border-right: 0.5px solid black; */
 	height: 40px;
 	white-space: pre-line;
-    word-break: keep-all;
+    word-break: break-word;
 	font-size: 14px;
 	font-size-adjust: 0.5;}
 

@@ -374,6 +374,9 @@ div.info div.contenu_info {
 	text-align: center;
 	}
 
+#email_address, #job_name_div{
+	height: 30px;
+}
 #submission {
 	margin: auto;
 	text-align: center;}

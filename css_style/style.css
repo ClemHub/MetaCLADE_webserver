@@ -376,8 +376,10 @@ div.info div.contenu_info {
 
 #email_address, #job_name_div, #parameters, #input_data{
 	margin: auto;
-	width: 50%;
-	padding: 10px;
+}
+
+#email_address, #job_name_div{
+	height: 25px;
 }
 #submission {
 	margin: auto;

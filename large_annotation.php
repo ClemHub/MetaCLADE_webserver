@@ -7,7 +7,7 @@
 			<fieldset class='form_fs'><legend><span class = 'fieldset_title'>Input data:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>See Help for expected format.</span></span></span></legend>
 			<div id ='input_data'>
 			<div class='seq_container'>
-			<label for="sequences">Sequences in Fasta format: <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>>Seq_ID1<br>sequence_1<br>>SeqID_2<br>sequence_2</span></span></label><br/>
+			<label for="sequences">Sequences in Fasta format: <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>>Seq_ID_1<br>sequence_1<br>>SeqID_2<br>sequence_2</span></span></label><br/>
 			<textarea name="sequences" id = "sequences" rows='10' placeholder='Fasta format' autofocus></textarea><br/>
 			<label for="fasta_file">Upload a Fasta file:</label>
 			<input type="file" id="fasta_file" name="fasta_file""/>

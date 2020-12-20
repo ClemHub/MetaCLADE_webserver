@@ -179,14 +179,7 @@ function autocomplete(inp, arr) {
 	autocomplete(document.getElementById("clan"), clan_list);
 
 	var placeholder = 'Example:\n>SeqID_1\nsequence_1\n>SeqID_2\nsequence_2';
-	$('textarea').focus(function(){
-		if($(this).val() === placeholder){
-			$(this).attr('value', '');
-		}
-	});
-	$('textarea').blur(function(){
-		if($(this).val() ===''){
-			$(this).attr('value', placeholder);}    
-	});
+	$('textarea').attr('value', placeholder);
+
 	</script>
 <?php include("./includes/footer.php"); ?>

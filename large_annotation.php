@@ -5,17 +5,18 @@
 	
 		<form name="large_annotation_form" method = "post" action="submit.php?form=large"  enctype="multipart/form-data" onsubmit="return large_form_submission()">
 			<fieldset class='form_fs'><legend><h4>Input data:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>See Help for expected format.</span></span></h4></legend>
+			<div id ='input_data'>
 			<div class='seq_container'>
 			<label for="sequences">Sequences in Fasta format:</label><br/>
 			<textarea name="sequences" id = "sequences" rows='10' placeholder="Example:&#10;>SeqID_1&#10;sequence_1&#10;>SeqID_2&#10;sequence_2&#10;" autofocus></textarea><br/>
 			<label for="fasta_file">Upload a Fasta file:</label>
 			<input type="file" id="fasta_file" name="fasta_file""/>
 			</div>
-			<div id='error_message'></div>
+			</div>
 			</fieldset>
 			
 			<fieldset class='form_fs'><legend><h4>Parameters:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Parameters settings: hits are filtered by the E-value. DAMA reconstructs the most likely architecture.</span></span></h4></legend>
-			
+			<div id ='parameters'>
 			<div class = 'library_choice'>
 			Model library:<br/>
 
@@ -58,6 +59,7 @@
 					<input type="number" id ='overlappingMaxDomain_nb' name="overlappingMaxDomain_nb" min='0' max="50" value="50" step='1' oninput="this.form.overlappingMaxDomain_range.value=this.value" />
 				<span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Proportion set to 50% by default. We advice you to avoid a proportion higher than 50%.</span></span>
 			
+			</div>
 			</div>
 			</fieldset>
 			<fieldset class='form_fs'><legend><h4>Job name:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Optional and used to store your job details.</span></span></h4></legend>

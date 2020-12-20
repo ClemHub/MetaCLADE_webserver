@@ -329,9 +329,6 @@ legend {
 	vertical-align: middle;
 }
 
-#job_name, #email{
-	padding: 3px;
-}
 #e-value_dama {
 	-webkit-appearance: none;
 	padding: 0;

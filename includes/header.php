@@ -1,7 +1,7 @@
 <?php
-include($appurl.'/includes/configure.php');
-include($appurl.'/includes/logfunctions.php');
-include($appurl.'/includes/functions.php');
+include('./includes/configure.php');
+include('./includes/logfunctions.php');
+include('./includes/functions.php');
 
 
 echo "<!DOCTYPE html>";
@@ -22,7 +22,7 @@ echo "<head>";
 				echo "<div class='topnav' id='myTopnav'>";
 					echo "<a href='".$appurl."/index.php' class = 'active'>Home</a>";
 				echo "<div class='dropdown'>";
-				echo "<button class='dropbtn'>Tools";
+				echo "<button class='dropbtn'>Tools ";
 				echo "<i class='fa fa-caret-down'></i>";
 				echo "</button>";
 				echo "<div class='dropdown-content'>";

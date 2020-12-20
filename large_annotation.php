@@ -8,7 +8,7 @@
 			<div id ='input_data'>
 			<div class='seq_container'>
 			<label for="sequences">Sequences in Fasta format: <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>>Seq_ID1<br>sequence_1<br>>SeqID_2<br>sequence_2</span></span></label><br/>
-			<textarea name="sequences" id = "sequences" rows='10' autofocus></textarea><br/>
+			<textarea name="sequences" id = "sequences" rows='10' placeholder='Fasta format' autofocus></textarea><br/>
 			<label for="fasta_file">Upload a Fasta file:</label>
 			<input type="file" id="fasta_file" name="fasta_file""/>
 			</div>

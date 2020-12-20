@@ -13,8 +13,8 @@
 			</div>
 
 			<div id='seq_container'>
-			<label for="sequences">Sequences in Fasta format:</label><br/>
-			<textarea name="sequences" id = "sequences" rows='10' placeholder="Example:&#10;>SeqID_1&#10;sequence_1&#10;>SeqID_2&#10;sequence_2&#10;"></textarea><br/>
+			<label for="sequences">Sequences in Fasta format: <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>>Seq_ID1<br>sequence_1<br>>SeqID_2<br>sequence_2</span></span></label><br/>
+			<textarea name="sequences" id = "sequences" rows='10' placeholder='Fasta format' autofocus></textarea><br/>
 			<label for="fasta_file">Upload a Fasta file:</label>
 			<input type="file" id="fasta_file" name="fasta_file"/>
 			</div>
@@ -27,7 +27,7 @@
 
 
 			<label for="reduced_btn">Reduced (&le;50 models/domain)</label><input type="radio" class='radio_btn' name="library" id="reduced_btn" value = "false" />
-			&emsp;
+			<br>
 			<label for="complete_btn">Complete (&le;350 models/domain)</label><input type="radio" class='radio_btn' name="library" id="complete_btn" value = "true" checked/>
 			
 			</div>

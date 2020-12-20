@@ -28,7 +28,7 @@ h2 {
 	text-align: center;
 	font-size: 30px;
 	font-size-adjust: 0.5;
-	font-weight: 500;
+	font-weight: bold;
 	color: rgb(69, 54, 21);}
 
 h3 {
@@ -120,7 +120,7 @@ footer {
 .topnav a {
 	float: left;
 	display: block;
-	/*font-weight: 500;*/
+	/*font-weight: bold;*/
 	font-size: 25px;
 	font-size-adjust: 0.5;
 	/*text-transform: uppercase;*/
@@ -141,7 +141,7 @@ footer {
 	border: none;
 	font-size: 25px;
 	font-size-adjust: 0.5;
-	/*font-weight: 500;*/
+	/*font-weight: bold;*/
 	/*text-transform: uppercase;*/
 	color: rgb(69, 54, 21);
 	/*text-shadow: 0.1em 0.1em 0.2em rgba(21, 7, 36, 0.459);*/
@@ -162,7 +162,7 @@ footer {
 .dropdown-content a {
 	float: none;
 	color: rgb(69, 54, 21);
-	/*font-weight: 500;*/
+	/*font-weight: bold;*/
 	font-size: 20px;
 	font-size-adjust: 0.5;
 	background: white;
@@ -277,7 +277,7 @@ tbody:hover td[rowspan], tr:hover td {
 		background: rgba(155, 187, 196, 0.555); }
 
 .table_header {
-	font-weight: 500;}
+	font-weight: bold;}
 
 .spaced_list {
 	line-height: 200%;
@@ -297,12 +297,12 @@ tbody:hover td[rowspan], tr:hover td {
 
 .table_link{
 	text-decoration: none;
-	font-weight: 500;
+	font-weight: bold;
 	color: rgb(158, 177, 96);}
 
 .important{
 	text-decoration: none;
-	font-weight: 500;
+	font-weight: bold;
 	color: rgb(158, 177, 96);	
 }
 
@@ -382,7 +382,7 @@ div.info div.contenu_info {
 
 .fieldset_title{
 	font-size: 20px; 
-	font-weight: 500;
+	font-weight: bold;
 	color: rgb(69,54,21);
 }
 #email_address, #job_name_div, #parameters, #input_data{
@@ -445,7 +445,7 @@ div.info div.contenu_info {
 .contact_title {
 	font-size: 25px;
 	font-size-adjust: 0.5;
-	font-weight: 500;
+	font-weight: bold;
 	color: rgb(69, 54, 21);}
 
 .social_media_div{

@@ -25,7 +25,7 @@
 	</p>
 	<h3 id='pipeline'>Pipeline</h3>
 	<p>
-	MyCLADE runs <a href="http://www.lcqb.upmc.fr/metaclade/" target="_blank" class="table_link">MetaCLADE</a> <a href="hhttps://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-018-0532-2" target="_blank" class="table_link">(Ugarte et al. 2018)</a> which is a method used to annotate protein domains in genomic and metagenomic (or metatranscriptomic) amino-acids sequences.
+	MyCLADE runs <a href="http://www.lcqb.upmc.fr/metaclade/" target="_blank" class="table_link">MetaCLADE</a> <a href="https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-018-0532-2" target="_blank" class="table_link">(Ugarte et al. 2018)</a> which is a method used to annotate protein domains in genomic and metagenomic (or metatranscriptomic) amino-acids sequences.
 	It uses a library of probabilistic models that, for each domain, includes the Pfam consensus models (SCM) and at most 350 clade-centered models (CCM), with an average of 161 models per domain. Those models have been constructed for all 17 929 domains in Pfam32.<br>
 	The pipeline goes as follows:
 	<ol type="1" class="ordonned_list">

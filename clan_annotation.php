@@ -4,7 +4,7 @@
 		<h2> Annotation of a clan</h2>
 		
 		<form autocomplete="off" name="clan_annotation_form" method = POST action="submit.php?form=clan" enctype="multipart/form-data" onsubmit="return clan_form_submission(clan_list)">
-			<fieldset class='form_fs'><legend><span class = 'fieldset_title'>Input data:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>See Help for expected format.</span></span></span></legend>
+			<fieldset class='form_fs'><legend align='center'><span class = 'fieldset_title'>Input data:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>See Help for expected format.</span></span></span></legend>
 			<div id ='input_data'>
 			<div class="autocomplete" id='clan_container'>
 			<label for="clan">Clan: <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Enter the name of the clan.</span></span></label><br/>
@@ -19,7 +19,7 @@
 			</div>
 			</div>
 			</fieldset>
-			<fieldset class='form_fs'><legend><span class = 'fieldset_title'>Parameters:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Parameters settings: hits are filtered by the E-value. DAMA reconstructs the most likely architecture.</span></span></span></legend>
+			<fieldset class='form_fs'><legend align='center'><span class = 'fieldset_title'>Parameters:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Parameters settings: hits are filtered by the E-value. DAMA reconstructs the most likely architecture.</span></span></span></legend>
 			<div id ='parameters'>
 			<div class = 'library_choice'>
 			Model library:<br/>
@@ -66,13 +66,13 @@
 			</div>
 			</div>
 			</fieldset>
-			<fieldset class='form_fs'><legend><span class = 'fieldset_title'>Job name:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Optional and used to store your job details.</span></span></span></legend>
+			<fieldset class='form_fs'><legend align='center'><span class = 'fieldset_title'>Job name:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Optional and used to store your job details.</span></span></span></legend>
 
 			<div id = 'job_name_div'>
 			<input type="text" id="job_name" name="job_name" placeholder = 'Optional'>
 			</div>
 			</fieldset>
-			<fieldset class='form_fs'><legend><span class = 'fieldset_title'>E-mail address:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Optional and used to send you job details.</span></span></span></legend>
+			<fieldset class='form_fs'><legend align='center'><span class = 'fieldset_title'>E-mail address:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Optional and used to send you job details.</span></span></span></legend>
 
 			<div id = 'email_address'>
 			<input type="email" name="email" id="email" pattern=".+@.+\..+" placeholder = 'Optional'>

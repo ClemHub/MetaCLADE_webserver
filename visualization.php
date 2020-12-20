@@ -7,7 +7,7 @@
 			<div id = 'note'>
 			To visualize annotations made by this webserver, the format must be unchanged (don't put the header details of your result).
 			</div>
-			<fieldset class='form_fs'><legend><h4> Results ID:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>The randomly generated ID during submission.</span></span></h4></legend>
+			<fieldset class='form_fs'><legend align='center'><h4> Results ID:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>The randomly generated ID during submission.</span></span></h4></legend>
 			<div id = 'job_name_div'>
 			<input type="text" id="job_ID" name="job_ID" placeholder = 'Optional'>
 			</div>
@@ -17,7 +17,7 @@
 			</div>
 		</form>
 		<form autocomplete="off" name="visualization_form_file" method = POST action="submit.php?form=visualization_file" enctype="multipart/form-data" onsubmit="return visualization_form_submission()">
-			<fieldset class='form_fs'><legend><h4>Or input file:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>See Help for expected format.</span></span></h4></legend>
+			<fieldset class='form_fs'><legend align='center'><h4>Or input file:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>See Help for expected format.</span></span></h4></legend>
 			<div id = 'input_data'>
 			<div id='seq_container'>
 			<label for="annotation_file">Upload an annotation file:</label>

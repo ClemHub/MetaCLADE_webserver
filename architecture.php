@@ -107,7 +107,7 @@
 		<th class='table_header' style='max-width:160px'>Family</th>
 		<th class='table_header' style='max-width:65px'>Start</th>
 		<th class='table_header' style='max-width:65px'>Stop</th>
-		<th class='table_header' style='max-width:190px'>Model species</th>
+		<th class='table_header' style='max-width:180px'>Model species</th>
 		<th class='table_header' style='max-width:170px'>E-Value</th>
 		<th class='table_header' style='max-width:170px'>Bitscore</th>
 		<th class='table_header' style='max-width:170px'>ddProb</th>

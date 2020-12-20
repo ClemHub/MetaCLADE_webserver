@@ -17,15 +17,15 @@
 	<ul class='spaced_list'>
 		<li> Model library: the complete library of up to 350 models per domain (default value) can be reduced to a library of at most 50 models per domain.</li>
 		<li> E-value threshold: 1e-10< (default value).</li>
-		<li> If <a href="https://academic.oup.com/bioinformatics/article/32/3/345/1743675" target="_blank" class="table_link">DAMA</a> (Bernardes et al. 2016) is used:</li><ul class = 'spaced_list'>
-			<li> DAMA E-value: 1e-3 (default value).</li>
+		<li> If <a href="http://www.lcqb.upmc.fr/DAMA/" target="_blank" class="table_link">DAMA</a> is used:</li><ul class = 'spaced_list'>
+			<li> <a href="http://www.lcqb.upmc.fr/DAMA/" target="_blank" class="table_link">DAMA</a> E-value: 1e-3 (default value).</li>
 			<li> Number of amino acids allowed in domain overlapping: &#8804 30aa (default value).</li>
 			<li> Domain matches must cover at least 50% (default value) of the domain average size.</li></ul>
 	</ul>
 	</p>
 	<h3 id='pipeline'>Pipeline</h3>
 	<p>
-	MyCLADE runs <a href="https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-018-0532-2" target="_blank" class="table_link">MetaCLADE</a> (Ugarte et al. 2018) which is a method used to annotate protein domains in genomic and metagenomic (or metatranscriptomic) amino-acids sequences.
+	MyCLADE runs <a href="http://www.lcqb.upmc.fr/metaclade/" target="_blank" class="table_link">MetaCLADE</a> (Ugarte et al. 2018) which is a method used to annotate protein domains in genomic and metagenomic (or metatranscriptomic) amino-acids sequences.
 	It uses a library of probabilistic models that, for each domain, includes the Pfam consensus models (SCM) and at most 350 clade-centered models (CCM), with an average of 161 models per domain. Those models have been constructed for all 17 929 domains in Pfam32.<br>
 	The pipeline goes as follows:
 	<ol type="1" class="ordonned_list">
@@ -37,7 +37,7 @@
 			<li> Selection of hits whose bit-score is greater than a domain-specific lower bound identified by a Naive Bayes classifier applied to each Pfam domain and whose probability of being a true positive is greater than 0.9.</li>
 			<li> Filtering of hits by a ranking function based on the bit-score and the identity percentage computed with respect to the model consensus sequence.</li>
 		</ul>
-		<li>Architecture: the user can decide to call DAMA, a tool that considers domain co-occurrence and domain overlapping to combine several domains into most probable architectures.</li>
+		<li>Architecture: the user can decide to call <a href="http://www.lcqb.upmc.fr/DAMA/" target="_blank" class="table_link">DAMA</a> (Bernardes et al. 2016), a tool that considers domain co-occurrence and domain overlapping to combine several domains into most probable architectures.</li>
 	</ol>
 	</p>
 	<h3 id='output'>Output:</h3>

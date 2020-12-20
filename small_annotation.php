@@ -13,7 +13,8 @@
 
 			<div id='seq_container'>
 			<label for="sequences">Sequences in Fasta format:</label><br/>
-			<textarea name="sequences" id = "sequences" rows='10' placeholder="Example:&#10;>SeqID_1&#10;sequence_1&#10;>SeqID_2&#10;sequence_2&#10;"></textarea><br/>
+			<textarea name="sequences" id = "sequences" rows='10' placeholder="Example:&#10;
+				>SeqID_1&#10;sequence_1&#10;>SeqID_2&#10;sequence_2&#10;"></textarea><br/>
 			<label for="fasta_file">Upload a Fasta file:</label>
 			<input type="file" id="fasta_file" name="fasta_file"/>
 			</div>

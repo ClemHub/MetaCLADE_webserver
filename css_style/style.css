@@ -11,7 +11,8 @@ body {
 	background-color:white;
 	color: rgb(105, 81, 25);
 	font-size: 18px;
-	font-size-adjust: 0.5;}
+	font-size-adjust: 0.5;
+	text-rendering: optimizeLegibility;}
 
 * {
 	font-family: 'Avenir', Verdana, Arial, sans-serif, Georgia, 'Times New Roman';

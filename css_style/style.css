@@ -374,7 +374,7 @@ div.info div.contenu_info {
 	text-align: center;
 	}
 
-#email_address, #job_name_div, #parameters, {
+#email_address, #job_name_div, #parameters, #input_data{
 	margin: auto;
 	width: 50%;
 	padding: 10px;

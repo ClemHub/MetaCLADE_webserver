@@ -322,6 +322,22 @@ input {
 	color: rgb(69, 54, 21);
 }
 
+#email, #jobname{
+	  position: absolute;
+  	top: 50%;
+  	transform: translate(0, -50%);
+}
+
+.child {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  /* Center vertically */
+  position: absolute;
+  top: 50%;
+  margin-top: -25px; /* half this element's height */
+}
+
 .radio_btn{
 	vertical-align: middle;
 }
@@ -373,7 +389,8 @@ div.info div.contenu_info {
 	margin-bottom: 25;
 	margin-left: auto;
 	margin-right: auto;
-	text-align: center;}
+	text-align: center;
+	position: absolute;}
 
 #submission {
 	margin: auto;

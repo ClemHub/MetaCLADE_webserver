@@ -7,7 +7,7 @@
 			<fieldset class='form_fs'><legend><h4>Input data:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>See Help for expected format.</span></span></h4></legend>
 			<div id='pfam_container'>
 			<label for="pfam_domains">PFAM accession number: <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Do not enter more than 10 domains.</span></span></label><br/>
-			<input type="text" name="pfam_domains" id = "pfam_domains" rows='10' placeholder="Example:&#10;PF04523,PF06584,PF06325" autofocus></textarea>
+			<input type="text" name="pfam_domains" id = "pfam_domains" rows='10' placeholder="Example:&#10;PF04523,PF06584,PF06325" autofocus>
 			
 			</div>
 

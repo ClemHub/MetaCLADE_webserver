@@ -374,10 +374,9 @@ div.info div.contenu_info {
 	text-align: center;
 	}
 
-#email_address, #job_name_div{
+#email_address, #job_name_div, #parameters, {
 	margin: auto;
 	width: 50%;
-	border: 3px solid green;
 	padding: 10px;
 }
 #submission {

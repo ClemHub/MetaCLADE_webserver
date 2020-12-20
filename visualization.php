@@ -14,7 +14,7 @@
 			</fieldset>
 			<div id='submission'>
 			<br/>
-			<input class='btn' type="submit" value="Search" name = "submit"/><input class='btn' type="reset" value="Reset" onclick="reset_btn('visualisation')"/>
+			<input class='btn' type="submit" value="Search" name = "submit"/><&emsp;input class='btn' type="reset" value="Reset" onclick="reset_btn('visualisation')"/>
 			</div>
 		</form>
 		<form autocomplete="off" name="visualization_form_file" method = POST action="submit.php?form=visualization_file" enctype="multipart/form-data" onsubmit="return visualization_form_submission()">
@@ -27,7 +27,7 @@
 			</fieldset>
 			<div id='submission'>
 			<br/>
-			<input class='btn' type="submit" value="Search" name = "submit"/><input class='btn' type="reset" value="Reset" onclick="reset_btn('visualisation')"/>
+			<input class='btn' type="submit" value="Search" name = "submit"/>&emsp;<input class='btn' type="reset" value="Reset" onclick="reset_btn('visualisation')"/>
 			</div>
 		</form>
 	</section>

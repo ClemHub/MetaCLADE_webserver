@@ -224,7 +224,8 @@ table {
 	margin-right:auto;
 	margin-top: 10px;
 	margin-bottom: 10px;
-	table-layout: auto}
+	table-layout: auto;
+	font-weight: 1;}
 
 #result{
 	width: 90%;}
@@ -280,7 +281,8 @@ tbody:hover td[rowspan], tr:hover td {
 	text-align: justify;
 	font-size: 18px;
 	font-size-adjust: 0.5;
-	font-weight: initial;}
+	font-weight: initial;
+	font-weight: 1;}
 
 .ordonned_list {
 	list-style: inside;
@@ -289,7 +291,8 @@ tbody:hover td[rowspan], tr:hover td {
 	text-align: justify;
 	font-size: 18px;
 	font-size-adjust: 0.5;
-	font-weight: initial;}
+	font-weight: initial;
+	font-weight: 1;}
 
 .table_link{
 	text-decoration: none;

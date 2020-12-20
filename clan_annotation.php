@@ -19,7 +19,7 @@
 			<fieldset class='form_fs'><legend><h4>Parameters:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Parameters settings: hits are filtered by the E-value. DAMA reconstructs the most likely architecture.</span></span></h4></legend>
 			
 			<div class = 'library_choice'>
-			<br/>Model library:<br/>
+			Model library:<br/>
 
 
 			<label for="reduced_btn">Reduced (&le;50 models/domain)</label><input type="radio" class='radio_btn' name="library" id="reduced_btn" value = "false" />

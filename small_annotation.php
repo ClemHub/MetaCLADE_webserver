@@ -8,7 +8,7 @@
 			<div id ='input_data'>
 			<div id='pfam_container'>
 			<label for="pfam_domains">PFAM accession number: <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Do not enter more than 10 domains.</span></span></label><br/>
-			<input type="text" name="pfam_domains" id = "pfam_domains" rows='10' placeholder="Example:&#10;PF04523,PF06584,PF06325" autofocus></textarea>
+			<input type="text" name="pfam_domains" id = "pfam_domains" rows='10' placeholder="PF04523,PF06584,PF06325" autofocus></textarea>
 			
 			</div>
 

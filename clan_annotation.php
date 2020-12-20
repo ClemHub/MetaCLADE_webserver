@@ -11,7 +11,7 @@
 			</div>
 			<div id='seq_container'>
 			<label for="sequences">Sequences in Fasta format:</label><br/>
-			<textarea name="sequences" id = "sequences" rows='10' placeholder="Example:&#x0a;&#x09;&#x09;&#x09;>SeqID_1\u000A\u000Dsequence_1&#13;&#10;>SeqID_2&#10;sequence_2&#10;"></textarea><br/>
+			<textarea name="sequences" id = "sequences" rows='10' placeholder="Example:&#x0a;&#x09;&#x09;&#x09;>SeqID_1&#10;sequence_1&#10;>SeqID_2&#10;sequence_2&#10;" style="resize:none"></textarea><br/>
 			<label for="fasta_file">Upload a Fasta file:</label>
 			<input type="file" id="fasta_file" name="fasta_file"/>
 			</div>

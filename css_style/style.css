@@ -308,7 +308,9 @@ textarea {
 	border-radius: 5px;
 	margin: 15px;
 	padding: 10px;
-	width: 85%;}
+	width: 85%;
+	white-space: pre-line;
+	}
 
 #pfam_domains{
 	border-radius: 5px;

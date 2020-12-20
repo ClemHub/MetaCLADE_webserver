@@ -85,6 +85,8 @@ footer {
 	color: rgb(69, 54, 21);}
 
 #footer_paragraph{
+	display : flex;
+  	align-items : center;
 	margin:0;
 	padding: 0;
 	height: 30px;
@@ -93,9 +95,7 @@ footer {
 	font-size: 2.5vmin;
 	background-image: linear-gradient(rgb(158, 177, 96), rgb(187, 194, 164));
 }
-#footer_text{
-	vertical-align: middle;
-}
+
 .img-responsive {
 	margin-left: 6%;
 	margin-right: 6%;
@@ -308,9 +308,7 @@ textarea {
 	border-radius: 5px;
 	margin: 15px;
 	padding: 10px;
-	width: 85%;
-	white-space: pre-line;
-	}
+	width: 85%;}
 
 #pfam_domains{
 	border-radius: 5px;

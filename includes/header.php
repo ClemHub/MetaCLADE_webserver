@@ -1,7 +1,7 @@
 <?php
 include($appurl.'/includes/configure.php');
-include($appurl.'./includes/logfunctions.php');
-include($appurl.'./includes/functions.php');
+include($appurl.'/includes/logfunctions.php');
+include($appurl.'/includes/functions.php');
 
 
 echo "<!DOCTYPE html>";

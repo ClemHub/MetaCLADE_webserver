@@ -377,6 +377,30 @@ div.info div.contenu_info {
 #email_address, #job_name_div{
 	height: 30px;
 }
+legend {
+display: block;
+height: 55px;
+padding-inline-start: 2px;
+padding-inline-end: 2px;
+border-top-width: initial;
+border-right-width: initial;
+border-bottom-width: initial;
+border-left-width: initial;
+border-top-style: none;
+border-right-style: none;
+border-bottom-style: none;
+border-left-style: none;
+border-top-color: initial;
+border-right-color: initial;
+border-bottom-color: initial;
+border-left-color: initial;
+border-image-source: initial;
+border-image-slice: initial;
+border-image-width: initial;
+border-image-outset: initial;
+border-image-repeat: initial;
+}
+
 #submission {
 	margin: auto;
 	text-align: center;}

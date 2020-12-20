@@ -4,7 +4,7 @@
 		<h2>Visualization of an annotation file</h2>
 		
 		<form autocomplete="off" name="visualization_form_ID" method = POST action="submit.php?form=visualization_jobID" enctype="multipart/form-data">
-			<div >
+			<div id = 'note' >
 			To visualize annotations made by this webserver, the format must be unchanged (don't put the header details of your result).
 			</div>
 			<fieldset class='form_fs'><legend><h4> Results ID:  <span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>The randomly generated ID during submission.</span></span></h4></legend>
@@ -13,7 +13,6 @@
 			</div>
 			</fieldset>
 			<div id='submission'>
-			<br/>
 			<input class='btn' type="submit" value="Search" name = "submit"/>&emsp;<input class='btn' type="reset" value="Reset" onclick="reset_btn('visualisation')"/>
 			</div>
 		</form>
@@ -28,7 +27,6 @@
 			</div>
 			</fieldset>
 			<div id='submission'>
-			<br/>
 			<input class='btn' type="submit" value="Search" name = "submit"/>&emsp;<input class='btn' type="reset" value="Reset" onclick="reset_btn('visualisation')"/>
 			</div>
 		</form>

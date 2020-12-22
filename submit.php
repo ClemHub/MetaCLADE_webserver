@@ -58,7 +58,7 @@ include("./includes/header.php");
 			if($_POST["dama"] == 'true'){
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "DAMA e-value\t".$_POST["dama_evalue_nb"]."\n", FILE_APPEND);
 				$parameters['DAMA e-value'] = $_POST["dama_evalue_nb"];
-				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Amino acids overlappping\t".$_POST["overlappingAA_nb"]."\n", FILE_APPEND);
+				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Amino acids overlapping\t".$_POST["overlappingAA_nb"]."\n", FILE_APPEND);
 				$parameters['Amino acids overlappping'] = $_POST["overlappingAA_nb"];
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Max domain overlapping (%)\t".$_POST["overlappingMaxDomain_nb"]."\n", FILE_APPEND);
 				$parameters['Max domain overlapping (%)'] = $_POST["overlappingMaxDomain_nb"];}

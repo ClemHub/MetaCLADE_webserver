@@ -66,7 +66,7 @@ include("./includes/header.php");
 			echo '<br><strong>Status of your job:</strong> submission of your job';
 			header("refresh: 10");}
 		if($end == false && ($status == "" || explode('\n', $status)[0] == 'Following jobs do not exist:')){
-			$error = true;}
+			header("location: $hostname/$appname/error.php?form=".$form."&job_id=".$job_id);}
 
 
 		?>

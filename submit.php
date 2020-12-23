@@ -69,10 +69,12 @@ include("./includes/header.php");
 			if($_POST['email'] != ""){
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Email\t".$email."\n", FILE_APPEND);
 				echo "An email has bens send";
-				$mail_header= "Subject: $appname queued (".$job_id.")\n";
-				$mail_header= $mail_header . "Content-Type: text/html; charset=ISO-8559-1\n";
-				$mail_header= $mail_header . "MIME-Version:\n";
-				mail($email, "no-reply@lcqb.upmc.fr", $msg, $mail_header);};
+
+				$mail_header= "Subject: MyCLADE queued (".$job_id.")". PHP_EOL;
+				$mail_header= 'From: MyCLADE <myclade@lcqb0006.sorbonne-universite.fr>'. PHP_EOL;
+				$mail_header= $mail_header . "Content-Type: text/html; charset=ISO-8559-1". PHP_EOL;
+				$mail_header= $mail_header . "MIME-Version:". PHP_EOL;
+				mail($email, "MyCLADE queued (".$job_id.")", $msg, $mail_header);};
 
 			header("location: $hostname/$appname/status.php?form=".$form."&job_id=".$job_id);}
 		?>

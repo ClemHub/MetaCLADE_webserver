@@ -48,8 +48,6 @@ include("./includes/header.php");
 						$last_line = $last_line[count($last_line)-1];
 						if (preg_match("/failed|exit|error/", $last_line)){
 							$error = true;}}}}
-			if($end == false && $status == ""){
-				$error = true;}
 			echo "<br>This page will be refreshed every 10 seconds<br>";
 			if($end){
 				//echo "<br><br>The end<br>";}
@@ -67,7 +65,8 @@ include("./includes/header.php");
 		else{
 			echo '<br><strong>Status of your job:</strong> submission of your job';
 			header("refresh: 10");}
-
+		if($end == false && ($status == "" || explode('\n', $status)[0] == 'Following jobs do not exist:')){
+			$error = true;}
 
 
 		?>

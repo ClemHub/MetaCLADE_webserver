@@ -1,0 +1,17 @@
+#                                                                                --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name               accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- -----     -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+YP_499998.1          -            367 E1REE6_METP4_757-828 -             76   3.1e-05   12.7   0.2   1   2      0.53       2.1   -2.8   0.1    50    59   108   117    99   121 0.50 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 E1REE6_METP4_757-828 -             76   3.1e-05   12.7   0.2   2   2   2.2e-05   8.8e-05   11.2   0.0    23    70   295   344   291   349 0.78 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 Q2FTM5_METHJ_779-854 -             81   3.3e-05   12.6   0.2   1   2      0.64       2.5   -3.1   0.1    50    59   108   117    99   121 0.47 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 Q2FTM5_METHJ_779-854 -             81   3.3e-05   12.6   0.2   2   2   2.3e-05     9e-05   11.2   0.0    23    70   295   344   290   349 0.78 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+#
+# Program:         hmmsearch
+# Version:         3.3 (Nov 2019)
+# Pipeline mode:   SEARCH
+# Query file:      /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF18079.hmm.gz
+# Target file:     /var/www/html/MetaCLADE_webserver/jobs/kciFu1UoAKY_20210407/data.fa
+# Option settings: hmmsearch --domtblout /var/www/html/MetaCLADE_webserver/jobs/kciFu1UoAKY_20210407/temp/PF18079.ccms.domtblout -T 0 --domE 1 --cpu 1 /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF18079.hmm.gz /var/www/html/MetaCLADE_webserver/jobs/kciFu1UoAKY_20210407/data.fa 
+# Current dir:     /var/www/html/MetaCLADE_webserver/jobs/kciFu1UoAKY_20210407
+# Date:            Wed Apr  7 10:53:57 2021
+# [ok]

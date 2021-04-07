@@ -1,8 +1,8 @@
-Job name	Few domains annotation example with DAMA
+Job name	Few domains annotation with DAMA example
 Library	Annotation based on the full domain library
 PFAM	PF13424,PF14689,PF00128,PF02806,PF00875,PF03441
 DAMA	true
 E-value	1e-3
 DAMA e-value	1e-10
-Amino acids overlappping	30
+Amino acids overlapping	30
 Max domain overlapping (%)	50

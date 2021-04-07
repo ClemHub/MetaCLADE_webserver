@@ -1,0 +1,15 @@
+#                                                                                --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name               accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- -----     -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+sp|P0DUB6|AMY1A_HUMAN -            511 R5LFT7_9FIRM_442-507 -             64   2.8e-06   15.7   0.2   1   1     2e-06   7.9e-06   14.3   0.2     8    46   435   473   429   497 0.84 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 R6U0R3_9CLOT_421-490 -             70   8.6e-07   17.3   0.2   1   1   5.2e-07   2.1e-06   16.1   0.2    11    52   433   473   424   497 0.81 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+#
+# Program:         hmmsearch
+# Version:         3.3 (Nov 2019)
+# Pipeline mode:   SEARCH
+# Query file:      /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF18612.hmm.gz
+# Target file:     /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/data.fa
+# Option settings: hmmsearch --domtblout /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/temp/PF18612.ccms.domtblout -T 0 --domE 1 --cpu 1 /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF18612.hmm.gz /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/data.fa 
+# Current dir:     /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407
+# Date:            Wed Apr  7 10:57:39 2021
+# [ok]

@@ -1,0 +1,18 @@
+#                                                                               --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name              accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- -----    -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+YP_499998.1          -            367 F1QG25_DANRE_279-369 -             90   1.7e-12   35.7   8.9   1   5   1.3e-08   5.3e-08   21.3   0.2    27    76    63   112    46   118 0.91 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 F1QG25_DANRE_279-369 -             90   1.7e-12   35.7   8.9   2   5      0.15      0.58   -1.2   0.0    54    83   127   155   123   164 0.69 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 F1QG25_DANRE_279-369 -             90   1.7e-12   35.7   8.9   3   5   1.3e-05     5e-05   11.8   0.2    23    68   163   208   141   219 0.85 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 F1QG25_DANRE_279-369 -             90   1.7e-12   35.7   8.9   4   5     0.003     0.012    4.2   0.2    25    72   267   313   241   321 0.76 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 F1QG25_DANRE_279-369 -             90   1.7e-12   35.7   8.9   5   5     0.075       0.3   -0.3   0.0    30    47   339   356   332   364 0.72 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+#
+# Program:         hmmsearch
+# Version:         3.3 (Nov 2019)
+# Pipeline mode:   SEARCH
+# Query file:      /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF02388.hmm.gz
+# Target file:     /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/data.fa
+# Option settings: hmmsearch --domtblout /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/temp/PF02388.ccms.domtblout -T 0 --domE 1 --cpu 1 /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF02388.hmm.gz /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/data.fa 
+# Current dir:     /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407
+# Date:            Wed Apr  7 10:30:47 2021
+# [ok]

@@ -1,0 +1,35 @@
+#                                                                                --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name               accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- -----     -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+sp|P0DUB6|AMY1A_HUMAN -            511 U2KBZ8_9STRE_260-1062 -            272   9.2e-49  154.9   2.5   1   1   3.1e-49   1.3e-48  154.4   2.5     2   270   175   493   174   499 0.82 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 B1YMN6_EXIS2_16-200  -            102   4.4e-16   47.4   0.0   1   2     5e-16     2e-15   45.3   0.0     6   100    27   119    17   121 0.89 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 B1YMN6_EXIS2_16-200  -            102   4.4e-16   47.4   0.0   2   2      0.43       1.7   -2.7   0.0    19    31   219   231   192   237 0.61 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 K0DCL2_LEUCJ_350-1175 -            318   1.1e-45  144.9   0.6   1   2   0.00034    0.0014    6.6   0.0   264   317    35   107     9   108 0.75 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 K0DCL2_LEUCJ_350-1175 -            318   1.1e-45  144.9   0.6   2   2   1.8e-43   7.1e-43  135.7   1.3     3   264   174   493   172   507 0.80 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 P13470_STRMU_295-1103 -            247     3e-48  153.1   4.2   1   1     1e-48   4.1e-48  152.7   4.2     2   247   180   469   179   469 0.80 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 A0A0M9DC47_9LACO_259-1068 -            239   6.5e-40  125.7   3.5   1   2      0.21      0.85   -2.4   0.0   111   137    72    97    51   122 0.71 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 A0A0M9DC47_9LACO_259-1068 -            239   6.5e-40  125.7   3.5   2   2   1.6e-40   6.5e-40  125.7   3.5     2   238   179   468   178   469 0.78 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 U2KIM5_9STRE_272-1095 -            245   3.3e-42  133.2   3.5   1   1   1.4e-42   5.5e-42  132.4   3.5     2   244   178   464   177   468 0.81 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 A0A0D1LM29_9LACT_388-1183 -            266   1.9e-42  134.2   2.8   1   1     6e-43   2.4e-42  133.9   2.8     2   266   175   492   174   492 0.81 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 K0DC54_LEUCJ_2026-2824 -            247   2.8e-44  140.2   1.6   1   1   8.9e-45   3.6e-44  139.8   1.6     1   247   175   469   175   469 0.81 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 A0A062XKC4_LEUPS_1-568 -            430   7.2e-16   46.3   0.0   1   2     3e-13   1.2e-12   35.7   0.0   257   349    12   120     7   135 0.77 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 A0A062XKC4_LEUPS_1-568 -            430   7.2e-16   46.3   0.0   2   2   0.00015   0.00062    7.0   0.1    46   209   307   495   280   501 0.66 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 A5VL73_LACRD_551-1359 -            262     5e-52  165.7   6.0   1   1   1.6e-52   6.6e-52  165.3   6.0     2   262   180   470   179   470 0.84 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 U2J7Y6_9STRE_274-1078 -            260   6.2e-50  158.8   4.4   1   1     2e-50     8e-50  158.4   4.4     2   259   179   470   178   471 0.82 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 A0A0M9DDK6_9LACO_266-1032 -            260   1.1e-47  151.4   2.3   1   1   3.6e-48   1.5e-47  151.0   2.3     2   259   175   469   174   470 0.80 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 B1YMN6_EXIS2_334-766 -            255   6.4e-39  122.4   5.4   1   1   2.5e-39   9.8e-39  121.8   5.4     2   255   179   469   178   469 0.77 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 G5JU20_9STRE_288-1110 -            256   8.6e-48  151.6   4.8   1   1   2.8e-48   1.1e-47  151.2   4.8     2   256   178   471   177   471 0.79 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 K0DC54_LEUCJ_345-1144 -            254   1.5e-51  163.9   4.6   1   1   5.3e-52   2.1e-51  163.3   4.6     2   253   179   470   178   471 0.80 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 G5KCZ1_9STRE_11-829  -            311   4.1e-43  136.5   1.5   1   1   1.6e-43   6.3e-43  135.9   1.5     3   273   175   493   173   507 0.81 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 G9WG05_9LACT_281-1082 -            262   3.8e-40  126.6   5.8   1   1   1.3e-40   5.1e-40  126.2   5.8     2   262   179   470   178   470 0.79 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 B1N008_LEUCK_453-1313 -            266   1.4e-22   69.0   0.9   1   1   5.4e-23   2.1e-22   68.4   0.9     3   257   176   494   174   507 0.74 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+#
+# Program:         hmmsearch
+# Version:         3.3 (Nov 2019)
+# Pipeline mode:   SEARCH
+# Query file:      /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF02324.hmm.gz
+# Target file:     /var/www/html/MetaCLADE_webserver/jobs/kciFu1UoAKY_20210407/data.fa
+# Option settings: hmmsearch --domtblout /var/www/html/MetaCLADE_webserver/jobs/kciFu1UoAKY_20210407/temp/PF02324.ccms.domtblout -T 0 --domE 1 --cpu 1 /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF02324.hmm.gz /var/www/html/MetaCLADE_webserver/jobs/kciFu1UoAKY_20210407/data.fa 
+# Current dir:     /var/www/html/MetaCLADE_webserver/jobs/kciFu1UoAKY_20210407
+# Date:            Wed Apr  7 11:04:18 2021
+# [ok]

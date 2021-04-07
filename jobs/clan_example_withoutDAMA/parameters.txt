@@ -1,4 +1,4 @@
-Job name	Clan annotation example without DAMA
+Job name	Clan annotation without DAMA example
 Library	Annotation based on the full domain library
 Clan	CL0039 - HUP
 DAMA	false

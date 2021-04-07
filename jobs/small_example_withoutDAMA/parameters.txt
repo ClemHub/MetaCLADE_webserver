@@ -1,4 +1,4 @@
-Job name	Few domains annotation example without DAMA
+Job name	Few domains annotation without DAMA example
 Library	Annotation based on the full domain library
 PFAM	PF13424,PF14689,PF00128,PF02806,PF00875,PF03441
 DAMA	false

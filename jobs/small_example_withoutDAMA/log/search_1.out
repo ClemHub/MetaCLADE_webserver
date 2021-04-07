@@ -1,12 +1,18 @@
-[search_hmm] runtime: PF00875 HMM 0.17
-[search_hmm] runtime: PF03441 HMM 0.05
-[search_ccms_all] runtime: PF00875 CCMs 2.10
-[search_hmm] runtime: PF02806 HMM 0.05
-[search_ccms_all] runtime: PF03441 CCMs 2.16
+[search_hmm] runtime: PF00875 HMM 0.02
+[search_hmm] runtime: PF02806 HMM 0.01
+/var/www/html/MetaCLADE_webserver/jobs/SjaYfk2xo99_20210407/temp/PF02806.ccms.domtblout
+[search_ccms_all] runtime: PF02806 CCMs 0.40
+[search_hmm] runtime: PF03441 HMM 0.02
+/var/www/html/MetaCLADE_webserver/jobs/SjaYfk2xo99_20210407/temp/PF00875.ccms.domtblout
+[search_ccms_all] runtime: PF00875 CCMs 2.13
 [search_hmm] runtime: PF14689 HMM 0.04
-[search_ccms_all] runtime: PF02806 CCMs 0.55
-[search_hmm] runtime: PF00128 HMM 0.05
-[search_ccms_all] runtime: PF14689 CCMs 0.57
-[search_hmm] runtime: PF13424 HMM 0.04
-[search_ccms_all] runtime: PF00128 CCMs 2.57
-[search_ccms_all] runtime: PF13424 CCMs 2.94
+/var/www/html/MetaCLADE_webserver/jobs/SjaYfk2xo99_20210407/temp/PF14689.ccms.domtblout
+[search_ccms_all] runtime: PF14689 CCMs 0.59
+[search_hmm] runtime: PF13424 HMM 0.01
+/var/www/html/MetaCLADE_webserver/jobs/SjaYfk2xo99_20210407/temp/PF03441.ccms.domtblout
+[search_ccms_all] runtime: PF03441 CCMs 2.36
+[search_hmm] runtime: PF00128 HMM 0.02
+/var/www/html/MetaCLADE_webserver/jobs/SjaYfk2xo99_20210407/temp/PF00128.ccms.domtblout
+[search_ccms_all] runtime: PF00128 CCMs 2.49
+/var/www/html/MetaCLADE_webserver/jobs/SjaYfk2xo99_20210407/temp/PF13424.ccms.domtblout
+[search_ccms_all] runtime: PF13424 CCMs 3.19

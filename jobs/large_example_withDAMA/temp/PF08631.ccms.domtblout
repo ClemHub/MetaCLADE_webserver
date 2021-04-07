@@ -1,0 +1,23 @@
+#                                                                              --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name             accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- -----   -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+YP_499998.1          -            367 D8S8T8_SELML_419-621 -            203   5.8e-07   17.6   2.6   1   3     0.062      0.25   -0.8   0.0    57   102    37    77    24   110 0.56 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 D8S8T8_SELML_419-621 -            203   5.8e-07   17.6   2.6   2   3   1.6e-06   6.3e-06   14.2   0.1     6    67   121   181   116   255 0.79 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 D8S8T8_SELML_419-621 -            203   5.8e-07   17.6   2.6   3   3    0.0083     0.033    2.1   0.1    40    69   325   352   265   363 0.70 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 G1X416_ARTOA_1100-1258 -            131   4.5e-08   22.0   2.0   1   4     0.018     0.072    1.9   0.1    53   110    20    77     9    79 0.80 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 G1X416_ARTOA_1100-1258 -            131   4.5e-08   22.0   2.0   2   4   1.7e-05   6.7e-05   11.7   0.1    54   111    85   142    84   146 0.96 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 G1X416_ARTOA_1100-1258 -            131   4.5e-08   22.0   2.0   3   4   8.4e-06   3.4e-05   12.7   0.0    52   119   120   217   114   221 0.75 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 G1X416_ARTOA_1100-1258 -            131   4.5e-08   22.0   2.0   4   4      0.71       2.8   -3.3   0.0    66    79   336   349   303   354 0.66 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 W5CAQ5_WHEAT_148-349 -            201   2.5e-07   18.8   2.6   1   3     0.069      0.28   -1.0   0.0    83   101    59    77    25   110 0.56 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 W5CAQ5_WHEAT_148-349 -            201   2.5e-07   18.8   2.6   2   3   7.9e-07   3.2e-06   15.2   0.1     6    70   121   185   116   255 0.82 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 W5CAQ5_WHEAT_148-349 -            201   2.5e-07   18.8   2.6   3   3    0.0065     0.026    2.4   0.1    48   104   333   353   265   364 0.71 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+#
+# Program:         hmmsearch
+# Version:         3.3 (Nov 2019)
+# Pipeline mode:   SEARCH
+# Query file:      /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF08631.hmm.gz
+# Target file:     /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/data.fa
+# Option settings: hmmsearch --domtblout /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/temp/PF08631.ccms.domtblout -T 0 --domE 1 --cpu 1 /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF08631.hmm.gz /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/data.fa 
+# Current dir:     /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407
+# Date:            Wed Apr  7 10:51:35 2021
+# [ok]

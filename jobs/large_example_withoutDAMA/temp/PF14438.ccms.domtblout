@@ -1,0 +1,14 @@
+#                                                                               --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name              accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- -----    -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+tr|A0A072NB93|A0A072NB93_9DEIO -            766 M1VHQ2_CYAME_36-116  -             81   3.1e-05   12.3   0.3   1   1   3.4e-05   0.00013   10.3   0.2    18    66   118   164   107   173 0.83 Uracil-DNA glycosylase OS=Deinococcus sp. RL OX=1489678 GN=ung PE=3 SV=1
+#
+# Program:         hmmsearch
+# Version:         3.3 (Nov 2019)
+# Pipeline mode:   SEARCH
+# Query file:      /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF14438.hmm.gz
+# Target file:     /var/www/html/MetaCLADE_webserver/jobs/kciFu1UoAKY_20210407/data.fa
+# Option settings: hmmsearch --domtblout /var/www/html/MetaCLADE_webserver/jobs/kciFu1UoAKY_20210407/temp/PF14438.ccms.domtblout -T 0 --domE 1 --cpu 1 /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF14438.hmm.gz /var/www/html/MetaCLADE_webserver/jobs/kciFu1UoAKY_20210407/data.fa 
+# Current dir:     /var/www/html/MetaCLADE_webserver/jobs/kciFu1UoAKY_20210407
+# Date:            Wed Apr  7 10:53:11 2021
+# [ok]

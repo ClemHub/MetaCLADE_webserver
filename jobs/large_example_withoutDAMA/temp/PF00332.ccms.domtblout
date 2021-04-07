@@ -1,0 +1,17 @@
+#                                                                               --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name              accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- -----    -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+tr|A0A072NB93|A0A072NB93_9DEIO -            766 M7Y682_TRIUA_59-113  -             53   4.1e-05   11.5   0.0   1   2   0.00037    0.0015    6.5   0.0    25    37   396   408   386   411 0.81 Uracil-DNA glycosylase OS=Deinococcus sp. RL OX=1489678 GN=ung PE=3 SV=1
+tr|A0A072NB93|A0A072NB93_9DEIO -            766 M7Y682_TRIUA_59-113  -             53   4.1e-05   11.5   0.0   2   2     0.017     0.067    1.2   0.0    33    49   578   594   577   596 0.86 Uracil-DNA glycosylase OS=Deinococcus sp. RL OX=1489678 GN=ung PE=3 SV=1
+tr|A0A072NB93|A0A072NB93_9DEIO -            766 M0RSF4_MUSAM_36-100  -             54   3.4e-05   11.7   0.0   1   2   0.00049     0.002    6.1   0.0    25    36   396   407   386   411 0.80 Uracil-DNA glycosylase OS=Deinococcus sp. RL OX=1489678 GN=ung PE=3 SV=1
+tr|A0A072NB93|A0A072NB93_9DEIO -            766 M0RSF4_MUSAM_36-100  -             54   3.4e-05   11.7   0.0   2   2    0.0099      0.04    1.9   0.0    33    49   578   594   576   598 0.86 Uracil-DNA glycosylase OS=Deinococcus sp. RL OX=1489678 GN=ung PE=3 SV=1
+#
+# Program:         hmmsearch
+# Version:         3.3 (Nov 2019)
+# Pipeline mode:   SEARCH
+# Query file:      /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF00332.hmm.gz
+# Target file:     /var/www/html/MetaCLADE_webserver/jobs/kciFu1UoAKY_20210407/data.fa
+# Option settings: hmmsearch --domtblout /var/www/html/MetaCLADE_webserver/jobs/kciFu1UoAKY_20210407/temp/PF00332.ccms.domtblout -T 0 --domE 1 --cpu 1 /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF00332.hmm.gz /var/www/html/MetaCLADE_webserver/jobs/kciFu1UoAKY_20210407/data.fa 
+# Current dir:     /var/www/html/MetaCLADE_webserver/jobs/kciFu1UoAKY_20210407
+# Date:            Wed Apr  7 10:40:01 2021
+# [ok]

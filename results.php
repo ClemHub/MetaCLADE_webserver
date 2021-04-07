@@ -178,19 +178,19 @@ include("./includes/header.php");
 	<table id='count_table'>
 	<thead>
 		<tr>
-		<th class='table_header'>Hits</th>
-		<th class='table_header'>Sequence</th>
+			<th class='table_header'>Hits</th>
+			<th class='table_header'>Sequence</th>
 		</tr>
 	</thead>
 	<tbody>
-	<tr>
-		<th>0</th>
-		<th><?php echo $nb_seq-count($seq_id_list);?></th>
-	</tr>
-	<tr>
-		<th>1+</th>
-		<th'><?php echo count($seq_id_list);?></th>
-	</tr>
+		<tr>
+			<th>0</th>
+			<th><?php echo $nb_seq-count($seq_id_list);?></th>
+		</tr>
+		<tr>
+			<th>1+</th>
+			<th><?php echo count($seq_id_list);?></th>
+		</tr>
 	</tbody>
 	</table>
 	</div>

@@ -17,10 +17,12 @@ include("./includes/header.php");
 		else if ($form == 'visualization_jobID'){
 			$job_name = $_POST["job_ID"];
 			if($job_name != ''){
-				if(file_exists($approot."/jobs/".$job_name."/results.txt")){
-					header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_name);}	
+				if(file_exists($approot."/jobs/".$job_name."/".job-name.".arch.tsv")){
+					header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_name);
+					}	
 				else if(!file_exists($approot."/jobs/".$job_name."/results.txt")){
 					header("location: $hostname/$appname/error.php?form=".$form."&job_id=".$job_name);}}}
+			#$nb_lignes = substr_count($texte, "\n");
 		else if ($form == 'visualization_file'){
 				$job_id = generateRandomString()."_".date("dmY");
 				echo 'Your job ID is: '.$job_id,'<br>';
@@ -77,6 +79,7 @@ include("./includes/header.php");
 				mail("<".$email.">", "MyCLADE queued (".$job_id.")", $msg, $mail_header);};
 
 			header("location: $hostname/$appname/status.php?form=".$form."&job_id=".$job_id);}
+
 		?>
 	</section>
 <?php include("./includes/footer.php"); ?>

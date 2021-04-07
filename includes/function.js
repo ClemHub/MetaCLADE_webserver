@@ -12,6 +12,10 @@ function validate_one_seq(seq){
 	else{
 		return "Your sequence "+ name +" contains elements that are not amino acids";}}
 
+function count_fastaseq(fasta){
+	var seq = fasta.split(/(?=\>)/);
+	return seq.length}
+
 function validateFasta(fasta, max_seq){
 	var seq = fasta.split(/(?=\>)/);
 	var valid = true;
@@ -262,6 +266,11 @@ function ShowHideLogo(){
 	var yes_logo = document.getElementById("yes_logo");
 	var goterms_container = document.getElementById("logo_container");
 	goterms_container.style.display = yes_logo.checked ? "block" : "none";}
+
+function ShowHideCount(){
+	var yes_count = document.getElementById("yes_count");
+	var count_container = document.getElementById("count_container");
+	count_container.style.display = yes_count.checked ? "block" : "none";}
 
 function showTooltip(evt, text){
 	let tooltip = document.getElementById("tooltip");

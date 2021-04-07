@@ -341,6 +341,7 @@
 	</tbody>
 	</table>
 	</div>
+	</br>
 	<?php
 	//Information button
 	if($form != 'visualization_file'){

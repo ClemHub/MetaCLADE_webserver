@@ -37,11 +37,11 @@ include("./includes/header.php");
 						else if (preg_match("/submission|creating/", $last_line)){
 							echo '<br><strong>Status of your job:</strong> submission and creation of your job<br>';}
 						else if (preg_match("/search/", $last_line)){
-							echo '<br><strong>Status of your job:</strong> search job (step 1)<br>';}
+							echo '<br><strong>Status of your job:</strong> search job (step 1/3)<br>';}
 						else if (preg_match("/filter/", $last_line)){
-							echo '<br><strong>Status of your job:</strong> filter job (step 2)<br>';}
+							echo '<br><strong>Status of your job:</strong> filter job (step 2/3)<br>';}
 						else if (preg_match("/architecture/", $last_line)){
-							echo '<br><strong>Status of your job:</strong> architecture job (step 3)<br>';}}}
+							echo '<br><strong>Status of your job:</strong> architecture job (step 3/3)<br>';}}}
 				else if(preg_match("/[a-zA-Z0-9]+\.o[0-9]+/", $file)){
 					$last_line = file($file);
 					if(count($last_line) > 0){

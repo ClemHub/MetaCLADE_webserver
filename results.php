@@ -184,12 +184,12 @@ include("./includes/header.php");
 	</thead>
 	<tbody>
 		<tr>
-			<th>0</th>
-			<th><?php echo $nb_seq-count($seq_id_list);?></th>
+			<td>0</td>
+			<td><?php echo $nb_seq-count($seq_id_list);?></td>
 		</tr>
 		<tr>
-			<th>1+</th>
-			<th><?php echo count($seq_id_list);?></th>
+			<td>1+</td>
+			<td><?php echo count($seq_id_list);?></td>
 		</tr>
 	</tbody>
 	</table>

@@ -323,19 +323,19 @@
 
 	<tbody>
 	<tr>
-	<th> PFXXXX1 </th>
-	<th> 7 </th>
-	<th> 55 </th>
+	<td> PFXXXX1 </td>
+	<td> 7 </td>
+	<td> 55 </td>
 	<?php
-	echo "<th><img id='LCQB-logo' class='logo-responsive' src='".$appurl."/server_images/logo_image.png' alt='' style='height: 50%; '></th>";
+	echo "<td><img id='LCQB-logo' class='logo-responsive' src='".$appurl."/server_images/logo_image.png' alt='' style='height: 50%; '></td>";
 	?>
 	</tr>
 	<tr>
-	<th> PFXXXX2 </th>
-	<th> 5 </th>
-	<th> 68 </th>
+	<td> PFXXXX2 </td>
+	<td> 5 </td>
+	<td> 68 </td>
 	<?php
-	echo "<th><img id='LCQB-logo' class='logo-responsive' src='".$appurl."/server_images/logo_image.png' alt='' style='height: 50%; '></th>";
+	echo "<td><img id='LCQB-logo' class='logo-responsive' src='".$appurl."/server_images/logo_image.png' alt='' style='height: 50%; '></td>";
 	?>
 	</tr>
 	</tbody>

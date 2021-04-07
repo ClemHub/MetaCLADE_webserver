@@ -172,24 +172,30 @@ include("./includes/header.php");
 			<label for="no_count">No</label><input type="radio" class='radio_btn' name="count" id="no_count" value = "false" onclick='ShowHideCount()' checked/>
 	</div>
 	<div class='table_container' id='count_container'>
+	</br>
+	Number of sequences with at least one hit, and the number of sequence with no hit.
+	</br>
 	<table id='count_table'>
 	<thead>
 		<tr>
 		<th class='table_header'>Hits</th>
-		<th class='table_header'>0</th>
-		<th class='table_header'>1+</th>
+		<th class='table_header'>Sequence</th>
 		</tr>
 	</thead>
 	<tbody>
 	<tr>
-		<th class='table_header'>Sequence</th>
-		<th class='table_header'><?php echo $nb_seq-count($seq_id_list);?></th>
-		<th class='table_header'><?php echo count($seq_id_list);?> </th>
-		</tr>
+		<th>0</th>
+		<th><?php echo $nb_seq-count($seq_id_list);?></th>
+	</tr>
+	<tr>
+		<th>1+</th>
+		<th'><?php echo count($seq_id_list);?> </th>
+	</tr>
 	</tbody>
 	</table>
 	</div>
 	</div>
+	</br>
 	<?php
 	//Information button
 	if($form != 'visualization_file'){

@@ -269,7 +269,7 @@
 	echo '</table>';
 	$db->close();
 	?>
-	</div>
+	
 
 	<div class='info'>
 	<div class = 'logo_choice'>
@@ -287,7 +287,14 @@
 		<th class='table_header'>Logo</th>
 		</tr>
 	</thead>
-
+	<tr>
+	<th>PFXXXXX</th>
+	<th>0</th>
+	<th>100</th>
+	<th>100</th>
+	<th><img id='UPMC-logo' class='img-responsive' src='".$appurl."/server_images/Sorbonne-logo.png' alt='' style='height: 50%; '></th>
+	</tr>
+	</div>
 	</div>
 	</section>
 

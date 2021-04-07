@@ -121,7 +121,7 @@ include("./includes/header.php");
 		</script>
 		
 		<div class='table_container'>
-		<table id = result>
+		<table id = 'result'>
 		<thead id='header'>
 			<tr>
 			<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span> Sequence ID</th>
@@ -214,7 +214,7 @@ include("./includes/header.php");
 <script>
 
 $(document).ready(function() {
-	var table = $('#count_table').DataTable();
+	var table = $('#count_table').DataTable(dom: 'lrtip');
 });
 </script>
 

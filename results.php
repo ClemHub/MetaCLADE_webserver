@@ -189,7 +189,7 @@ include("./includes/header.php");
 	</tr>
 	<tr>
 		<th>1+</th>
-		<th'><?php echo count($seq_id_list);?> </th>
+		<th'><?php echo count($seq_id_list);?></th>
 	</tr>
 	</tbody>
 	</table>

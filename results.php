@@ -68,7 +68,7 @@ include("./includes/header.php");
 				array_push($seq_id_list, $seq_id);
 				$best_evalues[$seq_id]=$exploded_line[9];
 				$data[$seq_id]=array($domain_id);}}};
-
+	print_r($seq_id_list);
 	echo "<br><a id = 'dl_link' href=".$dl_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
 		?>
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">

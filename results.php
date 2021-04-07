@@ -172,7 +172,7 @@ include("./includes/header.php");
 			<label for="no_count">No</label><input type="radio" class='radio_btn' name="count" id="no_count" value = "false" onclick='ShowHideCount()' checked/>
 	</div>
 	<div class='table_container' id='count_container'>
-	<table id='logo_table'>
+	<table id='count_table'>
 	<thead>
 		<tr>
 		<th class='table_header'>Hits</th>
@@ -208,4 +208,14 @@ include("./includes/header.php");
 		?>
 	
 	</section>
+
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script>
+
+$(document).ready(function() {
+	var table = $('#count_table').DataTable();
+});
+</script>
+
 <?php include("./includes/footer.php"); ?>

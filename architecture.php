@@ -277,6 +277,27 @@
 			<label for="yes_logo">Yes</label><input type="radio" class='radio_btn' name="logo" id="yes_logo" value = "true" onclick='ShowHideLogo()'/>
 			<label for="no_logo">No</label><input type="radio" class='radio_btn' name="logo" id="no_logo" value = "false" onclick='ShowHideLogo()' checked/>
 	</div>
+	<div class='table_container' id='goterms_container'>
+	<table id='go_terms_table'>
+	<thead>
+		<tr>
+		<th class='table_header'>Domain ID</th>
+		<th class='table_header'>Model start</th>
+		<th class='table_header'>Model stop</th>
+		<th class='table_header'>Logo</th>
+		</tr>
+	</thead>
+
+	<tbody>
+	<tr>
+	<th> PFXXXXX </th>
+	<th> 0 </th>
+	<th> 1 </th>
+	<th> <img id='UPMC-logo' class='img-responsive' src='".$appurl."/server_images/logo_image.png' alt='' style='height: 50%; '> </th>
+	</tr>
+	</tbody>
+
+	</div>
 	</div>
 	</section>
 

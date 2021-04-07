@@ -270,6 +270,7 @@
 	$db->close();
 	?>
 	</div>
+	</div>
 
 	<div class='info'>
 	<div class = 'logo_choice'>
@@ -287,7 +288,6 @@
 		<th class='table_header'>Logo</th>
 		</tr>
 	</thead>
-
 	<tbody>
 	<tr>
 	<th> PFXXXXX </th>

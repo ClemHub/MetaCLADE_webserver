@@ -19,6 +19,7 @@ include("./includes/header.php");
 		$e_value = $parameters['E-value'];
 		$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.tsv";
 		$dl_file = $appurl."/jobs/".$job_id."/results.txt";
+		$nb_seq = $parameters['Number of sequences'];
 		if($dama == 'true'){
 			$DAMA_evalue = $parameters["DAMA e-value"];}
 		if($form=="small" | $form=='small_example'){
@@ -71,7 +72,7 @@ include("./includes/header.php");
 				$seq_id_count[$seq_id] = 1;
 				$best_evalues[$seq_id]=$exploded_line[9];
 				$data[$seq_id]=array($domain_id);}}};
-	print_r($seq_id_count);
+	
 	echo "<br><a id = 'dl_link' href=".$dl_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
 		?>
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
@@ -163,7 +164,33 @@ include("./includes/header.php");
 		echo "</td><td>".$best_evalues[$seq_id]."</td></tr>";}
 	echo "</tbody></table>";	
 	echo "</div>";
-	
+	?>
+	<div class='info'>
+	<div class = 'count_choice'>
+			Show hits counts:
+			<label for="yes_count">Yes</label><input type="radio" class='radio_btn' name="count" id="yes_count" value = "true" onclick='ShowHideCount()'/>
+			<label for="no_count">No</label><input type="radio" class='radio_btn' name="count" id="no_count" value = "false" onclick='ShowHideCount()' checked/>
+	</div>
+	<div class='table_container' id='logo_container'>
+	<table id='logo_table'>
+	<thead>
+		<tr>
+		<th class='table_header'>Hits</th>
+		<th class='table_header'>0</th>
+		<th class='table_header'>1+</th>
+		</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<th class='table_header'>Sequence</th>
+		<th class='table_header'><?php echo $nb_seq-count($seq_id_list);?></th>
+		<th class='table_header'><?php echo count($seq_id_list);?> </th>
+		</tr>
+	</tbody>
+	</table>
+	</div>
+	</div>
+	<?php
 	//Information button
 	if($form != 'visualization_file'){
 		echo "<div class='info'>";

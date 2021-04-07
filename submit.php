@@ -64,11 +64,8 @@ include("./includes/header.php");
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Max domain overlapping (%)\t".$_POST["overlappingMaxDomain_nb"]."\n", FILE_APPEND);
 				$parameters['Max domain overlapping (%)'] = $_POST["overlappingMaxDomain_nb"];}
 			file_put_contents($approot.'/jobs/'.$job_id.'/data.fa', $_POST["sequences"]);
-			#$seq_file = file($approot.'/jobs/'.$job_id.'/data.fa');
-			#echo $seq_file;
-			#file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Seq\t".$seq_file."\n", FILE_APPEND);
-			#file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Number of sequences\t".substr_count($seq_file, ">")."\n", FILE_APPEND);
-	
+			$nb_seq = count(explode('>', $_POST["sequences"]))
+			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Number of sequences:\t".$nb_seq."\n", FILE_APPEND);
 			$msg = submit($job_id, $parameters);
 			echo $msg;
 			$email = $_POST['email'];

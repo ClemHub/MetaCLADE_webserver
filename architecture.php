@@ -13,6 +13,22 @@
 	echo "<div id='architecture'>";
 	echo "<h2> Architecture </h2>";
 
+	if($form == 'visualization_file'){
+		$dl_file = $appurl."/jobs/".$job_id."/results.txt";
+		$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.tsv";}
+	else{
+		$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
+		if(array_key_exists("Job name", $parameters)){
+			echo "<h4>Job: ".$parameters["Job name"]."</h4>";}
+		$dama = $parameters["DAMA"];
+		$e_value = $parameters['E-value'];
+		$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.tsv";
+		$dl_file = $appurl."/jobs/".$job_id."/results.txt";
+		if($dama == 'true'){
+			$DAMA_evalue = $parameters["DAMA e-value"];}
+		if($form=="small" | $form=='small_example'){
+			$pfam = $parameters["PFAM"];}}
+
 	$db = new SQLite3($approot.'/data/MetaCLADE.db');
 
 	while(!feof($file_content)){
@@ -325,6 +341,22 @@
 	</tbody>
 	</table>
 	</div>
+	<?php
+	//Information button
+	if($form != 'visualization_file'){
+		echo "<div class='info'>";
+		echo "<input type='button' class='bouton_info' value='Search parameters' onclick='close_open_info(this);' />";
+		echo "<div class='contenu_info'>";
+		if($form == 'small' | $form == 'large' | $form == 'clan' | $form == 'visualization_jobID'){
+				echo "<ul><strong>Your job parameters:</strong>";}
+		else if($form == 'small_example' | $form == 'large_example' | $form == 'clan_example'){
+				echo "<ul><strong>Example parameters:</strong>";} 
+		foreach($parameters as $name => $value){
+			if($name != "" and $value != "" and $name != 'Email'){
+				echo "<li>".$name.": ".$value."</li>";}}
+			echo "</ul>";
+		echo "</div></div>";}
+		?>
 	</section>
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">

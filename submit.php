@@ -22,7 +22,6 @@ include("./includes/header.php");
 					}	
 				else if(!file_exists($approot."/jobs/".$job_name."/".$job_name.".arch.tsv")){
 					header("location: $hostname/$appname/error.php?form=".$form."&job_id=".$job_name);}}}
-			#$nb_lignes = substr_count($texte, "\n");
 		else if ($form == 'visualization_file'){
 				$job_id = generateRandomString()."_".date("dmY");
 				echo 'Your job ID is: '.$job_id,'<br>';
@@ -65,6 +64,10 @@ include("./includes/header.php");
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Max domain overlapping (%)\t".$_POST["overlappingMaxDomain_nb"]."\n", FILE_APPEND);
 				$parameters['Max domain overlapping (%)'] = $_POST["overlappingMaxDomain_nb"];}
 			file_put_contents($approot.'/jobs/'.$job_id.'/data.fa', $_POST["sequences"]);
+			$seq_file = $approot.'/jobs/'.$job_id.'/data.fa';
+			echo $seq_file;
+			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Number of sequences\t".substr_count($seq_file, ">")."\n", FILE_APPEND);
+	
 			$msg = submit($job_id, $parameters);
 			echo $msg;
 			$email = $_POST['email'];

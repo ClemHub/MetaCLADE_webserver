@@ -306,7 +306,7 @@
 
 	<tbody>
 	<tr>
-	<th> PFXXXXX </th>
+	<th> PFXXXX1 </th>
 	<th> 7 </th>
 	<th> 55 </th>
 	<?php
@@ -314,7 +314,7 @@
 	?>
 	</tr>
 	<tr>
-	<th> PFXXXXX </th>
+	<th> PFXXXX2 </th>
 	<th> 5 </th>
 	<th> 68 </th>
 	<?php

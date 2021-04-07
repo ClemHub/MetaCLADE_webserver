@@ -287,6 +287,7 @@
 		<th class='table_header'>Logo</th>
 		</tr>
 	</thead>
+	<tfoot>
 	<tr>
 	<th>PFXXXXX</th>
 	<th>0</th>
@@ -294,6 +295,7 @@
 	<th>100</th>
 	<th><img id='UPMC-logo' class='img-responsive' src='".$appurl."/server_images/Sorbonne-logo.png' alt='' style='height: 50%; '></th>
 	</tr>
+	</tfoot>
 	</div>
 	</div>
 	</section>

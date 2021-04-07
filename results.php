@@ -220,7 +220,7 @@ include("./includes/header.php");
 <script>
 
 $(document).ready(function() {
-	var table = $('#count_table').DataTable(dom:'t');
+	var table = $('#count_table').DataTable(dom:'tr');
 });
 </script>
 

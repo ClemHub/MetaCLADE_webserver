@@ -294,7 +294,7 @@
 		<?php
 		$pfam_name = array('PFXXXX1', 'PFXXXX2');
 		echo "<th class='table_header'>";
-		echo "<select id='go_domain-filter'>";
+		echo "<select id='logo_domain-filter'>";
 		echo "<option value=''>All</option>";
 		foreach(array_unique($pfam_name) as $pfam){
 			echo "<option value='".$pfam."'>".$pfam."</option>";}
@@ -404,7 +404,7 @@ $(document).ready(function() {
 		"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
 	} );
 
-	$('#go_domain-filter').on('change', function(){
+	$('#logo_domain-filter').on('change', function(){
 		logo_table.columns([0]).search(this.value).draw();});
 });
 </script>

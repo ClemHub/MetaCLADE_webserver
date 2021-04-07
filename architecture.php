@@ -288,6 +288,20 @@
 		<th class='table_header'>Logo</th>
 		</tr>
 	</thead>
+
+	<tfoot>
+		<tr>
+		<?php
+		echo "<th class='table_header'>";
+		echo "<select id='go_domain-filter'>";
+		echo "<option value=''>All</option>";
+		foreach(array_unique($pfam_name) as $pfam){
+			echo "<option value='".$pfam."'>".$pfam."</option>";}
+		echo "</select></th>";
+		?>
+		</tr>
+	</tfoot>
+
 	<tbody>
 	<tr>
 	<th> PFXXXXX </th>

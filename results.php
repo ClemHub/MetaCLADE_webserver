@@ -52,6 +52,7 @@ include("./includes/header.php");
 	$best_evalues = array();
 	$domain_list = array();
 	$seq_id_list = array();
+	$seq_id_count = array();
 	$file_content = fopen($name_file, "r");
 	while(!feof($file_content)){
 		$line = fgets($file_content);
@@ -61,14 +62,16 @@ include("./includes/header.php");
 			$domain_id = $exploded_line[4];
 			array_push($domain_list, $domain_id);
 			if(array_key_exists($seq_id, $data)){
+				$seq_id_count[$seq_id]++;
 				array_push($data[$seq_id], $domain_id);
 				if($best_evalues[$seq_id]>$exploded_line[9]){
 					$best_evalues[$seq_id]=$exploded_line[9];}}
 			else if ($seq_id != ""){
 				array_push($seq_id_list, $seq_id);
+				$seq_id_count[$seq_id] = 1;
 				$best_evalues[$seq_id]=$exploded_line[9];
 				$data[$seq_id]=array($domain_id);}}};
-	print_r($seq_id_list);
+	print_r($seq_id_count);
 	echo "<br><a id = 'dl_link' href=".$dl_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
 		?>
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">

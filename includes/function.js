@@ -257,7 +257,12 @@ function ShowHideGoterms(){
 	var yes_goterms = document.getElementById("yes_goterms");
 	var goterms_container = document.getElementById("goterms_container");
 	goterms_container.style.display = yes_goterms.checked ? "block" : "none";}
-	
+
+function ShowHideLogo(){
+	var yes_logo = document.getElementById("yes_logo");
+	var goterms_container = document.getElementById("logo_container");
+	goterms_container.style.display = yes_logo.checked ? "block" : "none";}
+
 function showTooltip(evt, text){
 	let tooltip = document.getElementById("tooltip");
 	tooltip.innerHTML = text;

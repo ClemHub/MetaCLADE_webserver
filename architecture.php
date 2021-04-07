@@ -269,11 +269,11 @@
 	echo '</table>';
 	$db->close();
 	?>
-	
+	</div>
 
 	<div class='info'>
 	<div class = 'logo_choice'>
-			Show GO-terms:
+			Show LOGO:
 			<label for="yes_logo">Yes</label><input type="radio" class='radio_btn' name="logo" id="yes_logo" value = "true" onclick='ShowHideLogo()'/>
 			<label for="no_logo">No</label><input type="radio" class='radio_btn' name="logo" id="no_logo" value = "false" onclick='ShowHideLogo()' checked/>
 	</div>

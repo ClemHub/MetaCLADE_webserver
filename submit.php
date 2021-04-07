@@ -17,10 +17,10 @@ include("./includes/header.php");
 		else if ($form == 'visualization_jobID'){
 			$job_name = $_POST["job_ID"];
 			if($job_name != ''){
-				if(file_exists($approot."/jobs/".$job_name."/".job-name.".arch.tsv")){
+				if(file_exists($approot."/jobs/".$job_name."/".$job_name.".arch.tsv")){
 					header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_name);
 					}	
-				else if(!file_exists($approot."/jobs/".$job_name."/results.txt")){
+				else if(!file_exists($approot."/jobs/".$job_name."/".$job_name.".arch.tsv")){
 					header("location: $hostname/$appname/error.php?form=".$form."&job_id=".$job_name);}}}
 			#$nb_lignes = substr_count($texte, "\n");
 		else if ($form == 'visualization_file'){

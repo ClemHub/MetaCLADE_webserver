@@ -171,7 +171,7 @@ include("./includes/header.php");
 			<label for="yes_count">Yes</label><input type="radio" class='radio_btn' name="count" id="yes_count" value = "true" onclick='ShowHideCount()'/>
 			<label for="no_count">No</label><input type="radio" class='radio_btn' name="count" id="no_count" value = "false" onclick='ShowHideCount()' checked/>
 	</div>
-	<div class='table_container' id='logo_container'>
+	<div class='table_container' id='count_container'>
 	<table id='logo_table'>
 	<thead>
 		<tr>

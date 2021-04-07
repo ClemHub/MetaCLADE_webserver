@@ -214,7 +214,7 @@ include("./includes/header.php");
 <script>
 
 $(document).ready(function() {
-	var table = $('#count_table').DataTable(dom: 'lrtip');
+	var table = $('#count_table').DataTable();
 });
 </script>
 

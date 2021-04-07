@@ -296,6 +296,7 @@
 	<th> <img id='UPMC-logo' class='img-responsive' src='".$appurl."/server_images/logo_image.png' alt='' style='height: 50%; '> </th>
 	</tr>
 	</tbody>
+	</table>
 	</div>
 	</section>
 

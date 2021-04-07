@@ -307,10 +307,18 @@
 	<tbody>
 	<tr>
 	<th> PFXXXXX </th>
-	<th> 0 </th>
-	<th> 1 </th>
+	<th> 7 </th>
+	<th> 55 </th>
 	<?php
-	echo "<th><img id='LCQB-logo' class='img-responsive' src='".$appurl."/server_images/logo_image.png' alt='' style='height: 50%; '></th>";
+	echo "<th><img id='LCQB-logo' class='logo-responsive' src='".$appurl."/server_images/logo_image.png' alt='' style='height: 50%; '></th>";
+	?>
+	</tr>
+	<tr>
+	<th> PFXXXXX </th>
+	<th> 5 </th>
+	<th> 68 </th>
+	<?php
+	echo "<th><img id='LCQB-logo' class='logo-responsive' src='".$appurl."/server_images/logo_image.png' alt='' style='height: 50%; '></th>";
 	?>
 	</tr>
 	</tbody>

@@ -295,10 +295,8 @@
 		echo "<th class='table_header'>";
 		echo "<select id='go_domain-filter'>";
 		echo "<option value=''>All</option>";
-		#foreach(array_unique($pfam_name) as $pfam){
-		#	echo "<option value='".$pfam."'>".$pfam."</option>";}
-		echo "<option value='PFXXXX1'>PFXXXX1</option>";
-		echo "<option value='PFXXXX2'>PFXXXX2</option>";
+		foreach(array_unique($pfam_name) as $pfam){
+			echo "<option value='".$pfam."'>".$pfam."</option>";}
 		echo "</select></th>";
 
 

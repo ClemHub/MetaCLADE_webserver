@@ -298,6 +298,8 @@
 		foreach(array_unique($pfam_name) as $pfam){
 			echo "<option value='".$pfam."'>".$pfam."</option>";}
 		echo "</select></th>";
+
+
 		?>
 		</tr>
 	</tfoot>
@@ -383,6 +385,18 @@ $(document).ready(function() {
 		go_termstable.columns([3]).search(this.value).draw();});
 	$('#goterm-filter').on('change', function(){
 		go_termstable.columns([4]).search(this.value).draw();});
+});
+
+$(document).ready(function() {
+	var logo_table = $('#logo_table').DataTable( {
+		dom: 'lrtip',
+		"pageLength": 10,
+		"order": [[ 2, "desc" ]],
+		"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
+	} );
+
+	$('#go_domain-filter').on('change', function(){
+		logo_table.columns([0]).search(this.value).draw();});
 });
 </script>
 <?php include("./includes/footer.php"); ?>

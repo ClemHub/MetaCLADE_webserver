@@ -307,7 +307,9 @@
 	<th> PFXXXXX </th>
 	<th> 0 </th>
 	<th> 1 </th>
-	<th> <img id='UPMC-logo' class='img-responsive' src='".$appurl."/server_images/logo_image.png' alt='' style='height: 50%; '> </th>
+	<?php
+	echo "<th><img id='LCQB-logo' class='img-responsive' src='".$appurl."/server_images/logo_image.png' alt='' style='height: 50%; '></th>";
+	?>
 	</tr>
 	</tbody>
 	</table>

@@ -104,6 +104,12 @@ footer {
 	margin-top: 15px;
 	margin-bottom:auto;}
 
+.logo-responsive {
+	margin-left: 6%;
+	margin-right: 6%;
+	margin-top: 15px;
+	margin-bottom:auto;}
+
 .btn{
 	font-size: 20px;
 	font-size-adjust: 0.5;}
@@ -359,6 +365,9 @@ div.info div.contenu_info {
 	display: none;}
 
 #goterms_container{
+	display: none;}
+
+#logo_container{
 	display: none;}
 
 #dl_link {

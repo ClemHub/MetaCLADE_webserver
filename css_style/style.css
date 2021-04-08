@@ -276,6 +276,9 @@ table.dataTable td {
 	font-size: 14px;
 	font-size-adjust: 0.5;}
 
+tbody:hover td[rowspan], tr:hover td {
+		background: rgba(155, 187, 196, 0.555); }
+
 .table_header {
 	font-weight: 500;}
 
@@ -567,7 +570,7 @@ input[type=text]{
 /* Added by Francesco OTERI ( FO)*/
 span.logocharacter{
 	display: inline-block;
-	width: 13.7px;
+	width: 13.5px;
 }
 
 

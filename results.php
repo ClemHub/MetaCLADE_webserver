@@ -168,7 +168,7 @@ include("./includes/header.php");
 		foreach($domains as $domain_id){
 			$link_id = "http://pfam.xfam.org/family/" . $domain_id;
 			echo "<a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a>";}
-		echo "</td><td>".count(array_unique($data[$seq_id])."</td>";
+		echo "</td><td>".count(array_unique($data[$seq_id]))."</td>";
 		echo "</td><td>".$best_evalues[$seq_id]."</td></tr>";}
 	echo "</tbody></table>";	
 	echo "</div>";

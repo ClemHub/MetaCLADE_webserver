@@ -162,11 +162,16 @@ include("./includes/header.php");
 	if($form == 'small' || $form=='small_example'){
 		foreach($data as $seq_id => $domains){
 			echo "<tr><td rowspan=".count($domains)."><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";
+			$i = 0;
 			foreach($domains as $domain_id){
 				$link_id = "http://pfam.xfam.org/family/" . $domain_id;
 				echo "<tr><td><a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a></td>";
-				echo "<td>".$best_evalues[$seq_id]."</td></tr>";}
-			echo "</td><td rowspan=".count($domains).">".count(array_unique($domains))."</td></tr>";}}
+				echo "<td>".$best_evalues[$seq_id]."</td>";
+				if($i==0){
+					echo "</td><td rowspan=".count($domains).">".count(array_unique($domains))."</td></tr>"
+					$i++}
+			echo "</tr>";}
+			;}}
 	else{
 		foreach($data as $seq_id => $domains){
 			echo "<tr><td><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";

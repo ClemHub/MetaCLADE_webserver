@@ -218,6 +218,7 @@ include("./includes/header.php");
 			<label for="no_seqcount">No</label><input type="radio" class='radio_btn' name="seqcount" id="no_seqcount" value = "false" onclick='ShowHideSeqCount()' checked/>
 	</div>
 	<div class='table_container' id='seqcount_container'>
+	</br>
 	<?php
 	echo "Total number of input sequences: ".$nb_seq."</br>"; 
 	echo "Sequences with no hit: ".($nb_seq-count($seq_id_list))."</br>"; 

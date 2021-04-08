@@ -178,9 +178,9 @@ include("./includes/header.php");
 	</div>
 	<div class='table_container' id='domcount_container'>
 	</br>
-	Occurences of each annotated domaines.
+	Occurences of each annotated domains.
 	</br>
-	<table id='count_table'>
+	<table id='domcount_table'>
 	<thead>
 		<tr>
 			<th class='table_header'>Domain ID</th>
@@ -221,7 +221,7 @@ include("./includes/header.php");
 	</br>
 	Number of hits for each sequences given in input.
 	</br>
-	<table id='count_table'>
+	<table id='seqcount_table'>
 	<thead>
 		<tr>
 			<th class='table_header'>Sequence ID</th>

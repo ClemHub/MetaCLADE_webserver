@@ -148,7 +148,7 @@ include("./includes/header.php");
 			echo "<th class='table_header'>Start</th>";
 			echo "<th class='table_header'>Stop</th>";
 			echo "<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>After comparing every annotated Pfam domains E-value for each sequences.</span></span> Best e-value </th>";
-			echo "<th class='table_header'>Number of different domain</th>";
+			echo "<th class='table_header'>Number of hits</th>";
 			echo "</tr>";
             echo "</thead>";
             echo "<tfoot>";
@@ -244,7 +244,7 @@ include("./includes/header.php");
 	
 	<div class='info'>
 	<div class = 'seqcount_choice'>
-			Show sequences synthesis:
+			Show synthesis:
 			<label for="yes_seqcount">Yes</label><input type="radio" class='radio_btn' name="seqcount" id="yes_seqcount" value = "true" onclick='ShowHideSeqCount()'/>
 			<label for="no_seqcount">No</label><input type="radio" class='radio_btn' name="seqcount" id="no_seqcount" value = "false" onclick='ShowHideSeqCount()' checked/>
 	</div>

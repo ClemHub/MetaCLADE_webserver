@@ -87,7 +87,7 @@ include("./includes/header.php");
 		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 		<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 		<script>
-	var form = <?php echo json_encode($form); ?>;
+	var form = '<?php echo $form ?>';
 	if (form == 'small' || form == 'small_example')
 		{$.fn.dataTable.ext.search.push(
 		function( settings, data, dataIndex ) {
@@ -106,7 +106,7 @@ include("./includes/header.php");
 			return false;});}		
 
 		$(document).ready(function() {
-			var form = '<?php echo $form ?>';
+			
 			if(form == 'small' || form == 'small_example'){
 				var table = $('#result').DataTable( {
 					dom: 'lrtip',
@@ -126,8 +126,8 @@ include("./includes/header.php");
 						});
 				var val = [];
 				table.column(1).search(val.join(' ')).draw();}
-			$('#e-value_max').on( 'keyup change', function () {
-            	table.draw();});
+				$('#e-value_max').keyup( function() {
+		table.draw();} );
 			$('#seq-filter').on('change', function(){
 				table.search(this.value).draw();});
 			$('#domain-filter').on('keyup change', function(){

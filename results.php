@@ -235,6 +235,8 @@ include("./includes/header.php");
 
 $(document).ready(function() {
 	var table = $('#count_table').DataTable();
+	$('#domain-filter').on('keyup change', function(){
+				table.search(this.value, regex=true).draw()});
 });
 </script>
 

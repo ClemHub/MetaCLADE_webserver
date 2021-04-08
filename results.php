@@ -54,6 +54,7 @@ include("./includes/header.php");
 	$domain_list = array();
 	$seq_id_list = array();
 	$domain_count = array();
+	$seq_count = array();
 	$file_content = fopen($name_file, "r");
 	while(!feof($file_content)){
 		$line = fgets($file_content);
@@ -64,9 +65,11 @@ include("./includes/header.php");
 			array_push($domain_list, $domain_id);
 			if(array_key_exists($seq_id, $data)){
 				array_push($data[$seq_id], $domain_id);
+				$seq_count[$seq_id]++;
 				if($best_evalues[$seq_id]>$exploded_line[9]){
 					$best_evalues[$seq_id]=$exploded_line[9];}}
 			else if ($seq_id != ""){
+				$seq_count[$seq_id] = 1;
 				array_push($seq_id_list, $seq_id);
 				$best_evalues[$seq_id]=$exploded_line[9];
 				$data[$seq_id]=array($domain_id);}
@@ -169,13 +172,13 @@ include("./includes/header.php");
 	?>
 	<div class='info'>
 	<div class = 'count_choice'>
-			Show synthesis:
-			<label for="yes_count">Yes</label><input type="radio" class='radio_btn' name="count" id="yes_count" value = "true" onclick='ShowHideCount()'/>
-			<label for="no_count">No</label><input type="radio" class='radio_btn' name="count" id="no_count" value = "false" onclick='ShowHideCount()' checked/>
+			Show domains synthesis:
+			<label for="yes_domcount">Yes</label><input type="radio" class='radio_btn' name="count" id="yes_domcount" value = "true" onclick='ShowHideDomCount()'/>
+			<label for="no_domcount">No</label><input type="radio" class='radio_btn' name="count" id="no_domcount" value = "false" onclick='ShowHideDomCount()' checked/>
 	</div>
-	<div class='table_container' id='count_container'>
+	<div class='table_container' id='domcount_container'>
 	</br>
-	Number of sequences with at least one hit, and the number of sequence with no hit.
+	Occurences of each annotated domaines.
 	</br>
 	<table id='count_table'>
 	<thead>
@@ -202,8 +205,48 @@ include("./includes/header.php");
 	<tbody>
 		<?php 
 		foreach($domain_count as $id => $count){
-			echo "<tr><td>$id</td><td>$count</td></tr>";
+			echo "<tr><td>$id</td><td>$count</td></tr>";}
+		?>
+	</tbody>
+	</table>
+	</div>
+	</div>
+	<div class='info'>
+	<div class = 'seqcount_choice'>
+			Show domains synthesis:
+			<label for="yes_seqcount">Yes</label><input type="radio" class='radio_btn' name="count" id="yes_seqcount" value = "true" onclick='ShowHideDomCount()'/>
+			<label for="no_seqcount">No</label><input type="radio" class='radio_btn' name="count" id="no_seqcount" value = "false" onclick='ShowHideDomCount()' checked/>
+	</div>
+	<div class='table_container' id='seqcount_container'>
+	</br>
+	Number of hits for each sequences given in input.
+	</br>
+	<table id='count_table'>
+	<thead>
+		<tr>
+			<th class='table_header'>Sequence ID</th>
+			<th class='table_header'>Occurrences</th>
+		</tr>
+	</thead>
+	<tfoot>
+		<tr>
+		<?php
+		echo "<th class='table_header'>";
+		echo "<select id='seq-filter2'>";
+		echo "<option value=''>All</option>";
+		foreach(array_unique($seq_id_list) as $seq){
+			if($seq != ""){
+			echo "<option value='".$seq."'>".$seq."</option>";}
 		}
+		echo "</select></th>";
+		?>
+		<th class='table_header'></th>
+		</tr>
+	</tfoot>
+	<tbody>
+		<?php 
+		foreach($seq_count as $id => $count){
+			echo "<tr><td>$id</td><td>$count</td></tr>";}
 		?>
 	</tbody>
 	</table>
@@ -234,8 +277,14 @@ include("./includes/header.php");
 <script>
 
 $(document).ready(function() {
-	var table = $('#count_table').DataTable();
+	var table = $('#domcount_table').DataTable();
 	$('#domain-filter2').on('keyup change', function(){
+				table.search(this.value, regex=true).draw()});
+});
+
+$(document).ready(function() {
+	var table = $('#seqcount_table').DataTable();
+	$('#seq-filter2').on('keyup change', function(){
 				table.search(this.value, regex=true).draw()});
 });
 </script>

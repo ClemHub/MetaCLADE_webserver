@@ -166,7 +166,7 @@ include("./includes/header.php");
 		echo "<tbody>";
 		$db = new SQLite3($approot.'/data/MetaCLADE.db');
 		foreach($all_data as $seq_id => $lines){
-			echo "<tr><td rowspan=".(count($lines)+1)."><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";
+			echo "<tr><td rowspan=".(count($lines))."><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";
 			$i = 0;
 			foreach($lines as $line){
 				$exploded_line = explode("\t", $line);

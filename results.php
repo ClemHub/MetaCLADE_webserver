@@ -174,7 +174,7 @@ include("./includes/header.php");
 				$start = $exploded_line[1];
 				$stop = $exploded_line[2];
 				$evalue = $exploded_line[9];
-				$row = $db->query("SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
+				$row = $db->query("SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$domain_id."'");
 				$row = $row->fetchArray();
 				if($row['Clan_acc_nb'] == ""){
 					$row['Clan_acc_nb'] = 'NA';

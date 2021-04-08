@@ -187,7 +187,7 @@ include("./includes/header.php");
 	<tbody>
 		<?php 
 		foreach($domain_count as $id => $count){
-			echo "<tr><td>$id</td><td>$count</td></tr>"
+			echo "<tr><td>$id</td><td>$count</td></tr>";
 		}
 		?>
 	</tbody>

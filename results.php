@@ -225,8 +225,7 @@ include("./includes/header.php");
 	echo "Sequences with at least one hit: ".count($seq_id_list)."</br>"; 
 	?>
 	</br>
-	Number of hits for each sequences given in input.</br>
-	</br>
+	Number of hits for each annotated sequences.</br>
 	<table id='seqcount_table'>
 	<thead>
 		<tr>

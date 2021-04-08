@@ -3,3 +3,4 @@ Library	Annotation based on the full domain library
 Clan	CL0039 - HUP
 DAMA	false
 E-value	1e-3
+Number of sequences	4

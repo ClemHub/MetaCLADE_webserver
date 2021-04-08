@@ -168,8 +168,8 @@ include("./includes/header.php");
 				echo "<tr><td><a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a></td>";
 				echo "<td>".$best_evalues[$seq_id]."</td>";
 				if($i==0){
-					echo "</td><td rowspan=".count($domains).">".count(array_unique($domains))."</td></tr>"
-					$i++}
+					echo "</td><td rowspan=".count($domains).">".count(array_unique($domains))."</td></tr>";
+					$i++;}
 			echo "</tr>";}
 			;}}
 	else{

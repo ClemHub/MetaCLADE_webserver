@@ -161,7 +161,7 @@ include("./includes/header.php");
 		<?php
 	if($form == 'small' || $form=='small_example'){
 		foreach($data as $seq_id => $domains){
-			echo "<tr><td rowspan=".count($domains)+1."><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";
+			echo "<tr><td rowspan=".(count($domains)+1)."><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";
 			$i = 0;
 			foreach($domains as $domain_id){
 				$link_id = "http://pfam.xfam.org/family/" . $domain_id;

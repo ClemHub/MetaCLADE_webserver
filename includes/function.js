@@ -267,11 +267,6 @@ function ShowHideLogo(){
 	var goterms_container = document.getElementById("logo_container");
 	goterms_container.style.display = yes_logo.checked ? "block" : "none";}
 
-function ShowHideDomCount(){
-	var yes_domcount = document.getElementById("yes_domcount");
-	var domcount_container = document.getElementById("domcount_container");
-	domcount_container.style.display = yes_domcount.checked ? "block" : "none";}
-
 function ShowHideSeqCount(){
 	var yes_seqcount = document.getElementById("yes_seqcount");
 	var seqcount_container = document.getElementById("seqcount_container");

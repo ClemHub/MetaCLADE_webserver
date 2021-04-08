@@ -176,41 +176,7 @@ include("./includes/header.php");
 			<label for="yes_domcount">Yes</label><input type="radio" class='radio_btn' name="domcount" id="yes_domcount" value = "true" onclick='ShowHideDomCount()'/>
 			<label for="no_domcount">No</label><input type="radio" class='radio_btn' name="domcount" id="no_domcount" value = "false" onclick='ShowHideDomCount()' checked/>
 	</div>
-	<div class='table_container' id='domcount_container'>
-	</br>
-	Occurences of each annotated domains.
-	</br>
-	<table id='domcount_table'>
-	<thead>
-		<tr>
-			<th class='table_header'>Domain ID</th>
-			<th class='table_header'>Occurrences</th>
-		</tr>
-	</thead>
-	<tfoot>
-		<tr>
-		<?php
-		echo "<th class='table_header'>";
-		echo "<select id='domain-filter2'>";
-		echo "<option value=''>All</option>";
-		foreach(array_unique($domain_list) as $domain){
-			if($domain != ""){
-			echo "<option value='".$domain."'>".$domain."</option>";}
-		}
-		echo "</select></th>";
-		?>
-		<th class='table_header'></th>
-		</tr>
-	</tfoot>
-	<tbody>
-		<?php 
-		foreach($domain_count as $id => $count){
-			echo "<tr><td>$id</td><td>$count</td></tr>";}
-		?>
-	</tbody>
-	</table>
-	</div>
-	</div>
+	
 	<div class='info'>
 	<div class = 'seqcount_choice'>
 			Show sequences synthesis:

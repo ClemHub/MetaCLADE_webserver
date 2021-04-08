@@ -170,12 +170,6 @@ include("./includes/header.php");
 	echo "</tbody></table>";	
 	echo "</div>";
 	?>
-	<div class='info'>
-	<div class = 'domcount_choice'>
-			Show domains synthesis:
-			<label for="yes_domcount">Yes</label><input type="radio" class='radio_btn' name="domcount" id="yes_domcount" value = "true" onclick='ShowHideDomCount()'/>
-			<label for="no_domcount">No</label><input type="radio" class='radio_btn' name="domcount" id="no_domcount" value = "false" onclick='ShowHideDomCount()' checked/>
-	</div>
 	
 	<div class='info'>
 	<div class = 'seqcount_choice'>

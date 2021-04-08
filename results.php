@@ -90,20 +90,20 @@ include("./includes/header.php");
 	var form = <?php echo json_encode($form); ?>;
 	if (form == 'small' || form == 'small_example')
 		{$.fn.dataTable.ext.search.push(
-			function(settings, data, dataIndex ) {
-				var max = Number($('#e-value_max').val()) || 1;
-				var e_value = Number(data[4]) || 0;
-				if ((isNaN(max)) || (e_value <= max)){
-					return true;}
-				return false;});}
+		function( settings, data, dataIndex ) {
+			var max = Number($('#e-value_max').val()) || 1;
+			var e_value = Number(data[5]) || 0;
+			if ((isNaN(max)) || (e_value <= max)){
+				return true;}
+			return false;});}
 	else
 		{$.fn.dataTable.ext.search.push(
-				function(settings, data, dataIndex ) {
-					var max = Number($('#e-value_max').val()) || 1;
-					var e_value = Number(data[2]) || 0;
-					if ((isNaN(max)) || (e_value <= max)){
-						return true;}
-					return false;});}		
+		function( settings, data, dataIndex ) {
+			var max = Number($('#e-value_max').val()) || 1;
+			var e_value = Number(data[2]) || 0;
+			if ((isNaN(max)) || (e_value <= max)){
+				return true;}
+			return false;});}		
 
 		$(document).ready(function() {
 			var form = '<?php echo $form ?>';

@@ -188,6 +188,7 @@ include("./includes/header.php");
 				if($i==0){
 					echo "</td><td rowspan=".count($lines).">".count(array_unique($data[$seq_id]))."</td></tr>";
 					$i++;}
+				else{echo "</tr>"}
 			echo "</tr>";}
 			;}}
 	else{

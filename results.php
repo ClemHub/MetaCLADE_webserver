@@ -184,6 +184,22 @@ include("./includes/header.php");
 			<th class='table_header'>Occurrences</th>
 		</tr>
 	</thead>
+	<tfoot>
+		<tr>
+		<th class='table_header'></th>
+		<?php
+		echo "<th class='table_header'>";
+		echo "<select id='domain-filter'>";
+		echo "<option value=''>All</option>";
+		foreach(array_unique($domain_list) as $domain){
+			if($domain != ""){
+			echo "<option value='".$domain."'>".$domain."</option>";}
+		}
+		echo "</select></th>";
+		?>
+		<th class='table_header'></th>
+		</tr>
+	</tfoot>
 	<tbody>
 		<?php 
 		foreach($domain_count as $id => $count){

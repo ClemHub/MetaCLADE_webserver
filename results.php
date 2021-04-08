@@ -165,20 +165,20 @@ include("./includes/header.php");
             echo "</tfoot>";
 		echo "<tbody>";
 		$db = new SQLite3($approot.'/data/MetaCLADE.db');
-		foreach($all_data as $seq_id => $line){
-			$exploded_line = explode("\t", $line);
-			$domain_id = $exploded_line[4];
-			$start = $exploded_line[1];
-			$stop = $exploded_line[2];
-			$evalue = $exploded_line[9];
-			$row = $db->query("SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
-			$row = $row->fetchArray();
-			if($row['Clan_acc_nb'] == ""){
-				$row['Clan_acc_nb'] = 'NA';
-				$row['Clan'] = 'NA';}
-			echo "<tr><td rowspan=".(count($line)+1)."><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";
+		foreach($all_data as $seq_id => $lines){
+			echo "<tr><td rowspan=".(count($lines)+1)."><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";
 			$i = 0;
-			foreach($domains as $domain_id){
+			foreach($lines as $line){
+				$exploded_line = explode("\t", $line);
+				$domain_id = $exploded_line[4];
+				$start = $exploded_line[1];
+				$stop = $exploded_line[2];
+				$evalue = $exploded_line[9];
+				$row = $db->query("SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
+				$row = $row->fetchArray();
+				if($row['Clan_acc_nb'] == ""){
+					$row['Clan_acc_nb'] = 'NA';
+					$row['Clan'] = 'NA';}
 				$link_id = "http://pfam.xfam.org/family/" . $domain_id;
 				echo "<tr><td><a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a></td>";
 				echo "<td>".$row['Clan']."</td>";
@@ -186,7 +186,7 @@ include("./includes/header.php");
 				echo "<td>".$stop."</td>";
 				echo "<td>".$evalue."</td>";
 				if($i==0){
-					echo "</td><td rowspan=".count($line).">".count(array_unique($domains))."</td></tr>";
+					echo "</td><td rowspan=".count($lines).">".count(array_unique($data[$seq_id]))."</td></tr>";
 					$i++;}
 			echo "</tr>";}
 			;}}

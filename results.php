@@ -145,7 +145,6 @@ include("./includes/header.php");
 				echo "<option value='".$seq_id."'>".$seq_id."</option>";
 			}
 			echo "</select></th>";
-			echo "<th></th>";
 			echo "<th class='table_header'>";
 			echo "<select id='domain-filter'>";
 			echo "<option value=''>All</option>";
@@ -153,7 +152,8 @@ include("./includes/header.php");
 				if($domain != ""){
 				echo "<option value='".$domain."'>".$domain."</option>";}
 			}
-			echo "</select></th>";
+			echo "</select></th>
+			echo "<th></th>";";
 			?>
 			<th class='table_header'><input id='max' type='text' placeholder='E-value max'/></th>
 			</tr>

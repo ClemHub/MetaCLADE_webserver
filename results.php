@@ -161,7 +161,7 @@ include("./includes/header.php");
 		</tfoot>
 		<tbody>
 		<?php
-	if($form == 'small' || 'small_example'){
+	if($form == 'small' || $form=='small_example'){
 		foreach($data as $seq_id => $domains){
 			echo "<tr><td><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";
 			echo "<td>";

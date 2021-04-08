@@ -570,3 +570,10 @@ textarea:focus{
 
 input[type=text]{
 	margin-bottom: 15px;}
+/* Added by Francesco OTERI ( FO)*/
+span.logocharacter{
+	display: inline-block;
+	width: 13.5px;
+}
+
+

@@ -59,6 +59,13 @@
 			$row = $db->query("SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
 			$row = $row->fetchArray();
 			$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
+			if($row['Clan_acc_nb'] == ""){
+				$row['Clan_acc_nb'] = 'NA';
+				$row['Clan'] = 'NA';}
+			if(trim($exploded_line[12]) == 'unavailable'){
+				$model_species = 'HMMer-3 model';}
+			else{
+				$model_species = trim($exploded_line[12]);}
 			while($data = $request->fetchArray()){
 				array_push($go_terms_names, $data['GO_term']);
 				if(array_key_exists($pfam, $go_terms)){
@@ -70,13 +77,7 @@
 			$scaled_start = ($start*100)/$length - (100/$length);
 			$scaled_stop = ($stop*100)/$length;
 			$color = "rgb(".rand(150,200).",".rand(150,200).",".rand(150,200).")";
-			if($row['Clan_acc_nb'] == ""){
-				$row['Clan_acc_nb'] = 'NA';
-				$row['Clan'] = 'NA';}
-			if(trim($exploded_line[12]) == 'unavailable'){
-				$model_species = 'HMMer-3 model';}
-			else{
-				$model_species = trim($exploded_line[12]);}
+			
 			echo "<g><a xlink:href='http://pfam.xfam.org/family/".$pfam."' target='_blank'>";
 			//echo "<text class='rect_text' x='". $scaled_start ."%' y='30' style='font-size:15px; font-size-adjust: 0.5; fill:white; font-weight:bold; mix-blend-mode: exclusion;' >".$pfam."</text>";
 			echo "<rect class='domain_rect' x='".$scaled_start."%' y='10' width='". $width ."%' height='30' style=' fill:".$color."; fill-opacity:0.7; stroke-width:1; stroke:3'>";
@@ -153,7 +154,7 @@
 		echo "<select id='species-filter'>";
 		echo "<option value=''>All</option>";
 		foreach(array_unique($model_species_list) as $species){
-			echo "<option value='".$species."'>".$species."</option>";}
+			echo "<option value='".trim($species)."'>".trim($species)."</option>";}
 		echo "</select></th>";	
 		?>
 		<th class='table_header'><input id='e-value_max' type='text' placeholder='E-value max' style='max-width:140px'/></th>
@@ -174,7 +175,7 @@
 		if(substr($data[12], 0, -1) == 'unavailable'){
 			echo "<td class='species_name'>HMMer-3 model</td>";}
 		else{
-			echo "<td class='species_name'>" . $data[12]. "</td>";}
+			echo "<td class='species_name'>" . trim($data[12]). "</td>";}
 		echo "<td>".$data[9]."</td>";
 		echo "<td>" . $data[10]. "</td>";
 		echo "<td>" . $data[11]. "</td></tr>";}
@@ -398,7 +399,7 @@ $(document).ready(function() {
 	$('#family-filter').on('change', function(){
 		table.columns([1]).search(this.value).draw();});
 	$('#species-filter').on('change', function(){
-		table.columns([3]).search(this.value).draw();});
+		table.columns([4]).search(this.value).draw();});
 });
 
 $(document).ready(function() {

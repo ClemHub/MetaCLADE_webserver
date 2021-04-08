@@ -84,14 +84,13 @@ include("./includes/header.php");
 		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 		<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 		<script>
-		$.fn.dataTable.ext.search.push(
-			function(settings, data, dataIndex ) {
-				var max = Number($('#max').val()) || 1;
-				var e_value = Number(data[2]) || 0;
-				if ((isNaN(max)) || (e_value <= max)){
-					return true;}
-				return false;
-		});
+	$.fn.dataTable.ext.search.push(
+		function( settings, data, dataIndex ) {
+			var max = Number($('#e-value_max').val()) || 1;
+			var e_value = Number(data[2]) || 0;
+			if ((isNaN(max)) || (e_value <= max)){
+				return true;}
+			return false;});
 		
 
 		$(document).ready(function() {
@@ -115,7 +114,7 @@ include("./includes/header.php");
 						});
 				var val = [];
 				table.column(1).search(val.join(' ')).draw();}
-			$('#max').on( 'keyup change', function () {
+			$('#e-value_max').on( 'keyup change', function () {
             	table.draw();});
 			$('#seq-filter').on('change', function(){
 				table.search(this.value).draw();});
@@ -154,7 +153,7 @@ include("./includes/header.php");
 			}
 			echo "</select></th>";
 			?>
-			<th class='table_header'><input id='max' type='text' placeholder='E-value max'/></th>
+			<th class='table_header'><input id='e-value_max' type='text' placeholder='E-value max'/></th>
 			<th></th>
 			</tr>
 		</tfoot>

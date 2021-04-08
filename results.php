@@ -53,7 +53,7 @@ include("./includes/header.php");
 	$best_evalues = array();
 	$domain_list = array();
 	$seq_id_list = array();
-	$seq_id_count = array();
+	$domain_count = array();
 	$file_content = fopen($name_file, "r");
 	while(!feof($file_content)){
 		$line = fgets($file_content);
@@ -63,15 +63,17 @@ include("./includes/header.php");
 			$domain_id = $exploded_line[4];
 			array_push($domain_list, $domain_id);
 			if(array_key_exists($seq_id, $data)){
-				$seq_id_count[$seq_id]++;
 				array_push($data[$seq_id], $domain_id);
 				if($best_evalues[$seq_id]>$exploded_line[9]){
 					$best_evalues[$seq_id]=$exploded_line[9];}}
 			else if ($seq_id != ""){
 				array_push($seq_id_list, $seq_id);
-				$seq_id_count[$seq_id] = 1;
 				$best_evalues[$seq_id]=$exploded_line[9];
-				$data[$seq_id]=array($domain_id);}}};
+				$data[$seq_id]=array($domain_id);}
+			if(array_key_exists($domain_id, $domain_count)){
+				$domain_count[$domain_id]++;}
+			else{
+				$domain_count[$domain_id]=1;}}};
 	
 	echo "<br><a id = 'dl_link' href=".$dl_file." download=results.csv><i class='fa fa-download'></i>Download the CSV resulting file</a>";
 		?>
@@ -167,7 +169,7 @@ include("./includes/header.php");
 	?>
 	<div class='info'>
 	<div class = 'count_choice'>
-			Show hits counts:
+			Show synthesis:
 			<label for="yes_count">Yes</label><input type="radio" class='radio_btn' name="count" id="yes_count" value = "true" onclick='ShowHideCount()'/>
 			<label for="no_count">No</label><input type="radio" class='radio_btn' name="count" id="no_count" value = "false" onclick='ShowHideCount()' checked/>
 	</div>
@@ -178,19 +180,16 @@ include("./includes/header.php");
 	<table id='count_table'>
 	<thead>
 		<tr>
-			<th class='table_header'>Hits</th>
-			<th class='table_header'>Sequence</th>
+			<th class='table_header'>Domain ID</th>
+			<th class='table_header'>Occurrences</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<td>0</td>
-			<td><?php echo $nb_seq-count($seq_id_list);?></td>
-		</tr>
-		<tr>
-			<td>1+</td>
-			<td><?php echo count($seq_id_list);?></td>
-		</tr>
+		<?php 
+		foreach($domain_count as $id => $count){
+			echo "<tr><td>$id</td><td>$count</td></tr>"
+		}
+		?>
 	</tbody>
 	</table>
 	</div>

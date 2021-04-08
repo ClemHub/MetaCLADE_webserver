@@ -50,6 +50,7 @@ include("./includes/header.php");
 	<?php
 	}
 	$data = array();
+	$all_data = array();
 	$best_evalues = array();
 	$domain_list = array();
 	$seq_id_list = array();
@@ -64,6 +65,7 @@ include("./includes/header.php");
 			$domain_id = $exploded_line[4];
 			array_push($domain_list, $domain_id);
 			if(array_key_exists($seq_id, $data)){
+				array_push($all_data[$seq_id], $line);
 				array_push($data[$seq_id], $domain_id);
 				$seq_count[$seq_id]++;
 				if($best_evalues[$seq_id]>$exploded_line[9]){
@@ -72,6 +74,7 @@ include("./includes/header.php");
 				$seq_count[$seq_id] = 1;
 				array_push($seq_id_list, $seq_id);
 				$best_evalues[$seq_id]=$exploded_line[9];
+				$all_data[$seq_id]=array($line)
 				$data[$seq_id]=array($domain_id);}
 			if(array_key_exists($domain_id, $domain_count)){
 				$domain_count[$domain_id]++;}
@@ -126,17 +129,21 @@ include("./includes/header.php");
 		
 		<div class='table_container'>
 		<table id = 'result'>
-		<thead id='header'>
-			<tr>
-			<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span> Sequence ID</th>
-			<th class='table_header'>Domain Id</th>
-			<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>After comparing every annotated Pfam domains E-value for each sequences.</span></span> Best e-value </th>
-			<th class='table_header'>Number of different domain</th>
-			</tr>
-		</thead>
-		<tfoot>
-			<tr>
-			<?php
+		<?php
+	if($form == 'small' || $form=='small_example'){
+		echo "<thead id='header'>";
+			echo "<tr>";
+			echo "<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span> Sequence ID</th>";
+			echo "<th class='table_header'>Domain Id</th>";
+			echo "<th class='table_header'>Family</th>";
+			echo "<th class='table_header'>Start</th>";
+			echo "<th class='table_header'>Stop</th>";
+			echo "<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>After comparing every annotated Pfam domains E-value for each sequences.</span></span> Best e-value </th>";
+			echo "<th class='table_header'>Number of different domain</th>";
+			echo "</tr>";
+            echo "</thead>";
+            echo "<tfoot>";
+            echo "<tr>";
 			echo "<th class='table_header'>";
 			echo "<select id='seq-filter'>";
 			echo "<option value=''>All</option>";
@@ -152,27 +159,68 @@ include("./includes/header.php");
 				echo "<option value='".$domain."'>".$domain."</option>";}
 			}
 			echo "</select></th>";
-			?>
-			<th class='table_header'><input id='e-value_max' type='text' placeholder='E-value max'/></th>
-			<th></th>
-			</tr>
-		</tfoot>
-		<tbody>
-		<?php
-	if($form == 'small' || $form=='small_example'){
-		foreach($data as $seq_id => $domains){
-			echo "<tr><td rowspan=".(count($domains)+1)."><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";
+			echo "<th class='table_header'><input id='e-value_max' type='text' placeholder='E-value max'/></th>";
+			echo "<th></th>";
+			echo "</tr>";
+            echo "</tfoot>";
+		echo "<tbody>";
+		$db = new SQLite3($approot.'/data/MetaCLADE.db');
+		foreach($all_data as $seq_id => $line){
+			$exploded_line = explode("\t", $line);
+			$domain_id = $exploded_line[4]
+			$start = $exploded_line[1];
+			$stop = $exploded_line[2];
+			$evalue = $exploded_line[9];
+			$row = $db->query("SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
+			$row = $row->fetchArray();
+			if($row['Clan_acc_nb'] == ""){
+				$row['Clan_acc_nb'] = 'NA';
+				$row['Clan'] = 'NA';}
+			echo "<tr><td rowspan=".(count($line)+1)."><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";
 			$i = 0;
 			foreach($domains as $domain_id){
 				$link_id = "http://pfam.xfam.org/family/" . $domain_id;
 				echo "<tr><td><a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a></td>";
-				echo "<td>".$best_evalues[$seq_id]."</td>";
+				echo "<td>".$row['Clan']."</td>";
+				echo "<td>".$start."</td>";
+				echo "<td>".$stop."</td>";
+				echo "<td>".$evalue."</td>";
 				if($i==0){
-					echo "</td><td rowspan=".count($domains).">".count(array_unique($domains))."</td></tr>";
+					echo "</td><td rowspan=".count($line).">".count(array_unique($domains))."</td></tr>";
 					$i++;}
 			echo "</tr>";}
 			;}}
 	else{
+		echo "<thead id='header'>";
+			echo "<tr>";
+			echo "<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span> Sequence ID</th>";
+			echo "<th class='table_header'>Domain Id</th>";
+			echo "<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>After comparing every annotated Pfam domains E-value for each sequences.</span></span> Best e-value </th>";
+			echo "<th class='table_header'>Number of different domain</th>";
+			echo "</tr>";
+            echo "</thead>";
+            echo "<tfoot>";
+            echo "<tr>";
+			echo "<th class='table_header'>";
+			echo "<select id='seq-filter'>";
+			echo "<option value=''>All</option>";
+			foreach($seq_id_list as $seq_id){
+				echo "<option value='".$seq_id."'>".$seq_id."</option>";
+			}
+			echo "</select></th>";
+			echo "<th class='table_header'>";
+			echo "<select id='domain-filter'>";
+			echo "<option value=''>All</option>";
+			foreach(array_unique($domain_list) as $domain){
+				if($domain != ""){
+				echo "<option value='".$domain."'>".$domain."</option>";}
+			}
+			echo "</select></th>";
+			echo "<th class='table_header'><input id='e-value_max' type='text' placeholder='E-value max'/></th>";
+			echo "<th></th>";
+			echo "</tr>";
+            echo "</tfoot>";
+		echo "<tbody>";
 		foreach($data as $seq_id => $domains){
 			echo "<tr><td><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";
 			echo "<td>";

@@ -166,9 +166,8 @@ include("./includes/header.php");
 		echo "<tbody>";
 		$db = new SQLite3($approot.'/data/MetaCLADE.db');
 		foreach($all_data as $seq_id => $lines){
-			echo "<tr><td rowspan=".(count($lines))."><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";
-			$i = 0;
 			foreach($lines as $line){
+				echo "<tr><td><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";
 				$exploded_line = explode("\t", $line);
 				$domain_id = $exploded_line[4];
 				$start = $exploded_line[1];
@@ -180,17 +179,12 @@ include("./includes/header.php");
 					$row['Clan_acc_nb'] = 'NA';
 					$row['Clan'] = 'NA';}
 				$link_id = "http://pfam.xfam.org/family/" . $domain_id;
-				if($i>0){
-					echo "<tr>";}
 				echo "<td><a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a></td>";
 				echo "<td>".$row['Clan']."</td>";
 				echo "<td>".$start."</td>";
 				echo "<td>".$stop."</td>";
 				echo "<td>".$evalue."</td>";
-				if($i==0){
-					echo "</td><td rowspan=".count($lines).">".count(array_unique($data[$seq_id]))."</td></tr>";
-					$i++;}
-				else{echo "</tr>";}
+				echo "</td><td>".count(array_unique($data[$seq_id]))."</td></tr>";
 			echo "</tr>";}
 			;}}
 	else{

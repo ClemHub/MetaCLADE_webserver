@@ -74,7 +74,7 @@ include("./includes/header.php");
 				$seq_count[$seq_id] = 1;
 				array_push($seq_id_list, $seq_id);
 				$best_evalues[$seq_id]=$exploded_line[9];
-				$all_data[$seq_id]=array($line)
+				$all_data[$seq_id]=array($line);
 				$data[$seq_id]=array($domain_id);}
 			if(array_key_exists($domain_id, $domain_count)){
 				$domain_count[$domain_id]++;}

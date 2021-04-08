@@ -107,10 +107,8 @@ footer {
 .logo-responsive {
 	height: 200px;
 	overflow-x: scroll;
-	margin-left: 6%;
-	margin-right: 6%;
 	margin-top: 15px;
-	margin-bottom:auto;}
+	margin-bottom: auto;}
 
 .btn{
 	font-size: 20px;

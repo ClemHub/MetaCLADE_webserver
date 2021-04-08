@@ -180,7 +180,9 @@ include("./includes/header.php");
 					$row['Clan_acc_nb'] = 'NA';
 					$row['Clan'] = 'NA';}
 				$link_id = "http://pfam.xfam.org/family/" . $domain_id;
-				echo "<tr><td><a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a></td>";
+				if($i>0){
+					echo "<tr>";}
+				echo "<td><a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a></td>";
 				echo "<td>".$row['Clan']."</td>";
 				echo "<td>".$start."</td>";
 				echo "<td>".$stop."</td>";

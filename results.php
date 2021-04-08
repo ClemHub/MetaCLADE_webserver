@@ -131,6 +131,7 @@ include("./includes/header.php");
 			<tr>
 			<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span> Sequence ID</th>
 			<th class='table_header'>Domain Id</th>
+			<th class='table_header'>Number of different domain</th>
 			<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>After comparing every annotated Pfam domains E-value for each sequences.</span></span> Best e-value </th>
 			</tr>
 		</thead>
@@ -154,6 +155,7 @@ include("./includes/header.php");
 			}
 			echo "</select></th>";
 			?>
+			<th></th>
 			<th class='table_header'><input id='max' type='text' placeholder='E-value max'/></th>
 			</tr>
 		</tfoot>
@@ -166,6 +168,7 @@ include("./includes/header.php");
 		foreach($domains as $domain_id){
 			$link_id = "http://pfam.xfam.org/family/" . $domain_id;
 			echo "<a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a>";}
+		echo "</td><td>".count(array_unique($data[$seq_id])."</td>";
 		echo "</td><td>".$best_evalues[$seq_id]."</td></tr>";}
 	echo "</tbody></table>";	
 	echo "</div>";

@@ -85,7 +85,7 @@ include("./includes/header.php");
 		<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 		<script>
 		$.fn.dataTable.ext.search.push(
-			function( settings, data, dataIndex ) {
+			function(settings, data, dataIndex ) {
 				var max = Number($('#max').val()) || 1;
 				var e_value = Number(data[2]) || 0;
 				if ((isNaN(max)) || (e_value <= max)){

@@ -152,8 +152,8 @@ include("./includes/header.php");
 				if($domain != ""){
 				echo "<option value='".$domain."'>".$domain."</option>";}
 			}
-			echo "</select></th>
-			echo "<th></th>";";
+			echo "</select></th>";
+			echo "<th></th>";
 			?>
 			<th class='table_header'><input id='max' type='text' placeholder='E-value max'/></th>
 			</tr>

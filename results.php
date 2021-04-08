@@ -205,7 +205,7 @@ include("./includes/header.php");
 			echo "<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span> Sequence ID</th>";
 			echo "<th class='table_header'>Domain Id</th>";
 			echo "<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>After comparing every annotated Pfam domains E-value for each sequences.</span></span> Best e-value </th>";
-			echo "<th class='table_header'>Number of different domain</th>";
+			echo "<th class='table_header'>Number of hits</th>";
 			echo "</tr>";
             echo "</thead>";
             echo "<tfoot>";

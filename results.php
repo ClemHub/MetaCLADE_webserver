@@ -214,8 +214,8 @@ include("./includes/header.php");
 	<div class='info'>
 	<div class = 'seqcount_choice'>
 			Show domains synthesis:
-			<label for="yes_seqcount">Yes</label><input type="radio" class='radio_btn' name="count" id="yes_seqcount" value = "true" onclick='ShowHideDomCount()'/>
-			<label for="no_seqcount">No</label><input type="radio" class='radio_btn' name="count" id="no_seqcount" value = "false" onclick='ShowHideDomCount()' checked/>
+			<label for="yes_seqcount">Yes</label><input type="radio" class='radio_btn' name="count" id="yes_seqcount" value = "true" onclick='ShowHideSeqCount()'/>
+			<label for="no_seqcount">No</label><input type="radio" class='radio_btn' name="count" id="no_seqcount" value = "false" onclick='ShowHideSeqCount()' checked/>
 	</div>
 	<div class='table_container' id='seqcount_container'>
 	</br>

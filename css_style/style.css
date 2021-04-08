@@ -370,7 +370,10 @@ div.info div.contenu_info {
 #logo_container{
 	display: none;}
 
-#count_container{
+#domcount_container{
+	display: none;}
+
+#seqcount_container{
 	display: none;}
 
 #dl_link {

@@ -171,10 +171,10 @@ include("./includes/header.php");
 	echo "</div>";
 	?>
 	<div class='info'>
-	<div class = 'count_choice'>
+	<div class = 'domcount_choice'>
 			Show domains synthesis:
-			<label for="yes_domcount">Yes</label><input type="radio" class='radio_btn' name="count" id="yes_domcount" value = "true" onclick='ShowHideDomCount()'/>
-			<label for="no_domcount">No</label><input type="radio" class='radio_btn' name="count" id="no_domcount" value = "false" onclick='ShowHideDomCount()' checked/>
+			<label for="yes_domcount">Yes</label><input type="radio" class='radio_btn' name="domcount" id="yes_domcount" value = "true" onclick='ShowHideDomCount()'/>
+			<label for="no_domcount">No</label><input type="radio" class='radio_btn' name="domcount" id="no_domcount" value = "false" onclick='ShowHideDomCount()' checked/>
 	</div>
 	<div class='table_container' id='domcount_container'>
 	</br>
@@ -214,8 +214,8 @@ include("./includes/header.php");
 	<div class='info'>
 	<div class = 'seqcount_choice'>
 			Show domains synthesis:
-			<label for="yes_seqcount">Yes</label><input type="radio" class='radio_btn' name="count" id="yes_seqcount" value = "true" onclick='ShowHideSeqCount()'/>
-			<label for="no_seqcount">No</label><input type="radio" class='radio_btn' name="count" id="no_seqcount" value = "false" onclick='ShowHideSeqCount()' checked/>
+			<label for="yes_seqcount">Yes</label><input type="radio" class='radio_btn' name="seqcount" id="yes_seqcount" value = "true" onclick='ShowHideSeqCount()'/>
+			<label for="no_seqcount">No</label><input type="radio" class='radio_btn' name="seqcount" id="no_seqcount" value = "false" onclick='ShowHideSeqCount()' checked/>
 	</div>
 	<div class='table_container' id='seqcount_container'>
 	</br>

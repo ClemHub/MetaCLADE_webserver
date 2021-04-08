@@ -322,22 +322,14 @@
 	</tfoot>
 
 	<tbody>
-	<tr>
-	<td> PFXXXX1 </td>
-	<td> 7 </td>
-	<td> 55 </td>
 	<?php
-	echo "<td><img id='LCQB-logo' class='logo-responsive' src='".$appurl."/server_images/logo_image.png' alt='' style='height: 50%; '></td>";
+	foreach($pfam_list as $data){
+		$link_id = 'http://pfam.xfam.org/family/' . $data[4];
+        echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data[4]."</a></td>";
+		echo "<td>" . $data[6] . "</td>";
+		echo "<td>" . $data[7] . "</td>";
+		echo "<td><img id='LCQB-logo' class='logo-responsive' src='".$appurl."/server_images/logo_image.png' alt='' style='height: 50%; '></td></tr>";}
 	?>
-	</tr>
-	<tr>
-	<td> PFXXXX2 </td>
-	<td> 5 </td>
-	<td> 68 </td>
-	<?php
-	echo "<td><img id='LCQB-logo' class='logo-responsive' src='".$appurl."/server_images/logo_image.png' alt='' style='height: 50%; '></td>";
-	?>
-	</tr>
 	</tbody>
 	</table>
 	</div>

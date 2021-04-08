@@ -186,7 +186,6 @@ include("./includes/header.php");
 	</thead>
 	<tfoot>
 		<tr>
-		<th class='table_header'></th>
 		<?php
 		echo "<th class='table_header'>";
 		echo "<select id='domain-filter'>";
@@ -197,6 +196,7 @@ include("./includes/header.php");
 		}
 		echo "</select></th>";
 		?>
+		<th class='table_header'></th>
 		</tr>
 	</tfoot>
 	<tbody>

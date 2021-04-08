@@ -221,7 +221,7 @@ include("./includes/header.php");
 	</br>
 	Number of hits for each sequences given in input.</br>
 	<?php 
-	echo $nb_seq." sequences was given in input: ".$nb_seq-count($seq_id_list)." of them have found no hit and ".count($seq_id_list)." sequences have at least one hit.";
+	echo $nb_seq." sequences was given in input: ".$nb_seq-count($seq_id_list)."</br> of them have found no hit and ".count($seq_id_list)." sequences have at least one hit.";
 	?>
 	</br>
 	<table id='seqcount_table'>

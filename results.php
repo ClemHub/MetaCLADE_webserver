@@ -213,7 +213,7 @@ include("./includes/header.php");
 	</div>
 	<div class='info'>
 	<div class = 'seqcount_choice'>
-			Show sequence synthesis:
+			Show sequences synthesis:
 			<label for="yes_seqcount">Yes</label><input type="radio" class='radio_btn' name="seqcount" id="yes_seqcount" value = "true" onclick='ShowHideSeqCount()'/>
 			<label for="no_seqcount">No</label><input type="radio" class='radio_btn' name="seqcount" id="no_seqcount" value = "false" onclick='ShowHideSeqCount()' checked/>
 	</div>

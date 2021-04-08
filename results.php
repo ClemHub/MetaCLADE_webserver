@@ -131,8 +131,8 @@ include("./includes/header.php");
 			<tr>
 			<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span> Sequence ID</th>
 			<th class='table_header'>Domain Id</th>
-			<th class='table_header'>Number of different domain</th>
 			<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>After comparing every annotated Pfam domains E-value for each sequences.</span></span> Best e-value </th>
+			<th class='table_header'>Number of different domain</th>
 			</tr>
 		</thead>
 		<tfoot>
@@ -163,13 +163,12 @@ include("./includes/header.php");
 		<?php
 	if($form == 'small' || $form=='small_example'){
 		foreach($data as $seq_id => $domains){
-			echo "<tr><td><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";
-			echo "<td>";
+			echo "<tr><td rowspan="count($domains)"><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";
 			foreach($domains as $domain_id){
 				$link_id = "http://pfam.xfam.org/family/" . $domain_id;
-				echo "<a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a>";}
-			echo "</td><td>".count(array_unique($domains))."</td>";
-			echo "</td><td>".$best_evalues[$seq_id]."</td></tr>";}}
+				echo "<td><a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a></td>";}
+			echo "<td>".$best_evalues[$seq_id]."</td>";
+			echo "</td><td rowspan="count($domains)">".count(array_unique($domains))."</td></tr>";}}
 	else{
 		foreach($data as $seq_id => $domains){
 			echo "<tr><td><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";
@@ -177,8 +176,8 @@ include("./includes/header.php");
 			foreach($domains as $domain_id){
 				$link_id = "http://pfam.xfam.org/family/" . $domain_id;
 				echo "<a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a>";}
-			echo "</td><td>".count(array_unique($domains))."</td>";
-			echo "</td><td>".$best_evalues[$seq_id]."</td></tr>";}}
+			echo "</td><td>".$best_evalues[$seq_id]."</td>";
+			echo "</td><td>".count(array_unique($domains))."</td></tr>";}}
 	echo "</tbody></table>";	
 	echo "</div>";
 	?>

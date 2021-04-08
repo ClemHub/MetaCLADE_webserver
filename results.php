@@ -197,7 +197,6 @@ include("./includes/header.php");
 		}
 		echo "</select></th>";
 		?>
-		<th class='table_header'></th>
 		</tr>
 	</tfoot>
 	<tbody>

@@ -122,7 +122,7 @@ include("./includes/header.php");
 		<?php
 
 	if($form == 'small' || $form = "small_example" || $form == 'clan' || $form == 'clan_example'){
-		foreach($data as $seq_id => $domains){
+		/*foreach($data as $seq_id => $domains){
 			echo "<tr><td rowspan="count($domains)"><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";
 			echo "<td>";
 			foreach($domains as $domain_id){
@@ -131,7 +131,8 @@ include("./includes/header.php");
 			echo "</td><td>".count(array_unique($domains))."</td>";
 			echo "</td><td>".$best_evalues[$seq_id]."</td></tr>";}
 		echo "</tbody></table>";	
-		echo "</div>";
+		echo "</div>";*/
+		echo 'here';
 	}
 	else{
 		foreach($data as $seq_id => $domains){

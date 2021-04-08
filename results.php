@@ -83,48 +83,7 @@ include("./includes/header.php");
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
 		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 		<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-		<script>
-		$.fn.dataTable.ext.search.push(
-			function( settings, data, dataIndex ) {
-				var max = Number($('#max').val()) || 1;
-				var e_value = Number(data[2]) || 0;
-				if ((isNaN(max)) || (e_value <= max)){
-					return true;}
-				return false;
-		});
-		
 
-		$(document).ready(function() {
-			var form = '<?php echo $form ?>';
-			if(form == 'small' || form == 'small_example'){
-				var table = $('#result').DataTable( {
-					dom: 'lrtip',
-					"pageLength": 10,
-					"order": [[ 2, "desc" ]],
-					"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
-						});}
-			else{
-				var table = $('#result').DataTable( {
-					dom: 'flrtip',
-					"pageLength": 10,
-					"order": [[ 2, "desc" ]],
-					"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
-					"language": {
-							"search": "<span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>List the Pfam domain you want to see. Separate them with a white-space.</span></span> PFAM list:",
-							"searchPlaceholder": "PF00001 PF00003 PF00156"},
-						});
-				var val = [];
-				table.column(1).search(val.join(' ')).draw();}
-			$('#max').on( 'keyup change', function () {
-            	table.draw();});
-			$('#seq-filter').on('change', function(){
-				table.search(this.value).draw();});
-			$('#domain-filter').on('keyup change', function(){
-				table.search(this.value, regex=true).draw()});
-
-		});
-		</script>
-		
 		<div class='table_container'>
 		<table id = 'result'>
 		<thead id='header'>
@@ -162,16 +121,29 @@ include("./includes/header.php");
 		<tbody>
 		<?php
 
-	foreach($data as $seq_id => $domains){
-		echo "<tr><td><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";
-		echo "<td>";
-		foreach($domains as $domain_id){
-			$link_id = "http://pfam.xfam.org/family/" . $domain_id;
-			echo "<a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a>";}
-		echo "</td><td>".count(array_unique($domains))."</td>";
-		echo "</td><td>".$best_evalues[$seq_id]."</td></tr>";}
-	echo "</tbody></table>";	
-	echo "</div>";
+	if($form == 'small' || $form = "small_example" || $form == 'clan' || $form == 'clan_example'){
+		foreach($data as $seq_id => $domains){
+			echo "<tr><td rowspan="count($domains)"><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";
+			echo "<td>";
+			foreach($domains as $domain_id){
+				$link_id = "http://pfam.xfam.org/family/" . $domain_id;
+				echo "<td><a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a></td";}
+			echo "</td><td>".count(array_unique($domains))."</td>";
+			echo "</td><td>".$best_evalues[$seq_id]."</td></tr>";}
+		echo "</tbody></table>";	
+		echo "</div>";
+	}
+	else{
+		foreach($data as $seq_id => $domains){
+			echo "<tr><td><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";
+			echo "<td>";
+			foreach($domains as $domain_id){
+				$link_id = "http://pfam.xfam.org/family/" . $domain_id;
+				echo "<a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a>";}
+			echo "</td><td>".count(array_unique($domains))."</td>";
+			echo "</td><td>".$best_evalues[$seq_id]."</td></tr>";}
+		echo "</tbody></table>";	
+		echo "</div>";}
 	?>
 	
 	<div class='info'>
@@ -243,6 +215,46 @@ include("./includes/header.php");
 <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script>
+
+$.fn.dataTable.ext.search.push(
+	function( settings, data, dataIndex ) {
+		var max = Number($('#max').val()) || 1;
+		var e_value = Number(data[2]) || 0;
+		if ((isNaN(max)) || (e_value <= max)){
+			return true;}
+		return false;
+});
+
+
+$(document).ready(function() {
+	var form = '<?php echo $form ?>';
+	if(form == 'small' || form == 'small_example'){
+		var table = $('#result').DataTable( {
+			dom: 'lrtip',
+			"pageLength": 10,
+			"order": [[ 2, "desc" ]],
+			"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
+				});}
+	else{
+		var table = $('#result').DataTable( {
+			dom: 'flrtip',
+			"pageLength": 10,
+			"order": [[ 2, "desc" ]],
+			"lengthMenu": [ [5, 10, 20, 50, -1], [5, 10, 20, 50, "All"] ],
+			"language": {
+					"search": "<span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>List the Pfam domain you want to see. Separate them with a white-space.</span></span> PFAM list:",
+					"searchPlaceholder": "PF00001 PF00003 PF00156"},
+				});
+		var val = [];
+		table.column(1).search(val.join(' ')).draw();}
+	$('#max').on( 'keyup change', function () {
+		table.draw();});
+	$('#seq-filter').on('change', function(){
+		table.search(this.value).draw();});
+	$('#domain-filter').on('keyup change', function(){
+		table.search(this.value, regex=true).draw()});
+
+});
 
 $(document).ready(function() {
 	var table = $('#domcount_table').DataTable();

@@ -157,10 +157,10 @@ include("./includes/header.php");
 		<tbody>
 		<?php
 
-	foreach($data as $seq_id => $domain_list){
+	foreach($data as $seq_id => $domains){
 		echo "<tr><td><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";
 		echo "<td>";
-		foreach($domain_list as $domain_id){
+		foreach($domains as $domain_id){
 			$link_id = "http://pfam.xfam.org/family/" . $domain_id;
 			echo "<a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a>";}
 		echo "</td><td>".$best_evalues[$seq_id]."</td></tr>";}

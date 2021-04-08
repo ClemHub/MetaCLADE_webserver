@@ -213,13 +213,14 @@ include("./includes/header.php");
 	</div>
 	<div class='info'>
 	<div class = 'seqcount_choice'>
-			Show domains synthesis:
+			Show sequence synthesis:
 			<label for="yes_seqcount">Yes</label><input type="radio" class='radio_btn' name="seqcount" id="yes_seqcount" value = "true" onclick='ShowHideSeqCount()'/>
 			<label for="no_seqcount">No</label><input type="radio" class='radio_btn' name="seqcount" id="no_seqcount" value = "false" onclick='ShowHideSeqCount()' checked/>
 	</div>
 	<div class='table_container' id='seqcount_container'>
 	</br>
-	Number of hits for each sequences given in input.
+	Number of hits for each sequences given in input.</br>
+	<?php echo $nb_seq." sequences was given in input: ".$nb_seq-count($seq_id_list)." of them have found no hit and ".count($seq_id_list)." sequences have at least one hit.";?>
 	</br>
 	<table id='seqcount_table'>
 	<thead>

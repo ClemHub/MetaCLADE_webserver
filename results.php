@@ -196,7 +196,7 @@ include("./includes/header.php");
 				echo "<td>".$start."</td>";
 				echo "<td>".$stop."</td>";
 				echo "<td>".$evalue."</td>";
-				echo "</td><td>".count(array_unique($data[$seq_id]))."</td></tr>";
+				echo "</td><td>".count($data[$seq_id])."</td></tr>";
 			echo "</tr>";}
 			;}}
 	else{
@@ -237,7 +237,7 @@ include("./includes/header.php");
 				$link_id = "http://pfam.xfam.org/family/" . $domain_id;
 				echo "<a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a>";}
 			echo "</td><td>".$best_evalues[$seq_id]."</td>";
-			echo "</td><td>".count(array_unique($domains))."</td></tr>";}}
+			echo "</td><td>".count($domains)."</td></tr>";}}
 	echo "</tbody></table>";	
 	echo "</div>";
 	?>
@@ -255,37 +255,6 @@ include("./includes/header.php");
 	echo "Sequences with no hit: ".($nb_seq-count($seq_id_list))."</br>"; 
 	echo "Sequences with at least one hit: ".count($seq_id_list)."</br>"; 
 	?>
-	</br>
-	Number of hits for each annotated sequences.</br>
-	<table id='seqcount_table'>
-	<thead>
-		<tr>
-			<th class='table_header'>Sequence ID</th>
-			<th class='table_header'>Occurrences</th>
-		</tr>
-	</thead>
-	<tfoot>
-		<tr>
-		<?php
-		echo "<th class='table_header'>";
-		echo "<select id='seq-filter2'>";
-		echo "<option value=''>All</option>";
-		foreach(array_unique($seq_id_list) as $seq){
-			if($seq != ""){
-			echo "<option value='".$seq."'>".$seq."</option>";}
-		}
-		echo "</select></th>";
-		?>
-		<th class='table_header'></th>
-		</tr>
-	</tfoot>
-	<tbody>
-		<?php 
-		foreach($seq_count as $id => $count){
-			echo "<tr><td>$id</td><td>$count</td></tr>";}
-		?>
-	</tbody>
-	</table>
 	</div>
 	</div>
 	</br>

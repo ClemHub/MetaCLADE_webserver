@@ -220,8 +220,10 @@ include("./includes/header.php");
 	<div class='table_container' id='seqcount_container'>
 	</br>
 	Number of hits for each sequences given in input.</br>
-	<?php 
-	echo $nb_seq." sequences was given in input: ".$nb_seq-count($seq_id_list)."</br> of them have found no hit and ".count($seq_id_list)." sequences have at least one hit.";
+	<?php
+	echo "Total number of input sequences: ".$nb_seq."</br>"; 
+	echo "Sequences with no hit: ".$nb_seq-count($seq_id_list."</br>"; 
+	echo "Sequences with at least one hit: ".count($seq_id_list."</br>"; 
 	?>
 	</br>
 	<table id='seqcount_table'>

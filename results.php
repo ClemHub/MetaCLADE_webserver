@@ -85,7 +85,7 @@ include("./includes/header.php");
 		<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 		<script>
 	$.fn.dataTable.ext.search.push(
-		function( settings, data, dataIndex ) {
+		function(settings, data, dataIndex ) {
 			var max = Number($('#e-value_max').val()) || 1;
 			var e_value = Number(data[2]) || 0;
 			if ((isNaN(max)) || (e_value <= max)){
@@ -164,7 +164,7 @@ include("./includes/header.php");
 			echo "<tr><td rowspan=".count($domains)."><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";
 			foreach($domains as $domain_id){
 				$link_id = "http://pfam.xfam.org/family/" . $domain_id;
-				echo "<td><a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a></td>";}
+				echo "<tr><td><a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a></td></tr>";}
 			echo "<td>".$best_evalues[$seq_id]."</td>";
 			echo "</td><td rowspan=".count($domains).">".count(array_unique($domains))."</td></tr>";}}
 	else{

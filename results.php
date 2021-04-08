@@ -188,7 +188,7 @@ include("./includes/header.php");
 		<tr>
 		<?php
 		echo "<th class='table_header'>";
-		echo "<select id='domain-filter'>";
+		echo "<select id='domain-filter2'>";
 		echo "<option value=''>All</option>";
 		foreach(array_unique($domain_list) as $domain){
 			if($domain != ""){
@@ -235,7 +235,7 @@ include("./includes/header.php");
 
 $(document).ready(function() {
 	var table = $('#count_table').DataTable();
-	$('#domain-filter').on('keyup change', function(){
+	$('#domain-filter2').on('keyup change', function(){
 				table.search(this.value, regex=true).draw()});
 });
 </script>

@@ -105,6 +105,8 @@ footer {
 	margin-bottom:auto;}
 
 .logo-responsive {
+	height: 200px;
+	overflow-y: scroll;
 	margin-left: 6%;
 	margin-right: 6%;
 	margin-top: 15px;

@@ -167,7 +167,7 @@ include("./includes/header.php");
 		$db = new SQLite3($approot.'/data/MetaCLADE.db');
 		foreach($all_data as $seq_id => $line){
 			$exploded_line = explode("\t", $line);
-			$domain_id = $exploded_line[4]
+			$domain_id = $exploded_line[4];
 			$start = $exploded_line[1];
 			$stop = $exploded_line[2];
 			$evalue = $exploded_line[9];

@@ -1,5 +1,4 @@
-<!DOCTYPE html><html lang='en'><head><meta charset='utf-8' /><meta name='viewport' content='width=device-width, initial-scale=1.0'> <link rel='stylesheet' type='text/css'  href='http://www.lcqb.upmc.fr/myclade/css_style/style.css'><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><script src='https://kit.fontawesome.com/a076d05399.js'></script><script src='http://code.jquery.com/jquery-1.10.2.js'></script><title>MyCLADE</title>
-</head><body><div id='container'><div id='header-menu'><header id='head'></header><div class='topnav' id='myTopnav'><a href='http://www.lcqb.upmc.fr/myclade/index.php' class = 'active'>Home</a><div class='dropdown'><button class='dropbtn'>Tools <i class='fa fa-caret-down'></i></button><div class='dropdown-content'><a href='http://www.lcqb.upmc.fr/myclade/small_annotation.php'>Few domains</a><a href='http://www.lcqb.upmc.fr/myclade/large_annotation.php'>All domains</a><a href='http://www.lcqb.upmc.fr/myclade/clan_annotation.php'>Clan</a><a href='http://www.lcqb.upmc.fr/myclade/visualization.php'>Visualization</a></div></div><div class='dropdown'><button class='dropbtn'>Help <i class='fa fa-caret-down'></i></button><div class='dropdown-content'><a href='http://www.lcqb.upmc.fr/myclade/help.php#input'>Input</a><a href='http://www.lcqb.upmc.fr/myclade/help.php#pipeline'>Pipeline</a><a href='http://www.lcqb.upmc.fr/myclade/help.php#output'>Output</a></div></div><a href='http://www.lcqb.upmc.fr/myclade/references.php'>References</a><a href='http://www.lcqb.upmc.fr/myclade/contact.php'>Contact</a><a href='javascript:void(0);' class='icon' onclick='nav_function()'>&#9776;</a></div></div>
+<?php include('./includes/header.php'); ?>
 	<section id ='help'>
 	<h2> Help </h2>
 
@@ -104,9 +103,4 @@
 	  </blockquote>
 	</section>
 
-	
-<footer><p id='footer_paragraph'> <span id='footer_text'> LCQB Lab - This website is free and open to all users. There is no 
-			login requirement. </span></p><a href='https://www.sorbonne-universite.fr/' target='_blank'><img id='UPMC-logo' class='img-responsive' src='http://www.lcqb.upmc.fr/myclade/server_images/Sorbonne-logo.png' alt='' style='height: 50%; '></a><a href='http://www.cnrs.fr' target='_blank'><img id='CNRS-logo' class='img-responsive' src='http://www.lcqb.upmc.fr/myclade/server_images/CNRS-logo.png' alt='' style='height: 50%; '></a><a href='http://www.lcqb.upmc.fr/' target='_blank'><img id='LCQB-logo' class='img-responsive' src='http://www.lcqb.upmc.fr/myclade/server_images/LCQB-logo.jpg' alt='' style='height: 50%; '></a><a href='http://iscd.sorbonne-universite.fr/' target='_blank'><img id='ISCD-logo' class='img-responsive' src='http://www.lcqb.upmc.fr/myclade/server_images/ISCD-logo.png' alt='' style='height: 50%; width: 250px'></a></footer>	<script src='http://www.lcqb.upmc.fr/myclade/includes/function.js'></script>
-</div>
-</body>
-</html>
+<?php include('./includes/footer.php'); ?>

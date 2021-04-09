@@ -77,19 +77,19 @@
 	    Below  
       the graphical scheme, the user can visit two tables reporting annotation details and GO-terms,  for each annotated domain: </p>
 	<blockquote>
-	  <p align="center">< <?php echo "src='".$appurl."/server_images/examples/amylase/Details-page-AMY1A-noDAMA.png'";?> alt="" width="856" height="453" border="1"></p>
+	  <p align="center"><img <?php echo "src='".$appurl."/server_images/examples/amylase/Details-page-AMY1A-noDAMA.png'";?> alt="" width="856" height="453" border="1"></p>
 	  </blockquote>
 	<p>For each input sequence, MyCLADE provides an interactive graphical representation of the domain architecture.</p>
 	<blockquote>
-	  <p align="center">< <?php echo "src='".$appurl."/server_images/help_images/Screen Shot 2021-04-09 at 08.58.48.png'";?> width="1009" height="113"></p>
+	  <p align="center"><img <?php echo "src='".$appurl."/server_images/help_images/Screen Shot 2021-04-09 at 08.58.48.png'";?> width="1009" height="113"></p>
 	  </blockquote>
 	<p>A presentation of the information on the annotated domain is available through an interactive display by hovering after the graphical representation of the domain. The size of the domain gets bigger in order to visualize correctly the domain length within the sequence  and display the full domain in case of an overlap.  The tooltip details the information associated to the annotation: Pfam family, initial and final position of the domain hit in the sequence, the species from which the probabilistic model used to annotate was generated, the E-value, the bit-score and the domain-dependent probability scores of the hit, the associated clan identifier and clan family. </p>
 	<blockquote>
-	  <p align="center">< <?php echo "src='".$appurl."/server_images/help_images/Screen Shot 2021-04-09 at 08.46.06.png'";?> width="403" height="227"></p>
+	  <p align="center"><img <?php echo "src='".$appurl."/server_images/help_images/Screen Shot 2021-04-09 at 08.46.06.png'";?> width="403" height="227"></p>
 	  </blockquote>
 	<p>Two tables collect all details on the annotation and associated GO-terms. Multiple links to Pfam and QuickGO databases are available for an easy retrieval of general domain and clan information. </p>
 	<blockquote>
-	  <p align="center">< <?php echo "src='".$appurl."/server_images/help_images/Screen Shot 2021-04-09 at 08.55.37.png'";?> width="1013" height="115"></p>
+	  <p align="center"><img <?php echo "src='".$appurl."/server_images/help_images/Screen Shot 2021-04-09 at 08.55.37.png'";?> width="1013" height="115"></p>
 	  </blockquote>
 	<p align="left"><strong>Annotations details</strong>: domain ID, Pfam family, domain start and end position, species from which the model is constructed, E-value, bitscore and domain dependent probability score.</p>
 	<blockquote>

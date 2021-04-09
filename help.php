@@ -57,7 +57,7 @@
       MyCLADE output is organised in two main pages: &quot;Results&quot; and &quot;Architecture&quot;. </p>
 	<p>&nbsp;</p>
 	<h4>The "Results" page</h4>
-	<p align="center"><img <?php echo "src='".$appurl."/server_images/help_images/Screen Shot 2021-04-09 at 09.13.57.png'";?> alt="" width="1001" height="238" border="1"></p>
+	<p align="center"><img <?php echo "src='".$appurl."/server_images/help_images/results_table.png'";?> alt="" width="1001" height="238" border="1"></p>
 	<p>For each sequence in the input dataset, the most reliable domain annotation is described in this table with four columns: </p>
 	<blockquote>
       <p> <strong>sequence ID</strong>: it links to a graphical representation of the architecture where relevant information on the domain hits  and the list of GO-terms associated to the domains is provided.</p>
@@ -81,19 +81,19 @@
 	  </blockquote>
 	<p>For each input sequence, MyCLADE provides an interactive graphical representation of the domain architecture.</p>
 	<blockquote>
-	  <p align="center"><img <?php echo "src='".$appurl."/server_images/help_images/Screen Shot 2021-04-09 at 08.58.48.png'";?> width="1009" height="113"></p>
+	  <p align="center"><img <?php echo "src='".$appurl."/server_images/help_images/domain_arch.png'";?> width="1009" height="113"></p>
 	  </blockquote>
 	<p>A presentation of the information on the annotated domain is available through an interactive display by hovering after the graphical representation of the domain. The size of the domain gets bigger in order to visualize correctly the domain length within the sequence  and display the full domain in case of an overlap.  The tooltip details the information associated to the annotation: Pfam family, initial and final position of the domain hit in the sequence, the species from which the probabilistic model used to annotate was generated, the E-value, the bit-score and the domain-dependent probability scores of the hit, the associated clan identifier and clan family. </p>
 	<blockquote>
-	  <p align="center"><img <?php echo "src='".$appurl."/server_images/help_images/Screen Shot 2021-04-09 at 08.46.06.png'";?> width="403" height="227"></p>
+	  <p align="center"><img <?php echo "src='".$appurl."/server_images/help_images/hovering_arch.png'";?> width="403" height="227"></p>
 	  </blockquote>
 	<p>Two tables collect all details on the annotation and associated GO-terms. Multiple links to Pfam and QuickGO databases are available for an easy retrieval of general domain and clan information. </p>
 	<blockquote>
-	  <p align="center"><img <?php echo "src='".$appurl."/server_images/help_images/Screen Shot 2021-04-09 at 08.55.37.png'";?> width="1013" height="115"></p>
+	  <p align="center"><img <?php echo "src='".$appurl."/server_images/help_images/pfam_links.png'";?> width="1013" height="115"></p>
 	  </blockquote>
 	<p align="left"><strong>Annotations details</strong>: domain ID, Pfam family, domain start and end position, species from which the model is constructed, E-value, bitscore and domain dependent probability score.</p>
 	<blockquote>
-	  <p align="center">< <?php echo "src='".$appurl."/server_images/help_images/Screen Shot 2021-04-09 at 08.55.55.png'";?> width="1005" height="93"></p>
+	  <p align="center"><img <?php echo "src='".$appurl."/server_images/help_images/goterms_table.png'";?> width="1005" height="93"></p>
 	  </blockquote>
 	<p><strong>GO-terms</strong>: domain ID, Pfam family, Pfam clan ID, Pfam clan family, GO-terms.</p>
 	<p>&nbsp;</p>

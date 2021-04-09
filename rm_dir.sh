@@ -1,4 +1,4 @@
 #!/bin/bash
 #
-day=$(date +%d%m%Y -d -2month)
-rm -rf /var/www/html/MetaCLADE_webserver/MyCLADE/jobs/*_$day
+day=$(date +%Y%m -d -2month)
+sudo rm -rf /var/www/html/MetaCLADE_webserver/jobs/*_$day**

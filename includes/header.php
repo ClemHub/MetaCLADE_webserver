@@ -47,6 +47,7 @@ echo "<head>";
 				echo "<a href='".$appurl."/help.php#output'>Output</a>";
 				echo "</div>";
 				echo "</div>";
+				echo "<a href='".$appurl."/examples.php'>Examples</a>";
 				echo "<a href='".$appurl."/references.php'>References</a>";
 				echo "<a href='".$appurl."/contact.php'>Contact</a>";
 				echo "<a href='javascript:void(0);' class='icon' onclick='nav_function()'>&#9776;</a>";

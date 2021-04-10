@@ -178,27 +178,33 @@ include("./includes/header.php");
 		echo "<tbody>";
 		$db = new SQLite3($approot.'/data/MetaCLADE.db');
 		foreach($all_data as $seq_id => $lines){
+			echo "<tr><td><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";
+			echo "<td>";
 			foreach($lines as $line){
-				echo "<tr><td><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";
+				$link_id = "http://pfam.xfam.org/family/" . $domain_id;
+				echo "<a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a>";
 				$exploded_line = explode("\t", $line);
 				$domain_id = $exploded_line[4];
 				$start = $exploded_line[1];
 				$stop = $exploded_line[2];
+				$nb_aa = ($stop-$start);
 				$evalue = $exploded_line[9];
+				$bitscore = $exploded_line[10];
+				$dd_prob = $exploded_line[11];
 				$row = $db->query("SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$domain_id."'");
 				$row = $row->fetchArray();
 				if($row['Clan_acc_nb'] == ""){
 					$row['Clan_acc_nb'] = 'NA';
 					$row['Clan'] = 'NA';}
+				if(trim($exploded_line[12]) == 'unavailable'){
+					$model_species = 'HMMer-3 model';}
+				else{
+					$model_species = trim($exploded_line[12]);}
+				$title_text = "PFAM Acc Number: ".$domain_id."\nFamily: ".$row['Family']."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nClan Acc Number: ".$row['Clan_acc_nb']."\nClan: ".$row['Clan']."\n\nModel species: ".$model_species."\n\nE-value: ".$evalue."\nbitscore: ".$bitscore."\nddProb: ".$dd_prob.";	
 				$link_id = "http://pfam.xfam.org/family/" . $domain_id;
-				echo "<td><a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a></td>";
-				echo "<td>".$row['Clan']."</td>";
-				echo "<td>".$start."</td>";
-				echo "<td>".$stop."</td>";
-				echo "<td>".$evalue."</td>";
-				echo "<td>".count($data[$seq_id])."</td></tr>";
-			echo "</tr>";}
-			;}}
+				echo "<a class = 'table_link' title=".$title_text." href=".$link_id." target='_blank'>  " . $domain_id . "  </a>";}
+				echo "</td><td>".$best_evalues[$seq_id]."</td>";
+				echo "</td><td>".count($domains)."</td></tr>";}}
 	else{
 		echo "<thead id='header'>";
 			echo "<tr>";

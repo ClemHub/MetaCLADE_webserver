@@ -1,16 +1,19 @@
 function validate_one_seq(seq){
 	var lines = seq.trim().split('\n');
-	name = lines[0];
+	var name = lines[0];
 	if(name[0] == '>'){
 		lines.splice(0, 1);}
 	else{
 		return name+" should start with a '>'.";}
 	seq = lines.join('').trim();
-	var chain = /^[ACDEFGHIKLMNPQRSTUVWY\s]+$/i.test(seq);
-	if(chain==true){
-		return true;}
+	if(seq == ''){
+		return "Your sequence "+ name +" misses its sequence.";}
 	else{
-		return "Your sequence "+ name +" contains elements that are not amino acids";}}
+		var chain = /^[ACDEFGHIKLMNPQRSTUVWY\s]+$/i.test(seq);
+		if(chain==true){
+			return true;}
+		else{
+			return "Your sequence "+ name +" contains elements that are not amino acids.";}}}
 
 function count_fastaseq(fasta){
 	var seq = fasta.split(/(?=\>)/);

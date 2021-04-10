@@ -144,9 +144,6 @@ include("./includes/header.php");
 			echo "<tr>";
 			echo "<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span> Sequence ID</th>";
 			echo "<th class='table_header'>Domain Id</th>";
-			echo "<th class='table_header'>Family</th>";
-			echo "<th class='table_header'>Start</th>";
-			echo "<th class='table_header'>Stop</th>";
 			echo "<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>After comparing every annotated Pfam domains E-value for each sequences.</span></span> Best e-value </th>";
 			echo "<th class='table_header'>Number of hits</th>";
 			echo "</tr>";
@@ -202,7 +199,7 @@ include("./includes/header.php");
 				$link_id = "http://pfam.xfam.org/family/" . $domain_id;
 				echo "<a class = 'table_link' title='".$title_text."' href=".$link_id." target='_blank'>  " . $domain_id . "  </a>";}
 				echo "</td><td>".$best_evalues[$seq_id]."</td>";
-				echo "</td><td>".count($domains)."</td></tr>";}}
+				echo "</td><td>".count($lines)."</td></tr>";}}
 	else{
 		echo "<thead id='header'>";
 			echo "<tr>";

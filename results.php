@@ -124,7 +124,6 @@ include("./includes/header.php");
 		<div class='table_container'>
 		<table id = 'result'>
 		<?php
-	if($form == 'small' || $form=='small_example'){
 		echo "<thead id='header'>";
 			echo "<tr>";
 			echo "<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span> Sequence ID</th>";
@@ -181,46 +180,8 @@ include("./includes/header.php");
 				$link_id = "http://pfam.xfam.org/family/" . $domain_id;
 				echo "<a class = 'table_link' title='".$title_text."' href=".$link_id." target='_blank'>  " . $domain_id . "  </a>";}
 				echo "</td><td>".$best_evalues[$seq_id]."</td>";
-				echo "</td><td>".count($lines)."</td></tr>";}}
-	else{
-		echo "<thead id='header'>";
-			echo "<tr>";
-			echo "<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Click on the sequence ID to see the architecture.</span></span> Sequence ID</th>";
-			echo "<th class='table_header'>Domain Id</th>";
-			echo "<th class='table_header'><span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>After comparing every annotated Pfam domains E-value for each sequences.</span></span> Best e-value </th>";
-			echo "<th class='table_header'>Number of hits</th>";
-			echo "</tr>";
-            echo "</thead>";
-            echo "<tfoot>";
-            echo "<tr>";
-			echo "<th class='table_header'>";
-			echo "<select id='seq-filter'>";
-			echo "<option value=''>All</option>";
-			foreach($seq_id_list as $seq_id){
-				echo "<option value='".$seq_id."'>".$seq_id."</option>";
-			}
-			echo "</select></th>";
-			echo "<th class='table_header'>";
-			echo "<select id='domain-filter'>";
-			echo "<option value=''>All</option>";
-			foreach(array_unique($domain_list) as $domain){
-				if($domain != ""){
-				echo "<option value='".$domain."'>".$domain."</option>";}
-			}
-			echo "</select></th>";
-			echo "<th class='table_header'><input id='e-value_max' type='text' placeholder='E-value max'/></th>";
-			echo "<th></th>";
-			echo "</tr>";
-            echo "</tfoot>";
-		echo "<tbody>";
-		foreach($data as $seq_id => $domains){
-			echo "<tr><td><a class='table_link' href='architecture.php?form=" . $form ."&job_id=" . $job_id . "&id=" . preg_replace("#[^a-zA-Z0-9]#", "", $seq_id)."'>" . $seq_id . "</a></td>";
-			echo "<td>";
-			foreach($domains as $domain_id){
-				$link_id = "http://pfam.xfam.org/family/" . $domain_id;
-				echo "<a class = 'table_link' href=".$link_id." target='_blank'>  " . $domain_id . "  </a>";}
-			echo "</td><td>".$best_evalues[$seq_id]."</td>";
-			echo "</td><td>".count($domains)."</td></tr>";}}
+				echo "</td><td>".count($lines)."</td></tr>";}
+
 	echo "</tbody></table>";	
 	echo "</div>";
 	?>

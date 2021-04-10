@@ -1,10 +1,10 @@
-function validate_one_seq(seq){
+function validate_one_seq(seq, nb_seq){
 	var lines = seq.trim().split('\n');
 	var name = lines[0];
 	if(name[0] == '>'){
 		lines.splice(0, 1);}
 	else{
-		return name+" should start with a '>'.";}
+		return "The "+nb_seq+" sequences should have an ID starting with a '>'.";}
 	seq = lines.join('').trim();
 	if(seq == ''){
 		return "Your sequence "+ name +" misses its sequence.";}
@@ -29,7 +29,7 @@ function validateFasta(fasta, max_seq){
 		nb_seq++
 		if(nb_seq<=max_seq){
 			if(seq[s]){
-				valid = validate_one_seq(seq[s])
+				valid = validate_one_seq(seq[s], nb_seq)
 				if(valid != true){
 					break}}}
 		else{
@@ -80,7 +80,7 @@ function visualization_form_submission(){
 	var valid = true;
 	var line_index = 0
 	if(file==""){
-		alert("\tPlease, enter:\n-An annotation file.");
+		alert("Please, enter:\n-An annotation file.");
 		valid = false;}
 	else{
 		var line = file.split('\n')
@@ -98,10 +98,10 @@ function large_form_submission(){
 	var seq =  document.large_annotation_form.sequences.value;
 	var msg_seq = validateFasta(seq, 3000);
 	if(seq==""){
-		alert("\tPlease, enter:\n-A set of sequences or browse a fasta file.");
+		alert("Please, enter:\n-A set of sequences or browse a fasta file.");
 		return false}
 	else if(seq != "" && msg_seq != true){
-		alert("\tPlease:\n-"+msg_seq);
+		alert("Please:\n-"+msg_seq);
 		return false}
 	else{
 		return true}}
@@ -112,22 +112,22 @@ function clan_form_submission(clan_list){
 	var n = clan_list.includes(clan);
 	var msg_seq = validateFasta(seq, 3000);
 	if(seq=="" && clan==""){
-		alert("\tPlease, enter:\n-A set of sequences or browse a fasta file\n-A Pfam clan.");
+		alert("Please, enter:\n-A set of sequences or browse a fasta file\n-A Pfam clan.");
 		return false}
 	else if(seq=="" && n){
-		alert("\tPlease, enter:\n-A set of sequences or browse a fasta file.");
+		alert("Please, enter:\n-A set of sequences or browse a fasta file.");
 		return false}
 	else if(seq=="" && !n){
-		alert("\tPlease, enter:\n-A valid Pfam clan\n-A set of sequences or browse a fasta file.");
+		alert("Please, enter:\n-A valid Pfam clan\n-A set of sequences or browse a fasta file.");
 		return false}
 	else if(seq != "" && msg_seq != true && !n){
-		alert("\tPlease, enter:\n-A valid Pfam clan\n-"+msg_seq);
+		alert("Please, enter:\n-A valid Pfam clan\n-"+msg_seq);
 		return false}
 	else if(seq != "" && msg_seq != true && n){
-		alert("\tPlease:\n-"+msg_seq);
+		alert("Please:\n-"+msg_seq);
 		return false}
 	else if(seq != "" && msg_seq == true && !n){
-		alert("\tPlease:\n-A valid Pfam clan");
+		alert("Please:\n-A valid Pfam clan");
 		return false}
 	else{
 		return true}}
@@ -139,31 +139,31 @@ function small_form_submission(){
 	var msg_seq = validateFasta(seq, 3000);
 	var valid = true;
 	if(seq=="" && pfam_domains==""){
-		alert("\tPlease, enter:\n-A set of sequences or browse a fasta file\n-A list of 10 Pfam domains maximum.");
+		alert("Please, enter:\n-A set of sequences or browse a fasta file\n-A list of 10 Pfam domains maximum.");
 		valid = false;}
 	else if (seq!="" && pfam_domains==""){
 		if(msg_seq != true){
-			alert("\tPlease:\n-Enter a list of Pfam domains and do not enter more than 10 domains\n-"+msg_seq);
+			alert("Please:\n-Enter a list of Pfam domains and do not enter more than 10 domains\n-"+msg_seq);
 			valid = false;}
 		else{
-			alert("\tPlease:\n-Enter a list of Pfam domains and do not enter more than 10 domains");
+			alert("Please:\n-Enter a list of Pfam domains and do not enter more than 10 domains");
 			valid = false;}}
 	else if(seq=="" && pfam_domains!=""){
 		if(msg_pfam != true){
-			alert("\tPlease:\n-Enter a set of sequences or browse a fasta file\n-"+msg_pfam);
+			alert("Please:\n-Enter a set of sequences or browse a fasta file\n-"+msg_pfam);
 			valid = false;}
 		else{
-			alert("\tPlease, enter:\n-A set of sequences or browse a fasta file.");
+			alert("Please, enter:\n-A set of sequences or browse a fasta file.");
 			valid = false;}}
 	else if(seq !="" && pfam_domains!=""){
 		if(msg_seq != true && msg_pfam != true){
-			alert("\tPlease, respect:\n-"+msg_pfam+"\n-"+msg_seq);
+			alert("Please, respect:\n-"+msg_pfam+"\n-"+msg_seq);
 			valid = false;}
 		else if(msg_seq != true && msg_pfam == true){
-			alert("\tPlease, respect:\n-"+msg_seq);
+			alert("Please, respect:\n-"+msg_seq);
 			valid = false;}
 		else if(msg_seq == true && msg_pfam != true){
-			alert("\tPlease, respect:\n-"+msg_pfam);
+			alert("Please, respect:\n-"+msg_pfam);
 			valid = false;}}
 	return valid;}
 

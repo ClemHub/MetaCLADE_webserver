@@ -165,9 +165,6 @@ include("./includes/header.php");
 				echo "<option value='".$domain."'>".$domain."</option>";}
 			}
 			echo "</select></th>";
-			echo "<th></th>";
-			echo "<th></th>";
-			echo "<th></th>";
 			echo "<th class='table_header'><input id='e-value_max' type='text' placeholder='E-value max'/></th>";
 			echo "<th></th>";
 			echo "</tr>";

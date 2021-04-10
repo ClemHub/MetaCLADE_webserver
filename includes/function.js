@@ -16,11 +16,13 @@ function validate_one_seq(seq){
 			return "Your sequence "+ name +" contains characters that are not amino acids.";}}}
 
 function count_fastaseq(fasta){
-	var seq = fasta.split(/(?=\>)/);
+	var reg=new RegExp("[ ,;]+", "g");
+	var seq = fasta.split(/(?=>|\n\s*\n)/);
 	return seq.length}
 
 function validateFasta(fasta, max_seq){
-	var seq = fasta.split(/(?=\>)/);
+	var reg=new RegExp("[\>{\n\s+\s}]+", "g");
+	var seq = fasta.split(/(?=>|\n\s*\n)/);
 	var valid = true;
 	var nb_seq = 0;
 	for(s in seq){

@@ -198,7 +198,7 @@ include("./includes/header.php");
 				echo "<td>".$stop."</td>";
 				echo "<td>".$evalue."</td>";
 			if($i == 0){
-				echo "</td><td rowspan=".count($lines).">".count($data[$seq_id])."</td></tr>";}
+				echo "<td rowspan=".count($lines).">".count($data[$seq_id])."</td></tr>";}
 			else{
 				echo "</tr>";}}
 			;}}

@@ -87,23 +87,14 @@ include("./includes/header.php");
 		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 		<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 		<script>
-	var form = '<?php echo $form ?>';
-	if (form == 'small' || form == 'small_example')
-		{$.fn.dataTable.ext.search.push(
-		function( settings, data, dataIndex ) {
-			var max = Number($('#e-value_max').val()) || 1;
-			var e_value = Number(data[5]) || 0;
-			if ((isNaN(max)) || (e_value <= max)){
-				return true;}
-			return false;});}
-	else
-		{$.fn.dataTable.ext.search.push(
-		function( settings, data, dataIndex ) {
-			var max = Number($('#e-value_max').val()) || 1;
-			var e_value = Number(data[2]) || 0;
-			if ((isNaN(max)) || (e_value <= max)){
-				return true;}
-			return false;});}		
+		var form = '<?php echo $form ?>';
+		$.fn.dataTable.ext.search.push(
+			function( settings, data, dataIndex ) {
+				var max = Number($('#e-value_max').val()) || 1;
+				var e_value = Number(data[2]) || 0;
+				if ((isNaN(max)) || (e_value <= max)){
+					return true;}
+				return false;});
 
 		$(document).ready(function() {
 			

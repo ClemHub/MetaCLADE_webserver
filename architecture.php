@@ -112,7 +112,7 @@
 	
 	<div class='info'>
 	<div class = 'results_choice'>
-			Show annotations details:
+			Show annotation details:
 			<label for="yes_results">Yes</label><input type="radio" class='radio_btn' name="results" id="yes_results" value = "true" onclick='ShowHideResults()'/>
 			<label for="no_results">No</label><input type="radio" class='radio_btn' name="results" id="no_results" value = "false" onclick='ShowHideResults()' checked/>
 	</div>

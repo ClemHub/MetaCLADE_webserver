@@ -16,24 +16,18 @@ function validate_one_seq(seq){
 			return "Your sequence "+ name +" contains characters that are not amino acids.";}}}
 
 function count_fastaseq(fasta){
-	var seq = fasta.split(/\n\s*\n/);
-	var all_seq = Array();
-	for(var arr of seq){
-		all_seq.concat(arr.split(/(?=\>)/));}
-	return all_seq.length}
+	var seq = fasta.split(/(?=\>)/);
+	return seq.length}
 
 function validateFasta(fasta, max_seq){
-	var seq = fasta.split(/\n\s*\n/);
-	var all_seq = Array();
-	for(var arr of seq){
-		all_seq.concat(arr.split(/(?=\>)/));}
+	var seq = fasta.split(/(?=\>)/);
 	var valid = true;
 	var nb_seq = 0;
-	for(s in all_seq){
+	for(s in seq){
 		nb_seq++
 		if(nb_seq<=max_seq){
-			if(all_seq[s]){
-				valid = validate_one_seq(all_seq[s])
+			if(seq[s]){
+				valid = validate_one_seq(seq[s])
 				if(valid != true){
 					break}}}
 		else{

@@ -204,7 +204,7 @@ include("./includes/header.php");
 				$link_id = "http://pfam.xfam.org/family/" . $domain_id;
 				echo "<a class = 'table_link' title=".$title_text." href=".$link_id." target='_blank'>  " . $domain_id . "  </a>";}
 				echo "</td><td>".$best_evalues[$seq_id]."</td>";
-				echo "</td><td>".count($domains)."</td></tr>";}}
+				echo "</td><td>".count($domains)."</td></tr>";}
 	else{
 		echo "<thead id='header'>";
 			echo "<tr>";

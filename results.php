@@ -200,7 +200,7 @@ include("./includes/header.php");
 					$model_species = trim($exploded_line[12]);}
 				$title_text = "PFAM Acc Number: ".$domain_id."\nFamily: ".$row['Family']."\n\nPosition: ".$start."-".$stop." (".$nb_aa."aa)\n\nClan Acc Number: ".$row['Clan_acc_nb']."\nClan: ".$row['Clan']."\n\nModel species: ".$model_species."\n\nE-value: ".$evalue."\nbitscore: ".$bitscore."\nddProb: ".$dd_prob;	
 				$link_id = "http://pfam.xfam.org/family/" . $domain_id;
-				echo "<a class = 'table_link' title=".$title_text." href=".$link_id." target='_blank'>  " . $domain_id . "  </a>";}
+				echo "<a class = 'table_link' title='".$title_text."' href=".$link_id." target='_blank'>  " . $domain_id . "  </a>";}
 				echo "</td><td>".$best_evalues[$seq_id]."</td>";
 				echo "</td><td>".count($domains)."</td></tr>";}}
 	else{

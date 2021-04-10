@@ -13,21 +13,27 @@ function validate_one_seq(seq){
 		if(chain==true){
 			return true;}
 		else{
-			return "Your sequence "+ name +" contains elements that are not amino acids.";}}}
+			return "Your sequence "+ name +" contains characters that are not amino acids.";}}}
 
 function count_fastaseq(fasta){
-	var seq = fasta.split(/(?=\>)/);
-	return seq.length}
+	var seq = fasta.split(/\n\s*\n/);
+	var all_seq = Array();
+	for(var arr of seq){
+		all_seq.concat(arr.split(/(?=\>)/));}
+	return all_seq.length}
 
 function validateFasta(fasta, max_seq){
-	var seq = fasta.split(/(?=\>)/);
+	var seq = fasta.split(/\n\s*\n/);
+	var all_seq = Array();
+	for(var arr of seq){
+		all_seq.concat(arr.split(/(?=\>)/));}
 	var valid = true;
 	var nb_seq = 0;
-	for(s in seq){
+	for(s in all_seq){
 		nb_seq++
 		if(nb_seq<=max_seq){
-			if(seq[s]){
-				valid = validate_one_seq(seq[s])
+			if(all_seq[s]){
+				valid = validate_one_seq(all_seq[s])
 				if(valid != true){
 					break}}}
 		else{

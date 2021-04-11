@@ -17,12 +17,12 @@ function validate_one_seq(seq, nb_seq){
 
 function count_fastaseq(fasta){
 	var reg=new RegExp("[ ,;]+", "g");
-	var seq = fasta.split(/(?=>|\n\s*\n)/);
+	var seq = fasta.split(/(?=>|\n\n)/);
 	return seq.length}
 
 function validateFasta(fasta, max_seq){
 	var reg=new RegExp("[\>{\n\s+\s}]+", "g");
-	var seq = fasta.split(/(?=>|\n\s*\n)/);
+	var seq = fasta.split(/(?=>|\n\n)/);
 	var valid = true;
 	var nb_seq = 0;
 	for(s in seq){

@@ -80,7 +80,8 @@ include("./includes/header.php");
 				$mail_header= $mail_header . "MIME-Version:". PHP_EOL;
 				mail("<".$email.">", "MyCLADE queued (".$job_id.")", $msg, $mail_header);};
 
-			#header("location: $hostname/$appname/status.php?form=".$form."&job_id=".$job_id);}
+			#header("location: $hostname/$appname/status.php?form=".$form."&job_id=".$job_id);
+		}
 
 		?>
 	</section>

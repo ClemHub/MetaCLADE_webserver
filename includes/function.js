@@ -1,19 +1,20 @@
 function validate_one_seq(seq, nb_seq){
-	var lines = seq.trim().split('\n');
-	var name = lines[0];
-	if(name[0] == '>'){
-		lines.splice(0, 1);}
-	else{
-		return "The sequence n°"+nb_seq+name+" should have an ID starting with a '>'.";}
-	seq = lines.join('').trim();
-	if(seq == ''){
-		return "Your sequence "+ name +" misses its sequence.";}
-	else{
-		var chain = /^[ACDEFGHIKLMNPQRSTUVWY\s]+$/i.test(seq);
-		if(chain==true){
-			return true;}
+	if (seq.trim() != ""){
+		var lines = seq.trim().split('\n');
+		var name = lines[0];
+		if(name[0] == '>'){
+			lines.splice(0, 1);}
 		else{
-			return "Your sequence "+ name +" contains characters that are not amino acids.";}}}
+			return "The sequence n°"+nb_seq+name+" should have an ID starting with a '>'.";}
+		seq = lines.join('').trim();
+		if(seq == ''){
+			return "Your sequence "+ name +" misses its sequence.";}
+		else{
+			var chain = /^[ACDEFGHIKLMNPQRSTUVWY\s]+$/i.test(seq);
+			if(chain==true){
+				return true;}
+			else{
+				return "Your sequence "+ name +" contains characters that are not amino acids.";}}}}
 
 function count_fastaseq(fasta){
 	var seq = fasta.split(/(?=>|\n\n)/);

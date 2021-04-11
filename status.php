@@ -55,12 +55,12 @@ include("./includes/header.php");
 				$data = file_get_contents($approot."/jobs/".$job_id."/".$job_id.".arch.tsv");
 				$data = str_replace("unavailable", "HMMer-3 model", $data);
 				file_put_contents($approot."/jobs/".$job_id."/results.txt", $data, FILE_APPEND);
-				$output1 = exec("setfacl -R -m user:blachon:rwx ".$approot."/jobs/".$job_id."/temp");
+				$output = exec("setfacl -R -m user:blachon:rwx ".$approot."/jobs/".$job_id."/temp");
 				$output = exec("python3 ".$approot."/get_logodata.py --work_dir ".$approot."/jobs/".$job_id);
 				echo '<br>here1:'.$output;
 				echo '<br>here2:'.$output;
 				echo "<br>python3 ".$approot."/get_logodata.py --work_dir ".$approot."/jobs/".$job_id;}
-				#header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_id);}
+				header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_id);}
 			else if($error){
 				//echo "<br><br>Error<br>";}
 				header("location: $hostname/$appname/error.php?form=".$form."&job_id=".$job_id);}

@@ -47,10 +47,10 @@ function submit($job_id, $parameters){
 		$pfam = $parameters['PFAM'];	
 		$args = $args." -d ".escapeshellarg($pfam);
 		$args = $args." -t ".escapeshellarg(2);
-		$command="qsub -pe smp 1 -wd ".$approot."/jobs/".$job_id."/ -N $job_id -l h_rt=48:00:00 -b y /home/blachon/Documents/Tools/metaclade2/metaclade2 ".$args;}
+		$command="qsub -pe smp 1 -wd ".$approot."/jobs/".$job_id."/ -N $job_id -l h_rt=48:00:00 -b y /home/blachon/Documents/Tools/metaclade2/metaclade2_logo ".$args;}
 	else if($form == 'large'){
 		$args = $args." -t ".escapeshellarg(6);
-		$command="qsub -pe smp 2 -wd ".$approot."/jobs/".$job_id."/ -N $job_id -l h_rt=48:00:00 -b y /home/blachon/Documents/Tools/metaclade2/metaclade2 ".$args;}
+		$command="qsub -pe smp 2 -wd ".$approot."/jobs/".$job_id."/ -N $job_id -l h_rt=48:00:00 -b y /home/blachon/Documents/Tools/metaclade2/metaclade2_logo ".$args;}
 	else if ($form == 'clan'){
 		$pfam = explode(" ", $parameters['Clan'])[0];	
 		$args = $args." -D ".$approot."/data/clans/".escapeshellarg($pfam.".txt");	

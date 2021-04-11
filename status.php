@@ -57,7 +57,7 @@ include("./includes/header.php");
 				file_put_contents($approot."/jobs/".$job_id."/results.txt", $data, FILE_APPEND);
 				$output = exec("python3 ".$approot."/get_logodata.py --work_dir ".$approot."/jobs/".$job_id);
 				echo 'here:'.$output;
-				echo "python3 ".$approot."/get_logodata.py --work_dir ".$approot."/jobs/".$job_id;}
+				echo "python3 ".$approot."/test.py";}
 				#header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_id);}
 			else if($error){
 				//echo "<br><br>Error<br>";}

@@ -14,7 +14,10 @@ function validate_one_seq(seq, nb_seq){
 			if(chain==true){
 				return true;}
 			else{
-				return "Your sequence "+ name +" contains characters that are not amino acids.";}}}}
+				return "Your sequence "+ name +" contains characters that are not amino acids.";}}}
+	else{
+		return "You have a trailing whitespace before your sequence n°"+nb_seq;
+	}}
 
 function count_fastaseq(fasta){
 	var seq = fasta.split(/(?=>|\n\n)/);

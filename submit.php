@@ -67,7 +67,7 @@ include("./includes/header.php");
 				$parameters['Max domain overlapping (%)'] = $_POST["overlappingMaxDomain_nb"];}
 			file_put_contents($approot.'/jobs/'.$job_id.'/data.fa', $_POST["sequences"]);
 			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Number of sequences\t".preg_match_all("/^>|\n>/", $_POST["sequences"])."\n", FILE_APPEND);
-			#$msg = submit($job_id, $parameters);
+			$msg = submit($job_id, $parameters);
 			echo $msg;
 			$email = $_POST['email'];
 			if($_POST['email'] != ""){
@@ -80,7 +80,7 @@ include("./includes/header.php");
 				$mail_header= $mail_header . "MIME-Version:". PHP_EOL;
 				mail("<".$email.">", "MyCLADE queued (".$job_id.")", $msg, $mail_header);};
 
-			#header("location: $hostname/$appname/status.php?form=".$form."&job_id=".$job_id);
+			header("location: $hostname/$appname/status.php?form=".$form."&job_id=".$job_id);
 		}
 
 		?>

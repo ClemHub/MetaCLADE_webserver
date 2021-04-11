@@ -55,7 +55,7 @@ include("./includes/header.php");
 				$data = file_get_contents($approot."/jobs/".$job_id."/".$job_id.".arch.tsv");
 				$data = str_replace("unavailable", "HMMer-3 model", $data);
 				file_put_contents($approot."/jobs/".$job_id."/results.txt", $data, FILE_APPEND);
-				$output = exec("python3 get_logodata.py --work_dir ".$approot."/jobs/".$job_id);
+				$output = exec("python3 ".$approot."/get_logodata.py --work_dir ".$approot."/jobs/".$job_id);
 				echo 'here:'.$output;
 				echo "python3 ".$approot."/get_logodata.py --work_dir ".$approot."/jobs/".$job_id;}
 				#header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_id);}

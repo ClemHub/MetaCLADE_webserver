@@ -37,6 +37,8 @@ include("./includes/header.php");
 			$oldmask = umask(0);
 			mkdir($approot.'/jobs/'.$job_id, 0777, true);
 			umask($oldmask);
+			mkdir($approot.'/jobs/'.$job_id.'/temp', 0777, true);
+			umask($oldmask);
 			if($job_name!=""){
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Job name\t".$job_name."\n", FILE_APPEND);}
 			if($_POST['library'] == 'true'){

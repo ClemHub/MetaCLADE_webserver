@@ -26,7 +26,7 @@
     <p>The E-values highlighted by MyCLADE for the four known domains are all higher than those obtained by HMMer in Pfam. Namely, 5.5e-24 for PAAD/DAPIN/Pyrin, 1.9e-18 for PRY (SPRY-associated domain), 1.1e-16 for SPRY domain and 8.8e-07 for zf-B box (B-box zinc finger).</p>
     <p align='center'><img <?php echo "src='".$appurl."/server_images/examples/MEFV/MEFV-architecture-noDAMA.png'";?> width='905' height='405'></p>
     <p>The logo associated to the Josephin domain model (E-value 2.9e-26) allows the user to evaluate whether this domain can be plausible within the pyrin architecture. The model has 118 positions and the hit with the sequence covers all of it: </p>
-    <p align="center"><img src="../examples/MEFV/josephin-logo.png" width="1165" height="160"></p>
+    <p align="center"><img <?php echo "src='".$appurl."/server_images/examples/MEFV/josephin-logo.png'";?> width="1165" height="160"></p>
     <p>MyCLADE provides the GO-term association to each domain:</p>
     <p align='center'><img <?php echo "src='".$appurl."/server_images/examples/MEFV/MEFV-GO-noDAMA.png'";?> width='904' height='277'></p>
     <p>MyCLADE <strong>with DAMA</strong> identifies other domains, as illustrated below:</p>
@@ -42,7 +42,7 @@
     <p>by Pfam and InterPro. MyCLADE <strong>with DAMA</strong> identifies one more domain, the MORN-2, overlapping the alpha-amylase_C domain:</p>
     <p align='center'><img <?php echo "src='".$appurl."/server_images/examples/amylase/architecture-withDama.png'";?> width='860' height='290'></p>
     <p>The two known domains are obtained by MyCLADE with better E-values than for Pfam which identifies them with 2.4e-12 for alpha-amylase and 2.9e-12 for alpha-amylase_C. The logo of the MORN_2 domain explains the E-value 1.1e-4:</p>
-    <p align="center"><img <?php echo "src='".$appurl."/server_images/examples/examples/amylase/logo-MORN2.png'";?> width="676" height="215"></p>
+    <p align="center"><img <?php echo "src='".$appurl."/server_images/examples/amylase/logo-MORN2.png'";?> width="676" height="215"></p>
     <p align="left">where the model matches the sequence on a 8aa long motif.<br>
       <br>
     </p>

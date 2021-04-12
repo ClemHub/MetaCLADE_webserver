@@ -308,7 +308,6 @@
 	<tfoot>
 		<tr>
 		<?php
-		$pfam_name = array('PFXXXX1', 'PFXXXX2');
 		echo "<th class='table_header'>";
 		echo "<select id='logo_domain-filter'>";
 		echo "<option value=''>All</option>";

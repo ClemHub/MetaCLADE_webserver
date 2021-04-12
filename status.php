@@ -42,7 +42,7 @@ include("./includes/header.php");
 							echo '<br><strong>Status of your job:</strong> filtering (step 2/4)<br>';}
 						else if (preg_match("/architecture/", $last_line)){
 							echo '<br><strong>Status of your job:</strong> architecture reconstruction (step 3/4)<br>';}
-						else if (preg_match("/logo/", $last_line)){
+						else if (preg_match("/logo|Matplotlib/", $last_line)){
 							echo '<br><strong>Status of your job:</strong> logo reconstruction (step 4/4)<br>';}}}
 				else if(preg_match("/[a-zA-Z0-9]+\.o[0-9]+/", $file)){
 					$last_line = file($file);

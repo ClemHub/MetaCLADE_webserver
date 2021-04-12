@@ -5,7 +5,7 @@ function validate_one_seq(seq, nb_seq){
 		if(name[0] == '>'){
 			lines.splice(0, 1);}
 		else{
-			return "The sequence n°"+nb_seq+name+" should have an ID starting with a '>'.";}
+			return "The sequence n°"+nb_seq+" should have an ID starting with a '>'.";}
 		seq = lines.join('').trim();
 		if(seq == ''){
 			return "Your sequence "+ name +" misses its sequence.";}

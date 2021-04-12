@@ -59,13 +59,6 @@
 			$row = $db->query("SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
 			$row = $row->fetchArray();
 			$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
-			if($row['Clan_acc_nb'] == ""){
-				$row['Clan_acc_nb'] = 'NA';
-				$row['Clan'] = 'NA';}
-			if(trim($exploded_line[12]) == 'unavailable'){
-				$model_species = 'HMMer-3 model';}
-			else{
-				$model_species = trim($exploded_line[12]);}
 			while($data = $request->fetchArray()){
 				array_push($go_terms_names, $data['GO_term']);
 				if(array_key_exists($pfam, $go_terms)){
@@ -77,7 +70,13 @@
 			$scaled_start = ($start*100)/$length - (100/$length);
 			$scaled_stop = ($stop*100)/$length;
 			$color = "rgb(".rand(150,200).",".rand(150,200).",".rand(150,200).")";
-			
+			if($row['Clan_acc_nb'] == ""){
+				$row['Clan_acc_nb'] = 'NA';
+				$row['Clan'] = 'NA';}
+			if(trim($exploded_line[12]) == 'unavailable'){
+				$model_species = 'HMMer-3 model';}
+			else{
+				$model_species = trim($exploded_line[12]);}
 			echo "<g><a xlink:href='http://pfam.xfam.org/family/".$pfam."' target='_blank'>";
 			//echo "<text class='rect_text' x='". $scaled_start ."%' y='30' style='font-size:15px; font-size-adjust: 0.5; fill:white; font-weight:bold; mix-blend-mode: exclusion;' >".$pfam."</text>";
 			echo "<rect class='domain_rect' x='".$scaled_start."%' y='10' width='". $width ."%' height='30' style=' fill:".$color."; fill-opacity:0.7; stroke-width:1; stroke:3'>";
@@ -112,7 +111,7 @@
 	
 	<div class='info'>
 	<div class = 'results_choice'>
-			Show annotation details:
+			Show annotations details:
 			<label for="yes_results">Yes</label><input type="radio" class='radio_btn' name="results" id="yes_results" value = "true" onclick='ShowHideResults()'/>
 			<label for="no_results">No</label><input type="radio" class='radio_btn' name="results" id="no_results" value = "false" onclick='ShowHideResults()' checked/>
 	</div>
@@ -154,7 +153,7 @@
 		echo "<select id='species-filter'>";
 		echo "<option value=''>All</option>";
 		foreach(array_unique($model_species_list) as $species){
-			echo "<option value='".trim($species)."'>".trim($species)."</option>";}
+			echo "<option value='".$species."'>".$species."</option>";}
 		echo "</select></th>";	
 		?>
 		<th class='table_header'><input id='e-value_max' type='text' placeholder='E-value max' style='max-width:140px'/></th>
@@ -175,7 +174,7 @@
 		if(substr($data[12], 0, -1) == 'unavailable'){
 			echo "<td class='species_name'>HMMer-3 model</td>";}
 		else{
-			echo "<td class='species_name'>" . trim($data[12]). "</td>";}
+			echo "<td class='species_name'>" . $data[12]. "</td>";}
 		echo "<td>".$data[9]."</td>";
 		echo "<td>" . $data[10]. "</td>";
 		echo "<td>" . $data[11]. "</td></tr>";}
@@ -323,13 +322,83 @@
 	</tfoot>
 
 	<tbody>
-	<?php
+<?php
+	$fname=$approot."/jobs/".$job_id."/match.txt";
+	$data_match=Array();
+	if(($f_match=fopen($fname,"r")))
+	{
+		fgets($f_match); //Jumps the header
+		while(1) {
+			$line = fgets($f_match);
+			if(feof($f_match))
+				break;
+			$a = explode(",", $line);
+			if(count($a)!=9)
+				echo "ERROR:".$line;
+			else{
+			array_push($data_match, $a);
+			}
+		}
+		fclose($f_match);	
+	}
+	else{
+	echo "Failed to open ".$fname;
+	}
 	foreach($pfam_list as $data){
+		
+		foreach($data_match as $match){
+/*
+ * match =>
+Array
+(
+	    [0] => PF13429   //domId
+	        [1] => 2	  modelStart
+		    [2] => 265    modelEnd
+		        [3] => YP4999981  //seqId
+			    [4] => 48		//seqStart
+			        [5] => 315	     //seqEnd
+				    [6] => 9.5e-38  //eval
+				    [7] =>  user sequence matchin
+				   [8]=> sequence describing match between user sequence and logo 
+
+				)
+*/
+		if(
+			$match[0] == $data[0] &&
+			$match[1] == $data[1] &&
+			$match[2] == $data[2] &&
+			$match[3] == $data[4] &&
+			$match[4] == $data[6] &&
+			$match[5] == $data[7] &&
+			$match[6] == $data[9]
+		 )
+		{
+				$imgName="jobs/".$job_id."/".$data[4].".".$data[5];
+				if( $data[5]=="HMMer-3")
+					$imgName.=".hmm.svg";
+				else
+					$imgName.=".ccms.svg";
+				$dbSeq = $match[7];
+				$matchOnLogo = str_replace('\n', '', $match[8]);
+				break;
+			}
+		} 
+
+
 		$link_id = 'http://pfam.xfam.org/family/' . $data[4];
         echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data[4]."</a></td>";
+		#echo "<td>" . $data[1] . "</td>";
+		#echo "<td>" . $data[2] . "</td>";
 		echo "<td>" . $data[6] . "</td>";
 		echo "<td>" . $data[7] . "</td>";
-		echo "<td><div><img id='LCQB-logo' class='logo-responsive' src='".$appurl."/server_images/logo_image.png' alt='''></div></td></tr>";}
+		echo "<td>
+			<div>
+			<div class=hmmLogo>
+			<div><img class=imgLogo src=$imgName></img></div>
+			<div class=strMatch  data-start=$data[1] data-match=\"$matchOnLogo\" ></div>
+			<div class=strMatch  data-start=$data[1] data-match=\"$dbSeq\" ></div>
+			</div>	
+		     </td></tr>";}
 	?>
 	</tbody>
 	</table>
@@ -356,6 +425,8 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
 <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<!--Added by Francesco OTERI ( FO)-->
+<script src='https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js'></script>"
 <script>
 
 $.fn.dataTable.ext.search.push(
@@ -399,7 +470,7 @@ $(document).ready(function() {
 	$('#family-filter').on('change', function(){
 		table.columns([1]).search(this.value).draw();});
 	$('#species-filter').on('change', function(){
-		table.columns([4]).search(this.value).draw();});
+		table.columns([3]).search(this.value).draw();});
 });
 
 $(document).ready(function() {
@@ -432,6 +503,34 @@ $(document).ready(function() {
 
 	$('#logo_domain-filter').on('change', function(){
 		logo_table.columns([0]).search(this.value).draw();});
+});
+</script>
+
+<!-- Added by Francesco OTERI (FO) for computing logo -->
+<script type="application/javascript">
+	$(document).ready(function() {
+
+	$('.hmmLogo').imagesLoaded( function() {
+	      var hmmLogos = $(".hmmLogo")
+	      hmmLogos.each( function(){
+		var width = $(this).find(".imgLogo")[0].width 
+			$(this).find(".strMatch").each( function(){
+
+		    var strMatch = $(this).attr("data-match").replace(/\n/g, "");
+		    var posid    = $(this).attr("data-start").replace(/\n/g, "");
+		    var w = width/strMatch.length;
+		    var html=""
+		    for(let i=0;i<strMatch.length;i++)
+		    {
+		      html+=`<div class=logocharacter style="width:${w}px" title=${posid}>${strMatch[i]}</div>`
+		      if( strMatch[i]!="-" && strMatch[i]!=" ")
+			posid++
+		    }
+
+		    $(this).html(html)
+	    	})
+	    })
+	});
 });
 </script>
 <?php include("./includes/footer.php"); ?>

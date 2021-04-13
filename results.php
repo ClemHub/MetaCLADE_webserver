@@ -115,7 +115,7 @@ include("./includes/header.php");
 		table.draw();} );
 			$('#seq-filter').on('change', function(){
 				table.search(this.value).draw();});
-			$('#domain_cb').on('select', function(){
+			$('#domain_cb').on('click', function(){
 				table.search(this.value).draw();});
 			$('#domain_select').on('change', function(){
 				table.search(this.value).draw();});

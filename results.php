@@ -40,8 +40,8 @@ include("./includes/header.php");
 		echo "<div id = 'other_pfam'>";
 		echo "<h5>Other domain:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domains you want to visualize with the first one you selected.</span></span></h5>";
 		foreach($domain_list as $domain_id){
-			echo "<input type='checkbox' id=".$domain_id." name='domain_cb' value=".$domain_id.">";
-			echo "<label for=".$domain_id.">".$domain_id."</label>";}
+			echo "<input type='checkbox' id=".trim($domain_id)." class='domain_cb' name='domain_cb' value=".trim($domain_id).">";
+			echo "<label for=".trim($domain_id).">".trim($domain_id)."</label>";}
 		?>
 		</div>
 		<br><input class='btn' type='button' value='Search' name = 'search' onclick='filter_all_domains()'/><input class='btn' type='reset' value='Reset' onclick='reset_table("result")'/>
@@ -115,7 +115,9 @@ include("./includes/header.php");
 		table.draw();} );
 			$('#seq-filter').on('change', function(){
 				table.search(this.value).draw();});
-			$('#domain_select').on('change', function(){
+			$('#domain_cb').on('change', function(){
+				table.search(this.value).draw();});
+			$('#domain_select').on('select', function(){
 				table.search(this.value).draw();});
 			$('#domain-filter').on('keyup change', function(){
 				table.search(this.value, regex=true).draw()});

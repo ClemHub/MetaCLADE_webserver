@@ -31,7 +31,7 @@ include("./includes/header.php");
 		echo "<fieldset class='form_fs'><legend><h4>Domain visualization:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domain table you want to visualize.</span></span></h4></legend>";
 		echo "<div id = 'main_pfam'>";
 		echo "<h5>Domain table:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domain table you want to visualize.</span></span></h5>";
-		echo "<select name='domain_select' id='domain_select'>";
+		echo "<select name='domain_select' id='domain_select' onclick='filter_select()'>";
 		echo "<option value=''>All</option>";
 		foreach($domain_list as $domain_id){
 			echo "<option class='other_domains' value='".trim($domain_id)."'>".trim($domain_id)."</option>";}

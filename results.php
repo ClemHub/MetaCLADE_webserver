@@ -110,6 +110,7 @@ include("./includes/header.php");
 						});
 				var val = [];
 				table.column(1).search(val.join(' ')).draw();}
+			var main_dom = ''
 			$('#e-value_max').keyup( function() {
 				table.draw();});
 			$('#seq-filter').on('change', function(){
@@ -117,7 +118,7 @@ include("./includes/header.php");
 			$('#domain_select').on('change', function(){
 				table.search(this.value).draw();});
 			$('#domain-filter').on('keyup change', function(){
-				var main_dom = "(?=.*"+this.value+")";
+				main_dom = "(?=.*"+this.value+")";
 				table.search(this.value, regex=true).draw()});
 			$('input:checkbox').on('change', function () {
 			//build a regex filter string with an or(|) condition

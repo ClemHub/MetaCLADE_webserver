@@ -123,8 +123,7 @@ include("./includes/header.php");
 			//build a regex filter string with an or(|) condition
 			var domains = $('input:checkbox[name="domain_cb"]:checked').map(function() {
 				return '^' + this.value + '$';
-			}).get().join('|');
-			//filter in column 1, with an regex, no smart filtering, not case sensitive
+			})
 			table.search(domains).draw();});
 		});
 		</script>

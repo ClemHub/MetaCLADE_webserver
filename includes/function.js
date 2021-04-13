@@ -336,6 +336,11 @@ function filter_table(){
 				tr[i].style.display = "none";}}}}
 
 function filter_select(){
+	var checks = document.querySelectorAll('input[type="checkbox"]:checked');
+	for(var i =0; i< checks.length;i++){
+		var check = checks[i];
+		if(!check.disabled){
+			check.checked = false;}}
 	input = document.getElementById("domain_select");
 	filter = input.value.toUpperCase();
 	document.getElementById(filter).checked=true;

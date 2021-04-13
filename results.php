@@ -125,8 +125,7 @@ include("./includes/header.php");
 				var domains = $('input:checkbox[name="domain_cb"]:checked').map(function() {
 				return "(?=.*"+this.value+")";}).get().join('');
 				alert(domains);
-				alert(concat(main_dom, domains));
-				table.search(domains, true, false, false).draw();});
+				table.search(main_dom.concat(domains), true, false, false).draw();});
 		});
 		</script>
 		

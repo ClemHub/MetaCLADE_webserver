@@ -119,7 +119,7 @@ include("./includes/header.php");
 				table.search(this.value).draw();});
 			$('#domain-filter').on('keyup change', function(){
 				table.search(this.value, regex=true).draw()});
-				$('input:checkbox').on('change', function () {
+			$('input:checkbox').on('change', function () {
 			//build a regex filter string with an or(|) condition
 			var domains = $('input:checkbox[name="domain_cb"]:checked').map(function() {
 				return '^' + this.value + '$';
@@ -127,6 +127,7 @@ include("./includes/header.php");
 			//filter in column 1, with an regex, no smart filtering, not case sensitive
 			table.column(1).search(domamins).draw(false);
 		});
+	});
 		</script>
 		
 		<div class='table_container'>

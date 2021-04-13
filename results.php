@@ -44,7 +44,7 @@ include("./includes/header.php");
 			echo "<label for=".trim($domain_id).">".trim($domain_id)."</label>";}
 		?>
 		</div>
-		<br><input class='btn' type='button' value='Search' name = 'search' onclick='filter_all_domains()'/><input class='btn' type='reset' value='Reset' onclick='reset_table("result")'/>
+		<br><input class='btn' type='button' value='Search' name = 'search'/><input class='btn' type='reset' value='Reset' onclick='reset_table("result")'/>
 		</fieldset>
 		</form>
 	<?php

@@ -117,12 +117,13 @@ include("./includes/header.php");
 			$('#domain_select').on('change', function(){
 				table.search(this.value).draw();});
 			$('#domain-filter').on('keyup change', function(){
+				var main_dom = "(?=.*"+this.value+")";
 				table.search(this.value, regex=true).draw()});
 			$('input:checkbox').on('change', function () {
 			//build a regex filter string with an or(|) condition
 				var domains = $('input:checkbox[name="domain_cb"]:checked').map(function() {
 				return "(?=.*"+this.value+")";}).get().join('');
-				table.search(domains, true, false, false).draw();});
+				table.search(concat(main_dom, domains), true, false, false).draw();});
 		});
 		</script>
 		

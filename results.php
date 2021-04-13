@@ -32,7 +32,7 @@ include("./includes/header.php");
 		echo "<div id = 'main_pfam'>";
 		echo "<h5>Domain table:  <span class='tooltip'><i class='far fa-question-circle'></i><span class='tooltiptext'>Select the domain table you want to visualize.</span></span></h5>";
 		echo "<select name='domain_table' id='domain_select' onchange='filter_table()'>";
-		echo "<option value=''>--Please select a domain--</option>";
+		echo "<option value=''>All</option>";
 		foreach($domain_list as $domain_id){
 			echo "<option class='other_domains' value='$domain_id'>$domain_id</option>";}
 		echo "</select>";

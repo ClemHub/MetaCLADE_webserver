@@ -124,7 +124,6 @@ include("./includes/header.php");
 			//build a regex filter string with an or(|) condition
 				var domains = $('input:checkbox[name="domain_cb"]:checked').map(function() {
 				return "(?=.*"+this.value+")";}).get().join('');
-				alert(domains);
 				table.search(main_dom.concat(domains), true, false, false).draw();});
 		});
 		</script>

@@ -111,8 +111,8 @@ include("./includes/header.php");
 						});
 				var val = [];
 				table.column(1).search(val.join(' ')).draw();}
-				$('#e-value_max').keyup( function() {
-		table.draw();} );
+			$('#e-value_max').keyup( function() {
+				table.draw();});
 			$('#seq-filter').on('change', function(){
 				table.search(this.value).draw();});
 			$('#domain_select').on('change', function(){
@@ -125,9 +125,8 @@ include("./includes/header.php");
 				return '^' + this.value + '$';
 			}).get().join('|');
 			//filter in column 1, with an regex, no smart filtering, not case sensitive
-			table.column(1).search(domamins).draw(false);
+			table.search(domains).draw();});
 		});
-	});
 		</script>
 		
 		<div class='table_container'>

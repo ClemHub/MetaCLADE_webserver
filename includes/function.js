@@ -335,6 +335,11 @@ function filter_table(){
 			else{
 				tr[i].style.display = "none";}}}}
 
+function filter_select(){
+	input = document.getElementById("domain_select");
+	filter = input.value.toUpperCase();
+	document.getElementById(filter).checked=true;
+}
 function uncheckAll(divid) {
 	var checks = document.querySelectorAll('#' + divid + ' input[type="checkbox"]');
 	for(var i =0; i< checks.length;i++){

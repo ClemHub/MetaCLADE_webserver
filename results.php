@@ -34,7 +34,7 @@ include("./includes/header.php");
 		echo "<select id='domain_select'>";
 		echo "<option value=''>All</option>";
 		foreach($domain_list as $domain_id){
-			echo "<option class='other_domains' value='$domain_id'>$domain_id</option>";}
+			echo "<option class='other_domains' value='trim($domain_id)'>trim($domain_id)</option>";}
 		echo "</select>";
 		echo "</div>";
 		echo "<div id = 'other_pfam'>";

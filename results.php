@@ -121,12 +121,9 @@ include("./includes/header.php");
 				table.search(this.value, regex=true).draw()});
 			$('input:checkbox').on('change', function () {
 			//build a regex filter string with an or(|) condition
-			$('input:checkbox[name="domain_cb"]:checked').map(function() {
-				return '^' + this.value + '$';
-				console.log(domains);
-				table.search(domains).draw();
-			})
-			});
+			var domain = $('input:checkbox[name="domain_cb"]:checked').map(function() {
+				return this.value;}).get().join('|');
+			table.search(domains).draw();});
 		});
 		</script>
 		

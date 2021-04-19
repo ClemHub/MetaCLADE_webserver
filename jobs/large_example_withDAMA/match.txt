@@ -1,0 +1,73 @@
+DomainId	Model start	Model stop	SeqID	Seq start	Seq stop	E-value	match
+sp|P0DUB6|AMY1A_HUMAN,45,352,PF00128,2,275,1.6e-65, YLAPKGFGGVQVSPPNENVAIPWERYQPVSYKLCTRSGNEDEFRNMVTRCNNVGVRIYVDAVINHMCGNAVSAGTSSTYFNPGSRDFPAVPYSGWDFNDGCDIENYNDATQVRDCRLSGLLDLALGKDYVRSKIAEYMNHLIDIGVAGFRIDASKHMWPGDIKAILDKLHNLNGSKPFIYQEVIDLGGEPIKSSDYFGNGRVTEFKYGAKLGTVIRKWNKMSYLKNWGEGWGFMPSDRALVFVDNHDNQRGHGLTFWDARLYKMAVGFMLAHPG   , **   *+  + +**  *+       * ** * +  * *+*++++ +*      *+++ +*+*+**          +     ***+  *  ***  **  *  *    *   *+ * * ** **      **  +++ + ++++ ** ***+** **+    +* + *++  * * + *+  **+*   * +   +* *   *  *     *  +++   ++* *  +*   * +*  **+ *++***+ *   **  *    *+*+ ++*  **   
+sp|P0DUB6|AMY1A_HUMAN,355,457,PF00128,128,143,1.0,                                                                                                                               NDWVCEHRWRQIRNMV                                                                                                                                       ,                                                                                                                               *  * *+ ++ +* ++                                                                                                                                       
+tr|A0A072NB93|A0A072NB93_9DEIO,12,141,PF00875,1,129,1.1e-35,VVWFKKDLRVADHAPLAAAAE-RGPVLPLYLYEPEQLGHEEFAGHHLTYLNECLAELDGRLRALGAGLVVRRGEAVAVLEELSELVPMGGLWAHEETGMVSFQRDRRVRAWARERGVPFAELPQTGVVR ,****++***+ *   ****+   *******+ +*+ *    +    +  * * * +*+  ** **  *+****+   ** ** + + +  +++ +*       **++*  ++***** +  +    +*  
+tr|V7B5W0|V7B5W0_PHAVU,8,137,PF00875,1,130,8.3e-33,IVWFRRDLRVEDNPALAAGVR-AGAVIAVFIWAPEEEGQYYPGRVSRWWLKQSLAHLDSSLRSLGTPLITKRSNSVSSLLEVIKSTGATQLFFNHLYDPLSLVRDHRTKEVLTAQGITVRSFNSDLLYEP,+********+ ******* *  ** *+ + ++ *+       *+    +*  **  *+++** **+ *+ +*      * *++*  **  +++*  *+*    ** +   +*   *+ +* +  + *  *
+tr|V7B5W0|V7B5W0_PHAVU,7,173,PF00875,1,157,3.4e-44,SIVWFRRDLRVEDNPALAAGVRAG-AVIAVFIWAPEEEGQYYPGRVSRWWLKQSLAHLDSSLRSLGTPLITKRSTSVSSLLEVIKSTGATQLFFNHLYDPLSLVRDHRTKEVLTAQGITVRSFNSDLLYEPWDVNDAHGQPFTTFSAFWERCLSMPY       , +********+ ******* +  *  ** **++ **+      * +   +*  *** **  ** **  *+ +*   +  * *++*  **+ +++*  *+*    **   **+*   ** *+**    * ** +*    * *   *+ * +* *           
+tr|A0A072NB93|A0A072NB93_9DEIO,11,142,PF00875,2,126,2.4e-26, VVWFKKDLRVADHAPLAAAAER-GPVLPLYLYEPEQLGHEEFAGHHLTYLNECLAELDGRLRALGAGLVVRRGEAVAVLEELSELVPMGGLWAHEETGNMSFQRDRRVRAWARERGVPFAELPQT                                      , +***++***+ *   *****    **+*+ + +** +   ++    +  * * ***** +** **+ ******+ + ** ** + + +  ++* +*       **+ *+ ++*+ *+ +  +                                         
+sp|P0DUB6|AMY1A_HUMAN,423,508,PF02806,1,83,1.8e-34,NWYDNGSNQVAFGRGNRGFIVFNNDDWTF-SLTLQTGLPAGTYCDVISGDKINGNCTGIKIYVSDDGKAHFSISNSAFIAIHA ,** ******+** ***+**+++* +   + * *****************   ** ***  * *  ** * ++*    ++***+ 
+tr|A0A072NB93|A0A072NB93_9DEIO,591,753,PF03167,1,162,7.4e-75,TPLEAVKVLILGQDPYHGPGQAHGLAFSVRPGVRPPPSLANIYKELQADVGFQPPRHGYLRHWAEQGVLLLNAVLTVRRGEPNSHAGRGWERLTDAVIRQVNAKESRVVFVLWGAYARKKAKLVTNPQHVILESAHPSPLSVAKFLGTRPFSKVNAALEESG ,***+ ***+********************  **+ **** ******  *+**  *+** *+ **+******* ***** *+ **** +***++*****+ +  *+  ***+***  * * + *+    *+**+********+  *+*++ ***+* +*** * 
+tr|V7B5W0|V7B5W0_PHAVU,341,430,PF03441,1,89,1.2e-34,MRELWATGWLHDRIRVVVSSFFVKVLQLPWRWGMKYFWDTLLDADLESDALGWQYISGTLPDGREDRIDNPQFEGYKCDPNGEYVRRWL,** * *** +* *+*++* **+ * * + **+*++ *  +*** *+ * *  ** + **  *  + ** **     * ** ***+***+
+tr|A0A072NB93|A0A072NB93_9DEIO,337,424,PF03441,1,89,4.7e-23,MRMLRETGWLNFRMRAMLVSFASQHLWLHWRPTGLFLARQWLDNEPGIHWSQMQMQSSTVG-INRVRIYSPTRQAREQDPDGAFIRRWV,** *+ ** +  *+*++++**++  * + **    ++  *+** +    + ++*+   *    +++** +* +* ++ **+*  *****
+tr|V7B5W0|V7B5W0_PHAVU,283,356,PF03441,4,73,1.5e-24,   SIGLREYSRYISFNHPYSHERPLLGHLKFFPWVVNEGYFKAWRQGRTGYPLVDAGMRELWATGWLHDRIR ,    + +*+  * + + **    **      ++**   *  ++**+ **** ***** **** ****+* *+* 
+tr|A0A072NB93|A0A072NB93_9DEIO,274,352,PF03441,2,73,3e-21, ESRLHWHCHFIQRLESEPQMEVRNLNRAFDGLRPDWNADFFDRWAHGQTGYPLVDACMRMLRETGWLNFRMR ,  *+* *   *   *   * + +*  *+    +  +   ++++ *  * ** ***** ** ** ***+  *+* 
+tr|V7B5W0|V7B5W0_PHAVU,125,183,PF03441,11,28,0.09,          RSFNSDLLYEPWDVNDAH                                ,            +  + ++***++ +                                  
+tr|V7B5W0|V7B5W0_PHAVU,424,483,PF03441,1,57,3.4e-21,EYVRRWLPELARLPTEWIHHPWNAPEYVLQAAGIELGSNYPLPIVGIDAAKVRLQEA   ,**+*+*+****+** + ** ** ***  *  ****** +** ***  + *+ *+  *   
+tr|A0A072NB93|A0A072NB93_9DEIO,418,470,PF03441,1,57,2.3e-16,AFIRRWVPELADVPGDFLHAPWEWSGAT--------RLAYPPPVVDEGKAGAAARAR   ,  **+*******+* + +* **++               ** *+**  +*   * *    
+tr|V7B5W0|V7B5W0_PHAVU,285,449,PF03441,4,165,1.2e-63,   GLREYSRYISFNHPYSHERPLLGHLKFFPWVVNEGYFKAWRQGRTGYPLVDAGMRELWATGWLHDRIRVVVSSFFVKVLQLPWRWGMKYFWDTLLDADLESDALGWQYISGTLPDGREFDRIDNPQFEGYKCDPNGEYVRRWLPELARLPTEWIHHPWNAPE,    +*+    + +  *   ++ *   *+++**   *  *+**+ **** ***** **** ****+* *+*++* **+ * * + ** *++ * + *****+ * *  ** + *+  *     ** **   * * ** ***+***+*** +** + ** ** ***
+tr|A0A072NB93|A0A072NB93_9DEIO,276,443,PF03441,2,163,4e-45, RLHWHCHFIQRLESEPQMEVRNLNRAFDGLRPDWNADFFDRWAHGQTGYPLVDACMRMLRETGWLNFRMRAMLVSFASQHLWLHWRPTGLFLARQWLDNEPGIHWSQMQMQSSTV--GINRVRIYSPTRQAREQDPDGAFIRRWVPELADVPGDFLHAPWEW  , +* *   *   *   * +  + **+ ++ +      ++*+ *  * ** ***** ** *+ ***+  *+*++++**++  *++ **    ++ + +** +    + ++*+   +       +** +* +* ++ **+*  ******** *+* + +* **++  
+tr|V7B5W0|V7B5W0_PHAVU,125,182,PF03441,20,36,0.097,                   SFNSDLLYEPWDVNDAH                        ,                    +  + ++***++                            
+tr|V7B5W0|V7B5W0_PHAVU,416,475,PF03441,3,57,1.4e-23,  KCDPNGEYVRRWLPELARLPTEWIHHPWNAPEYVLQAAGIELGSNYPLPIVGIDA   ,  * ** ***+*+*+**** ** + ** ** **      **+ **+ ** ***  +    
+tr|A0A072NB93|A0A072NB93_9DEIO,410,461,PF03441,4,58,1.6e-19,   QDPDGAFIRRWVPELADVPGDFLHAPWEWSGAT--------RLAYPPPVVDEGKA  ,    ****  **+****** +* + +* **++               ** *+**  +*  
+YP_499998.1,27,44,PF07719,11,24,0.18,          LMSENQTDEALEYL          ,                 +**** +          
+YP_499998.1,49,82,PF07719,2,34,8.3e-06, EKLMLEADLYQQINMMEVAIDKLQEALELEPND, * *     +*  +   * *++ + +****+** 
+YP_499998.1,83,112,PF07719,2,29,4.6e-05, IIHFALAEMLYYDGQYLRATSEYETVLE     ,  +   *  + *  * * +*    * +**     
+YP_499998.1,120,147,PF07719,4,26,6.9e-05,   FSRMADCSLQSGNYSDAIRLYDE        ,   +  +       * * +*+++ ++        
+YP_499998.1,153,186,PF07719,4,34,0.002,   YLKKAISYDKNDITQEAIKIMTTLLSKDPDY,        + * *     **++++  +*  **  
+YP_499998.1,195,218,PF07719,10,30,0.018,         LYENEKNYPDAIETGKEGLRL    ,         +*     * +*+*  ++ *+*    
+YP_499998.1,221,254,PF07719,2,31,0.03, ELMYTTGCLEIEHGDANEGVLLLKQALEVD   , *++*+ * +  + **  * + +++ ***+*   
+YP_499998.1,257,273,PF07719,7,18,1.4,      LSDLYRNEEDYE                ,      *  +*    ***                
+YP_499998.1,288,315,PF07719,4,27,0.012,   MWHLAFAYGQEERDKEAQHFFELA       ,   +  * +**    + +**  +** *       
+YP_499998.1,330,355,PF07719,11,34,0.00079,          LIEIGQKEQAITILNQLLELEPSN,            ++*  * *+ ++  +***+*+*
+tr|V7B5W0|V7B5W0_PHAVU,505,645,PF12546,1,138,3.9e-45,DSSE-SAPIAFPQDTLMEEPAEPVRNNPPHGTRRYEDQMVPSMTSSHVRVEEETSSDLRN-SAAD-NRAEVPTNVTTQARETV-NQNVNRNT--RVQNNATMWLRNAAEDSTAESSISTRRERDGGVVPVWSPPASNF ,****  *******+  **   **** * *   ** *********** **+*** * ***+ *  * +*****+**  * **    +   *++    +*  *+++*   ******** *+**************** +  
+YP_499998.1,126,145,PF13181,7,22,0.0041,      MADCSLQSGNYSDAIR           ,      + *  *  ** ++*+            
+YP_499998.1,291,318,PF13181,6,28,0.00024,     HLAFAYGQEERDKEAQHFFELAY     ,     **  **     + **  +**+*      
+YP_499998.1,332,343,PF13181,12,22,0.1,           IEIGQKEQAIT           ,           +++*+*  *++           
+YP_499998.1,2,46,PF13424,24,61,0.029,                       EVFRVLYHKYPDESELLIYFIEGLMSENQTDEALEYLS        ,                       ++++ +    **+ *+*  +    +     +**+            
+YP_499998.1,47,114,PF13424,5,65,5.9e-10,    KLMLEADLYQQINMMEVAIDKLQEALELEPNDPIIHFALAEMLYYDGQYLRATSEYETVLE    ,     *+    **  +   + *++ * +**+*+* *  +   *  +    * * +*   ** +**    
+YP_499998.1,120,185,PF13424,7,69,8e-09,      SRMADCSLQSGNYSDAIRLYDE-INEDEMTSEDYLKKAISYDKNDITQEAIKIMTTLLSKDPD,        +    *  * * +*++* ++ +  *    *        * +     *** +   +*  ***
+YP_499998.1,185,289,PF13424,3,64,1.2e-06,  IQGYLYLQSLYENEKNYPDAIELLKQALEVDNAYQEPLLILSDLYRNEEDYEAIIELLTYVD     ,  +   * * +**     * +*++**+ **++*    * *  *  **    *** +* *   +      
+YP_499998.1,286,354,PF13424,7,68,4.4e-08,      WHLAFAYGQEERDKEAQHFFELAYPTMKTNIDFMSDYYFYLIEIGQKEQAITILNQLLELEP ,      + *  +*    + +**  ++* *       ++++       +++*  * ** +   +***+* 
+YP_499998.1,29,43,PF13428,14,24,1.3,             ENQTDEALEYL                   ,             *   +** * *                   
+YP_499998.1,56,90,PF13428,9,35,0.00032,        DLYQQINMMEVAIDKLQEALELEPNDP        ,         +       * * + * + *+* * *         
+YP_499998.1,166,187,PF13428,18,33,0.049,                 QEAIKIMTTLLSKDPD          ,                  ** +++   *   **          
+YP_499998.1,232,252,PF13428,13,31,0.072,            EHGDANEGVLLLKQALEVD            ,            * *+  *   ***  *++             
+YP_499998.1,258,279,PF13428,8,24,0.83,       SDLYRNEEDYEAIIELL                   ,         + * * + * + ***                   
+YP_499998.1,288,313,PF13428,6,25,1.3,     HLAFAYGQEERDKEAQHFFE                  ,       + +   * +++**  +++                  
+YP_499998.1,322,364,PF13428,2,42,5e-17, DFMSDYYFYLIEIGQKEQAITILNQLLELEPSNENWHDELS , **+ **   * * * +* *  +*   *+* *  * + + *  
+YP_499998.1,2,46,PF13432,17,54,0.006,                LEVFRVLYHKYPDESELLIYFIEGLMSENQTDEALEYL                                             ,                +*+ + +    **  *+ + +   *+     +**+                                                
+YP_499998.1,53,169,PF13432,4,91,7.5e-13,   ADLYQQINMMEVAIDKLQEALELEPNDPIIHFALAEMLYYDGQYLRATSEYETVLETGEYQVNGVNLFSRCSLQSGNYSDAIRLYDEI        ,     +   +   * **+   +****+*    +++ *  +*   * * +*   ** +**    ++    *+    *  * * +*+++  ++        
+YP_499998.1,156,255,PF13432,6,97,2.1e-12,     SYDKNDITQEAIKIMTTLLSKDPDYIQGYLYLQSLYENEKNYPDAIETGKEGLRLSQFYKELMYTTGCLEIEHGDANEGVLLLKQALEVDNA  ,        *     ***++   +*  *** +  ** * ++      * +**   ++ *+*     ++    * + ++ *+  * + +*  ***+*    
+YP_499998.1,227,356,PF13432,7,98,1.6e-08,      EIEHGDANEGVLLLKQALEVDNAYQEPLLILSDLYRNEEDYEA-IIELLTYVDEEDLDPTFMWHLAFYLIEIGQKEQAITILNQLLELEPSN ,       ++ **  * + * + ***+*    *  * *  +     ***  *+     ++ +     + + * + *+++*  + *+ +*+ +***+* * 
+YP_499998.1,326,366,PF13432,7,37,5.1e-05,      LIEIGQKEQAITILNQLLELEPSNENWHDEL                                                              ,      *+++*  * ** +   +***+* +  ++  *                                                              
+YP_499998.1,23,44,PF14559,28,41,0.27,                           LMSENQTDEALEYL                  ,                            ++* + *+*+* *                  
+YP_499998.1,52,91,PF14559,24,53,0.00014,                       EADLYQQINMMEVAIDKLQEALELEPNDPI      ,                        **** *    + **+ * + **  *** +      
+YP_499998.1,66,128,PF14559,3,39,1.3e-05,  AIDKLQEALELEPNDPIIHFALAEMLYYDGQYLRATS                    ,  * + * +**+*+*+   + *+**++   +*+* +*                      
+YP_499998.1,101,150,PF14559,24,40,0.055,                       MADCSLQSGNYSDAIRL                   ,                       +**  +* *** +**+*                   
+YP_499998.1,152,167,PF14559,5,16,1.1,    DYLKKAISYDKN                                           ,    + *+**+  * +                                           
+YP_499998.1,170,216,PF14559,2,39,8.6e-06, EAIKIMTTLLSKDPDYIQGYLYLQSLYENEKNYPDAIE                    , +* *++  +*  ** *+   + *  ** +* ** +***                    
+YP_499998.1,240,303,PF14559,6,41,2.6e-09,     LLKQALEVDNAYQEPLLILSDLYRNEEDYEAIIELL                  ,     +*+ **++*  * + +++* *** +*  *+ +****                  
+YP_499998.1,332,363,PF14559,32,50,0.02,                               GQKEQAITILNQLLELEPS         ,                               *+ + ** +*   **  *+         
+YP_499998.1,1,58,PF14559,8,68,2e-17,       PQGLEVFRVLYHKYPDESELLIYFIEGLMSENQTDEALEYLSYVEPS----PEKLMLEADL,           *+ + *  ***** ***+ ++* *+ *   ***** *  ++         *+* ***
+YP_499998.1,59,120,PF14559,3,54,0.00012,  QINMMEVAIDKLQEALELEPNDPIIHFALAEMLYYDGQYLRATSEYETVLET              ,   + +++ * +   *+**  * +  + ++***+*  +*   +*    *++ *               
+YP_499998.1,115,162,PF14559,27,55,0.00088,                          LFSRMADCSLQSGNYSDAIRLYDEINEDE             ,                          *+  +*+  +  *   +*++* + * **+             
+YP_499998.1,164,209,PF14559,7,46,0.0024,      TQEAIKIMTTLLSKDPDYIQGYLYLQSLYENEKNYPDAIE                      ,        ** +*   ** * **     * *  +   *    +*+*                      
+YP_499998.1,220,264,PF14559,35,68,0.00014,                                  EIEHGDANEGVLLLKQALEVDNAYQEPLLILSDL,                                   ** *+  * + **+*+ * * **   **+* **
+YP_499998.1,260,288,PF14559,31,55,0.08,                              LSDLYRNEEDYEAIIELLTYVDEED             ,                              * ++   * + + ++***  ++*+*             
+YP_499998.1,332,363,PF14559,1,27,0.00014,LIEIGQKEQAITILNQLLELEPSNENW                                         ,* *+*  + *  *   ***  *  + +                                         
+YP_499998.1,2,63,PF14561,4,41,0.0026,   LEVFRVLYHKYPDESELLIYFIEGLMSENQTDEALEYL                                       ,   +*+++ +    **   +*+ ++  *+     +**+  *                                       
+YP_499998.1,66,148,PF14561,3,77,3.1e-14,  AIDKLQEALELEPNDPIIHFALAEMLYYDGQYLRATSEYETVLETGEYQVNLFSRMADCSLQSGNYSDAIRLYDE   ,  **+ * +****+*    + + ** +*   * * +*    * +**    ++ +   + +  *  * * +**+* ++   
+YP_499998.1,145,215,PF14561,19,73,3.7e-08,                  EDYLKKAISYDKNDITQEAIKIMTTLLSKDPDYIQGYLYLQSLYENEKNYPDAIE       ,                     *  *+   *     *** ++  +*  *** +  *  *  +*     * +***       
+YP_499998.1,210,316,PF14561,5,77,1.2e-05,    LLLKQALEVDNAYQEPLLILSDLYRNEEDYEAIIELLTYVDEEDLDP-TFMWHLAFAYGQEERDKEAQHFFEL   ,     **+ ***+*      ** *  +     *** +* **  + * * *   +   *  **    + +**  +**    
+YP_499998.1,272,350,PF14561,2,80,5.5e-06, EAIIELLTYVDEEDLDPTFMWHLAFAYGQEERDKEAQHFFELAYPTMKTNIDFMSDYYFYLIEIGQKEQAITILNQLLE, ***  *   ++ +    ++++ **+*     + +**  ++* *      *+*+        +++*  * ** ++  +**
+YP_499998.1,314,366,PF14561,27,55,2.9e-05,                          YLIEIGQKEQAITILNQLLELEPSNENWH                         ,                           *+++*  * ** +*  +***+* *  ++                         

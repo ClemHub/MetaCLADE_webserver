@@ -64,7 +64,7 @@ include("./includes/header.php");
 					$mail_header= $mail_header . "Content-Type: text/html; charset=ISO-8559-1". PHP_EOL;
 					$mail_header= $mail_header . "MIME-Version:". PHP_EOL;
 					$link = $appurl."/results.php?form=".$form."&job_id=".$job_id; 
-					$msg= "Your job <b>".$job_id."</b><br> is now over.<br>Your results are available at the following link: ".$link."<br>";
+					$msg= "Your job <b>".$job_id."</b> is now over.<br>Your results are available at the following link: ".$link."<br>";
 					$msg= $msg . "Your data will be removed one month after the end of the job.<br>";
 					$msg= $msg . "If you need some help, contact the web developer (".$webdevel.").<br>";
 					mail("<".$parameters['Email'].">", "MyCLADE results (".$job_id.")", $msg, $mail_header);};

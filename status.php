@@ -24,7 +24,7 @@ include("./includes/header.php");
 		$output =  glob($approot."/jobs/".$job_id."/".$job_id.".*");
 		$error = false;
 		$end = false;
-		if($output){zz
+		if($output){
 			foreach($output as $file){
 				if(preg_match("/[a-zA-Z0-9]+\.e[0-9]+/", $file)){
 					$last_line = file($file);
@@ -57,19 +57,6 @@ include("./includes/header.php");
 				$data = file_get_contents($approot."/jobs/".$job_id."/".$job_id.".arch.tsv");
 				$data = str_replace("unavailable", "HMMer-3 model", $data);
 				file_put_contents($approot."/jobs/".$job_id."/results.txt", $data, FILE_APPEND);
-				if($parameters['Email'] != ""){
-					echo "An email has been send";
-					$mail_header= "Subject: MyCLADE results (".$job_id.")". PHP_EOL;
-					$mail_header= 'From: MyCLADE <myclade@lcqb.upmc.fr>'. PHP_EOL;
-					$mail_header= $mail_header . "Content-Type: text/html; charset=ISO-8559-1". PHP_EOL;
-					$mail_header= $mail_header . "MIME-Version:". PHP_EOL;
-					$link = $appurl."/results.php?form=".$form."&job_id=".$job_id; 
-					$msg="Your job has been correctly submitted.<br>";
-					$msg= $msg . "Your job ID is: <b>".$job_id."</b><br>";
-					$msg= $msg . "Your job is now over, you can see your results going to $link<br>";
-					$msg= $msg . "Your data will be removed one month after the end of the job.<br>";
-					$msg= $msg . "If you need some help, contact the web developer (".$webdevel.").<br>";
-					mail("<".$parameters['Email'].">", "MyCLADE results (".$job_id.")", $msg, $mail_header);};
 				header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_id);}
 			else if($error){
 				//echo "<br><br>Error<br>";}

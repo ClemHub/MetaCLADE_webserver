@@ -567,3 +567,22 @@ textarea:focus{
 
 input[type=text]{
 	margin-bottom: 15px;}
+
+/* Added by Francesco OTERI (FO)*/
+.strMatch{
+float: left;
+display:flex;
+}
+
+img.imgLogo {
+float: left;
+}
+
+.hmmLogo{
+display:flex;
+flex-direction: column;
+}
+
+.logocharacter{
+display: inline-table;
+}

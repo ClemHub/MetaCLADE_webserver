@@ -10,10 +10,12 @@ function generateRandomString($length = 10) {
 
 function read_parameters_file($file_name, $separator="\t"){
 	$file = fopen($file_name, "r");
+	logline("Opening file:".$file_name);
 	$data = array();
 	while(!feof($file)){
 		$line = fgets($file);
 		$line = explode($separator, $line);
+//		print_r($line);
 		if(sizeof($line)>1) #When there is the email field, the last line is '\n' and this causes the array $line to have only one element
 			$data[$line[0]] = $line[1];
 		}
@@ -33,6 +35,10 @@ function submit($job_id, $parameters){
 	$dama = $parameters['DAMA'];
 	$library = $parameters['Library'];
 	$args = "-i ".escapeshellarg("$approot/jobs/".$job_id."/data.fa")." -N ".escapeshellarg($job_id)."  -e ".escapeshellarg($e_value)."  -W ".escapeshellarg("$approot/jobs/");
+	if($_POST["logo"] == 'true'){
+	  $args = $args." --logo";
+	}
+
 	if($_POST["dama"] == 'true'){
 		$DAMA_evalue = $parameters['DAMA e-value'];	
 		$overlappingAA = $parameters['Amino acids overlappping'];
@@ -47,7 +53,7 @@ function submit($job_id, $parameters){
 		$pfam = $parameters['PFAM'];	
 		$args = $args." -d ".escapeshellarg($pfam);
 		$args = $args." -t ".escapeshellarg(2);
-		$command="qsub -pe smp 1 -wd ".$approot."/jobs/".$job_id."/ -N $job_id -l h_rt=48:00:00 -b y /home/blachon/Documents/Tools/metaclade2/metaclade2_logo ".$args;}
+		$command="qsub -pe smp 1 -wd ".$approot."/jobs/".$job_id."/ -N $job_id -l h_rt=48:00:00 -b y /home/blachon/Documents/Tools/metaclade2/metaclade2_logo ".$args;} //BUG: It should be qsub -pe smp 2
 	else if($form == 'large'){
 		$args = $args." -t ".escapeshellarg(6);
 		$command="qsub -pe smp 2 -wd ".$approot."/jobs/".$job_id."/ -N $job_id -l h_rt=48:00:00 -b y /home/blachon/Documents/Tools/metaclade2/metaclade2_logo ".$args;}

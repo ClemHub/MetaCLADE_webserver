@@ -13,10 +13,6 @@ echo "<head>";
 	echo "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>";
 	echo "<script src='https://kit.fontawesome.com/a076d05399.js'></script>";
 	echo "<script src='http://code.jquery.com/jquery-1.10.2.js'></script>";
-
-//Added by Francesco OTERI (FO) for logo computation
-	echo "<script src='node_modules/biojs-vis-seqlogo/build/hmm.js'></script>";
-	
 	echo "<title>MyCLADE</title></head>";
 
 

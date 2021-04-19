@@ -259,6 +259,32 @@ function close_open_info(bouton) {
 	else {
 		divContenu.style.display = 'block';}}
 
+/**
+ *  * Get the URL parameters
+ *   * source: https://css-tricks.com/snippets/javascript/get-url-variables/
+ *    * @param  {String} url The URL
+ *     * @return {Object}     The URL parameters
+ *      */
+var getParams = function (url) {
+		var params = {};
+		var parser = document.createElement('a');
+		parser.href = url;
+		var query = parser.search.substring(1);
+		var vars = query.split('&');
+		for (var i = 0; i < vars.length; i++) {
+					var pair = vars[i].split('=');
+					params[pair[0]] = decodeURIComponent(pair[1]);
+				}
+		return params;
+}
+
+function runLogoBuilding() {
+  var params=getParams(window.location.href);
+  $.get('submit_logo.php', {job_id:params['job_id']}, function(){
+   location.reload()
+  })
+}
+
 function ShowHideDama(){
 	var yes_btn = document.getElementById("yes_btn");
 	var evalue_dama = document.getElementById("show_dama");

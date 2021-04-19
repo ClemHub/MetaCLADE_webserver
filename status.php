@@ -25,25 +25,44 @@ include("./includes/header.php");
 		$error = false;
 		$end = false;
 		if($output){
-			foreach($output as $file){
-				if(preg_match("/[a-zA-Z0-9]+\.e[0-9]+/", $file)){
-					$last_line = file($file);
-					if(count($last_line) > 0){
-						$last_line = $last_line[count($last_line)-1];
-						if (preg_match("/logo job finished successfully/", $last_line) || preg_match("/removing temporary files/", $last_line)){
-							$end = true;}
-						else if (preg_match("/failed|exit|error/", $last_line)){
-							$error = true;}
-						else if (preg_match("/submission|creating/", $last_line)){
-							echo '<br><strong>Status of your job:</strong> job submission<br>';}
-						else if (preg_match("/search/", $last_line)){
-							echo '<br><strong>Status of your job:</strong> searching (step 1/4)<br>';}
-						else if (preg_match("/filter/", $last_line)){
-							echo '<br><strong>Status of your job:</strong> filtering (step 2/4)<br>';}
-						else if (preg_match("/architecture/", $last_line)){
-							echo '<br><strong>Status of your job:</strong> architecture reconstruction (step 3/4)<br>';}
-						else if (preg_match("/logo|Matplotlib/", $last_line)){
-							echo '<br><strong>Status of your job:</strong> logo reconstruction (step 4/4)<br>';}}}
+			if($parameters['LOGO'] == 'true'){
+				foreach($output as $file){
+					if(preg_match("/[a-zA-Z0-9]+\.e[0-9]+/", $file)){
+						$last_line = file($file);
+						if(count($last_line) > 0){
+							$last_line = $last_line[count($last_line)-1];
+							if (preg_match("/logo job finished successfully/", $last_line) || preg_match("/removing temporary files/", $last_line)){
+								$end = true;}
+							else if (preg_match("/failed|exit|error/", $last_line)){
+								$error = true;}
+							else if (preg_match("/submission|creating/", $last_line)){
+								echo '<br><strong>Status of your job:</strong> job submission<br>';}
+							else if (preg_match("/search/", $last_line)){
+								echo '<br><strong>Status of your job:</strong> searching (step 1/4)<br>';}
+							else if (preg_match("/filter/", $last_line)){
+								echo '<br><strong>Status of your job:</strong> filtering (step 2/4)<br>';}
+							else if (preg_match("/architecture/", $last_line)){
+								echo '<br><strong>Status of your job:</strong> architecture reconstruction (step 3/4)<br>';}
+							else if (preg_match("/logo|Matplotlib/", $last_line)){
+								echo '<br><strong>Status of your job:</strong> logo reconstruction (step 4/4)<br>';}}}}}
+			if($parameters['LOGO'] == 'false'){
+				foreach($output as $file){
+					if(preg_match("/[a-zA-Z0-9]+\.e[0-9]+/", $file)){
+						$last_line = file($file);
+						if(count($last_line) > 0){
+							$last_line = $last_line[count($last_line)-1];
+							if (preg_match("/logo job finished successfully/", $last_line) || preg_match("/removing temporary files/", $last_line)){
+								$end = true;}
+							else if (preg_match("/failed|exit|error/", $last_line)){
+								$error = true;}
+							else if (preg_match("/submission|creating/", $last_line)){
+								echo '<br><strong>Status of your job:</strong> job submission<br>';}
+							else if (preg_match("/search/", $last_line)){
+								echo '<br><strong>Status of your job:</strong> searching (step 1/3)<br>';}
+							else if (preg_match("/filter/", $last_line)){
+								echo '<br><strong>Status of your job:</strong> filtering (step 2/3)<br>';}
+							else if (preg_match("/architecture/", $last_line)){
+								echo '<br><strong>Status of your job:</strong> architecture reconstruction (step 3/3)<br>';}}}}}
 				else if(preg_match("/[a-zA-Z0-9]+\.o[0-9]+/", $file)){
 					$last_line = file($file);
 					if(count($last_line) > 0){
@@ -57,6 +76,19 @@ include("./includes/header.php");
 				$data = file_get_contents($approot."/jobs/".$job_id."/".$job_id.".arch.tsv");
 				$data = str_replace("unavailable", "HMMer-3 model", $data);
 				file_put_contents($approot."/jobs/".$job_id."/results.txt", $data, FILE_APPEND);
+				if($parameters['Email'] != ""){
+					echo "An email has been send";
+					$mail_header= "Subject: MyCLADE results (".$job_id.")". PHP_EOL;
+					$mail_header= 'From: MyCLADE <myclade@lcqb.upmc.fr>'. PHP_EOL;
+					$mail_header= $mail_header . "Content-Type: text/html; charset=ISO-8559-1". PHP_EOL;
+					$mail_header= $mail_header . "MIME-Version:". PHP_EOL;
+					$link = $appurl."/results.php?form=".$form."&job_id=".$job_id; 
+					$msg="Your job has been correctly submitted.<br>";
+					$msg= $msg . "Your job ID is: <b>".$job_id."</b><br>";
+					$msg= $msg . "Your job is now over, you can see your results going to $link<br>";
+					$msg= $msg . "Your data will be removed one month after the end of the job.<br>";
+					$msg= $msg . "If you need some help, contact the web developer (".$webdevel.").<br>";
+					mail("<".$parameters['Email'].">", "MyCLADE results (".$job_id.")", $msg, $mail_header);};
 				header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_id);}
 			else if($error){
 				//echo "<br><br>Error<br>";}

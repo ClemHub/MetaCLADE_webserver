@@ -73,7 +73,7 @@ include("./includes/header.php");
 			$email = $_POST['email'];
 			if($_POST['email'] != ""){
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Email\t".$email."\n", FILE_APPEND);
-				echo "An email has bens send";
+				echo "An email has been send";
 
 				$mail_header= "Subject: MyCLADE queued (".$job_id.")". PHP_EOL;
 				$mail_header= 'From: MyCLADE <myclade@lcqb.upmc.fr>'. PHP_EOL;

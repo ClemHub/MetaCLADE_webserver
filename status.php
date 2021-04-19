@@ -12,6 +12,7 @@ include("./includes/header.php");
 		echo "<br>You can save the link to access the results later (your job will be available for two months):<br>"; 
 		echo "<a href=$hostname/$appname/status.php?form=".$form."&job_id=".$job_id.">$hostname/$appname/status.php?form=".$form."&job_id=".$job_id."</a><br>";
 		$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
+		$parameters['LOGO'] = 'true';
 		if(trim($parameters['LOGO']) == 'true'){$total_step = 4;}
 		else if(trim($parameters['LOGO']) == 'false'){$total_step = 3;}
 		echo "<ul><br><strong>Your job parameters:</strong><br>";

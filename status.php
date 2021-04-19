@@ -24,45 +24,26 @@ include("./includes/header.php");
 		$output =  glob($approot."/jobs/".$job_id."/".$job_id.".*");
 		$error = false;
 		$end = false;
-		if($output){
-			if($parameters['LOGO'] == 'true'){
-				foreach($output as $file){
-					if(preg_match("/[a-zA-Z0-9]+\.e[0-9]+/", $file)){
-						$last_line = file($file);
-						if(count($last_line) > 0){
-							$last_line = $last_line[count($last_line)-1];
-							if (preg_match("/logo job finished successfully/", $last_line) || preg_match("/removing temporary files/", $last_line)){
-								$end = true;}
-							else if (preg_match("/failed|exit|error/", $last_line)){
-								$error = true;}
-							else if (preg_match("/submission|creating/", $last_line)){
-								echo '<br><strong>Status of your job:</strong> job submission<br>';}
-							else if (preg_match("/search/", $last_line)){
-								echo '<br><strong>Status of your job:</strong> searching (step 1/4)<br>';}
-							else if (preg_match("/filter/", $last_line)){
-								echo '<br><strong>Status of your job:</strong> filtering (step 2/4)<br>';}
-							else if (preg_match("/architecture/", $last_line)){
-								echo '<br><strong>Status of your job:</strong> architecture reconstruction (step 3/4)<br>';}
-							else if (preg_match("/logo|Matplotlib/", $last_line)){
-								echo '<br><strong>Status of your job:</strong> logo reconstruction (step 4/4)<br>';}}}}}
-			if($parameters['LOGO'] == 'false'){
-				foreach($output as $file){
-					if(preg_match("/[a-zA-Z0-9]+\.e[0-9]+/", $file)){
-						$last_line = file($file);
-						if(count($last_line) > 0){
-							$last_line = $last_line[count($last_line)-1];
-							if (preg_match("/logo job finished successfully/", $last_line) || preg_match("/removing temporary files/", $last_line)){
-								$end = true;}
-							else if (preg_match("/failed|exit|error/", $last_line)){
-								$error = true;}
-							else if (preg_match("/submission|creating/", $last_line)){
-								echo '<br><strong>Status of your job:</strong> job submission<br>';}
-							else if (preg_match("/search/", $last_line)){
-								echo '<br><strong>Status of your job:</strong> searching (step 1/3)<br>';}
-							else if (preg_match("/filter/", $last_line)){
-								echo '<br><strong>Status of your job:</strong> filtering (step 2/3)<br>';}
-							else if (preg_match("/architecture/", $last_line)){
-								echo '<br><strong>Status of your job:</strong> architecture reconstruction (step 3/3)<br>';}}}}}
+		if($output){zz
+			foreach($output as $file){
+				if(preg_match("/[a-zA-Z0-9]+\.e[0-9]+/", $file)){
+					$last_line = file($file);
+					if(count($last_line) > 0){
+						$last_line = $last_line[count($last_line)-1];
+						if (preg_match("/logo job finished successfully/", $last_line) || preg_match("/removing temporary files/", $last_line)){
+							$end = true;}
+						else if (preg_match("/failed|exit|error/", $last_line)){
+							$error = true;}
+						else if (preg_match("/submission|creating/", $last_line)){
+							echo '<br><strong>Status of your job:</strong> job submission<br>';}
+						else if (preg_match("/search/", $last_line)){
+							echo '<br><strong>Status of your job:</strong> searching (step 1/4)<br>';}
+						else if (preg_match("/filter/", $last_line)){
+							echo '<br><strong>Status of your job:</strong> filtering (step 2/4)<br>';}
+						else if (preg_match("/architecture/", $last_line)){
+							echo '<br><strong>Status of your job:</strong> architecture reconstruction (step 3/4)<br>';}
+						else if (preg_match("/logo|Matplotlib/", $last_line)){
+							echo '<br><strong>Status of your job:</strong> logo reconstruction (step 4/4)<br>';}}}
 				else if(preg_match("/[a-zA-Z0-9]+\.o[0-9]+/", $file)){
 					$last_line = file($file);
 					if(count($last_line) > 0){

@@ -26,9 +26,8 @@ include("./includes/header.php");
 		$output =  glob($approot."/jobs/".$job_id."/".$job_id.".*");
 		$error = false;
 		$end = false;
-		session.start();
+		session_start();
 		
-		$nb_step = 0;
 		if($output){
 			foreach($output as $file){
 					if(preg_match("/[a-zA-Z0-9]+\.e[0-9]+/", $file)){

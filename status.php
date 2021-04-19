@@ -12,9 +12,7 @@ include("./includes/header.php");
 		echo "<br>You can save the link to access the results later (your job will be available for two months):<br>"; 
 		echo "<a href=$hostname/$appname/status.php?form=".$form."&job_id=".$job_id.">$hostname/$appname/status.php?form=".$form."&job_id=".$job_id."</a><br>";
 		$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");
-		$parameters['LOGO'] = 'true';
-		if(trim($parameters['LOGO']) == 'true'){$total_step = 4;}
-		else if(trim($parameters['LOGO']) == 'false'){$total_step = 3;}
+
 		echo "<ul><br><strong>Your job parameters:</strong><br>";
 		foreach($parameters as $name => $value){
 			if($name != "" and $value != "" and $name != "Email"){
@@ -26,10 +24,9 @@ include("./includes/header.php");
 		$output =  glob($approot."/jobs/".$job_id."/".$job_id.".*");
 		$error = false;
 		$end = false;
-		session_start();
-		
 		if($output){
 			foreach($output as $file){
+				if($parameters['LOGO'] == 'true'){
 					if(preg_match("/[a-zA-Z0-9]+\.e[0-9]+/", $file)){
 						$last_line = file($file);
 						if(count($last_line) > 0){
@@ -39,20 +36,32 @@ include("./includes/header.php");
 							else if (preg_match("/failed|exit|error/", $last_line)){
 								$error = true;}
 							else if (preg_match("/submission|creating/", $last_line)){
-								$_SESSION['step'] = 'submission';
-								$_SESSION['nb_step'] = 0;}
+								echo '<br><strong>Status of your job:</strong> job submission<br>';}
 							else if (preg_match("/search/", $last_line)){
-								$_SESSION['step'] = 'searching';
-								$_SESSION['nb_step'] = 1;}
+								echo '<br><strong>Status of your job:</strong> searching (step 1/4)<br>';}
 							else if (preg_match("/filter/", $last_line)){
-								$_SESSION['step'] = 'filtering';
-								$_SESSION['nb_step'] = 2;}
+								echo '<br><strong>Status of your job:</strong> filtering (step 2/4)<br>';}
 							else if (preg_match("/architecture/", $last_line)){
-								$_SESSION['step'] = 'architecture reconstruction';
-								$_SESSION['nb_step'] = 3;}
-							else if (preg_match("/logo/", $last_line)){
-								$_SESSION['step'] = 'logo reconstruction';
-								$_SESSION['nb_step'] = 4;}}}
+								echo '<br><strong>Status of your job:</strong> architecture reconstruction (step 3/4)<br>';}
+							else if (preg_match("/logo|Matplotlib/", $last_line)){
+								echo '<br><strong>Status of your job:</strong> logo reconstruction (step 4/4)<br>';}}}}
+				else if($parameters['LOGO'] == 'false'){
+					if(preg_match("/[a-zA-Z0-9]+\.e[0-9]+/", $file)){
+						$last_line = file($file);
+						if(count($last_line) > 0){
+							$last_line = $last_line[count($last_line)-1];
+							if (preg_match("/logo job finished successfully/", $last_line) || preg_match("/removing temporary files/", $last_line)){
+								$end = true;}
+							else if (preg_match("/failed|exit|error/", $last_line)){
+								$error = true;}
+							else if (preg_match("/submission|creating/", $last_line)){
+								echo '<br><strong>Status of your job:</strong> job submission<br>';}
+							else if (preg_match("/search/", $last_line)){
+								echo '<br><strong>Status of your job:</strong> searching (step 1/3)<br>';}
+							else if (preg_match("/filter/", $last_line)){
+								echo '<br><strong>Status of your job:</strong> filtering (step 2/3)<br>';}
+							else if (preg_match("/architecture/", $last_line)){
+								echo '<br><strong>Status of your job:</strong> architecture reconstruction (step 3/3)<br>';}}}}
 				else if(preg_match("/[a-zA-Z0-9]+\.o[0-9]+/", $file)){
 					$last_line = file($file);
 					if(count($last_line) > 0){
@@ -82,13 +91,12 @@ include("./includes/header.php");
 				//echo "<br><br>Error<br>";}
 				header("location: $hostname/$appname/error.php?form=".$form."&job_id=".$job_id);}
 			else{
-				if(isset($_SESSION['step'] && isset($_SESSION['nb_step']))){
-					echo '<br><strong>Status of your job: </strong>'.$step.' (step '.$nb_step.'/'.$total_step.')';}
+				//echo "<br><br>Nothing done yet<br>";}}
 				header("refresh: 10");}}
 		else{
-			if(isset($_SESSION['step'] && isset($_SESSION['nb_step']))){
-				echo '<br><strong>Status of your job: </strong>'.$step.' (step '.$nb_step.'/'.$total_step.')';}
+			echo '<br><strong>Status of your job:</strong> submission of your job';
 			header("refresh: 10");}
+
 		if($end == false && ($status == "" || explode('\n', $status)[0] == 'Following jobs do not exist:')){
 			header("location: $hostname/$appname/error.php?form=".$form."&job_id=".$job_id);}
 

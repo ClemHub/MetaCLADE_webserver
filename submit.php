@@ -62,9 +62,12 @@ include("./includes/header.php");
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Amino acids overlapping\t".$_POST["overlappingAA_nb"]."\n", FILE_APPEND);
 				$parameters['Amino acids overlappping'] = $_POST["overlappingAA_nb"];
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Max domain overlapping (%)\t".$_POST["overlappingMaxDomain_nb"]."\n", FILE_APPEND);
-				$parameters['Max domain overlapping (%)'] = $_POST["overlappingMaxDomain_nb"];}
+				$parameters['Max domain overlapping (%)'] = $_POST["overlappingMaxDomain_nb"];
+			    }
 			file_put_contents($approot.'/jobs/'.$job_id.'/data.fa', $_POST["sequences"]);
 			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Number of sequences\t".preg_match_all("/^>|\n>/", $_POST["sequences"])."\n", FILE_APPEND);
+			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "LOGO\t".$_POST["logo"]."\n", FILE_APPEND);
+
 			$msg = submit($job_id, $parameters);
 			echo $msg;
 			$email = $_POST['email'];

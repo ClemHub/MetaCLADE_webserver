@@ -66,8 +66,8 @@ include("./includes/header.php");
 			    }
 			file_put_contents($approot.'/jobs/'.$job_id.'/data.fa', $_POST["sequences"]);
 			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Number of sequences\t".preg_match_all("/^>|\n>/", $_POST["sequences"])."\n", FILE_APPEND);
-			//$logo = $_POST["logo"];
-			$logo = 'true';
+			$logo = $_POST["logo"];
+			//$logo = 'true';
 			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "LOGO\t".$logo."\n", FILE_APPEND);
 
 			$msg = submit($job_id, $parameters);

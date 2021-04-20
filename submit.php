@@ -19,7 +19,7 @@ include("./includes/header.php");
 			if($job_name != ''){
 				if(file_exists($approot."/jobs/".$job_name."/".$job_name.".arch.tsv")){
 					header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_name);
-					}	
+					}
 				else if(!file_exists($approot."/jobs/".$job_name."/".$job_name.".arch.tsv")){
 					header("location: $hostname/$appname/error.php?form=".$form."&job_id=".$job_name);}}}
 		else if ($form == 'visualization_file'){
@@ -52,7 +52,7 @@ include("./includes/header.php");
 			else if($form=='clan'){
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Clan\t".$_POST["clan"]."\n", FILE_APPEND);
 				$parameters['Clan'] = $_POST["clan"];}
-			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "DAMA\t".$_POST["dama"]."\n", FILE_APPEND);		
+			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "DAMA\t".$_POST["dama"]."\n", FILE_APPEND);
 			$parameters['DAMA'] = $_POST["dama"];
 			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "E-value\t".$_POST["evalue_nb"]."\n", FILE_APPEND);
 			$parameters['E-value'] = $_POST["evalue_nb"];
@@ -66,7 +66,9 @@ include("./includes/header.php");
 			    }
 			file_put_contents($approot.'/jobs/'.$job_id.'/data.fa', $_POST["sequences"]);
 			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Number of sequences\t".preg_match_all("/^>|\n>/", $_POST["sequences"])."\n", FILE_APPEND);
-			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "LOGO\t".$_POST["logo"]."\n", FILE_APPEND);
+			//$logo = $_POST["logo"];
+			$logo = 'true';
+			file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "LOGO\t".$logo."\n", FILE_APPEND);
 
 			$msg = submit($job_id, $parameters);
 			echo $msg;

@@ -35,11 +35,9 @@ function submit($job_id, $parameters){
 	$dama = $parameters['DAMA'];
 	$library = $parameters['Library'];
 	$args = "-i ".escapeshellarg("$approot/jobs/".$job_id."/data.fa")." -N ".escapeshellarg($job_id)."  -e ".escapeshellarg($e_value)."  -W ".escapeshellarg("$approot/jobs/");
-	//if($_POST["logo"] == 'true'){
-	//  $args = $args." --logo";
-	//}
-	$args = $args." --logo";
-
+	if($_POST["logo"] == 'true'){
+	  $args = $args." --logo";}
+	
 	if($_POST["dama"] == 'true'){
 		$DAMA_evalue = $parameters['DAMA e-value'];	
 		$overlappingAA = $parameters['Amino acids overlappping'];

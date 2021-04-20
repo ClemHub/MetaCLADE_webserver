@@ -46,6 +46,8 @@
 			<label for="no_btn">No</label><input type="radio" class='radio_btn' name="dama" id="no_btn" value = "false" onclick='ShowHideDama()' checked/>
 			</div>
 
+			<input id="logo" name="logo" type="hidden" value="true">
+
 			<div id = 'show_dama'>
 				<br>
 				<label for='dama_evalue_range'>E-value threshold for DAMA:<br/></label>

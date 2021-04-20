@@ -23,10 +23,7 @@ include("./includes/header.php");
 		$status = shell_exec("qstat -u 'metaclade' -j ".$job_id);
 
 		$output =  glob($approot."/jobs/".$job_id."/".$job_id.".*");
-		$error = false;
-		$end = false;
-		$step = 'submission';
-		$nb_step = 0;
+		session_start();
 		if($output){
 			foreach($output as $file){
 					if(preg_match("/[a-zA-Z0-9]+\.e[0-9]+/", $file)){
@@ -38,20 +35,20 @@ include("./includes/header.php");
 							else if (preg_match("/failed|exit|error/", $last_line)){
 								$error = true;}
 							else if (preg_match("/submission|creating/", $last_line)){
-								echo "<input id='step' name='step' type='hidden' value='submission'>";
-								echo "<input id='step_nb' name='step_nb' type='hidden' value='0'>";}
+								$_SESSION['step'] = 'submission';
+								$_SESSION['step_nb'] = '0';}
 							else if (preg_match("/search/", $last_line)){
-								echo "<input id='step' name='step' type='hidden' value='searching'>";
-								echo "<input id='step_nb' name='step_nb' type='hidden' value='1'>";}
+								$_SESSION['step'] = 'searching';
+								$_SESSION['step_nb'] = '1';}
 							else if (preg_match("/filter/", $last_line)){
-								echo "<input id='step' name='step' type='hidden' value='fitering'>";
-								echo "<input id='step_nb' name='step_nb' type='hidden' value='2'>";}
+								$_SESSION['step'] = 'filtering';
+								$_SESSION['step_nb'] = '2';}
 							else if (preg_match("/architecture/", $last_line)){
-								echo "<input id='step' name='step' type='hidden' value='architecture reconstruction'>";
-								echo "<input id='step_nb' name='step_nb' type='hidden' value='3'>";}
+								$_SESSION['step'] = 'architecture reconstruction';
+								$_SESSION['step_nb'] = '3';}
 							else if (preg_match("/logo/", $last_line)){
-								echo "<input id='step' name='step' type='hidden' value='logo reconstruction'>";
-								echo "<input id='step_nb' name='step_nb' type='hidden' value='4'>";}}}
+								$_SESSION['step'] = 'logo reconstruction';
+								$_SESSION['step_nb'] = '4';}}}
 				else if(preg_match("/[a-zA-Z0-9]+\.o[0-9]+/", $file)){
 					$last_line = file($file);
 					if(count($last_line) > 0){
@@ -81,7 +78,8 @@ include("./includes/header.php");
 				//echo "<br><br>Error<br>";}
 				header("location: $hostname/$appname/error.php?form=".$form."&job_id=".$job_id);}
 			else{
-				echo '<br><strong>Status of your job: </strong>'.$_POST['step'].' (step '.$_POST['step_nb'].'/'.$total_step.')';
+				if(isset($_SESSION['step'])){
+					echo '<br><strong>Status of your job: </strong>'.$_SESSION['step'].' (step '.$_SESSION['step_nb'].'/'.$total_step.')';}
 				header("refresh: 10");}}
 		else{
 			echo '<br><strong>Status of your job: </strong>'.$_POST['step'].' (step '.$_POST['step_nb'].'/'.$total_step.')';

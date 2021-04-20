@@ -38,20 +38,20 @@ include("./includes/header.php");
 							else if (preg_match("/failed|exit|error/", $last_line)){
 								$error = true;}
 							else if (preg_match("/submission|creating/", $last_line)){
-								$step = 'submission';
-								$nb_step = 0;}
+								echo "<input id='step' name='step' type='hidden' value='submission'>";
+								echo "<input id='step_nb' name='step_nb' type='hidden' value='0'>";}
 							else if (preg_match("/search/", $last_line)){
-								$step = 'searching';
-								$nb_step = 1;}
+								echo "<input id='step' name='step' type='hidden' value='searching'>";
+								echo "<input id='step_nb' name='step_nb' type='hidden' value='1'>";}
 							else if (preg_match("/filter/", $last_line)){
-								$step = 'filtering';
-								$nb_step = 2;}
+								echo "<input id='step' name='step' type='hidden' value='fitering'>";
+								echo "<input id='step_nb' name='step_nb' type='hidden' value='2'>";}
 							else if (preg_match("/architecture/", $last_line)){
-								$step = 'architecture reconstruction';
-								$nb_step = 3;}
+								echo "<input id='step' name='step' type='hidden' value='architecture reconstruction'>";
+								echo "<input id='step_nb' name='step_nb' type='hidden' value='3'>";}
 							else if (preg_match("/logo/", $last_line)){
-								$step = 'logo reconstruction';
-								$step = 4;}}}
+								echo "<input id='step' name='step' type='hidden' value='logo reconstruction'>";
+								echo "<input id='step_nb' name='step_nb' type='hidden' value='4'>";}}}
 				else if(preg_match("/[a-zA-Z0-9]+\.o[0-9]+/", $file)){
 					$last_line = file($file);
 					if(count($last_line) > 0){
@@ -81,10 +81,10 @@ include("./includes/header.php");
 				//echo "<br><br>Error<br>";}
 				header("location: $hostname/$appname/error.php?form=".$form."&job_id=".$job_id);}
 			else{
-				echo '<br><strong>Status of your job: </strong>'.$step.' (step '.$nb_step.'/'.$total_step.')';
+				echo '<br><strong>Status of your job: </strong>'.$_POST['step'].' (step '.$_POST['step_nb'].'/'.$total_step.')';
 				header("refresh: 10");}}
 		else{
-			echo '<br><strong>Status of your job: </strong>'.$step.' (step '.$nb_step.'/'.$total_step.')';
+			echo '<br><strong>Status of your job: </strong>'.$_POST['step'].' (step '.$_POST['step_nb'].'/'.$total_step.')';
 			header("refresh: 10");}
 		if($end == false && ($status == "" || explode('\n', $status)[0] == 'Following jobs do not exist:')){
 			header("location: $hostname/$appname/error.php?form=".$form."&job_id=".$job_id);}

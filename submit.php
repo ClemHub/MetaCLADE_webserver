@@ -82,8 +82,10 @@ include("./includes/header.php");
 				$mail_header= $mail_header . "Content-Type: text/html; charset=ISO-8559-1". PHP_EOL;
 				$mail_header= $mail_header . "MIME-Version:". PHP_EOL;
 				mail("<".$email.">", "MyCLADE queued (".$job_id.")", $msg, $mail_header);};
+			echo "<form>";
 			echo "<input id='step' name='step' type='hidden' value='submission'>";
 			echo "<input id='step_nb' name='step_nb' type='hidden' value='0'>";
+			echo "</form>";
 			header("location: $hostname/$appname/status.php?form=".$form."&job_id=".$job_id);
 		}
 

@@ -82,7 +82,8 @@ include("./includes/header.php");
 					echo '<br><strong>Status of your job: </strong>'.$_SESSION['step'].' (step '.$_SESSION['step_nb'].'/'.$total_step.')';}
 				header("refresh: 10");}}
 		else{
-			echo '<br><strong>Status of your job: </strong>'.$_POST['step'].' (step '.$_POST['step_nb'].'/'.$total_step.')';
+			if(isset($_SESSION['step'])){
+				echo '<br><strong>Status of your job: </strong>'.$_SESSION['step'].' (step '.$_SESSION['step_nb'].'/'.$total_step.')';}
 			header("refresh: 10");}
 		if($end == false && ($status == "" || explode('\n', $status)[0] == 'Following jobs do not exist:')){
 			header("location: $hostname/$appname/error.php?form=".$form."&job_id=".$job_id);}

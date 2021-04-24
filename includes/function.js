@@ -329,7 +329,7 @@ function runLogoBuilding() {
       })
 }
 function ShowHideDama(){
-	var yes_btn = document.getElementById("yes_btn");
+	var yes_btn = document.getElementById("yes_dama");
 	var evalue_dama = document.getElementById("show_dama");
 	evalue_dama.style.display = yes_btn.checked ? "block" : "none";}
 

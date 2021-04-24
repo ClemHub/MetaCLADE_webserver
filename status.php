@@ -23,7 +23,10 @@ include("./includes/header.php");
 		$status = shell_exec("qstat -u 'metaclade' -j ".$job_id);
 
 		$output =  glob($approot."/jobs/".$job_id."/".$job_id.".*");
-		session_start();
+		$error = false;
+		$end = false;
+		$step = 'submission';
+		$nb_step = 0;
 		if($output){
 			foreach($output as $file){
 					if(preg_match("/[a-zA-Z0-9]+\.e[0-9]+/", $file)){
@@ -35,20 +38,20 @@ include("./includes/header.php");
 							else if (preg_match("/failed|exit|error/", $last_line)){
 								$error = true;}
 							else if (preg_match("/submission|creating/", $last_line)){
-								$_SESSION['step'] = 'submission';
-								$_SESSION['step_nb'] = '0';}
+								$step = 'submission';
+								$nb_step = 0;}
 							else if (preg_match("/search/", $last_line)){
-								$_SESSION['step'] = 'searching';
-								$_SESSION['step_nb'] = '1';}
+								$step = 'searching';
+								$nb_step = 1;}
 							else if (preg_match("/filter/", $last_line)){
-								$_SESSION['step'] = 'filtering';
-								$_SESSION['step_nb'] = '2';}
+								$step = 'filtering';
+								$nb_step = 2;}
 							else if (preg_match("/architecture/", $last_line)){
-								$_SESSION['step'] = 'architecture reconstruction';
-								$_SESSION['step_nb'] = '3';}
+								$step = 'architecture reconstruction';
+								$nb_step = 3;}
 							else if (preg_match("/logo/", $last_line)){
-								$_SESSION['step'] = 'logo reconstruction';
-								$_SESSION['step_nb'] = '4';}}}
+								$step = 'logo reconstruction';
+								$step = 4;}}}
 				else if(preg_match("/[a-zA-Z0-9]+\.o[0-9]+/", $file)){
 					$last_line = file($file);
 					if(count($last_line) > 0){
@@ -78,12 +81,10 @@ include("./includes/header.php");
 				//echo "<br><br>Error<br>";}
 				header("location: $hostname/$appname/error.php?form=".$form."&job_id=".$job_id);}
 			else{
-				if(isset($_SESSION['step'])){
-					echo '<br><strong>Status of your job: </strong>'.$_SESSION['step'].' (step '.$_SESSION['step_nb'].'/'.$total_step.')';}
+				echo '<br><strong>Status of your job: </strong>'.$step.' (step '.$nb_step.'/'.$total_step.')';
 				header("refresh: 10");}}
 		else{
-			if(isset($_SESSION['step'])){
-				echo '<br><strong>Status of your job: </strong>'.$_SESSION['step'].' (step '.$_SESSION['step_nb'].'/'.$total_step.')';}
+			echo '<br><strong>Status of your job: </strong>'.$step.' (step '.$nb_step.'/'.$total_step.')';
 			header("refresh: 10");}
 		if($end == false && ($status == "" || explode('\n', $status)[0] == 'Following jobs do not exist:')){
 			header("location: $hostname/$appname/error.php?form=".$form."&job_id=".$job_id);}

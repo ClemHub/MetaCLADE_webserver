@@ -46,7 +46,11 @@
 			<label for="no_btn">No</label><input type="radio" class='radio_btn' name="dama" id="no_btn" value = "false" onclick='ShowHideDama()' checked/>
 			</div>
 
-			<input id="logo" name="logo" type="hidden" value="true">
+			<div class = 'logo_choice'>
+                        <br/>Generate hmm logo (this job can be run later):<br/>
+                        <label for="yes_btn">Yes</label><input type="radio" class='radio_btn' name="logo" id="yes_btn" value = "true" />
+                        <label for="no_btn">No</label><input type="radio" class='radio_btn' name="logo"   id="no_btn" value = "false" checked/>
+			</div>
 
 			<div id = 'show_dama'>
 				<br>

@@ -10,8 +10,12 @@ function generateRandomString($length = 10) {
 
 function read_parameters_file($file_name, $separator="\t"){
 	$file = fopen($file_name, "r");
-	logline("Opening file:".$file_name);
 	$data = array();
+	if($file==false)
+	{
+	 //logline('Impossible to open file '.$file_name);
+  	 return $data;
+	}
 	while(!feof($file)){
 		$line = fgets($file);
 		$line = explode($separator, $line);

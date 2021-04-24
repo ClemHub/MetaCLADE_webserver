@@ -1,9 +1,7 @@
+<?php include("./includes/header.php"); ?>
+<section>
+<h2>Results</h2>
 <?php
-include("./includes/header.php");
-?>
-	<section>
-	<h2>Results</h2>
-	<?php
 
 	//Taking form informations
 	$form = $_GET["form"];
@@ -213,6 +211,14 @@ include("./includes/header.php");
 	//Information button
 	if($form != 'visualization_file'){
 		echo "<div class='info'>";
+		if($parameters["LOGO"]=="false\n")
+			echo "<input id=submitLogo type='button' class='bouton_info' value='Build logo' onclick='runLogoBuilding();' />";
+		else
+		   if($parameters["LOGO"]!="true\n")
+			echo "<input id=submitLogo type='button' class='bouton_info'/>";
+
+		echo "</div>";
+		echo "<div class='info'>";
 		echo "<input type='button' class='bouton_info' value='Search parameters' onclick='close_open_info(this);' />";
 		echo "<div class='contenu_info'>";
 		if($form == 'small' | $form == 'large' | $form == 'clan' | $form == 'visualization_jobID'){
@@ -228,6 +234,7 @@ include("./includes/header.php");
 	
 	</section>
 
+<?php include("./includes/footer.php"); ?>
 <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script>
@@ -250,6 +257,15 @@ $(document).ready(function() {
 	$('#seq-filter2').on('keyup change', function(){
 				table.search(this.value, regex=true).draw()});
 });
+$(document).ready(function() {
+	var params=getParams(window.location.href);
+	$.get('getLogoStatus.php', {job_id:params["job_id"]},(status)=>{
+	status=status.replace('\n','')
+	setlogoText(status);
+	if(status!="true" && status!="false")
+	   	pollLogoStatus(params["job_id"])	   
+	})
+
+})
 </script>
 
-<?php include("./includes/footer.php"); ?>

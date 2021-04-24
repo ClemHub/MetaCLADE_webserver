@@ -1,13 +1,13 @@
 <?php include("./includes/header.php"); ?>
-	<?php
+<?php
 	$form = $_GET['form'];
 	$job_id = $_GET['job_id'];
 	$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.tsv";
 
 
 	$file_content = fopen($name_file, "r");
-    $seq_id = $_GET['id'];
-    $previous_page = "results.php?form=".$form."&job_id=".$job_id;
+    	$seq_id = $_GET['id'];
+    	$previous_page = "results.php?form=".$form."&job_id=".$job_id;
 	echo "<section id = 'architecture_section'>";
 	echo "<div id='previous_page'><i class='fa fa-arrow-left'></i><a class='table_link' href='".$previous_page."'> Main results page</a></div>";
 	echo "<div id='architecture'>";
@@ -288,12 +288,18 @@
 	</div>
 	</div>
 
-	<div class='info'>
-	<div class = 'logo_choice'>
-			Show LOGO:
-			<label for="yes_logo">Yes</label><input type="radio" class='radio_btn' name="logo" id="yes_logo" value = "true" onclick='ShowHideLogo()'/>
-			<label for="no_logo">No</label><input type="radio" class='radio_btn' name="logo" id="no_logo" value = "false" onclick='ShowHideLogo()' checked/>
-	</div>
+<?php
+	echo "<div class='info'>";
+	echo "<div id=submitLogo style='display:none'></div>"; 
+	{
+	   echo "
+		<div style='display:none' class = 'logo_choice'>
+				Show LOGO:
+				<label for='yes_logo'>Yes</label><input type='radio' class='radio_btn' name='logo' id='yes_logo' value = 'true' onclick='ShowHideLogo()'/>
+				<label for='no_logo'>No</label><input type='radio' class='radio_btn' name='logo' id='no_logo' value = 'false' onclick='ShowHideLogo()' checked/>
+		</div>";
+
+	  echo "
 	<div class='table_container' id='logo_container'>
 	<table id='logo_table'>
 	<thead>
@@ -303,28 +309,24 @@
 		<th class='table_header'>Model stop</th>
 		<th class='table_header'>Logo</th>
 		</tr>
-	</thead>
-
-	<tfoot>
+	</thead>";
+	echo "
+		<tfoot>
 		<tr>
-		<?php
-		echo "<th class='table_header'>";
-		echo "<select id='logo_domain-filter'>";
-		echo "<option value=''>All</option>";
-		foreach(array_unique($pfam_name) as $pfam){
-			echo "<option value='".$pfam."'>".$pfam."</option>";}
-		echo "</select></th>";
+		<th class='table_header'>
+		      <select id='logo_domain-filter'>
+		      <option value=''>All</option>";
+		      foreach(array_unique($pfam_name) as $pfam){echo "<option value='".$pfam."'>".$pfam."</option>";}
+   		echo "</select></th>";
 
+		echo "</tr></tfoot><tbody>";
 
-		?>
-		</tr>
-	</tfoot>
-
-	<tbody>
-<?php
 	$fname=$approot."/jobs/".$job_id."/match.txt";
 	$data_match=Array();
-	if(($f_match=fopen($fname,"r")))
+	if(!($f_match=fopen($fname,"r"))){
+		echo "Failed to open ".$fname;
+	}
+	else
 	{
 		fgets($f_match); //Jumps the header
 		while(1) {
@@ -339,57 +341,25 @@
 			}
 		}
 		fclose($f_match);	
-	}
-	else{
-	echo "Failed to open ".$fname;
-	}
-	foreach($pfam_list as $data){
-		
-		foreach($data_match as $match){
-/*
- * match =>
-Array
-(
-	    [0] => PF13429   //domId
-	        [1] => 2	  modelStart
-		    [2] => 265    modelEnd
-		        [3] => YP4999981  //seqId
-			    [4] => 48		//seqStart
-			        [5] => 315	     //seqEnd
-				    [6] => 9.5e-38  //eval
-				    [7] =>  user sequence matchin
-				   [8]=> sequence describing match between user sequence and logo 
-
-				)
-*/
-		if(
-			$match[0] == $data[0] &&
-			$match[1] == $data[1] &&
-			$match[2] == $data[2] &&
-			$match[3] == $data[4] &&
-			$match[4] == $data[6] &&
-			$match[5] == $data[7] &&
-			$match[6] == $data[9]
-		 )
-		{
-				$imgName="jobs/".$job_id."/".$data[4].".".$data[5];
-				if( $data[5]=="HMMer-3")
-					$imgName.=".hmm.svg";
-				else
-					$imgName.=".ccms.svg";
-				$dbSeq = $match[7];
-				$matchOnLogo = str_replace('\n', '', $match[8]);
-				break;
-			}
-		} 
-
+   	     foreach($pfam_list as $data){
+	       foreach($data_match as $match){
+	            if(	$match[0] == $data[0] && $match[1] == $data[1] && $match[2] == $data[2] && $match[3] == $data[4] &&
+			$match[4] == $data[6] && $match[5] == $data[7] && $match[6] == $data[9] )
+		        {
+			$imgName="jobs/".$job_id."/".$data[4].".".$data[5];
+			if( $data[5]=="HMMer-3")
+				$imgName.=".hmm.svg";
+			else
+				$imgName.=".ccms.svg";
+			$dbSeq = $match[7];
+			$matchOnLogo = str_replace('\n', '', $match[8]);
+			break;
+		       }
+    	           }   
 
 		$link_id = 'http://pfam.xfam.org/family/' . $data[4];
-        echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data[4]."</a></td>";
-		#echo "<td>" . $data[1] . "</td>";
-		#echo "<td>" . $data[2] . "</td>";
-		echo "<td>" . $data[6] . "</td>";
-		echo "<td>" . $data[7] . "</td>";
+		echo "<tr><td><a class = 'table_link' href=" . $link_id . " target='_blank'>".$data[4]."</a></td>";
+		echo "<td>" . $data[6] . "</td><td>" . $data[7] . "</td>";
 		echo "<td>
 			<div>
 			<div class=hmmLogo>
@@ -397,13 +367,12 @@ Array
 			<div class=strMatch  data-start=$data[1] data-match=\"$matchOnLogo\" ></div>
 			<div class=strMatch  data-start=$data[1] data-match=\"$dbSeq\" ></div>
 			</div>	
-		     </td></tr>";}
-	?>
-	</tbody>
-	</table>
-	</div>
-	</br>
-	<?php
+		     </td>";
+		echo "</tr>";
+                }
+          echo "</tbody> </table></div> </br>";
+       }
+    } 
 	//Information button
 	if($form != 'visualization_file'){
 		echo "<div class='info'>";
@@ -418,14 +387,16 @@ Array
 				echo "<li>".$name.": ".$value."</li>";}}
 			echo "</ul>";
 		echo "</div></div>";}
-		?>
-	</section>
+?>
+
+</section>
+<?php include("./includes/footer.php"); ?>
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
 <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <!--Added by Francesco OTERI ( FO)-->
-<script src='https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js'></script>"
+<script src='https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js'></script>
 <script>
 
 $.fn.dataTable.ext.search.push(
@@ -509,6 +480,26 @@ $(document).ready(function() {
 <script type="application/javascript">
 	$(document).ready(function() {
 
+	var params=getParams(window.location.href);
+	$.get('getLogoStatus.php', {job_id:params["job_id"]},(status)=>{
+	  status=status.replace('\n','')
+	  setlogoText(status);
+	  if(status!="true" && status!="false")
+	   {
+	     $("#submitLogo")[0].style.display="block";	
+	     pollLogoStatus(params["job_id"])
+
+	     $('body').on('DOMSubtreeModified', '#submitLogo', function() {
+	   	if($("#submitLogo").attr("value") == "Done"){
+			location.reload(true);
+		  }
+	      });
+	   }
+	  else
+	    $(".logo_choice")[0].style.display="block";	
+  	})
+
+
 	$('.hmmLogo').imagesLoaded( function() {
 	      var hmmLogos = $(".hmmLogo")
 	      hmmLogos.each( function(){
@@ -532,4 +523,4 @@ $(document).ready(function() {
 	});
 });
 </script>
-<?php include("./includes/footer.php"); ?>
+

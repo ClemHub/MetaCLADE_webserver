@@ -265,26 +265,65 @@ function close_open_info(bouton) {
  *    * @param  {String} url The URL
  *     * @return {Object}     The URL parameters
  *      */
-var getParams = function (url) {
+var getParams= function(url) {
 		var params = {};
 		var parser = document.createElement('a');
 		parser.href = url;
 		var query = parser.search.substring(1);
 		var vars = query.split('&');
 		for (var i = 0; i < vars.length; i++) {
-					var pair = vars[i].split('=');
-					params[pair[0]] = decodeURIComponent(pair[1]);
-				}
+			var pair = vars[i].split('=');
+			params[pair[0]] = decodeURIComponent(pair[1]);
+		}
 		return params;
 }
+
+function setlogoText(status){
+switch(status) {
+	case "true":     txt="Done";break;
+	case "queued":   txt="Logo building is queued";	break;
+	case "building": txt="Logo building is running";break;
+	case "error":	 txt="Logo building failed. Contact the administrator"; break;		  }
+  $("#submitLogo").attr("value",txt);
+  $("#submitLogo").text(txt);
+}
+
+
+function updateLogoStatus(jobid,timer){
+ $.get('getLogoStatus.php', {job_id:jobid},(status)=>{
+   status=status.replace('\n','')
+   setlogoText(status);
+   if(status=="true")
+       {
+        $("#submitLogo")[0].style.display="none"; 
+	if(timer!=undefined)
+	   clearInterval(timer)
+        }
+    if(status=="error")
+     {
+//    $("#submitLogo").style('background:red');
+	if(timer!=undefined)
+	     clearInterval(timer)
+     } 
+   })  
+}
+
+
+function pollLogoStatus(jobid){
+   var timer;
+   timer = setInterval( function(){  
+	   		updateLogoStatus(jobid,timer)
+   }, 5000)
+}
+
 
 function runLogoBuilding() {
   var params=getParams(window.location.href);
   $.get('submit_logo.php', {job_id:params['job_id']}, function(){
-   location.reload()
-  })
+	$("#submitLogo").attr("value","Logo building is queued");
+	pollLogoStatus(params['job_id'])  
+      })
 }
-
 function ShowHideDama(){
 	var yes_btn = document.getElementById("yes_btn");
 	var evalue_dama = document.getElementById("show_dama");

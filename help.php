@@ -118,7 +118,7 @@
 	  To analyse large datasets: MetaCLADE and DAMA downloads<br>
       </h3>
 	<p align="left">For an analysis of large files, not possible with MyCLADE, the user can locally install the new improved version of <a href="www.lcqb.upmc.fr/metaclade/">MetaCLADE</a>, MetaCLADE v2. The SCM/CCM model library based on Pfam32 is available at the same address. The model library based on Pfam34 will come soon. </p>
-	<p align="left">DAMA can be retrieved <a href="www.lcqb.upmc.fr/dama/">here</a>. <br>
+	<p align="left">DAMA can be retrieved <a href="http://www.lcqb.upmc.fr/dama/">here</a>. <br>
 	  </p>
 	<p>&nbsp;</p>
 	<blockquote>

@@ -45,13 +45,6 @@
 
 			<label for="no_btn">No</label><input type="radio" class='radio_btn' name="dama" id="no_btn" value = "false" onclick='ShowHideDama()' checked/>
 			</div>
-
-			<div class = 'logo_choice'>
-                        <br/>Generate hmm logo (this job can be run later):<br/>
-                        <label for="yes_btn">Yes</label><input type="radio" class='radio_btn' name="logo" id="yes_btn" value = "true" />
-                        <label for="no_btn">No</label><input type="radio" class='radio_btn' name="logo"   id="no_btn" value = "false" checked/>
-			</div>
-
 			<div id = 'show_dama'>
 				<br>
 				<label for='dama_evalue_range'>E-value threshold for DAMA:<br/></label>
@@ -69,6 +62,11 @@
 					<input type="number" id ='overlappingMaxDomain_nb' name="overlappingMaxDomain_nb" min='0' max="50" value="50" step='1' oninput="this.form.overlappingMaxDomain_range.value=this.value" />
 				<span class='tooltip'><i class="far fa-question-circle"></i><span class='tooltiptext'>Proportion set to 50% by default. We advice you to avoid a proportion higher than 50%.</span></span>
 			
+			</div>
+			<div class = 'logo_choice'>
+                        <br/>Generate hmm logo (this job can be run later):<br/>
+                        <label for="yes_btn">Yes</label><input type="radio" class='radio_btn' name="logo" id="yes_btn" value = "true" />
+                        <label for="no_btn">No</label><input type="radio" class='radio_btn' name="logo"   id="no_btn" value = "false" checked/>
 			</div>
 			</div>
 			</fieldset>

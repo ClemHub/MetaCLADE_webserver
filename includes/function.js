@@ -199,6 +199,10 @@ function fill_exemple_form(form){
 	document.getElementById("reduced_btn").disabled = true;
 	document.getElementById("complete_btn").checked = true;
 	document.getElementById("complete_btn").disabled = true;
+	document.getElementById("yes_btn").checked = true;
+	document.getElementById("yes_btn").disabled = true;
+	document.getElementById("no_btn").checked = true;
+	document.getElementById("no_btn").disabled = true;
 	document.getElementById("dama_evalue_nb").value = 1e-10;
 	document.getElementById("dama_evalue_range").value = 1e-10;
 	document.getElementById("dama_evalue_nb").disabled = true;

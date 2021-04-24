@@ -37,9 +37,9 @@
 			<div class = 'dama_choice'>
 			<br/>Reconstruction of domain architectures with DAMA:<br/>
 
-			<label for="yes_btn">Yes</label><input type="radio" class='radio_btn' name="dama" id="yes_btn" value = "true" onclick='ShowHideDama()'/>
+			<label for="yes_dama">Yes</label><input type="radio" class='radio_btn' name="dama" id="yes_dama" value = "true" onclick='ShowHideDama()'/>
 
-			<label for="no_btn">No</label><input type="radio" class='radio_btn' name="dama" id="no_btn" value = "false" onclick='ShowHideDama()' checked/>
+			<label for="no_dama">No</label><input type="radio" class='radio_btn' name="dama" id="no_dama" value = "false" onclick='ShowHideDama()' checked/>
 			</div>
 			<div id = 'show_dama'>
 				<br>

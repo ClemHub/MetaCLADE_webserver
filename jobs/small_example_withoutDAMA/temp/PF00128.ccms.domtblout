@@ -624,8 +624,8 @@ sp|P0DUB6|AMY1A_HUMAN -            511 A6W7J6_KINRD_230-436 -            180   2
 # Version:         3.3 (Nov 2019)
 # Pipeline mode:   SEARCH
 # Query file:      /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF00128.hmm.gz
-# Target file:     /var/www/html/MetaCLADE_webserver/jobs/SjaYfk2xo99_20210407/data.fa
-# Option settings: hmmsearch --domtblout /var/www/html/MetaCLADE_webserver/jobs/SjaYfk2xo99_20210407/temp/PF00128.ccms.domtblout -T 0 --domE 1 --cpu 1 /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF00128.hmm.gz /var/www/html/MetaCLADE_webserver/jobs/SjaYfk2xo99_20210407/data.fa 
-# Current dir:     /var/www/html/MetaCLADE_webserver/jobs/SjaYfk2xo99_20210407
-# Date:            Wed Apr  7 10:14:30 2021
+# Target file:     /var/www/html/MetaCLADE_webserver/jobs/FWtcucWSRUI_20210424/data.fa
+# Option settings: hmmsearch --domtblout /var/www/html/MetaCLADE_webserver/jobs/FWtcucWSRUI_20210424/temp/PF00128.ccms.domtblout -T 0 --domE 1 --cpu 1 /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF00128.hmm.gz /var/www/html/MetaCLADE_webserver/jobs/FWtcucWSRUI_20210424/data.fa 
+# Current dir:     /var/www/html/MetaCLADE_webserver/jobs/FWtcucWSRUI_20210424
+# Date:            Sat Apr 24 12:04:20 2021
 # [ok]

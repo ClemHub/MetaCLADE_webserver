@@ -1,0 +1,1 @@
+python3 /home/blachon/Documents/Tools/metaclade2/scripts/simple_arch.py -e 0.001 /var/www/html/MetaCLADE_webserver/jobs/FWtcucWSRUI_20210424/results/2_filter /var/www/html/MetaCLADE_webserver/jobs/FWtcucWSRUI_20210424/results/3_arch/FWtcucWSRUI_20210424.arch.txt /home/blachon/Documents/Tools/metaclade2/data/pfamLists/pfam32/taxid2name.gz

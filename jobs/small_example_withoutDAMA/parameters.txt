@@ -4,3 +4,8 @@ PFAM	PF13424,PF14689,PF00128,PF02806,PF00875,PF03441
 DAMA	false
 E-value	1e-3
 Number of sequences	4
+LOGO	false
+Email	clemenceblachon@gmail.com
+LOGO	queued
+LOGO	building
+LOGO	true

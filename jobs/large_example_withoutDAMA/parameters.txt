@@ -4,3 +4,4 @@ DAMA	false
 E-value	1e-3
 Number of sequences	4
 Email	clemenceblachon@gmail.com
+LOGO	true

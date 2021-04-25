@@ -1,0 +1,9 @@
+Job name	All domains annotation with DAMA example
+Library	Annotation based on the full domain library
+DAMA	true
+E-value	1e-3
+DAMA e-value	1e-10
+Amino acids overlapping	30
+Max domain overlapping (%)	50
+Number of sequences	4
+Email	clemenceblachon@gmail.com

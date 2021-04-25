@@ -1,0 +1,37 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+sp|P0DUB6|AMY1A_HUMAN -            511 G2EFY5_9FLAO_46-138  -             91   1.8e-05   13.4   0.1   1   1   1.2e-05   4.8e-05   12.0   0.1     6    43   421   458   417   474 0.93 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 F6GJ85_LACS5_45-137  -             91   1.6e-05   13.5   0.1   1   1   1.1e-05   4.3e-05   12.1   0.1     6    42   421   457   417   471 0.93 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 K4IVW8_PSYTT_81-173  -             91   1.6e-05   13.5   0.1   1   1   1.1e-05   4.3e-05   12.2   0.1     6    42   421   457   417   471 0.93 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 T2KQ91_9FLAO_65-165  -             90   1.5e-05   13.6   0.1   1   1   9.9e-06     4e-05   12.2   0.1     5    41   421   457   419   472 0.93 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 H1ZE66_MYROD_41-142  -            101   1.8e-05   13.3   0.1   1   1   1.1e-05   4.4e-05   12.1   0.1     5    41   421   457   419   466 0.93 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 G8R4T1_OWEHD_42-132  -             91   1.7e-05   13.4   0.1   1   1   1.2e-05   4.7e-05   12.0   0.1     6    42   421   457   417   471 0.93 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 Q11TN8_CYTH3_54-146  -             91   1.3e-05   13.8   0.1   1   1   8.8e-06   3.5e-05   12.4   0.1     6    42   421   457   417   472 0.93 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 A0A024FCF7_9FLAO_50-142 -             91   1.9e-05   13.3   0.1   1   1   1.3e-05     5e-05   12.0   0.1     6    43   421   458   417   474 0.93 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 A2TYW4_9FLAO_66-165  -             90   1.1e-05   14.0   0.1   1   1   7.7e-06   3.1e-05   12.6   0.1     5    42   421   458   419   471 0.93 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 E6XBS7_CELAD_67-166  -             89   1.7e-05   13.4   0.1   1   1   1.1e-05   4.5e-05   12.1   0.1     4    40   421   457   419   472 0.93 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 A3XJK8_LEEBM_61-153  -             92   1.7e-05   13.5   0.1   1   1   1.2e-05   4.7e-05   12.1   0.1     6    43   421   458   417   474 0.93 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 A2TYW3_9FLAO_41-131  -             91   1.8e-05   13.3   0.1   1   1   1.3e-05     5e-05   11.9   0.1     6    42   421   457   417   466 0.92 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 D5BEP3_ZUNPS_38-130  -             93   1.8e-05   13.4   0.1   1   1   1.2e-05   4.7e-05   12.1   0.1     6    43   421   458   417   475 0.93 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 D6CZA9_9BACE_41-131  -             91   1.7e-05   13.3   0.1   1   1   1.2e-05   4.7e-05   11.9   0.1     6    42   421   457   417   466 0.92 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 W8FC99_9BACT_73-162  -             90   1.3e-05   13.7   0.1   1   1   8.8e-06   3.5e-05   12.3   0.1     6    42   421   457   418   472 0.93 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 G5HAF0_9BACT_81-170  -             91   1.6e-05   13.4   0.2   1   1   1.1e-05   4.6e-05   12.0   0.2     6    42   421   457   418   474 0.93 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 I0WJ06_9FLAO_60-152  -             91   1.8e-05   13.4   0.1   1   1   1.2e-05   4.9e-05   12.0   0.1     6    43   421   458   417   474 0.93 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 F0NYU1_WEEVC_62-152  -             91   1.7e-05   13.4   0.1   1   1   1.2e-05   4.7e-05   12.0   0.1     6    42   421   457   417   466 0.92 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 A0A0C5W067_9FLAO_47-139 -             91   1.8e-05   13.4   0.1   1   1   1.2e-05   4.8e-05   12.0   0.1     6    43   421   458   417   474 0.93 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 L7W885_NONDD_66-166  -             90   1.5e-05   13.6   0.1   1   1     1e-05   4.1e-05   12.2   0.1     5    41   421   457   419   472 0.93 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 F5IW64_9PORP_41-131  -             90   1.7e-05   13.4   0.3   1   1   1.2e-05   4.9e-05   11.9   0.3     5    41   421   457   419   464 0.93 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 H1XXB2_9BACT_57-147  -             90   1.5e-05   13.6   0.1   1   1     1e-05   4.1e-05   12.2   0.1     5    41   421   457   419   472 0.93 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 H1ZEI9_MYROD_133-225 -             91   1.7e-05   13.4   0.1   1   1   1.1e-05   4.6e-05   12.0   0.1     6    43   421   458   417   472 0.93 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+sp|P0DUB6|AMY1A_HUMAN -            511 F0NYU0_WEEVC_56-146  -             91   1.8e-05   13.3   0.1   1   1   1.2e-05   4.9e-05   11.9   0.1     6    42   421   457   417   465 0.92 Alpha-amylase 1A OS=Homo sapiens OX=9606 GN=AMY1A PE=1 SV=1
+#
+# Program:         hmmsearch
+# Version:         3.3 (Nov 2019)
+# Pipeline mode:   SEARCH
+# Query file:      /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF11276.hmm.gz
+# Target file:     /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/data.fa
+# Option settings: hmmsearch --domtblout /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/temp/PF11276.ccms.domtblout -T 0 --domE 1 --cpu 1 /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF11276.hmm.gz /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/data.fa 
+# Current dir:     /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407
+# Date:            Wed Apr  7 10:54:54 2021
+# [ok]

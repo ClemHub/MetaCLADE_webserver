@@ -1,0 +1,25 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+YP_499998.1          -            367 G1KJB5_ANOCA_34-379  -            266     1e-07   19.8   0.4   1   1   6.4e-07   2.6e-06   15.2   0.4    91   241    26   181     2   355 0.62 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 W5MZ55_LEPOC_16-373  -            225   9.8e-08   20.0   0.8   1   1   1.9e-07   7.6e-07   17.1   0.8    21   184    23   314     3   353 0.41 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 A0A0P7V0M4_9TELE_69-301 -            227   5.9e-14   40.3   1.8   1   2   1.1e-11   4.3e-11   30.9   1.2     2   225    26   312     3   313 0.53 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 A0A0P7V0M4_9TELE_69-301 -            227   5.9e-14   40.3   1.8   2   2   7.7e-06   3.1e-05   11.8   0.1    78   204   234   358   219   360 0.75 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 M3YSI4_MUSPF_18-353  -            272   4.9e-08   20.8   0.1   1   1   2.3e-07   9.4e-07   16.6   0.1   134   224    61   153     2   360 0.51 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 M3ZUR9_XIPMA_39-352  -            251   1.3e-07   19.5   0.1   1   1   6.8e-07   2.7e-06   15.1   0.1    87   236    26   184     3   359 0.61 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 G3VME9_SARHA_102-358 -            247   1.4e-08   22.7   0.2   1   2   1.2e-07   4.6e-07   17.8   0.1    63   222    25   182     3   206 0.71 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 G3VME9_SARHA_102-358 -            247   1.4e-08   22.7   0.2   2   2    0.0045     0.018    2.7   0.0   102   187   265   348   233   363 0.57 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 H2PFT8_PONAB_91-317  -            217   5.5e-06   14.4   0.1   1   1   8.7e-06   3.5e-05   11.7   0.1   104   166    87   153     2   354 0.63 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 F6S7F6_MONDO_16-350  -            277   4.8e-08   20.8   0.5   1   1   6.6e-08   2.7e-07   18.3   0.5    23   255    25   351     2   363 0.43 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 F6W0A0_XENTR_18-338  -            224     1e-06   16.6   0.2   1   1   1.1e-06   4.4e-06   14.5   0.2    22   216    26   312     4   359 0.51 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 G1N0F8_MELGA_1-342   -            270   2.6e-07   18.3   0.1   1   1   5.7e-07   2.3e-06   15.2   0.1    22   123    24   188     3   362 0.40 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+#
+# Program:         hmmsearch
+# Version:         3.3 (Nov 2019)
+# Pipeline mode:   SEARCH
+# Query file:      /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF10037.hmm.gz
+# Target file:     /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/data.fa
+# Option settings: hmmsearch --domtblout /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/temp/PF10037.ccms.domtblout -T 0 --domE 1 --cpu 1 /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF10037.hmm.gz /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/data.fa 
+# Current dir:     /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407
+# Date:            Wed Apr  7 10:57:02 2021
+# [ok]

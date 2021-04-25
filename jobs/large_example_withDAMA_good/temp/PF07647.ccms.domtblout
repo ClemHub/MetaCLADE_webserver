@@ -1,0 +1,15 @@
+#                                                                                --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name               accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- -----     -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+tr|V7B5W0|V7B5W0_PHAVU -            682 A0A067BUA0_SAPPC_156-215 -             57   3.9e-05   12.2   0.0   1   2   5.3e-05   0.00021    9.8   0.0     2    48    80   125    79   127 0.93 Photolyase/cryptochrome alpha/beta domain-containing protein OS=Phaseolus vulgaris OX=3885 GN=PHAVU_008G173700g PE=4 SV=1
+tr|V7B5W0|V7B5W0_PHAVU -            682 A0A067BUA0_SAPPC_156-215 -             57   3.9e-05   12.2   0.0   2   2      0.14      0.57   -1.1   0.0     3    17   278   292   276   294 0.85 Photolyase/cryptochrome alpha/beta domain-containing protein OS=Phaseolus vulgaris OX=3885 GN=PHAVU_008G173700g PE=4 SV=1
+#
+# Program:         hmmsearch
+# Version:         3.3 (Nov 2019)
+# Pipeline mode:   SEARCH
+# Query file:      /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF07647.hmm.gz
+# Target file:     /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/data.fa
+# Option settings: hmmsearch --domtblout /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/temp/PF07647.ccms.domtblout -T 0 --domE 1 --cpu 1 /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF07647.hmm.gz /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/data.fa 
+# Current dir:     /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407
+# Date:            Wed Apr  7 10:41:42 2021
+# [ok]

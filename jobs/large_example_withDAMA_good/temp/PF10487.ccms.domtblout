@@ -1,0 +1,15 @@
+#                                                                                 --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name                accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- -----      -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+YP_499998.1          -            367 L8GE86_ACACA_389-660 -            246   2.2e-05   12.2   0.0   1   1     1e-05   4.1e-05   11.3   0.0    19    69   114   185    97   322 0.88 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 V5GBW6_BYSSN_572-1245 -            515   3.4e-05   11.0   0.0   1   1   1.5e-05     6e-05   10.2   0.0   112   180   109   199     8   209 0.84 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+#
+# Program:         hmmsearch
+# Version:         3.3 (Nov 2019)
+# Pipeline mode:   SEARCH
+# Query file:      /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF10487.hmm.gz
+# Target file:     /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/data.fa
+# Option settings: hmmsearch --domtblout /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/temp/PF10487.ccms.domtblout -T 0 --domE 1 --cpu 1 /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF10487.hmm.gz /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/data.fa 
+# Current dir:     /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407
+# Date:            Wed Apr  7 10:47:20 2021
+# [ok]

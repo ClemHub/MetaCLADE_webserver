@@ -1,0 +1,16 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+YP_499998.1          -            367 V4L3P3_EUTSA_42-234  -            137   4.4e-08   21.6   7.2   1   3   0.00047    0.0019    6.6   0.1    33    98    17    78    10    81 0.87 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 V4L3P3_EUTSA_42-234  -            137   4.4e-08   21.6   7.2   2   3   6.9e-05   0.00028    9.3   1.3     5    79    89   187    80   285 0.76 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 V4L3P3_EUTSA_42-234  -            137   4.4e-08   21.6   7.2   3   3   0.00059    0.0024    6.3   0.1    31    94   284   347   258   366 0.80 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+#
+# Program:         hmmsearch
+# Version:         3.3 (Nov 2019)
+# Pipeline mode:   SEARCH
+# Query file:      /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF02459.hmm.gz
+# Target file:     /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/data.fa
+# Option settings: hmmsearch --domtblout /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/temp/PF02459.ccms.domtblout -T 0 --domE 1 --cpu 1 /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF02459.hmm.gz /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/data.fa 
+# Current dir:     /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407
+# Date:            Wed Apr  7 11:07:17 2021
+# [ok]

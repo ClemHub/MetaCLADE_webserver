@@ -1,0 +1,19 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+YP_499998.1          -            367 A0A075KBM3_9FIRM_22-91 -             70   4.3e-19   56.9  18.7   1   6     0.013     0.054    3.0   0.0    35    69     4    38     2    39 0.91 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 A0A075KBM3_9FIRM_22-91 -             70   4.3e-19   56.9  18.7   2   6   8.4e-09   3.4e-08   22.6   0.4    20    69    53   102    41   103 0.91 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 A0A075KBM3_9FIRM_22-91 -             70   4.3e-19   56.9  18.7   3   6   2.4e-10   9.7e-10   27.4   0.2     1    70    68   140    68   140 0.91 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 A0A075KBM3_9FIRM_22-91 -             70   4.3e-19   56.9  18.7   4   6   1.6e-06   6.6e-06   15.3   0.7     8    70   139   207   103   241 0.73 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 A0A075KBM3_9FIRM_22-91 -             70   4.3e-19   56.9  18.7   5   6   5.6e-06   2.3e-05   13.6   0.8     4    69   243   307   240   308 0.89 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+YP_499998.1          -            367 A0A075KBM3_9FIRM_22-91 -             70   4.3e-19   56.9  18.7   6   6   0.00038    0.0015    7.9   0.1    22    55   328   361   307   366 0.76 hypothetical protein SAOUHSC_01480 [Staphylococcus aureus subsp. aureus NCTC 8325]
+#
+# Program:         hmmsearch
+# Version:         3.3 (Nov 2019)
+# Pipeline mode:   SEARCH
+# Query file:      /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF10373.hmm.gz
+# Target file:     /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/data.fa
+# Option settings: hmmsearch --domtblout /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/temp/PF10373.ccms.domtblout -T 0 --domE 1 --cpu 1 /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs/PF10373.hmm.gz /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407/data.fa 
+# Current dir:     /var/www/html/MetaCLADE_webserver/jobs/x90hkXnjYYI_20210407
+# Date:            Wed Apr  7 10:40:45 2021
+# [ok]

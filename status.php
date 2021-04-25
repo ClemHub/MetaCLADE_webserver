@@ -51,7 +51,7 @@ include("./includes/header.php");
 								$nb_step = 3;}
 							else if (preg_match("/logo/", $last_line)){
 								$step = 'logo reconstruction';
-								$step = 4;}}}
+								$nb_step = 4;}}}
 				else if(preg_match("/[a-zA-Z0-9]+\.o[0-9]+/", $file)){
 					$last_line = file($file);
 					if(count($last_line) > 0){

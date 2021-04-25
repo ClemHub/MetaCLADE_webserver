@@ -41,6 +41,7 @@ echo "<head>";
 				echo "<a href='".$appurl."/help.php#input'>Input</a>";
 				echo "<a href='".$appurl."/help.php#pipeline'>Pipeline</a>";
 				echo "<a href='".$appurl."/help.php#output'>Output</a>";
+				echo "<a href='".$appurl."/help.php#computation-time'>Computation time</a>";
 				echo "</div>";
 				echo "</div>";
 				echo "<a href='".$appurl."/examples.php'>Examples</a>";

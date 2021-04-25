@@ -122,7 +122,7 @@
 		<th class='table_header' style='max-width:120px'>Domain ID</th>
 		<th class='table_header' style='max-width:160px'>Family</th>
 		<th class='table_header' style='max-width:65px'>Start</th>
-		<th class='table_header' style='max-width:65px'>Stop</th>
+		<th class='table_header' style='max-width:65px'>End</th>
 		<th class='table_header' style='max-width:180px'>Model species</th>
 		<th class='table_header' style='max-width:170px'>E-Value</th>
 		<th class='table_header' style='max-width:170px'>Bitscore</th>
@@ -306,7 +306,7 @@
 		<tr>
 		<th class='table_header'>Domain ID</th>
 		<th class='table_header'>Model start</th>
-		<th class='table_header'>Model stop</th>
+		<th class='table_header'>Model end</th>
 		<th class='table_header'>Logo</th>
 		</tr>
 	</thead>";

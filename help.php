@@ -68,7 +68,7 @@
 	  <br>
 	</p>
 	<h4>The "Results" page</h4>
-	<p align="center"><img <?php echo "src='".$appurl."/server_images/help_images/results-page-final.png'";?> width="571" height="814"></p>
+	<p align="center"><img <?php echo "src='".$appurl."/server_images/help_page/results-page-final.png'";?> width="571" height="814"></p>
 	<p>For each sequence in the input dataset, the most reliable domain annotation is described in this table with four columns: </p>
 	<blockquote>
       <p align="justify"> <strong>sequence ID</strong>: it links to a graphical representation of the architecture where relevant information on the domain hits  and the list of GO-terms associated to the domains is provided.</p>
@@ -118,7 +118,7 @@
 	<p align="left">Logos are svg files and can be imported for insertion in articles.<br>
 	  <br>
 	</p>
-	<h3>MyCLADE computation time</h3>
+	<h3 id = 'computation-time'>MyCLADE computation time</h3>
 	<p>MyCLADE can annotate sequences with a limited number of targeted domains (see panel A in the figure below) or with all Pfam32 domains (see panel B). A runtime evaluation of MyCLADE was performed on these two possibilities for small (5, 10, 25 and 50 sequences) and large (100 and 200 sequences) protein datasets. On targeted domains, from 10 to a few hundred, MyCLADE annotates hundreds of sequences in less than a minute while on all Pfam32 domains it takes less than a hour.  </p>
 	<p align="center"><img <?php echo "src='".$appurl."/server_images/help_page/time.png'";?> width="554" height="486"></p>
 	<p>The estimates are realized with the complete model library. To evaluate the dependence of computation time on the number of available models, we considered the restricted library and observed that computation time is greatly reduced (panels A and B) at the cost of an expected decrease of the number of annotated domains: on the 200 sequences of the test dataset, 637 domains are annotated with the complete library and 561 with the restricted one. </p>

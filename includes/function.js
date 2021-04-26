@@ -241,6 +241,7 @@ function reset_btn(form){
 	document.getElementById("evalue_range").disabled = false;
 	document.getElementById("dama_evalue_nb").disabled = false;
 	document.getElementById("dama_evalue_range").disabled = false;
+	document.getElementById("logo").disabled = false;
 	document.getElementById("email").disabled = false;
 	document.getElementById("overlappingAA_range").disabled = false;
 	document.getElementById("overlappingAA_nb").disabled = false;

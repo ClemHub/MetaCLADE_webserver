@@ -92,7 +92,7 @@
 	<blockquote>
 	  <p align="center"><img <?php echo "src='".$appurl."/server_images/examples/amylase/Details-page-AMY1A-noDAMA.png'";?> alt="" width="856" height="453" border="1"></p>
 	  </blockquote>
-	<p>For each input sequence, MyCLADE provides an interactive graphical representation of the domain architecture. When MyCLADE is run with DAMA, to check whether the domains in the resulting architecture are known to co-occur or not, one can access the online interface proposed in Pfam. MyCLADE uses Pfam knowledge for building its architectures.</p>
+	<p>For each input sequence, MyCLADE provides an interactive graphical representation of the domain architecture. When MyCLADE is run <strong>with DAMA</strong>, you might want to check whether the domains in the resulting architecture are known to co-occur or not. You can access the <a href="http://pfam.xfam.org/search#tabview=tab3 target="_blank"" target="_blank">online interface</a> proposed in <a href="http://pfam.xfam.org/" target="_blank">Pfam</a> for this. MyCLADE uses Pfam knowledge for building its architectures.    
 	<blockquote>
 	  <p align="center"><img <?php echo "src='".$appurl."/server_images/help_page/Screen Shot 2021-04-09 at 08.58.48.png'";?> width="1009" height="113"></p>
 	  </blockquote>

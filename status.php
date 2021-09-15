@@ -61,10 +61,26 @@ include("./includes/header.php");
 			echo "<br>This page will be refreshed every 10 seconds<br>";
 			if($end){
 				//echo "<br><br>The end<br>";}
-				file_put_contents($approot."/jobs/".$job_id."/results.txt", "SeqID\tSeq start\tSeq stop\tSeq length\tDomain ID\tModel ID\tModel start\tModel stop\tModel size\tE-value\tBitscore\tDomain-dependent probability\tSpecies of the template used for the model\n");
+				file_put_contents($approot."/jobs/".$job_id."/results.txt", "SeqID\tSeq start\tSeq stop\tSeq length\tDomain ID\tModel ID\tModel start\tModel stop\tModel size\tE-value\tBitscore\tDomain-dependent probability\tSpecies of the template used for the model\tGO-terms\n");
 				$data = file_get_contents($approot."/jobs/".$job_id."/".$job_id.".arch.tsv");
 				$data = str_replace("unavailable", "HMMer-3 model", $data);
-				file_put_contents($approot."/jobs/".$job_id."/results.txt", $data, FILE_APPEND);
+				$db = new SQLite3($approot.'/data/MetaCLADE.db');
+				$go_terms = array();
+				$go_terms_names = array();
+				foreach(explode('\n', $data) as $line){
+					if($line != ""){
+						$exploded_line = explode("\t", $line);
+						$pfam = $exploded_line[4];
+						$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
+						$go_terms = "";
+						while($data = $request->fetchArray()){
+							$go_terms = $go_terms.",".$data['GO_term'];}
+						if($go_terms != ""){
+							$line = trim($line).'\t'.$go_terms.'\n';}
+						else{
+							$line = trim($line).'\tNone\n';}
+					file_put_contents($approot."/jobs/".$job_id."/results.txt", $line, FILE_APPEND);}}
+	
 				if($parameters['Email'] != ""){
 					echo "An email has been send";
 					$mail_header= "Subject: MyCLADE results (".$job_id.")". PHP_EOL;
@@ -88,8 +104,6 @@ include("./includes/header.php");
 			header("refresh: 10");}
 		if($end == false && ($status == "" || explode('\n', $status)[0] == 'Following jobs do not exist:')){
 			header("location: $hostname/$appname/error.php?form=".$form."&job_id=".$job_id);}
-
-
 		?>
 	</section>
 

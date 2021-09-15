@@ -87,8 +87,9 @@ include("./includes/header.php");
 								$go_terms = $go_terms.",".$db_results["GO_term"];
 								$go_terms_link = $go_terms_link . " https://www.ebi.ac.uk/QuickGO/term/". substr(explode(' ', $db_results["GO_term"])[0], 0, -1);}}
 						if($go_terms == ""){
-							$go_terms = "NA";}
-						array_push($exploded_line, $go_terms);
+							$go_terms = "NA";
+							$go_terms_link = "NA";}
+						array_push($exploded_line, $go_terms, $go_terms_link);
 					$new_line = join("\t", $exploded_line);
 					file_put_contents($approot."/jobs/".$job_id."/results.txt", $new_line."\n", FILE_APPEND);}}
 	

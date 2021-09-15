@@ -67,7 +67,7 @@ include("./includes/header.php");
 				$db = new SQLite3($approot.'/data/MetaCLADE.db');
 				$go_terms = array();
 				$go_terms_names = array();
-				foreach(explode('\n', $data) as $line){
+				foreach(explode("\n", $data) as $line){
 					if($line != ""){
 						$exploded_line = explode("\t", $line);
 						$pfam = $exploded_line[4];

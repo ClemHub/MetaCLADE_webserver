@@ -61,7 +61,7 @@ include("./includes/header.php");
 			echo "<br>This page will be refreshed every 10 seconds<br>";
 			if($end){
 				//echo "<br><br>The end<br>";}
-				file_put_contents($approot."/jobs/".$job_id."/results.txt", "SeqID\tSeq start\tSeq stop\tSeq length\tDomain ID\tDomain family\tModel ID\tModel start\tModel stop\tModel size\tE-value\tBitscore\tDomain-dependent probability\tSpecies of the template used for the model\tGO-terms\n");
+				file_put_contents($approot."/jobs/".$job_id."/results.txt", "SeqID\tSeq start\tSeq stop\tSeq length\tDomain ID\tDomain family\tPfam link\tModel ID\tModel start\tModel stop\tModel size\tE-value\tBitscore\tDomain-dependent probability\tSpecies of the template used for the model\tGO-terms\tGo-terms link\n");
 				$data = file_get_contents($approot."/jobs/".$job_id."/".$job_id.".arch.tsv");
 				$data = str_replace("unavailable", "HMMer-3 model", $data);
 				$db = new SQLite3($approot.'/data/MetaCLADE.db');
@@ -75,13 +75,17 @@ include("./includes/header.php");
 						$row = $row->fetchArray();
 						$fam = $row['Family'];
 						array_splice($exploded_line, 5, 0, $fam);
+						$pfam_link = "http://pfam.xfam.org/family/".$pfam;
+						array_splice($exploded_line, 6, 0, $pfam_link);
 						$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
 						$go_terms = "";
 						while($db_results = $request->fetchArray()){
 							if($go_terms == ""){
-								$go_terms = $db_results["GO_term"];							}
+								$go_terms = $db_results["GO_term"];
+								$go_terms_link = "https://www.ebi.ac.uk/QuickGO/term/". substr(explode(' ', $db_results["GO_term"])[0], 0, -1);}
 							else{
-								$go_terms = $go_terms.",".$db_results["GO_term"];}}
+								$go_terms = $go_terms.",".$db_results["GO_term"];
+								$go_terms_link = $go_terms_link . " https://www.ebi.ac.uk/QuickGO/term/". substr(explode(' ', $db_results["GO_term"])[0], 0, -1);}}
 						if($go_terms == ""){
 							$go_terms = "NA";}
 						array_push($exploded_line, $go_terms);

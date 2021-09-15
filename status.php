@@ -73,11 +73,11 @@ include("./includes/header.php");
 						$pfam = $exploded_line[4];
 						$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
 						$go_terms = "";
-						while($data = $request->fetchArray()){
+						while($results = $request->fetchArray()){
 							if($go_terms == ""){
-								$go_terms = $data["GO_term"];							}
+								$go_terms = $results["GO_term"];							}
 							else{
-								$go_terms = $go_terms.",".$data["GO_term"];}}
+								$go_terms = $go_terms.",".$results["GO_term"];}}
 						if($go_terms != ""){
 							array_push($exploded_line, $go_terms);}
 						else{

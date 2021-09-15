@@ -73,16 +73,16 @@ include("./includes/header.php");
 						$pfam = $exploded_line[4];
 						$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
 						$go_terms = "";
-						while($results = $request->fetchArray()){
+						while($db_results = $request->fetchArray()){
 							if($go_terms == ""){
-								$go_terms = $results["GO_term"];							}
+								$go_terms = $db_results["GO_term"];							}
 							else{
-								$go_terms = $go_terms.",".$results["GO_term"];}}
+								$go_terms = $go_terms.",".$db_results["GO_term"];}}
 						if($go_terms != ""){
-							array_push($exploded_line, $go_terms);}
+							$line = trim($line)."\t".$go_terms."\n";}
 						else{
-							array_push($exploded_line, "NA");}
-					file_put_contents($approot."/jobs/".$job_id."/results.txt", join("\t", $exploded_line)."\n", FILE_APPEND);}}
+							$line = trim($line)."\tNA\n";}
+					file_put_contents($approot."/jobs/".$job_id."/results.txt", $line, FILE_APPEND);}}
 	
 				if($parameters['Email'] != ""){
 					echo "An email has been send";

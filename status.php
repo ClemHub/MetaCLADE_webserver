@@ -71,7 +71,7 @@ include("./includes/header.php");
 					if($line != ""){
 						$exploded_line = explode("\t", $line);
 						$pfam = $exploded_line[4];
-						$row = $db->query("SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$domain_id."'");
+						$row = $db->query("SELECT DISTINCT PFAM32.Family FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$pfam."'");
 						$row = $row->fetchArray();
 						$fam = $row['Family'];
 						array_splice($exploded_line, 5, 0, $fam);

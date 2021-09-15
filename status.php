@@ -79,10 +79,10 @@ include("./includes/header.php");
 							else{
 								$go_terms = $go_terms.",".$data["GO_term"];}}
 						if($go_terms != ""){
-							$line = trim($line)."\t".$go_terms."\n";}
+							array_push($exploded_line, $go_terms);}
 						else{
-							$line = trim($line)."\tUnavailable\n";}
-					file_put_contents($approot."/jobs/".$job_id."/results.txt", $line, FILE_APPEND);}}
+							array_push($exploded_line, "NA");}
+					file_put_contents($approot."/jobs/".$job_id."/results.txt", join("\t", $exploded_line)."\n", FILE_APPEND);}}
 	
 				if($parameters['Email'] != ""){
 					echo "An email has been send";

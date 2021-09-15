@@ -90,7 +90,7 @@
 		fileInput.addEventListener('change', function() {
 		var reader = new FileReader();
 		reader.addEventListener('load', function() {
-			var txt = reader.result
+			var txt = reader.result.replaceAll(',','_');
 			document.getElementById('sequences').value = txt;});
 		reader.readAsText(fileInput.files[0]);});
 		</script>

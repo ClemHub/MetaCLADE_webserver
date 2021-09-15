@@ -74,11 +74,14 @@ include("./includes/header.php");
 						$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
 						$go_terms = "";
 						while($data = $request->fetchArray()){
-							$go_terms = $go_terms.",".$data['GO_term'];}
+							if($go_terms == ""){
+								$go_terms = $data['GO_term'];							}
+							else{
+								$go_terms = $go_terms.",".$data['GO_term'];}}
 						if($go_terms != ""){
 							$line = trim($line).'\t'.$go_terms.'\n';}
 						else{
-							$line = trim($line).'\tNone\n';}
+							$line = trim($line).'\tUnavailable\n';}
 					file_put_contents($approot."/jobs/".$job_id."/results.txt", $line, FILE_APPEND);}}
 	
 				if($parameters['Email'] != ""){

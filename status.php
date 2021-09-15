@@ -78,7 +78,7 @@ include("./includes/header.php");
 								$go_terms = $data['GO_term'];							}
 							else{
 								$go_terms = $go_terms.",".$data['GO_term'];}}
-						$line = $line.join($data, ",");
+						$line = $line.join(",", $data);
 						/*if($go_terms != ""){
 							$line = trim($line).'\t'.$go_terms.'\n';}
 						else{

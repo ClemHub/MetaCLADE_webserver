@@ -61,7 +61,7 @@ include("./includes/header.php");
 			echo "<br>This page will be refreshed every 10 seconds<br>";
 			if($end){
 				//echo "<br><br>The end<br>";}
-				file_put_contents($approot."/jobs/".$job_id."/results.txt", "SeqID\tSeq start\tSeq stop\tSeq length\tDomain ID\tModel ID\tModel start\tModel stop\tModel size\tE-value\tBitscore\tDomain-dependent probability\tSpecies of the template used for the model\tGO-terms\n");
+				file_put_contents($approot."/jobs/".$job_id."/results.txt", "SeqID\tSeq start\tSeq stop\tSeq length\tDomain ID\tDomain family\tModel ID\tModel start\tModel stop\tModel size\tE-value\tBitscore\tDomain-dependent probability\tSpecies of the template used for the model\tGO-terms\n");
 				$data = file_get_contents($approot."/jobs/".$job_id."/".$job_id.".arch.tsv");
 				$data = str_replace("unavailable", "HMMer-3 model", $data);
 				$db = new SQLite3($approot.'/data/MetaCLADE.db');
@@ -71,6 +71,10 @@ include("./includes/header.php");
 					if($line != ""){
 						$exploded_line = explode("\t", $line);
 						$pfam = $exploded_line[4];
+						$row = $db->query("SELECT DISTINCT PFAM32.PFAM_acc_nb, PFAM32.Family, PFAM32.Clan_acc_nb, PFAM32.Clan FROM PFAM32 WHERE PFAM32.PFAM_acc_nb='".$domain_id."'");
+						$row = $row->fetchArray();
+						$fam = $row['Family'];
+						array_splice($exploded_line, 5, 0, $fam);
 						$request = $db->query("SELECT * FROM GO_terms WHERE Domain='".$pfam."'");
 						$go_terms = "";
 						while($db_results = $request->fetchArray()){
@@ -78,11 +82,11 @@ include("./includes/header.php");
 								$go_terms = $db_results["GO_term"];							}
 							else{
 								$go_terms = $go_terms.",".$db_results["GO_term"];}}
-						if($go_terms != ""){
-							$line = trim($line)."\t".$go_terms."\n";}
-						else{
-							$line = trim($line)."\tNA\n";}
-					file_put_contents($approot."/jobs/".$job_id."/results.txt", $line, FILE_APPEND);}}
+						if($go_terms == ""){
+							$go_terms = "NA";}
+						array_push($exploded_line, $go_terms);
+					$new_line = join("\t", $exploded_line);
+					file_put_contents($approot."/jobs/".$job_id."/results.txt", $new_line."\n", FILE_APPEND);}}
 	
 				if($parameters['Email'] != ""){
 					echo "An email has been send";

@@ -1,7 +1,0 @@
-[mclade_create_jobs] fasta_path: /var/www/html/MetaCLADE_webserver/jobs/kciFu1UoAKY_20210407/data.fa
-[mclade_create_jobs] MetaCLADE root path: /home/blachon/Documents/Tools/metaclade2
-[mclade_create_jobs] CCMs path: /home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs
-[mclade_create_jobs] HMMs path: /home/blachon/Documents/Tools/MetaCLADE_models/models/HMMs
-[mclade_create_jobs] creating search jobs
-[mclade_create_jobs] creating filter jobs
-[mclade_create_jobs] creating architecture jobs

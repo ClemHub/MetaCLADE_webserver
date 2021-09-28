@@ -1,9 +1,0 @@
-Job name	Clan annotation with DAMA example
-Library	Annotation based on the full domain library
-Clan	CL0039 - HUP
-DAMA	true
-E-value	1e-3
-DAMA e-value	1e-10
-Amino acids overlapping	30
-Max domain overlapping (%)	50
-Number of sequences	4

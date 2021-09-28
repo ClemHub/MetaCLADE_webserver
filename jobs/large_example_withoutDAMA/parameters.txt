@@ -1,7 +1,0 @@
-Job name	All domains annotation without DAMA example
-Library	Annotation based on the full domain library
-DAMA	false
-E-value	1e-3
-Number of sequences	4
-Email	clemenceblachon@gmail.com
-LOGO	true

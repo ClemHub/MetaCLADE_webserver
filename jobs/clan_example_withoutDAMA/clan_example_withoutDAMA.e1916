@@ -1,9 +1,0 @@
-[2021-04-07 10:26:52] MetaCLADE working directory: /var/www/html/MetaCLADE_webserver/jobs//PnLKIzi2PxQ_20210407
-[2021-04-07 10:26:52] output will be saved to: /var/www/html/MetaCLADE_webserver/jobs//PnLKIzi2PxQ_20210407/PnLKIzi2PxQ_20210407.arch.tsv
-[2021-04-07 10:26:52] creating MetaCLADE script/job files
-[2021-04-07 10:26:56] running search jobs
-[2021-04-07 10:27:19] search jobs finished successfully
-[2021-04-07 10:27:19] running filter jobs
-[2021-04-07 10:27:19] search jobs finished successfully
-[2021-04-07 10:27:19] running architecture job
-[2021-04-07 10:27:22] architecture job finished successfully

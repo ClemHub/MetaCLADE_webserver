@@ -1,4 +1,5 @@
 <?php
+include('./includes/configure.php');
 function generateRandomString($length = 10) {
 	$characters_wo_digit = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -34,13 +35,14 @@ function submit($job_id, $parameters){
 	global $appurl;
 	global $approot;
 	global $webdevel;
+	global $metaclade_root;
 	$form = $_GET["form"];
 	$e_value = $parameters['E-value'];
 	$dama = $parameters['DAMA'];
 	$library = $parameters['Library'];
-	$args = "-i ".escapeshellarg("$approot/jobs/".$job_id."/data.fa")." -N ".escapeshellarg($job_id)."  -e ".escapeshellarg($e_value)."  -W ".escapeshellarg("$approot/jobs/");
+	$args = "-i ".escapeshellarg("$approot/jobs/".$job_id."/data.fa")." -N ".escapeshellarg($job_id)."  -e ".escapeshellarg($e_value)."  -W ".escapeshellarg("$approot/jobs/")." ";
 	if($_POST["logo"] == 'true'){
-	  $args = $args." --logo";}
+	  $args = $args." --logo ";}
 	
 	if($_POST["dama"] == 'true'){
 		$DAMA_evalue = $parameters['DAMA e-value'];	
@@ -48,23 +50,24 @@ function submit($job_id, $parameters){
 		$overlappingMaxDomain = $parameters['Max domain overlapping (%)'];
 		$args = $args." -a -E ".escapeshellarg($DAMA_evalue)." --overlappingAA ".escapeshellarg($overlappingAA)." --overlappingMaxDomain ".escapeshellarg($overlappingMaxDomain);}
 	if($library == 'Reduced'){
-		$args = $args. " --user-cfg /home/blachon/Documents/Tools/metaclade2/config/mclade.reduced.cfg ";}
+		$args = $args. " --user-cfg ".escapeshellarg($metaclade_root."/metaclade2/config/mclade.reduced.cfg");}
 	else if($library == 'Complete'){
-		$args = $args. " --user-cfg /home/blachon/Documents/Tools/metaclade2/config/mclade.complete.cfg ";}
+		$args = $args. " --user-cfg ".escapeshellarg($metaclade_root."/metaclade2/config/mclade.complete.cfg");}
 	//Submit your job
 	if ($form == 'small'){
 		$pfam = $parameters['PFAM'];	
 		$args = $args." -d ".escapeshellarg($pfam);
 		$args = $args." -t ".escapeshellarg(2);
-		$command="qsub -pe smp 2 -wd ".$approot."/jobs/".$job_id."/ -N $job_id -l h_rt=48:00:00 -b y /home/blachon/Documents/Tools/metaclade2/metaclade2_logo ".$args;} //BUG: It should be qsub -pe smp 2
+		$command="qsub -pe smp 2 -wd ".$approot."/jobs/".$job_id."/ -N $job_id -l h_rt=48:00:00 -b y ".$metaclade_root."/metaclade2/metaclade2_logo ".$args;} //BUG: It should be qsub -pe smp 2
 	else if($form == 'large'){
 		$args = $args." -t ".escapeshellarg(6);
-		$command="qsub -pe smp 2 -wd ".$approot."/jobs/".$job_id."/ -N $job_id -l h_rt=48:00:00 -b y /home/blachon/Documents/Tools/metaclade2/metaclade2_logo ".$args;}
+		$command="qsub -pe smp 2 -wd ".$approot."/jobs/".$job_id."/ -N $job_id -l h_rt=48:00:00 -b y ".$metaclade_root."/metaclade2/metaclade2_logo ".$args;}
 	else if ($form == 'clan'){
 		$pfam = explode(" ", $parameters['Clan'])[0];	
 		$args = $args." -D ".$approot."/data/clans/".escapeshellarg($pfam.".txt");	
 		$args = $args." -t ".escapeshellarg(4);
-		$command="qsub -pe smp 3 -wd ".$approot."/jobs/".$job_id."/ -N $job_id -l h_rt=48:00:00 -b y /home/blachon/Documents/Tools/metaclade2/metaclade2_logo ".$args;}
+		$command="qsub -pe smp 3 -wd ".$approot."/jobs/".$job_id."/ -N $job_id -l h_rt=48:00:00 -b y ".$metaclade_root."/metaclade2/metaclade2_logo ".$args;}
+	error_log($command);	
 	$output = shell_exec("$command");
 	$link = $appurl."/status.php?form=".$form."&job_id=".$job_id; 
 	$msg="Your job has been correctly submitted.<br>";

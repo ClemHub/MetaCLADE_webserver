@@ -7,7 +7,7 @@
 	$form = $_GET["form"];
 	$job_id = $_GET["job_id"];
 	if($form == 'visualization_file'){
-		$dl_file = $appurl."/jobs/".$job_id."/results.txt";
+		$dl_file = $appurl."/jobs/".$job_id."/".$job_id.".arch.tsv";
 		$name_file = $approot."/jobs/".$job_id."/".$job_id.".arch.tsv";}
 	else{
 		$parameters = read_parameters_file($approot."/jobs/".$job_id."/parameters.txt");

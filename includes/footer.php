@@ -17,7 +17,7 @@
 			
 
 ?>
-	<script src='http://www.lcqb.upmc.fr/myclade/includes/function.js'></script>
+	<script src='includes/function.js'></script>
 </div>
 </body>
 </html>

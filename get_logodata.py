@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import argparse, os, json, gzip
+import argparse, os, json, gzip, configparser
 import pandas as pd
 import logomaker as lm
 import matplotlib.pyplot as plt
@@ -94,7 +94,7 @@ def parse_hmmsearch_output(f_hmm):
 # In[25]:
 
 
-def makeLogoData(hmm_file):
+def makeLogoData(hmmlogo_exec, hmm_file):
     aa="ACDEFGHIKLMNPQRSTVWY"
     data={}
     data["alphabet"]="aa"
@@ -111,7 +111,7 @@ def makeLogoData(hmm_file):
     data["insert_probs"] = []
     data["insert_lengths"] = []
     data["delete_probs"] = []
-    cmd = f"hmmlogo {hmm_file}"
+    cmd = f"{hmmlogo_exec} {hmm_file}"
     print(cmd)
     with os.popen(cmd) as f:
         lines=f.readlines()
@@ -274,10 +274,16 @@ if __name__ =="__main__":
     parser = argparse.ArgumentParser(description='Create json file for using with hmm-logo library ')
     parser.add_argument('--work_dir', required=True,help="Directory where the output will be saved")
     parser.add_argument('--dpi',    type=int,      help="Resolution in dpi of output images")
+    parser.add_argument('--mclade_cfg', help="Metaclade2 configuration file")
     args = parser.parse_args()
     
-    folder_hmms="/home/blachon/Documents/Tools/MetaCLADE_models/models/HMMs"
-    folder_ccms="/home/blachon/Documents/Tools/MetaCLADE_models/models/CCMs"
+    cladeCfgParser  = configparser.ConfigParser(allow_no_value=True)
+    cladeCfgParser.read(args.mclade_cfg)
+    folder_hmms = cladeCfgParser.get( "metaclade", "hmms_path")
+    folder_ccms = cladeCfgParser.get( "metaclade", "ccms_path")
+    hmmerpath      = cladeCfgParser.get( "programs", "hmmer_path")
+    hmmsearch_exec = cladeCfgParser.get( "programs", "hmmsearch_exec")
+    hmmlogo_exec = f'{hmmerpath}/hmmlogo'
 
     df=pd.read_csv(f'{args.work_dir}/results.txt', sep="\t")
     groups = df.groupby(by=["Domain ID","Model ID"])
@@ -298,7 +304,8 @@ if __name__ =="__main__":
                             fout_hmm.writelines(model+"\n//")
             else:
                 fn_model = hmm_file
-            data=makeLogoData(fn_model)
+            data=makeLogoData(hmmlogo_exec, fn_model)
+
             if args.dpi==None:
                 fn_img=f"{args.work_dir}/{domId}.{modId}.{suffix}.svg"
             else:
@@ -306,7 +313,9 @@ if __name__ =="__main__":
 
             makeLogoImg(data,fn_img,dpi=args.dpi)
 
-            cmd=f"hmmsearch  -T 0  --domE 1 --cpu 1 {fn_model} {args.work_dir}/data.fa"
+
+
+            cmd=f"{hmmerpath}/{hmmsearch_exec} -T 0  --domE 1 --cpu 1 {fn_model} {args.work_dir}/data.fa"
             print(cmd)
             rows = df[ df["Domain ID"]==domId]
             with os.popen(cmd) as f:
@@ -319,6 +328,7 @@ if __name__ =="__main__":
 
                         fout.write(f"{seqId},")
                         fout.write(f"{X['envfrom']},{X['envto']},")
+                        fout.write(f"{X['alifrom']},{X['alito']},")
                         fout.write(f"{domId},")
                         fout.write(f"{X['hmmfrom']},{X['hmmto']},")
                         fout.write(f"{X['evalue']},")

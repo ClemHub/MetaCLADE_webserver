@@ -28,9 +28,25 @@ include("./includes/header.php");
 				$oldmask = umask(0);
 				mkdir($approot.'/jobs/'.$job_id, 0777, true);
 				umask($oldmask);
-				file_put_contents($approot."/jobs/".$job_id."/".$job_id.".arch.tsv", $_POST["sequences"]);
-				header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_id);}
-		else{
+				$all_data = $_POST["sequences"];
+				$data_2_visualize = "";
+				$col2save = array(0, 1, 2, 3, 4, 7, 8, 9, 10, 11, 12, 13, 14);
+				foreach(explode("\n", $all_data) as $line){
+					$exploded_line = explode("\t", $line);
+					if($exploded_line[0] != "SeqID"){
+						$i = 0;
+						foreach($exploded_line as $col){
+							if(in_array($i, $col2save)){
+								$data_2_visualize = $data_2_visualize.$col."\t";
+							}
+							$i++;
+						}
+						$data_2_visualize = $data_2_visualize . "\n";
+					}
+				}
+				file_put_contents($approot."/jobs/".$job_id."/".$job_id.".arch.tsv", $data_2_visualize);
+				header("location: $hostname/$appname/results.php?form=".$form."&job_id=".$job_id);
+		}else{
 			$job_id = generateRandomString()."_".date("Ymd");
 			$job_name = $_POST["job_name"];
 			echo 'Your job ID is: '.$job_id,'<br>';
@@ -74,12 +90,12 @@ include("./includes/header.php");
 			if($_POST['email'] != ""){
 				file_put_contents($approot."/jobs/".$job_id."/parameters.txt", "Email\t".$email."\n", FILE_APPEND);
 				echo "An email has been send";
-
+				$from = '-F MyCLADE -f myclade@lcqb.upmc.fr';
 				$mail_header= "Subject: MyCLADE queued (".$job_id.")". PHP_EOL;
 				$mail_header= 'From: MyCLADE <myclade@lcqb.upmc.fr>'. PHP_EOL;
 				$mail_header= $mail_header . "Content-Type: text/html; charset=ISO-8559-1". PHP_EOL;
 				$mail_header= $mail_header . "MIME-Version:". PHP_EOL;
-				mail("<".$email.">", "MyCLADE queued (".$job_id.")", $msg, $mail_header);};
+				mail("<".$email.">", "MyCLADE queued (".$job_id.")", $msg, $mail_header, $from);};
 
 			header("location: $hostname/$appname/status.php?form=".$form."&job_id=".$job_id);
 		}

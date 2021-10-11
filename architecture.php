@@ -334,27 +334,32 @@
 			if(feof($f_match))
 				break;
 			$a = explode(",", $line);
-			if(count($a)!=9)
+			if(count($a)!=11){
 				echo "ERROR:".$line;
+				print_r($a);
+			}
+			
+			
 			else{
 			array_push($data_match, $a);
 			}
 		}
 		fclose($f_match);	
-   	     foreach($pfam_list as $data){
-	       foreach($data_match as $match){
-	            if(	$match[0] == $data[0] && $match[1] == $data[1] && $match[2] == $data[2] && $match[3] == $data[4] &&
-			$match[4] == $data[6] && $match[5] == $data[7] && $match[6] == $data[9] )
-		        {
-			$imgName="jobs/".$job_id."/".$data[4].".".$data[5];
-			if( $data[5]=="HMMer-3")
-				$imgName.=".hmm.svg";
-			else
-				$imgName.=".ccms.svg";
-			$dbSeq = $match[7];
-			$matchOnLogo = str_replace('\n', '', $match[8]);
-			break;
-		       }
+		$imgName="";	
+		foreach($pfam_list as $data){
+		 foreach($data_match as $match){
+			if(	$match[0] == $data[0] && $match[1] == $data[1] && $match[2] == $data[2] && $match[5] == $data[4] &&
+		$match[6] == $data[6] && $match[7] == $data[7] && $match[8] == $data[9] )
+			{
+		$imgName="jobs/".$job_id."/".$data[4].".".$data[5];
+		if( $data[5]=="HMMer-3")
+			$imgName.=".hmm.svg";
+		else
+			$imgName.=".ccms.svg";
+		$dbSeq = $match[9];
+		$matchOnLogo = str_replace('\n', '', $match[10]);
+		break;
+		   }
     	           }   
 
 		$link_id = 'http://pfam.xfam.org/family/' . $data[4];
@@ -364,8 +369,8 @@
 			<div>
 			<div class=hmmLogo>
 			<div><img class=imgLogo src=$imgName></img></div>
-			<div class=strMatch  data-start=$data[1] data-match=\"$matchOnLogo\" ></div>
-			<div class=strMatch  data-start=$data[1] data-match=\"$dbSeq\" ></div>
+			<div class=strMatch  data-start=\"$match[3]\" data-match=\"$matchOnLogo\" ></div>
+			<div class=strMatch  data-start=\"$match[3]\" data-match=\"$dbSeq\" ></div>
 			</div>	
 		     </td>";
 		echo "</tr>";

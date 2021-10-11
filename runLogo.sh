@@ -1,6 +1,7 @@
 #!/bin/bash
+source ../../includes/configure.sh
 echo "LOGO	building" >> parameters.txt
-python3 /var/www/html/MetaCLADE_webserver/get_logodata.py  $@
+python3 $APPROOT/get_logodata.py --mclade_cfg ../../metaclade2/config/mclade.complete.cfg  $@
 ret_code=$?
 if [ $ret_code = 0 ]; then
   echo "LOGO	true" >> parameters.txt

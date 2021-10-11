@@ -7,4 +7,5 @@ $approot  = $appsroot.'/'.$appdir;  #Directory where the app is hosted. It has t
 $hostname = 'http://www.lcqb.upmc.fr'; #hostname is "wwww.lcqb.upmc.fr" in production phase, your host ip during development
 $appurl   = $hostname.'/'.$appname; #In production ask the sysadmin for making this address avalaible from the external.
 $webdevel = 'clemence.blachon@sorbonne.universite.fr'; #mail address of the webdevelopment
+$metaclade_root = "/home/blachon/Documents/Tools/";
 ?>

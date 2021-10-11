@@ -62,21 +62,19 @@ function validate_one_line(file_line, line_index){
 	var msg = "";
 	file_line = file_line.replace(/\s\s+/g, '\t');
 	var line = file_line.trim().split('\t');
-	if(line.length != 13){
+	if(line.length != 17){
 		msg = msg+"Your file  misses some information. Please check the separator which must be tabulations\n";
 		return msg;}
-	else if(file_line == "SeqID	Seq start	Seq stop	Seq length	Domain ID	Model ID	Model start	Model stop	Model size	E-value	Biscore	Accuracy	Species of the template used for the model"){
-		msg = msg+"Please, remove the header\n";
-		return msg;}
 	else{
-		var int_indexes = [1, 2, 3, 6, 7, 8];
-		for(i in int_indexes){
-			if(!parseInt(line[int_indexes[i]])){
-				msg = msg+"Be careful, on line "+line_index+", the column "+int_indexes[i]+" should be an integer\n"}}
-		var float_indexes = [9, 10, 11];
-		for(i in [9, 10, 11]){
-			if(!parseFloat(line[float_indexes[i]])){
-				msg = msg+"Be careful, on line "+line_index+", the column "+float_indexes[i]+" should be a float\n"}}
+		if(line[0] != "SeqID"){
+			var int_indexes = [1, 2, 3, 8, 9, 10];
+			for(i in int_indexes){
+				if(!parseInt(line[int_indexes[i]])){
+					msg = msg+"Be careful, on line "+line_index+", the column "+int_indexes[i]+" should be an integer\n"}}
+			var float_indexes = [11, 12, 13];
+			for(i in float_indexes){
+				if(!parseFloat(line[float_indexes[i]])){
+					msg = msg+"Be careful, on line "+line_index+", the column "+float_indexes[i]+" should be a float\n"}}}
 		if(msg == ""){
 			return true;}
 		else{
@@ -467,5 +465,12 @@ function clan_selection(clan_list){
 		.then(response => response.text())
 		.then((data) => {document.clan_annotation_form.pfam_domains.value = data })
 		document.getElementById("pfam_domains").disabled = true;}
-	else{
-		alert('This clan is not available.')}}
+		else{
+			alert('This clan is not available.')}
+	}
+	
+	
+	$(document).ready(function() {
+		$('#head').css("background-image", `url(server_images/header.png)`);//It doesn't wok in the css
+	})
+	

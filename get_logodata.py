@@ -279,11 +279,6 @@ if __name__ =="__main__":
     
     cladeCfgParser  = configparser.ConfigParser(allow_no_value=True)
     cladeCfgParser.read(args.mclade_cfg)
-    file = open(args.work_dir+"/test_params.txt", "w")
-    file.write(str(cladeCfgParser))
-    file.write('\n'+str(args.mclade_cfg))
-    file.write('\n'+str(cladeCfgParser.read(args.mclade_cfg)))
-    file.close()
     folder_hmms = cladeCfgParser.get( "metaclade", "hmms_path")
     folder_ccms = cladeCfgParser.get( "metaclade", "ccms_path")
     hmmerpath      = cladeCfgParser.get( "programs", "hmmer_path")

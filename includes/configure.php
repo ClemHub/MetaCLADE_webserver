@@ -1,5 +1,5 @@
 <?php 
-$appname  = 'MetaCLADE_webserver';
+$appname  = 'myclade';
 $appdir = 'MetaCLADE_webserver';
 $appsroot = '/var/www/html'; #It is "/appsdata" on production whatever you want on development. Anyway, has to be accessible to apache
 $approot  = $appsroot.'/'.$appdir;  #Directory where the app is hosted. It has to be accessible from apache user
